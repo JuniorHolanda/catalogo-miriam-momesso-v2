@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
 
   html, body {
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.background}; // muda 
+    background-color: ${({ theme }) => theme.colors.backgroundBase};
     color: ${({ theme }) => theme.colors.text};
-    transition: background-color 0.3s ease, color 0.3s ease; // anima 
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   a {
