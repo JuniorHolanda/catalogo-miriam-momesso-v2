@@ -12,5 +12,5 @@ export const boxShadow = css`
 
 
 export const smoothTransition = css`
-  transition: all 0.25s ease;
+  transition: all .3s ease;
 `;

@@ -21,6 +21,14 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  ul, li {
+    list-style-type: none;
+  }
+
+  input {
+    border: none;
+  }
+
   button {
     font-family: inherit;
     cursor: pointer;

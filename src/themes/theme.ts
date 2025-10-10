@@ -1,3 +1,5 @@
+import { text } from "stream/consumers";
+
 // src/styles/theme.ts
 export const defaultTheme = {
   fonts: {
@@ -7,6 +9,12 @@ export const defaultTheme = {
 
   spaces: {
     small: 'clamp(0.5rem, 1vw, 1rem)',
+    medium: 'clamp(1rem, 2vw, 2rem)',
+    large: 'clamp(2rem, 4vw, 4rem)',
+  },
+
+  fontSize: {
+    small: 'clamp(0.7rem, 1vw, 2rem)',
     medium: 'clamp(1rem, 2vw, 2rem)',
     large: 'clamp(2rem, 4vw, 4rem)',
   },
@@ -29,7 +37,9 @@ export const lightTheme = {
     backgroundAccent: '#8daef2', // áreas de destaque
 
     text: '#1e152a',
-    textAccent: '#f58415',
+    textAccent: '#ebebebff',
+    textMuted: '#a3a3a3ff',
+    textHover: '#f58415',
     btn: '#1c1c1dff',
     btnHover: '#f58415',
 
@@ -50,6 +60,8 @@ export const darkTheme = {
 
     text: '#cececeff',
     textAccent: '#ffffffff',
+    textMuted: '#a3a3a3ff',
+    textHover: '#f58415',
     btn: '#275af2',
     btnHover: '#0031c4ff',
 
