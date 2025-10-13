@@ -1,6 +1,3 @@
-import { text } from "stream/consumers";
-
-// src/styles/theme.ts
 export const defaultTheme = {
   fonts: {
     titleFont: 'var(--font-title), sans-serif',
@@ -8,9 +5,11 @@ export const defaultTheme = {
   },
 
   spaces: {
-    small: 'clamp(0.5rem, 1vw, 1rem)',
-    medium: 'clamp(1rem, 2vw, 2rem)',
-    large: 'clamp(2rem, 4vw, 4rem)',
+    microSmall: '3px',
+    small: '5px',
+    medium: '15px',
+    large: '20px',
+    xLarge: '30px',
   },
 
   fontSize: {
@@ -25,7 +24,7 @@ export const defaultTheme = {
     medium: '10px',
     large: '20px',
     Xlarge: '30px',
-  }
+  },
 };
 
 export const lightTheme = {
@@ -47,7 +46,12 @@ export const lightTheme = {
     primaryHover: '#0031c4ff',
     secondary: '#F4E04D',
     secondaryHover: '#f58415',
-  }
+  },
+
+  gradient: {
+    primary: 'linear-gradient(135deg, #ffffff86 0%, #275af22a 90%)',
+    secondary: 'linear-gradient(135deg, #ffffff86 0%, #36363634 90%)',
+  },
 };
 
 export const darkTheme = {
@@ -69,7 +73,12 @@ export const darkTheme = {
     primaryHover: '#0031c4ff',
     secondary: '#F4E04D',
     secondaryHover: '#f58415',
-  }
+  },
+
+  gradient: {
+    primary: 'linear-gradient(135deg, #275af2 0%, #ffffffff 100%)',
+    secondary: 'linear-gradient(135deg, #ffffff86 0%, #36363634 90%)',
+  },
 };
 
-export type Theme = typeof lightTheme; // se quiser tipagem
+export type Theme = typeof lightTheme;

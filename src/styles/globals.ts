@@ -41,4 +41,27 @@ export const GlobalStyle = createGlobalStyle`
     height: auto;
     display: block;
   }
+
+  /*scroll bar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.backgroundSurface};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
+
+  // sroll bar fireFox
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.colors.primary} ${({ theme }) => theme.colors.secondary};
+*/
 `;
