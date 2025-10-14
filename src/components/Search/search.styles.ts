@@ -50,8 +50,8 @@ export const ScontainerInput = styled.div`
 export const Sul = styled.ul`
   ${flexStart};
   flex-direction: column;
-  gap: ${({ theme }) => theme.spaces.small};
-  padding: ${({ theme }) => theme.spaces.small};
+  gap: ${({ theme }) => theme.spaces.medium};
+  padding: ${({ theme }) => theme.spaces.medium};
 
   position: absolute;
   top: 110%;
@@ -60,19 +60,19 @@ export const Sul = styled.ul`
   height: fit-content;
   width: 100%;
 
-  background: ${({ theme }) => theme.gradient.primary};
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(5px);
   border-radius: ${({ theme }) => theme.borderRadios.large};
   overflow: auto;
   scrollbar-width: none;
+  ${boxShadow}
+  background: ${({ theme }) => theme.gradient.secondary};
 
   li {
+    background: ${({ theme }) => theme.gradient.primary};
     ${flexCenter}
     padding: ${({ theme }) => theme.spaces.medium};
-    background: ${({ theme }) => theme.gradient.secondary};
     border-radius: ${({ theme }) => theme.borderRadios.large};
     overflow: hidden;
-    backdrop-filter: blur(15px);
     height: 170px;
     flex-shrink: 0;
   }
@@ -91,20 +91,67 @@ export const Slink = styled(Link)`
     border-radius: ${({ theme }) => theme.borderRadios.medium};
     width: 100%;
     height: 100%;
+
+    h3 {
+      font-family: ${({ theme }) => theme.fonts.commonFont};
+      font-weight: 400;
+      font-style: italic;
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 
-  .imgContainer {
-    ${flexCenter}
-    border-radius: ${({ theme }) => theme.borderRadios.medium};
-    overflow: hidden;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     width: 100%;
     height: 100%;
+    gap: ${({ theme }) => theme.spaces.small};
 
-    img {
-      object-fit: cover;
-      object-position: center;
-      height: 100%;
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: ${({ theme }) => theme.spaces.small};
       width: 100%;
+      height: fit-content;
+      color: #00000017;
+      background-color: ${({ theme }) => `${theme.colors.backgroundSurface}10`};
+      border-radius: ${({ theme }) => theme.borderRadios.medium};
+      backdrop-filter: blur(25);
+      border: 1px solid #00000017;
+
+      h3 {
+        width: 100%;
+        height: fit-content;
+        text-align: end;
+        font-family: ${({ theme }) => theme.fonts.commonFont};
+        font-size: ${({ theme }) => theme.fontSize.small};
+        font-weight: 100;
+        font-style: italic;
+      }
+    }
+
+    .images {
+      ${flexCenter}
+      border-radius: ${({ theme }) => theme.borderRadios.medium};
+      gap: ${({ theme }) => theme.spaces.medium};
+      width: 100%;
+      height: 100%;
+
+      div {
+        ${flexCenter}
+        width: 50%;
+        overflow: hidden;
+        border-radius: ${({ theme }) => theme.borderRadios.medium};
+
+        img {
+          object-fit: cover;
+          object-position: center;
+          height: 100%;
+          width: 100%;
+        }
+      }
     }
   }
 `;
