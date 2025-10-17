@@ -1,26 +1,35 @@
 'use client';
 
-import { flexCenter, smoothTransition } from '@/styles/mixins';
+import { blurBg, boxShadow, flexCenter, smoothTransition } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const SHeader = styled.header`
   ${flexCenter}
+  ${blurBg} //pseudo elemento after com backdrop filter
+  ${boxShadow}
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 15vh;
-  background-color: ${({ theme }) => theme.colors.backgroundAccent};
+  background-color: ${({ theme }) => `${theme.colors.backgroundAccent}25`};
   padding: ${({ theme }) => theme.spaces.large};
+  z-index: 3;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const Scontainer = styled.div`
+  ${boxShadow}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${({ theme }) => theme.spaces.small};
+  padding: ${({ theme }) => theme.spaces.medium};
   gap: ${({ theme }) => theme.spaces.small};
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.borderRadios.Xlarge};
+  z-index: 2;
 `;
 export const ScontainerLogo = styled.div`
   display: flex;
@@ -48,7 +57,7 @@ export const Snav = styled.div`
   li {
     ${flexCenter}
     ${smoothTransition}
-        padding: ${({ theme }) => theme.spaces.small};
+    padding: ${({ theme }) => theme.spaces.small};
     cursor: pointer;
     white-space: nowrap;
 

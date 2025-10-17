@@ -42,6 +42,8 @@ export const lightTheme = {
     btn: '#1c1c1dff',
     btnHover: '#f58415',
 
+    border: '#ffffff49',
+
     primary: '#275af2',
     primaryHover: '#0031c4ff',
     secondary: '#F4E04D',
@@ -49,7 +51,7 @@ export const lightTheme = {
   },
 
   gradient: {
-    primary: 'linear-gradient(135deg, #ffffff86 0%, #275af22a 90%)',
+    primary: 'linear-gradient(135deg, #ffffffc9 0%, #275af227 45%)',
     secondary: 'linear-gradient(135deg, #ffffff86 0%, #36363634 90%)',
   },
 };
@@ -68,6 +70,8 @@ export const darkTheme = {
     textHover: '#f58415',
     btn: '#275af2',
     btnHover: '#0031c4ff',
+
+    border: '#0000001e',
 
     primary: '#275af2',
     primaryHover: '#0031c4ff',
