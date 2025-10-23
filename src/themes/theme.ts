@@ -13,7 +13,8 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    small: 'clamp(0.7rem, 1vw, 2rem)',
+    microSmall: 'clamp(0.5rem, 1vw, 1rem)',
+    small: 'clamp(0.9rem, 1vw, 2rem)',
     medium: 'clamp(1rem, 2vw, 2rem)',
     large: 'clamp(2rem, 4vw, 4rem)',
   },

@@ -1,7 +1,11 @@
-import Search from "../Search";
+import Search from "@/components/Search";
 import { Scontainer, ScontainerLogo, SHeader, Snav } from "./header.styled";
+import { useProducts } from "@/contexts/Product.context";
 
-export default function HeaderDesktop() {
+
+export default function HeaderDesktop(){
+const products = useProducts();  
+
   return (
     <SHeader>
       <Scontainer>
@@ -17,7 +21,7 @@ export default function HeaderDesktop() {
           <li>Meu Kit</li>
           <li>Favoritos</li>
         </Snav>
-        <Search />
+        <Search products={products} />
       </Scontainer>
     </SHeader>
   );
