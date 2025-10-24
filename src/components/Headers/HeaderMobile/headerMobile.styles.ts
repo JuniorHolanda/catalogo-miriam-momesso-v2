@@ -1,5 +1,5 @@
 'use client'
-import { flexCenter } from "@/styles/mixins";
+import { blurBg, flexCenter } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const Swrapper = styled.section`
@@ -8,14 +8,20 @@ export const Swrapper = styled.section`
     left: 0;
     ${flexCenter}
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.primary};
-`;
+    padding: ${({ theme }) => theme.spaces.medium};
+    ${blurBg}
+
+    `;
 
 export const Snav = styled.nav`
     display: flex;
     justify-content: space-between;
+    background-color: ${({ theme }) => theme.colors.primary};
     gap: ${({ theme }) => theme.spaces.medium};
     padding: ${({ theme }) => theme.spaces.medium};
     width: 100%;
+    border-radius: ${({ theme }) => theme.borderRadios.large};
     font-size: ${({ theme }) => theme.fontSize.large};
+    color: ${({ theme}) => theme.colors.textAccent};
+    z-index: 2;
 `;

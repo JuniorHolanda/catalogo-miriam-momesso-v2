@@ -14,7 +14,6 @@ export default function InputSearch({ products, ...props }: InptProps) {
   const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
 
   const handleChangetext = (e: string) => {
-    const value = e;
     setText(e);
   };
 

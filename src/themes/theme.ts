@@ -9,7 +9,7 @@ export const defaultTheme = {
     small: '5px',
     medium: '15px',
     large: '20px',
-    xLarge: '30px',
+    xLarge: '35px',
   },
 
   fontSize: {
