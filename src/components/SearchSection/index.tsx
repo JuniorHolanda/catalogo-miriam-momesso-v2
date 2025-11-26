@@ -1,17 +1,14 @@
-import { useProducts } from "@/contexts/Product.context";
-import InputSearch from "../Search";
+import SearchSwitcher from "../SearchSwitcher";
 import { SbrutalSymbol, Ssection } from "./searchSection.styled";
 
 
 export default function () {
-    // const listproducts = useProducts();  
-
     return (
         <Ssection>
-        <SbrutalSymbol>
-            <img src='./symbols/star-1.svg' alt="" />
-        </SbrutalSymbol>
-        {/* <InputSearch products={listproducts} /> */}
+            <SbrutalSymbol>
+                <img src='./symbols/star.png' alt="uma estrela azul de 7 pontas" />
+            </SbrutalSymbol>
+            <SearchSwitcher caller="section"/>
         </Ssection>
     );
 }

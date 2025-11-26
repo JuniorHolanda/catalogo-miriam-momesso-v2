@@ -1,4 +1,4 @@
-import Search from "@/components/Search";
+import Search from "@/components/SearchSwitcher";
 import { Scontainer, ScontainerLogo, SHeader, Snav } from "./header.styled";
 import { useProducts } from "@/contexts/Product.context";
 
@@ -21,7 +21,7 @@ const products = useProducts();
           <li>Meu Kit</li>
           <li>Favoritos</li>
         </Snav>
-        <Search products={products} />
+        <Search caller="header" />
       </Scontainer>
     </SHeader>
   );

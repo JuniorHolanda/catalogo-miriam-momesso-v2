@@ -31,14 +31,14 @@ export const defaultTheme = {
 export const lightTheme = {
   ...defaultTheme,
   colors: {
-    backgroundBase: '#ebebebff', // principal
-    backgroundSurface: '#d6d6d6ff', // sessões
+    backgroundBase: '#ebebeb', // principal
+    backgroundSurface: '#d6d6d6', // sessões
     backgroundMuted: '#ffffff', // neutro
     backgroundAccent: '#8daef2', // áreas de destaque
 
     text: '#1e152a',
-    textAccent: '#ebebebff',
-    textMuted: '#a3a3a3ff',
+    textAccent: '#ebebeb',
+    textMuted: '#a3a3a3',
     textHover: '#f58415',
     btn: '#1c1c1dff',
     btnHover: '#f58415',
@@ -46,14 +46,14 @@ export const lightTheme = {
     border: '#ffffff49',
 
     primary: '#275af2',
-    primaryHover: '#0031c4ff',
+    primaryHover: '#0031c4',
     secondary: '#F4E04D',
     secondaryHover: '#f58415',
   },
 
-  gradient: {
-    primary: 'linear-gradient(135deg, #ffffffc9 0%, #275af227 45%)',
-    secondary: 'linear-gradient(135deg, #ffffff86 0%, #36363634 90%)',
+  transparence: {
+    primary: '#ffffff42',
+    secondary: '#ffffff86',
   },
 };
 
@@ -80,9 +80,9 @@ export const darkTheme = {
     secondaryHover: '#f58415',
   },
 
-  gradient: {
-    primary: 'linear-gradient(135deg, #275af2 0%, #ffffffff 100%)',
-    secondary: 'linear-gradient(135deg, #ffffff86 0%, #36363634 90%)',
+  transparence: {
+    primary: '#ffffff42',
+    secondary: '#ffffff86',
   },
 };
 
