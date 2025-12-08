@@ -78,9 +78,11 @@ export default function SearchSwitcher({ caller } : SearchSwitcherProps) {
         Container && (
           <Container>
             <Swiper
+            
               spaceBetween={30}
               //controla a quantidade de slides por tela com base na quantidade de produtos filtrados
               slidesPerView={productsFiltered.length > 3 ? 3 : productsFiltered.length}
+              grabCursor={true}
             >
               {productsFiltered.map((item) => (
                 <SwiperSlide key={item._id}>

@@ -5,10 +5,18 @@ export const flexCenter = css`
   align-items: center;
   justify-content: center;
 `;
-export const flexStart = css`
+
+type propsFlex = {
+  direction: string,
+  align: string,
+  justfy: string,
+}
+
+export const flex = ({direction = 'row', align = 'start', justfy = 'start' }: propsFlex) => css`
   display: flex;
-  align-items: start;
-  justify-content: start;
+  flex-direction: ${direction};
+  align-items: ${align};
+  justify-content: ${justfy};
 `;
 
 export const boxShadow = css`
@@ -19,7 +27,6 @@ export const boxShadow = css`
 export const smoothTransition = css`
   transition: all .3s ease;
 `;
-
 
 export const blurBg = css`
    &::after {

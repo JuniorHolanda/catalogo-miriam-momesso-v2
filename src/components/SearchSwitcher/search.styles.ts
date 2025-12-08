@@ -9,7 +9,7 @@ export const SformInHeader = styled.form`
   width: 100%;
   max-height: 100px;
   z-index: 100;
-`;
+  `;
 
 type SformInSectionProps = {
   $props: boolean
@@ -19,7 +19,6 @@ export const SformInSection = styled.form<SformInSectionProps>`
   position: absolute;
   transform: translate(-50%, -50%);
   top: ${(props) => (props.$props === true ? "15%" : "50%")};
-
   left: 50%;
   ${flexCenter};
   flex-direction: column;
@@ -101,15 +100,14 @@ export const ScontainerCardSearch = styled.ul`
 `;
 
 export const ScontainerCardProduct = styled.ul`
-display: flex;
-justify-content: center;
-align-items: center;
-
-position: absolute;
-transform: translateX(-50%);
-top: 130%;
-left: 50%;
-flex: 1;
-width: 90vw;
-/* border: solid #afff54ff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: absolute;
+  transform: translateX(-50%);
+  top: 130%;
+  left: 50%;
+  width: 90vw;
+  border: solid #afff54ff;
 `;
