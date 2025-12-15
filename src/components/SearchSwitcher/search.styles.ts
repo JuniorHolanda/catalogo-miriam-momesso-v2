@@ -1,4 +1,4 @@
-import { boxShadow, flexCenter, flexStart } from "@/styles/mixins";
+import { boxShadow, flex, flexCenter } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const SformInHeader = styled.form`
@@ -64,7 +64,7 @@ export const ScontainerInput = styled.div`
 
 
 export const ScontainerCardSearch = styled.ul`
-  ${flexStart};
+  ${flex({})}
   ${boxShadow}
   flex-direction: column;
   gap: ${({ theme }) => theme.spaces.medium};
@@ -109,5 +109,4 @@ export const ScontainerCardProduct = styled.ul`
   top: 130%;
   left: 50%;
   width: 90vw;
-  border: solid #afff54ff;
 `;

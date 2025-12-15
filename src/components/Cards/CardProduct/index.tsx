@@ -1,7 +1,6 @@
 "use client";
 import React, { InputHTMLAttributes, JSX, useRef, useState } from "react";
 import {
-  SbuttonProduct,
   Scard,
   ScontainerImg,
   ScontainerSlider,
@@ -15,6 +14,7 @@ import {
 import { IoClose } from "react-icons/io5";
 import { Product } from "@/utils/interfaces";
 import { useViewportContext } from "@/contexts/ViewportContext";
+import CustomLink from "@/components/ui/Link";
 
 type InptProps = InputHTMLAttributes<HTMLInputElement> & {
   product: Product;
@@ -82,9 +82,9 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
               );
           })}
         </Ssection>
-        <SbuttonProduct href={`/produtos/${product._id}`}>
-          <span>Ver Produto</span>
-        </SbuttonProduct>
+        <CustomLink link="#">
+          Ver Produto
+        </CustomLink>
       </Sdialog>
 
       <ScontainerSlider>
@@ -112,9 +112,9 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
       <Scontent>
         <h1>{product.title}</h1>
         <p>{product.smallText}</p>
-        <SbuttonProduct href={`/produtos/${product._id}`}>
-          <span>Ver Produto</span>
-        </SbuttonProduct>
+        <CustomLink link={`/produtos/${product._id}`}>
+          Ver Produto
+        </CustomLink>
       </Scontent>
     </Scard>
   );

@@ -7,12 +7,12 @@ export const flexCenter = css`
 `;
 
 type propsFlex = {
-  direction: string,
-  align: string,
-  justfy: string,
-}
+  direction?: 'row' | 'column';
+  align?: 'start' | 'center' | 'end' | 'stretch';
+  justfy?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
+};
 
-export const flex = ({direction = 'row', align = 'start', justfy = 'start' }: propsFlex) => css`
+export const flex = ({ direction = 'row', align = 'start', justfy = 'start' }: propsFlex) => css`
   display: flex;
   flex-direction: ${direction};
   align-items: ${align};
@@ -21,6 +21,10 @@ export const flex = ({direction = 'row', align = 'start', justfy = 'start' }: pr
 
 export const boxShadow = css`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const textLink = css`
+  font-family: var(--font-common)
 `;
 
 
