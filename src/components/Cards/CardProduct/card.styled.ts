@@ -1,6 +1,7 @@
 'use client';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import { flex } from '@/styles/mixins';
 
 interface PropsScontainerImg {
   $expand: number;
@@ -19,7 +20,6 @@ export const Scard = styled.article`
   overflow: hidden;
   background: ${({ theme }) => `${theme.transparence.primary}`};
   backdrop-filter: blur(10px);
-  border: solid red;
 `;
 
 export const ScontainerSlider = styled.section`
@@ -86,32 +86,6 @@ export const Scontent = styled.div`
 type StextureProps = {
   rotateTexture: number;
 };
-
-export const SbuttonProduct = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-  border: #85697f solid;
-
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: ${({ theme }) => theme.spaces.small};
-    padding: ${({ theme }) => theme.spaces.small} ${({ theme }) => theme.spaces.medium};
-    height: 100%;
-    width: fit-content;
-    border-radius: ${({ theme }) => theme.spaces.medium};
-    background-color: ${({ theme }) => theme.colors.btn};
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.btnHover};
-    }
-  }
-`;
 
 
 export const SSgal = styled.div`
