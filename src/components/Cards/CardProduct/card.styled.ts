@@ -11,8 +11,7 @@ export const Scard = styled.article`
   flex-direction: column;
   width: 100%;
   min-width: 400px;
-  max-width: 542px;
-
+  max-width: 830px;
   height: 500px;
   gap: ${({ theme }) => theme.spaces.small};
   padding: ${({ theme }) => theme.spaces.small};
@@ -20,6 +19,7 @@ export const Scard = styled.article`
   overflow: hidden;
   background: ${({ theme }) => `${theme.transparence.primary}`};
   backdrop-filter: blur(10px);
+  border: solid red;
 `;
 
 export const ScontainerSlider = styled.section`
@@ -74,6 +74,7 @@ export const Scontent = styled.div`
     letter-spacing: 5px;
     color: ${({ theme }) => theme.colors.text};
     width: 100%;
+    font-size: 35px;
   }
 
   p {
@@ -92,6 +93,7 @@ export const SbuttonProduct = styled(Link)`
   align-items: center;
   width: 100%;
   height: fit-content;
+  border: #85697f solid;
 
   span {
     display: flex;
