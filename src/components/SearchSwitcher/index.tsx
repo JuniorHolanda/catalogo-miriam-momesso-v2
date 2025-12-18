@@ -3,7 +3,7 @@
 // Esse componente é um swite
 
 import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from "react";
-import { ScontainerInput, ScontainerCardSearch, ScontainerCardProduct, SformInHeader, SformInSection} from "./search.styles";
+import { ScontainerInput, ScontainerCardProduct, SformInHeader, SformInSection } from "./search.styles";
 import { Product } from "@/utils/interfaces";
 import { useProducts } from "@/contexts/Product.context";
 import CardProduct from "../Cards/CardProduct";
@@ -19,16 +19,14 @@ type SearchSwitcherProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 //as duas props possíveis são 'section' ou 'header'
-export default function SearchSwitcher({ caller } : SearchSwitcherProps) {
+export default function SearchSwitcher({ caller }: SearchSwitcherProps) {
 
   const products = useProducts();
   const [text, setText] = useState<string>("");
   const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
   // usada para controlar a propriedade top do css do input
   const [animationInput, setAnimationInput] = useState<boolean>(false);
-  // a props 'header' chama um container de cards reduzidos de produtos da header, e a props 'section' chama os cards completos do buscador principal.
-  const Container = caller === 'header' ? ScontainerCardSearch : ScontainerCardProduct
-  // a props 'header' chama o form da header, e a props 'section' chama o form principal.
+
   const Form = caller === 'header' ? SformInHeader : SformInSection
 
   //controla a propriedade top no css do input 
@@ -75,23 +73,26 @@ export default function SearchSwitcher({ caller } : SearchSwitcherProps) {
       </ScontainerInput>
 
       {productsFiltered.length > 0 && (
-        Container && (
-          <Container>
-            <Swiper
-            
-              spaceBetween={30}
-              //controla a quantidade de slides por tela com base na quantidade de produtos filtrados
-              slidesPerView={productsFiltered.length > 3 ? 3 : productsFiltered.length}
-              grabCursor={true}
-            >
-              {productsFiltered.map((item) => (
-                <SwiperSlide key={item._id}>
-                  <CardProduct product={item}/>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </Container>
-        )
+        <ScontainerCardProduct>
+          <Swiper className="swiper-container"
+            modules={[Navigation]}
+            navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
+            spaceBetween={55}
+            //controla a quantidade de slides por tela com base na quantidade de produtos filtrados
+            slidesPerView={productsFiltered.length > 3 ? 3 : productsFiltered.length}
+            grabCursor={true}
+          >
+            {productsFiltered.map((item) => (
+              <SwiperSlide className="swiper-itens" key={item._id}>
+                <CardProduct product={item} />
+              </SwiperSlide>
+            ))}
+
+            {/* Setas de navegação */}
+            <div className="swiper-button-prev" />
+            <div className="swiper-button-next" />
+          </Swiper>
+        </ScontainerCardProduct>
       )}
     </Form>
   );

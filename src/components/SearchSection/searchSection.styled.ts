@@ -1,7 +1,7 @@
 'use client';
 
-import Link from "next/link";
-import styled from "styled-components";
+import Link from 'next/link';
+import styled from 'styled-components';
 
 export const Slink = styled(Link)`
   display: grid;
@@ -30,14 +30,14 @@ export const ScontainerCategory = styled.div`
 export const Ssection = styled.section`
   position: relative;
   z-index: 0;
-  margin-top: calc(10vh + ${({theme}) => theme.spaces.xLarge});
+  margin-top: calc(10vh + ${({ theme }) => theme.spaces.xLarge});
   padding: ${({ theme }) => theme.spaces.xLarge};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: calc(85vh - ${({theme}) => theme.spaces.xLarge});
-  overflow: auto;
+  height: calc(85vh - ${({ theme }) => theme.spaces.xLarge});
+  overflow: hidden;
   border-radius: ${({ theme }) => theme.borderRadios.Xlarge};
   background-color: ${({ theme }) => theme.colors.backgroundAccent};
 `;
@@ -49,8 +49,8 @@ export const SbrutalSymbol = styled.span`
   z-index: 20;
   width: clamp(400px, 60em, 50vw);
   transform: rotate(27deg);
-  
+
   img {
-      width: 100%;
+    width: 100%;
   }
 `;
