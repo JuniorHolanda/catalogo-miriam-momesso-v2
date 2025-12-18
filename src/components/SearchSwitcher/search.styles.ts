@@ -1,5 +1,5 @@
-import { boxShadow, flex, flexCenter } from "@/styles/mixins";
-import styled from "styled-components";
+import { boxShadow, flex, flexCenter } from '@/styles/mixins';
+import styled from 'styled-components';
 
 export const SformInHeader = styled.form`
   ${flexCenter};
@@ -9,16 +9,16 @@ export const SformInHeader = styled.form`
   width: 100%;
   max-height: 100px;
   z-index: 100;
-  `;
+`;
 
 type SformInSectionProps = {
-  $props: boolean
-}
+  $props: boolean;
+};
 
 export const SformInSection = styled.form<SformInSectionProps>`
   position: absolute;
   transform: translate(-50%, -50%);
-  top: ${(props) => (props.$props === true ? "15%" : "50%")};
+  top: ${(props) => (props.$props === true ? '15%' : '50%')};
   left: 50%;
   ${flexCenter};
   flex-direction: column;
@@ -27,14 +27,14 @@ export const SformInSection = styled.form<SformInSectionProps>`
   width: 50%;
   max-height: 100px;
   z-index: 100;
-  transition: all ease-in-out .1s;
+  transition: all ease-in-out 0.1s;
 `;
 
 export const ScontainerInput = styled.div`
   ${flexCenter};
   width: 100%;
   height: 100%;
-  
+
   label {
     position: absolute;
     width: 1px;
@@ -46,7 +46,7 @@ export const ScontainerInput = styled.div`
     white-space: nowrap;
     border: 0;
   }
-  
+
   input {
     display: flex;
     justify-content: center;
@@ -62,51 +62,22 @@ export const ScontainerInput = styled.div`
   }
 `;
 
-
-export const ScontainerCardSearch = styled.ul`
-  ${flex({})}
-  ${boxShadow}
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spaces.medium};
-  padding: ${({ theme }) => theme.spaces.medium};
-
-  position: absolute;
-  z-index: 1;
-  top: 110%;
-  left: 0;
-  transform: translateX(-50);
-  max-height: 70dvh;
-  height: fit-content;
-  width: 100%;
-
-  border-radius: ${({ theme }) => theme.borderRadios.large};
-  overflow: auto;
-  scrollbar-width: none;
-  background: ${({ theme }) => theme.transparence.secondary};
-  backdrop-filter: blur(60px);
-  
-  li {
-    background: ${({ theme }) => theme.transparence.primary};
-    ${flexCenter}
-    ${boxShadow}
-
-    padding: ${({ theme }) => theme.spaces.medium};
-    border-radius: ${({ theme }) => theme.borderRadios.large};
-    height: fit-content;
-    flex-shrink: 0;
-    z-index: 1;
-  }
-
-`;
-
 export const ScontainerCardProduct = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   position: absolute;
   transform: translateX(-50%);
   top: 130%;
   left: 50%;
   width: 90vw;
+  border-radius: 30px;
+
+  .swiper-container {
+    padding: 0 50px;
+  }
+
+  .swiper-button-prev {
+  }
 `;
