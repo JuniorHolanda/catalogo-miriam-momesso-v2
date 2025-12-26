@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
-import { flexCenter } from '@/styles/mixins';
+import { flex } from '@/styles/mixins';
+import { rotatePendulum } from '@/styles/animations';
 
 export const Slink = styled(Link)`
   display: grid;
@@ -32,10 +33,8 @@ export const Ssection = styled.section`
   position: relative;
   z-index: 0;
   margin-top: calc(10vh + ${({ theme }) => theme.spaces.xLarge});
+  ${flex({ align: 'center', justfy: 'start' })}
   padding: ${({ theme }) => theme.spaces.xLarge};
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
   height: calc(85vh - ${({ theme }) => theme.spaces.xLarge});
   overflow: hidden;
@@ -46,24 +45,20 @@ export const Ssection = styled.section`
 export const SbrutalSymbol = styled.span`
   position: absolute;
   top: -50%;
-  left: -20%;
+  left: -40%;
   z-index: 20;
-  width: clamp(400px, 60em, 50vw);
-  transform: rotate(27deg);
+  width: clamp(400px, 150em, 80vw);
+  animation: ${rotatePendulum} 25s ease-in-out alternate-reverse infinite;
+  opacity: 0.2;
 
   img {
     width: 100%;
   }
 `;
 
-export const SformInHeader = styled.form`
-  ${flexCenter};
-  flex-direction: column;
-  flex: 0.5;
-  height: 100%;
-  width: 100%;
-  max-height: 100px;
-  z-index: 100;
+export const Stitle = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 500;
 `;
 
 type SformInSectionProps = {
@@ -75,20 +70,20 @@ export const SformInSection = styled.form<SformInSectionProps>`
   transform: translate(-50%, -50%);
   top: ${(props) => (props.$props === true ? '15%' : '50%')};
   left: 50%;
-  ${flexCenter};
-  flex-direction: column;
+  ${flex({ direction: 'column' })};
+  padding: ${({ theme }) => theme.spaces.medium};
+  gap: ${({ theme }) => theme.spaces.medium};
   flex: 0.5;
-  height: 100%;
-  width: 50%;
-  max-height: 100px;
+  height: fit-content;
+  width: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
 `;
 
 export const ScontainerInput = styled.div`
-  ${flexCenter};
+  ${flex({})};
   width: 100%;
-  height: 100%;
+  height: 80px;
 
   label {
     position: absolute;
@@ -103,9 +98,7 @@ export const ScontainerInput = styled.div`
   }
 
   input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${flex({})}
     border-radius: ${({ theme }) => theme.borderRadios.large};
     overflow: hidden;
     width: 100%;
@@ -118,21 +111,21 @@ export const ScontainerInput = styled.div`
 `;
 
 export const ScontainerCardProduct = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${flex({})}
   position: absolute;
   transform: translateX(-50%);
-  top: 130%;
+  top: 110%;
   left: 50%;
   width: 90vw;
+  height: 50vh;
   border-radius: 30px;
 
   .swiper-container {
     padding: 0 50px;
+    height: 100%;
   }
 
-  .swiper-button-prev {
+  .swiper-itens {
+    height: 100%;
   }
 `;

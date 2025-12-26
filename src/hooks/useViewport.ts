@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type ViewportType = 'mobile' | 'tablet' | 'desktop' | null;
+export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null;
 
 export function useViewport(breakpoint = 800) {
     const [viewport, setViewport] = useState<ViewportType>(null);
@@ -12,11 +12,13 @@ export function useViewport(breakpoint = 800) {
             const width = window.innerWidth;
 
             if(width <= 600) {
-                setViewport('mobile');
+                setViewport('sm');
             } else if ( width < 1024) {
-                setViewport('tablet')
+                setViewport('md')
+            } else if ( width < 1920) {
+                setViewport('lg')
             } else {
-                setViewport('desktop')
+                setViewport('xl')
             }
         }
 

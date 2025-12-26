@@ -1,10 +1,10 @@
 'use client';
 
-import { blurBg, boxShadow, flexCenter, smoothTransition } from '@/styles/mixins';
+import { blurBg, boxShadow, flex, smoothTransition } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const SHeader = styled.header`
-  ${flexCenter}
+  ${flex({})}
   ${blurBg} //pseudo elemento after com backdrop filter
   ${boxShadow}
   position: fixed;
@@ -45,7 +45,7 @@ export const ScontainerLogo = styled.div`
   }
 `;
 export const Snav = styled.div`
-  ${flexCenter}
+  ${flex({})}
   gap: ${({ theme }) => theme.spaces.large};
   flex: 1;
   height: 100%;
@@ -55,7 +55,7 @@ export const Snav = styled.div`
   color: ${({ theme }) => theme.colors.textAccent};
 
   li {
-    ${flexCenter}
+    ${flex({})}
     ${smoothTransition}
     padding: ${({ theme }) => theme.spaces.small};
     cursor: pointer;
