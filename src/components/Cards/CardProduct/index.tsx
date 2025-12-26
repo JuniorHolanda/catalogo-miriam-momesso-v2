@@ -21,7 +21,7 @@ type InptProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export default function CardProduct({ product }: InptProps): JSX.Element {
- 
+
   const width = useViewportContext();
 
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -36,8 +36,8 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
 
   // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
-  const maxImgs = width === undefined || width ==="mobile" || width === "desktop" ? 3
-  : 1;
+  const maxImgs = width === undefined || width === "mobile" || width === "desktop" ? 3
+    : 1;
 
   const [hovered, setHovered] = useState<number | null>(null);
 
@@ -61,7 +61,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
     <Scard>
       <Sdialog ref={dialogRef}>
         <SwrapperBtnClose>
-          <button onClick={() => closePopup()}><IoClose/></button>
+          <button onClick={() => closePopup()}><IoClose /></button>
         </SwrapperBtnClose>
         <Ssection>
           {listImg
@@ -80,7 +80,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
                   />
                 </ScontainerImg>
               );
-          })}
+            })}
         </Ssection>
         <CustomLink link="#">
           Ver Produto

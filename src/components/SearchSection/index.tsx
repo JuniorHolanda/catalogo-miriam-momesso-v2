@@ -1,7 +1,7 @@
 'use client'
 
 import { useProducts } from "@/contexts/Product.context";
-import { SbrutalSymbol, ScontainerCardProduct, ScontainerInput, SformInSection, Ssection } from "./searchSection.styled";
+import { SbrutalSymbol, ScontainerCardProduct, ScontainerInput, SformInSection, Ssection, Stitle } from "./searchSection.styled";
 import { ChangeEvent, useEffect, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
 
@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Product } from "@/utils/interfaces";
+import { useViewport } from "@/hooks/useViewport";
 
 
 export default function () {
@@ -20,7 +21,9 @@ export default function () {
     const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
     // usada para controlar a propriedade top do css do input
     const [animationInput, setAnimationInput] = useState<boolean>(false);
+    const viewPort = useViewport()
 
+    console.log(viewPort)
     //controla a propriedade top no css do input 
     useEffect(() => {
         if (productsFiltered.length !== 0) {
@@ -57,6 +60,7 @@ export default function () {
             </SbrutalSymbol>
 
             <SformInSection $props={animationInput}>
+                <Stitle>Sim, Temos o seu brinde</Stitle>
                 <ScontainerInput>
                     <label htmlFor="search">Digite sua busca</label>
                     <input
@@ -75,8 +79,10 @@ export default function () {
                             modules={[Navigation]}
                             navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
                             spaceBetween={55}
-                            //controla a quantidade de slides por tela com base na quantidade de produtos filtrados
-                            slidesPerView={productsFiltered.length > 3 ? 3 : productsFiltered.length}
+                            // controla a quantidade de slides com base na quantidade de produtos filtrados e tambem com base na tela se é molbile, ou tablet ou desktop
+                            slidesPerView={
+                                productsFiltered.length > 3 && viewPort == 'lg' ? 3
+                                    : productsFiltered.length > 3 && viewPort == 'md' ? 2 : 1}
                             grabCursor={true}
                         >
                             {productsFiltered.map((item) => (

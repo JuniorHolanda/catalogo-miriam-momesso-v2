@@ -1,11 +1,6 @@
 'use client';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
 import { flex } from '@/styles/mixins';
-
-interface PropsScontainerImg {
-  $expand: number;
-}
 
 export const Scard = styled.article`
   display: flex;
@@ -13,7 +8,7 @@ export const Scard = styled.article`
   width: 100%;
   min-width: 400px;
   max-width: 830px;
-  height: 500px;
+  height: 100%;
   gap: ${({ theme }) => theme.spaces.small};
   padding: ${({ theme }) => theme.spaces.small};
   border-radius: ${({ theme }) => theme.spaces.medium};
@@ -33,9 +28,7 @@ export const ScontainerSlider = styled.section`
 `;
 
 export const ScontainerImg = styled.div<{ $expand: number }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flex({})}
   flex: ${({ $expand }) => $expand};
   height: 100%;
   min-width: 100px;
@@ -87,7 +80,6 @@ type StextureProps = {
   rotateTexture: number;
 };
 
-
 export const SSgal = styled.div`
   background-color: red;
   z-index: 4;
@@ -99,7 +91,7 @@ export const SSgal = styled.div`
 `;
 
 export const Sdialog = styled.dialog`
-  transform: translate(-50%, -50%);  
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: ${({ theme }) => theme.spaces.medium};
@@ -110,7 +102,6 @@ export const Sdialog = styled.dialog`
   outline: none;
   border: none;
   overflow: hidden;
-
 
   &::backdrop {
     backdrop-filter: blur(10px);
@@ -127,7 +118,7 @@ export const SwrapperBtnClose = styled.div`
 
   button {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     background-color: transparent;
     cursor: pointer;
@@ -139,26 +130,26 @@ export const SwrapperBtnClose = styled.div`
 `;
 
 export const Ssection = styled.section`
+  display: flex;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+
+  div {
     display: flex;
-    width: 100%;
-    height:80%;
+    gap: 10px;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    background-color: transparent;
 
-    div{
-      display: flex;
-      gap: 10px;
-      overflow: hidden;
-      height: 100%;
+    img {
+      object-fit: cover;
+      object-position: center;
       width: 100%;
-      padding: 30px;
-      background-color: transparent;
-
-      img{
-          object-fit: cover;
-          object-position: center;
-          width: 100%;
-          height: 100%;
-          border-radius: 30px;
-      }
+      height: 100%;
+      border-radius: 30px;
     }
-`
+  }
+`;
