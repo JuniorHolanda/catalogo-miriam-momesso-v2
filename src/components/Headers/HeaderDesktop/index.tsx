@@ -1,3 +1,4 @@
+import DropDawnMenu from "@/components/DropDawnMenu";
 import { Scontainer, ScontainerLogo, SHeader, Snav } from "./header.styled";
 import { useProducts } from "@/contexts/Product.context";
 
@@ -15,6 +16,7 @@ export default function HeaderDesktop() {
           />
         </ScontainerLogo>
         <Snav>
+          <DropDawnMenu/>
           <li>Home</li>
           <li>Categoria</li>
           <li>Meu Kit</li>

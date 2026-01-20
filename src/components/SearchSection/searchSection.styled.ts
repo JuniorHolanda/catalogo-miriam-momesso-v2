@@ -5,29 +5,26 @@ import styled from 'styled-components';
 import { flex } from '@/styles/mixins';
 import { rotatePendulum } from '@/styles/animations';
 
-export const Slink = styled(Link)`
-  display: grid;
-  grid-template: auto 1fr / 1fr 1fr;
-  gap: ${({ theme }) => theme.spaces.small};
-  width: 100%;
-  height: 100%;
-`;
+export const ScontainerCardProduct = styled.ul`
+  ${flex({})}
+  position: absolute;
+  transform: translateX(-50%);
+  top: 110%;
+  left: 50%;
+  width: 90vw;
+  height: 50vh;
+  border-radius: 30px;
 
-export const ScontainerCategory = styled.div`
-  grid-area: 1/1/2/3;
-  display: flex;
-  justify-content: flex-end;
-  gap: ${({ theme }) => theme.spaces.small};
-  width: 100%;
-  height: 100%;
+  .swiper-container {
+    padding: 0 50px;
+    height: 100%;
+  }
 
-  span {
-    background-color: ${({ theme }) => `${theme.colors.backgroundAccent}50`};
-    padding: ${({ theme }) => theme.spaces.small};
-    border-radius: ${({ theme }) => theme.borderRadios.small};
-    font-family: ${({ theme }) => theme.fonts.commonFont};
+  .swiper-itens {
+    height: 100%;
   }
 `;
+
 
 type SsectionProps = {
   $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
@@ -37,7 +34,7 @@ export const Ssection = styled.section<SsectionProps>`
   position: relative;
   z-index: 0;
   margin-top: ${({ $viewPortStyle, theme }) =>
-    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? 0 : `calc(12vh + ${theme.spaces.xLarge})`};
+    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? 0 : `calc(10vh + ${theme.spaces.xLarge})`};
   margin-bottom: ${({ $viewPortStyle, theme }) =>
     $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? `calc(12vh + ${theme.spaces.xLarge})` : 0};
   ${flex({ align: 'center', justfy: 'start' })}
@@ -66,11 +63,6 @@ export const SbrutalSymbol = styled.span`
   }
 `;
 
-export const Stitle = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
-  font-weight: 500;
-`;
-
 type SformInSectionProps = {
   $props: boolean;
 };
@@ -88,6 +80,12 @@ export const SformInSection = styled.form<SformInSectionProps>`
   width: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
+`;
+
+
+export const Stitle = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 500;
 `;
 
 export const ScontainerInput = styled.div`
@@ -117,25 +115,5 @@ export const ScontainerInput = styled.div`
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.commonFont};
     font-size: ${({ theme }) => theme.fontSize.small};
-  }
-`;
-
-export const ScontainerCardProduct = styled.ul`
-  ${flex({})}
-  position: absolute;
-  transform: translateX(-50%);
-  top: 110%;
-  left: 50%;
-  width: 90vw;
-  height: 50vh;
-  border-radius: 30px;
-
-  .swiper-container {
-    padding: 0 50px;
-    height: 100%;
-  }
-
-  .swiper-itens {
-    height: 100%;
   }
 `;

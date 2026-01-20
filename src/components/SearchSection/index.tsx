@@ -47,9 +47,6 @@ export default function () {
         setProductsFiltered(filtered);
     }
 
-    function slidesPerView() {
-
-    }
 
     return (
         <Ssection $viewPortStyle={viewPort}>
