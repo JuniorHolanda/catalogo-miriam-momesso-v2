@@ -7,7 +7,7 @@ export const Scard = styled.article`
   flex-direction: column;
   width: 100%;
   min-width: 400px;
-  max-width: 830px;
+  max-width: 600px;
   height: 100%;
   gap: ${({ theme }) => theme.spaces.small};
   padding: ${({ theme }) => theme.spaces.small};
@@ -36,7 +36,7 @@ export const ScontainerImg = styled.div<{ $expand: number }>`
   overflow: hidden;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  background-color: #f3f3f3ff;
+  background-color: #ffffffff; // sempre branco para pois as imagens possuem blend-mode multiply
 
   img {
     object-fit: cover;

@@ -36,15 +36,19 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
 
   // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
-  const maxImgs = width === undefined || width === "mobile" || width === "desktop" ? 3
-    : 1;
+  const maxImgs = width === undefined || width === "md" || width === "lg" ? 3 : 1;
+
+  // gera números inteiros aleatórios entre 2 e 5 usados para definir os tamanhos das imagens do card
+  const randonInt = () => {
+    return Math.floor(Math.random() * 2) + 3;
+  }
 
   const [hovered, setHovered] = useState<number | null>(null);
 
   const getFlex = (index: number, hovered: number | null) => {
     if (hovered === null) {
       // larguras padrão
-      return [4, 3, 2, 2][index];
+      return [randonInt(), randonInt(), randonInt()][index];
     }
     if (hovered === index) {
       // quem está hover, aumenta

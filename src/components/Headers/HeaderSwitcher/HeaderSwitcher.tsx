@@ -5,18 +5,18 @@ import HeaderMobile from '@/components/Headers/HeaderMobile';
 import { Product } from "@/utils/interfaces";
 
 type HeaderSwitcherProps = {
-    products : Product[];
+    products: Product[];
 }
 
 export default function HeaderSwitcher() {
 
-  const viewport = useViewportContext();
+    const viewport = useViewportContext();
 
-  if (!viewport) return null;
+    if (!viewport) return null;
 
-    if(viewport === 'desktop' || viewport === 'tablet') {
-        return <HeaderDesktop/>;
+    if (viewport === 'lg') {
+        return <HeaderDesktop />;
     } else {
-        return <HeaderMobile/>
+        return <HeaderMobile />
     }
 }
