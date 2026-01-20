@@ -15,15 +15,13 @@ import { useViewport } from "@/hooks/useViewport";
 
 
 export default function () {
-
+    const viewPort = useViewport()
     const products = useProducts();
     const [text, setText] = useState<string>("");
     const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
     // usada para controlar a propriedade top do css do input
     const [animationInput, setAnimationInput] = useState<boolean>(false);
-    const viewPort = useViewport()
 
-    console.log(viewPort)
     //controla a propriedade top no css do input 
     useEffect(() => {
         if (productsFiltered.length !== 0) {
@@ -54,7 +52,7 @@ export default function () {
     }
 
     return (
-        <Ssection>
+        <Ssection $viewPortStyle={viewPort}>
             <SbrutalSymbol>
                 <img src='./symbols/star.png' alt="uma estrela azul de 7 pontas" />
             </SbrutalSymbol>

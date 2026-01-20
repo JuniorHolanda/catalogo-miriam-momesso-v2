@@ -29,14 +29,24 @@ export const ScontainerCategory = styled.div`
   }
 `;
 
-export const Ssection = styled.section`
+type SsectionProps = {
+  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
+};
+
+export const Ssection = styled.section<SsectionProps>`
   position: relative;
   z-index: 0;
-  margin-top: calc(10vh + ${({ theme }) => theme.spaces.xLarge});
+  margin-top: ${({ $viewPortStyle, theme }) =>
+    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? 0 : `calc(12vh + ${theme.spaces.xLarge})`};
+  margin-bottom: ${({ $viewPortStyle, theme }) =>
+    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? `calc(12vh + ${theme.spaces.xLarge})` : 0};
   ${flex({ align: 'center', justfy: 'start' })}
   padding: ${({ theme }) => theme.spaces.xLarge};
   width: 100%;
-  height: calc(85vh - ${({ theme }) => theme.spaces.xLarge});
+  height: ${({ $viewPortStyle, theme }) =>
+    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
+      ? `calc(85vh - ${theme.spaces.xLarge})`
+      : '100vh'};
   overflow: hidden;
   border-radius: ${({ theme }) => theme.borderRadios.Xlarge};
   background-color: ${({ theme }) => theme.colors.backgroundAccent};
