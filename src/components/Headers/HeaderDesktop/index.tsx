@@ -14,11 +14,12 @@ export default function HeaderDesktop() {
             src="./logo-momesso-brindes.svg"
             alt="Logo da empresa Miriam Momesso"
           />
+          
         </ScontainerLogo>
         <Snav>
-          <DropDawnMenu/>
           <li>Home</li>
-          <li>Categoria</li>
+          <li><button>Category</button></li>
+          <DropDawnMenu/>
           <li>Meu Kit</li>
           <li>Favoritos</li>
         </Snav>

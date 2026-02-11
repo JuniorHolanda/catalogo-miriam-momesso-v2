@@ -1,17 +1,23 @@
 export interface GalleryItem {
   _id: string;
   img: string;
-  altImg: string;
+  altimg: string;
+}
+
+export interface Category {
+  main: string;
+  holiday: string[];
 }
 
 export interface Product {
   _id: string;
   thumbnail: string;
-  altThumbnail: string;
+  altthumbnail: string;
   title: string;
-  smallText: string;
+  smalltext: string;
   text: string;
-  category: string[];
+  category: Category;
+  code: string;
   measure: string[];
   gallery: GalleryItem[];
   like: number;
