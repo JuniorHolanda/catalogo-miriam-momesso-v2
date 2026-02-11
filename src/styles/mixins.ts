@@ -6,6 +6,7 @@ type propsFlex = {
   justfy?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
 };
 
+
 export const flex = ({ direction = 'row', align = 'center', justfy = 'center' }: propsFlex) => css`
   display: flex;
   flex-direction: ${direction};
@@ -19,6 +20,8 @@ export const boxShadow = css`
 
 export const textLink = css`
   font-family: var(--font-common);
+  font-weight: 300;
+  font-size: clamp(.7em, .9em, 1vw);
 `;
 
 export const smoothTransition = css`
