@@ -20,7 +20,7 @@ export const boxShadow = css`
 
 export const textLink = css`
   font-family: var(--font-common);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(.7em, .9em, 1vw);
 `;
 
