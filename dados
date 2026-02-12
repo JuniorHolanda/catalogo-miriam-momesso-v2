@@ -3756,7 +3756,7 @@
     "text": "melhore a qualidade das selfies e registre momentos únicos com mais luz e brilho! nosso anel de iluminação para celular, é um “ring light” plástico, mais compacto, e no formato “presilha” para encaixe. ainda possui três estágios de iluminação acionados pelo botão superior. acompanha cabo usb para carregamento.",
     "code": "14248",
     "category": {
-      "main":[ "celular"]
+      "imported":[ "celular"]
     },
     "measure": [
       "8,5x8,5x3cm"
@@ -3790,7 +3790,7 @@
     "text": "carregador portátil de indução com 10.000mah e indicador led de bateria, contém dois conjuntos de ventosas nas extremidades da área de indução, ideal para fixação do celular durante este modo de carga. o carregador possui duas portas de saídas usb, possibilitando o carregamento de dois dispositivos ao mesmo tempo",
     "code": "04051",
     "category": {
-      "main":[ "celular"]
+      "imported":[ "celular"]
     },
     "measure": [
       "7x14x2cm"
@@ -3824,7 +3824,7 @@
     "text": "assista seus vídeos, faça chamadas de vídeo e jogue com mais facilidade, a qualquer hora, em qualquer lugar! produzido em plástico com haste de alumínio, o suporte possui ângulo ajustável e extensão de altura. seu tapete de silicone antiderrapante garante a estabilidade do eletrônico sem machucar sua traseira. ",
     "code": "03040",
     "category": {
-      "main":[ "celular"]
+      "imported":[ "celular"]
     },
     "measure": [
       "11x6,6x2,8cm"
@@ -3858,7 +3858,7 @@
     "text": "item 3 em 1? conheça nossa base de carregamento via indução. capaz de carregar simultaneamente celular, iwatch e fones de ouvido através da tecnologia de indução qi, a base contém frestas para auxilio da circulação de ar, acelerando o resfriamento e proporcionando uma dissipação de calor ideal ao produto. acompanha cabo usb tipo c.",
     "code": "04063",
     "category": {
-      "main":[ "celular"]
+      "imported":[ "celular"]
     },
     "measure": [
       "14x15,5x7cm"
@@ -3892,7 +3892,7 @@
     "text": "mantenha seus óculos sempre à mão com este prático porta óculos de plástico. ideal para prender no quebra-sol do carro, garante mais organização e segurança. ele evita riscos nas lentes e quedas acidentais. compatível com diversos modelos de óculos de sol e de grau. discreto, leve e fácil de instalar, é o acessório perfeito para o seu dia a dia no trânsito.",
     "code": "04011",
     "category": {
-      "main":[ "carros"]
+      "imported":[ "carros"]
   },
     "measure": [
       "2,8x7,2cm"
@@ -3926,7 +3926,7 @@
     "text": "essa garrafinha de bolso é feita em aço inox escovado, com acabamento que une resistência e estilo discreto. seu formato côncavo proporciona melhor encaixe ao corpo, sendo prática para levar em viagens, festas ou eventos. a tampa rosqueável com trava garante segurança no transporte de líquidos. compacta e durável, cabe facilmente no bolso ou bolsa. ideal para brindes personalizados ou uso pessoal.",
     "code": "10390",
     "category": {
-      "main":[ "bebidas"]
+      "imported":[ "bebidas"]
     },
     "measure": [
       "3,9x3,5cm"
@@ -3960,7 +3960,7 @@
     "text": "abridor de garrafas em metal que une a funcionalidade e o estilo em um só item. possui acabamento arredondado em bambu, o que confere um design compacto que permite levar o abridor facilmente em bolsos ou deixado à disposição em mesas e balcões sem ocupar muito espaço. além disso, conta com um par de imãs para mantê-lo fixo em superfícies metálicas.",
     "code": "06385",
     "category": {
-      "main":[ "bebidas"]
+      "imported":[ "bebidas"]
     },
     "measure": [
       "6x6x1cm"
@@ -3994,7 +3994,7 @@
     "text": "saca-rolhas elétrico com led e cortador de lacre. feito em inox com detalhe em acrílico, o saca-rolhas contém um painel de led com botões emborrachados, compartimento para quatro pilhas aa (não acompanha) com trava de segurança e acompanha cortador de lacre.",
     "code": "18555",
     "category": {
-      "main":[ "bebidas"]
+      "imported":[ "bebidas"]
     },
     "measure": [
       "23x4,5cm"
@@ -4028,7 +4028,7 @@
     "text": "bloco de anotações ecológico com caneta, feito em kraft com detalhe plástico. contém aproximadamente 70 folhas brancas com pauta, porta caneta elástico, elástico para lacre e acompanha caneta de papelão com detalhes plásticos, carga esferográfica azul 1.0mm e acionamento por clique.",
     "code": "05064",
     "category": {
-      "main":[ "cadernos", "canetas"],
+      "imported":[ "cadernos", "canetas"],
       "holiday":[]
     },
     "measure": [
@@ -4063,7 +4063,7 @@
     "text": "planeje seu dia a dia com a nossa agenda diária 2025 de linho. organizar-se ficou ainda mais fácil! contém folhas para dados pessoais, calendários 2025 à 2027, planejamento 2025 e ddi.",
     "code": "06099",
     "category": {
-      "main":[ "cadernos", "canetas"],
+      "imported":[ "cadernos", "canetas"],
       "holiday":[]
     },
     "measure": [
@@ -4098,7 +4098,7 @@
     "text": "bloco de anotações ecológico, material em kraft. possui uma trava na própria capa, cinco blocos autoadesivos coloridos com aproximadamente 25 folhinhas , bloco autoadesivo amarelo com aproximadamente 25 folhas e bloco grande com aproximadamente 70 folhas",
     "code": "11911sb",
     "category": {
-      "main":[ "cadernos","canetas"],
+      "imported":[ "cadernos","canetas"],
       "holiday":[]
     },
     "measure": [
@@ -4125,7 +4125,7 @@
     "text": "caderno plástica wire-o com caneta e suporte para encaixe. caneta plástica com detalhe emborrachado, carga esferográfica na cor azul e acionamento por clique.",
     "code": "11193",
     "category": {
-      "main":[ "cadernos", "canetas"],
+      "imported":[ "cadernos", "canetas"],
       "holiday":[]
     },
     "measure": [
@@ -4160,7 +4160,7 @@
     "text": "descrição bloco de anotações ecológico, material em kraft. possui uma trava na própria capa, cinco blocos autoadesivos coloridos com aproximadamente 25 folhinhas , bloco autoadesivo amarelo com aproximadamente 25 folhas e bloco grande com aproximadamente 70 folhas.",
     "code": "11911sb",
     "category": {
-      "main":[ "cadernos", "canetas"],
+      "imported":[ "cadernos", "canetas"],
       "holiday":[]
     },
     "measure": [
@@ -4191,7 +4191,7 @@
     "text": "bloco de anotações kraft com wire-o. contém cinco blocos coloridos autoadesivos com aproximadamente 25 folhas, bloco amarelo autoadesivo com aproximadamente 25 folhas e bloco de folhas brancas pautadas com aproximadamente 70 folhas. acompanha mini caneta de papelão com acabamentos plásticos e acionamento por clique.",
     "code": "12244",
     "category": {
-      "main":[ "cadernos", "canetas"],
+      "imported":[ "cadernos", "canetas"],
       "holiday":[ ]
     },
     "measure": [
@@ -4226,7 +4226,7 @@
     "text": "bolsa de viagem dobrável 24 litros em poliéster impermeável com dois compartimentos. contém bolso para encaixe em malas de viagem.",
     "code": "02093",
     "category": {
-      "main":[ "bolsas"]
+      "imported":[ "bolsas"]
     },
     "measure": [
       "48x32x16cm"
@@ -4260,7 +4260,7 @@
     "text": "descrição uma bolsa que leva em conta as necessidades de quem espera por mais praticidade. feita em poliéster impermeável e com capacidade máxima expansível em até 25 litros através do compartimento inferior fechada em zíper, é uma ótima opção para viagens de curta ou longa distância. além do amplo espaço, ela conta com dois bolsos externos, incluindo um bolso com espaço para o encaixe de alças de malas de viagem e, com isso, é possível criar combinações práticas em deslocamentos. ainda é possível dobrar a bolsa enquanto vazia para guarda-la em malas ou caixas.",
     "code": "02093",
     "category": {
-      "main":[ "bolsas"]
+      "imported":[ "bolsas"]
     },
     "measure": [
       "52x35x21cm"
@@ -4294,7 +4294,7 @@
     "text": "bolsa esportiva de 39 litros em nylon resistente à água com três compartimentos, sendo um deles exclusivos para tênis. compartimento principal com bolso de zíper exclusivo para itens molhados. com bolso lateral telado e alças de mãos com suporte de juntura, a bolsa contém alça transversal removível e alça para engate em malas de viagem.",
     "code": "05096",
     "category": {
-      "main":[ "bolsas"]
+      "imported":[ "bolsas"]
     },
     "measure": [
       "51x28x28cm"
@@ -4328,7 +4328,7 @@
     "text": " caixa de som multimídia com luzes, suporte para celular e porta caneta. material plástico resistente na cor branca fosca, parte superior com falante vazado na área interna, pode ser utilizado como porta caneta ou suporte para celular. parte inferior branca leitosa com linhas em relevo, borracha inferior anti deslizante e alça de alumínio.",
     "code": "02017",
     "category": {
-      "main":[ "caixas de som"]
+      "imported":[ "caixas de som"]
     },
     "measure": [
       "14,1x9,8cm",
@@ -4363,7 +4363,7 @@
     "text": " com luzes, suporte para celular e porta caneta. material plástico resistente na cor branca fosca, parte superior com falante vazado na área interna, pode ser utilizado como porta caneta ou suporte para celular. parte inferior branca leitosa com linhas em relevo, borracha inferior anti deslizante e alça de alumínio.",
     "code": "04361",
     "category": {
-      "main":[ "caixas de som"]
+      "imported":[ "caixas de som"]
     },
     "measure": [
       "14,1x9,8cm",
@@ -4394,7 +4394,7 @@
     "text": "material plástico resistente a água, e falantes com acabamento em tecido, possui um cordão de nylon acoplado para facilitar o transporte. a caixinha funciona nos modos bluetooth, radio fm, cartão tf (micro sd), auxiliar e usb. possui bateria de longa duração, com autonomia de aproximadamente 35 horas continuas de reprodução. é possível emparelhar 2 caixinhas do mesmo modelo e executar o som sincronizado em ambas. acompanha cabo usb e cabo auxiliar p2",
     "code": "04362",
     "category": {
-      "main":[ "caixas de som"]
+      "imported":[ "caixas de som"]
     },
     "measure": [
       "10,5x9,5cm"
@@ -4428,7 +4428,7 @@
     "text": "qualidade sonora e conectividade total compatível com bluetooth, rádio fm, cartão tf (microsd) e pen drive. iluminação dinâmica, são 7 modos de iluminação rgb com movimentos diferentes. sua tecnologia tws permite sincronizar duas caixas de som em uma, criando uma experiência imersiva com qualidade sonora e potência excepcionais. a caixa de som executa nos modos rádio fm, cartão tf (microsd) e pen drive. acompanha cordão de nylon, cabo micro usb (v8) e plaquinha de alumínio para personalização.",
     "code": "08003",
     "category": {
-      "main":[ "caixas de som"]
+      "imported":[ "caixas de som"]
     },
     "measure": [
       "8,5x9cm"
@@ -4462,7 +4462,7 @@
     "text": "caneta plástica com detalhe emborrachado, carga esferográfica azul 1.0 mm e acionamento por clique.",
     "code": "00518",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1,5x14,4cm"
@@ -4496,7 +4496,7 @@
     "text": "caneta metálica com carga esferográfica azul 1.0 mm e acionamento por rotação",
     "code": "a1803a",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1x13,5cm"
@@ -4530,7 +4530,7 @@
     "text": "conjunto de caneta e lapiseira metálicas em estojo de metal. caneta e lapiseira possuem acabamento fosco, detalhe emborrachado na parte inferior, carga esferográfica azul de 1.0mm e acionamento por clique. estojo revestido em espuma.",
     "code": "06078",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "5,3x18x1,5cm"
@@ -4564,7 +4564,7 @@
     "text": "caneta esferográfica com carga azul de 1.0mm e acionamento por clique. de construção metálica, também possui ponteira emborrachada que permite seu uso como uma caneta touch para interação com dispositivos de tela sensível ao toque.",
     "code": "08185",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1,2x13,5cm"
@@ -4598,7 +4598,7 @@
     "text": "caneta metálica touchscreen com acabamento similar à borracha, acionamento por clique e carga esferográfica azul 1.0mm",
     "code": "05015",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1,5x14cm"
@@ -4632,7 +4632,7 @@
     "text": "caneta plástica com suporte para celular, ponteira touch screen e limpador de tela. carga esferográfica azul 1.0 mm e acionamento por rotação.",
     "code": "00708",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "2x15cm"
@@ -4666,7 +4666,7 @@
     "text": "caneta de papelão com detalhes plásticos, carga esferográfica azul 1.0 mm e acionamento por clique",
     "code": "00002",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1,5x14cm"
@@ -4700,7 +4700,7 @@
     "text": "decorativo.",
     "code": "02481",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "3,1x9cm"
@@ -4734,7 +4734,7 @@
     "text": "caneta plástica com ponteira touch screen, carga esferográfica azul 1.0 mm e acionamento por clique.",
     "code": "12638",
     "category": {
-      "main":[ "canetas"]
+      "imported":[ "canetas"]
     },
     "measure": [
       "1,5x14cm"
@@ -4764,7 +4764,7 @@
     "text": "chaveiro metal 3 em 1 abridor, cortador e lixa. parte central circular ideal para gravações, detalhe de traços no contorno circular. lado frontal com detalhes em relevo nas laterais e pequeno círculo acima do abridor. para utilizar o cortador basta rotacionar a peça cirular e levantá-la. acompanha correntinha.",
     "code": "05691",
     "category": {
-      "main":[ "chaveiros"]
+      "imported":[ "chaveiros"]
     },
     "measure": [
       "6x3cm"
@@ -4798,7 +4798,7 @@
     "text": "este chaveiro é uma ótima opção prática e multiuso. com argola em metal e corpo feito de madeira, ele apresenta uma abertura que abriga um abridor de garrafas também em metal, excelente para ter sempre à mão na hora de abrir refrigerantes ou cervejas em festas, churrascos, happy hours ou durante aquela refeição com a família ou os amigos.",
     "code": "06003",
     "category": {
-      "main":[ "chaveiros"]
+      "imported":[ "chaveiros"]
     },
     "measure": [
       "4x7x1cm"
@@ -4824,7 +4824,7 @@
     "text": "descrição um abridor de múltiplas utilidades em um chaveiro especial. feito em madeira e aço inox, este chaveiro polivalente, além de oferecer espaço para acomodar várias chaves, reúne em sua estrutura três diferentes tipos de faces um abridor de garrafas sob medida para uma boa cerveja, um saca-rolhas para abrir um vinho ou espumante próprio para celebrações e um canivete para abertura de lacres e outros tipos de embalagens.",
     "code": "06023",
     "category": {
-      "main":[ "chaveiros"]
+      "imported":[ "chaveiros"]
     },
     "measure": [
       "3,5x8,5cm"
@@ -4854,7 +4854,7 @@
     "text": "este chaveiro multifuncional para deixar o dia a dia mais prático. feito em metal a partir de um design próprio, ele é um eficiente abridor de garrafas e latinhas na medida certa para a abertura de refrigerantes ou cervejas de maneira simples em todas as ocasiões, unindo o útil ao agradável em uma só peça.",
     "code": "09824",
     "category": {
-      "main":[ "chaveiros"]
+      "imported":[ "chaveiros"]
     },
     "measure": [
       "1,2x1,3x6,5cm"
@@ -4888,7 +4888,7 @@
     "text": "chaveiro canivete 4 funções de metal liso(ambos lados). possui abridor de lata, lixa, lâmina de corte e abridor de garrafa.",
     "code": "10210",
     "category": {
-      "main":[ "chaveiros"]
+      "imported":[ "chaveiros"]
     },
     "measure": [
       "4x1,8cm"
@@ -4918,7 +4918,7 @@
     "text": "copo térmico de inox 350ml com parede dupla, parte inferior com borracha antideslizante e tampa rosqueável com abertura de bocal",
     "code": "14724p",
     "category": {
-      "main":[ "copos"]
+      "imported":[ "copos"]
     },
     "measure": [
       "8,8x14,8cm"
@@ -4952,7 +4952,7 @@
     "text": "copo de vidro borossilicato com capacidade de 500ml. inclui canudo e tampa de bambu com abertura para canudo, além de uma luva de silicone para melhor aderência.",
     "code": "01001",
     "category": {
-      "main":[ "copos"]
+      "imported":[ "copos"]
     },
     "measure": [
       "7x19,3cm"
@@ -4986,7 +4986,7 @@
     "text": "copo térmico de inox com acabamento liso e capacidade 500ml, material livre de bpa. contém tampa com abridor.",
     "code": "18645l",
     "category": {
-      "main":[ "copos"]
+      "imported":[ "copos"]
     },
     "measure": [
       "9x17cm"
@@ -5020,7 +5020,7 @@
     "text": "copo térmico de inox com acabamento liso e capacidade 500ml, material livre de bpa. contém tampa com abridor.",
     "code": "20x14x4",
     "category": {
-      "main":[ "kit-ferramentas"]
+      "imported":[ "kit-ferramentas"]
     },
     "measure": [
       "9x17cm"
@@ -5054,7 +5054,7 @@
     "text": "kit ferramenta 4 peças em estojo plástico com trava de segurança contém 2 chaves de fenda e 2 chaves phillips. ideal para pequenos reparos e manutenção em casa, escritório ou carro.",
     "code": "20x14x4",
     "category": {
-      "main":[ "kit-ferramentas"]
+      "imported":[ "kit-ferramentas"]
     },
     "measure": [
       "12,5x20,3x3cm"
@@ -5088,7 +5088,7 @@
     "text": "kit ferramenta 19 peças de maleta plástica com lanterna. necessário 4 pilhas aa para utilizar lanterna, possui botão para ligardesligar lanterna na alça e trava lateral no estojo. contém conjunto 10 pontas(4 chaves phillips, 2 chaves fenda, 3 chaves torx e um adaptador), chave canhão, adaptador chave de boca, mini chave de fenda, mini chave phillips, 4 extensores bocais(7mm, 8mm, 9mm e 10mm) e alicate.",
     "code": "20x14x4",
     "category": {
-      "main":[ "kit-ferramentas"]
+      "imported":[ "kit-ferramentas"]
     },
     "measure": [
       "6x2,5cm"
@@ -5122,7 +5122,7 @@
     "text": "caneca térmica com capacidade de 1,2 litros feita em inox 304 com parede dupla, contém tampa acrílica rosqueável com acesso para canudo e pegador plástico. acompanha canudo plástico.",
     "code": "06033",
     "category": {
-      "main":[ "copos"]
+      "imported":[ "copos"]
     },
     "measure": [
       "15x27cm"
@@ -5156,7 +5156,7 @@
     "text": "para aproveitar com qualidade aquele momento especial, precisamos dos utensílios certos. confira essa novidade kit de queijo com 2 peças, embalado em um estojo de papelão com berço de espuma, contendo um garfo e uma espátula.",
     "code": "06221",
     "category": {
-      "main":[ "diversos"]
+      "imported":[ "diversos"]
     },
     "measure": [
       "11,2x15,4x2,2cm"
@@ -5190,7 +5190,7 @@
     "text": "abridor de garrafas com design clássico e funcional. possui corpo metálico resistente, ideal para uso diário. seu cabo é feito em madeira natural, garantindo firmeza e conforto ao manuseio. combina praticidade com um toque rústico e elegante. perfeito para brindes personalizados ou uso doméstico.",
     "code": "01303",
     "category": {
-      "main":[ "bebidas"]
+      "imported":[ "bebidas"]
     },
     "measure": [
       "4x14x2cm"
@@ -5224,7 +5224,7 @@
     "text": "coqueteleira para shake com capacidade de 600ml, copo com detalhes laterais em relevo e escala de medições em ml e oz. tampa rosqueável com bocal e trava de segurança, acompanha misturador de mola.",
     "code": "12942",
     "category": {
-     "main":[ "bebidas", "copos"],
+     "mimported":[ "bebidas", "copos"],
       "holiday":[]
     },
     "measure": [
@@ -5260,7 +5260,7 @@
     "text": "suporte veicular com carregamento por indução. o produto contém hastes de ajuste automático. acompanha presilha para encaixe na saída de ar do veículo e cabo usb para ativação do modo indução.",
     "code": "04062",
     "category": {
-      "main":[ "carros", "diversos"],
+      "imported":[ "carros", "diversos"],
       "holiday":[]
     },
     "measure": [
@@ -5294,7 +5294,7 @@
     "text": "suporte veicular com carregamento por indução. o produto contém hastes de ajuste automático. acompanha presilha para encaixe na saída de ar do veículo e cabo usb para ativação do modo indução.",
     "code": "13488",
     "category": {
-      "main":[ "carros", "diversos"],
+      "imported":[ "carros", "diversos"],
       "holiday":[]
     },
     "measure": [
@@ -5328,7 +5328,7 @@
     "text": "sacola confeccionada em tnt resistente, ideal para brindes, eventos ou uso promocional. possui acabamento com costura termo selada, garantindo mais durabilidade. modelo sem alça, com abertura superior e furo vazado para fácil transporte. leve, prática e ecológica, substitui sacolas plásticas descartáveis.",
     "code": "02082n",
     "category": {
-      "main":[ "sacolas"]
+      "imported":[ "sacolas"]
     },
     "measure": [
       "24x35cm"
@@ -5361,7 +5361,7 @@
     "text": "durável e sustentável, a sacola de tnt é a alternativa ideal para substituir sacolas descartáveis. produzida em tnt de 116g/m² com costura termo selada e ampla profundidade, ela é resistente à água e projetada para suportar o uso diário.",
     "code": "08017",
     "category": {
-      "main":[ "sacolas", "bolsas"],
+      "imported":[ "sacolas", "bolsas"],
       "holiday":[]
     },
     "measure": [
@@ -5395,7 +5395,7 @@
     "text": "sacola ecológica feita em papel kraft, ideal para lojas, brindes e eventos. conta com alças torcidas também em papel, oferecendo praticidade e segurança no transporte. seu visual rústico combina com propostas sustentáveis e embalagens personalizadas. resistente e versátil, é uma alternativa ao uso de sacolas plásticas.",
     "code": "08017",
     "category": {
-      "main":[ "sacolas"]
+      "imported":[ "sacolas"]
     },
     "measure": [
       "29,5x40cm"
@@ -5428,7 +5428,7 @@
     "text": "sacola confeccionada em algodão cru, ideal para ações promocionais e uso no dia a dia. produto reutilizável, leve e sustentável, alinhado a práticas ecológicas. possui alças longas reforçadas, proporcionando conforto no transporte. superfície lisa, perfeita para personalização com estampas ou logotipos.",
     "code": "15089",
     "category": {
-      "main":[ "sacolas", "bolsas"],
+      "imported":[ "sacolas", "bolsas"],
       "holiday":[ ]
     },
     "measure": [
@@ -5462,7 +5462,7 @@
     "text": "sustentabilidade que fortalece marcas! a sacola tnt biodegradável é a escolha ideal para empresas que querem promover sua marca com consciência ambiental. feita em polipropileno bio com aditivo p-life, ela se decompõe de forma responsável, reduzindo o impacto no meio ambiente. sustentável e resistente, as sacolas possuem estrutura termo selada, proporcionando mais resistência e segurança no transporte. testada pelo rise e certificada conforme a norma saso 2879.",
     "code": "15175",
     "category": {
-      "main":[ "sacolas", "bolsas"],
+      "imported":[ "sacolas", "bolsas"],
       "holiday":[]
     },
     "measure": [
@@ -5496,7 +5496,7 @@
     "text": "sacola confeccionada em tnt 110g/m² com revestimento plástico laminado de acabamento metalizado. possui botão plástico na parte superior, garantindo um fechamento seguro e prático. design moderno e chamativo, ideal para eventos, brindes ou embalagens premium. material resistente e reutilizável, combina elegância com funcionalidade.",
     "code": "18537p",
     "category": {
-      "main":[ "sacolas",  "bolsas"],
+      "imported":[ "sacolas",  "bolsas"],
       "holiday":[]
     },
     "measure": [
@@ -5520,5 +5520,9 @@
       }
     ],
     "like": 0
+  },
+  {
+    "holiday": "dia dos pais",
+    "img": ""
   }
 ]

@@ -5,8 +5,9 @@ export interface GalleryItem {
 }
 
 export interface Category {
-  main: string;
+  main: string[];
   holiday: string[];
+  imported: string[];
 }
 
 export interface Product {

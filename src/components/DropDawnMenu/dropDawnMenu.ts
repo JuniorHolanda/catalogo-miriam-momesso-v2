@@ -5,6 +5,8 @@ import styled from "styled-components";
 export const SWrapper = styled.section`
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
     ${flex({align: 'start'})}
     gap:${({theme}) => theme.spaces.xLarge};
     padding:${({theme}) => theme.spaces.xLarge};
@@ -17,19 +19,41 @@ export const SNav = styled.nav`
     gap:${({theme}) => theme.spaces.xLarge};
     ${flex({direction: "column"})}
     color: ${({ theme }) => theme.colors.text};
+
+    h2 {
+        padding: 10px;
+        width: 100%;
+        text-align: start;
+        border-bottom: 2px solid;
+        color: ${({ theme }) => theme.colors.text};
+    }
     
     ul {
         ${flex({direction: "column", align: 'start'})}
-        width: 100%;
         ${flex({direction: "column", align: 'start'})}
+        width: 100%;
+
         li{
             ${flex({align: 'center', justfy: 'start'})}
             width: 100%;
             gap:${({theme}) => theme.spaces.xLarge};
+            transition: all.3s;
+            &:hover {
+                transform: translateX(10px);
+            }
 
-            img {
+            div {
                 width: 40px;
+                height: 40px;
                 border-radius: 300px;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    width: 100%;
+                    height: 100%;
+                }
             }
             span{
                 ${textLink}
