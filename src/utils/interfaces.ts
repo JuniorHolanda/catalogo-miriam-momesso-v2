@@ -22,4 +22,5 @@ export interface Product {
   measure: string[];
   gallery: GalleryItem[];
   like: number;
+  slug: string;
 }

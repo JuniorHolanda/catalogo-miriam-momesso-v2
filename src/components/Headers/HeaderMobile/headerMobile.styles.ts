@@ -1,5 +1,5 @@
 'use client';
-import { blurBg, flex } from '@/styles/mixins';
+import { flex } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const Swrapper = styled.section`
@@ -9,7 +9,6 @@ export const Swrapper = styled.section`
   ${flex({})}
   width: 100%;
   padding: ${({ theme }) => theme.spaces.medium};
-  ${blurBg}
 `;
 
 export const Snav = styled.nav`

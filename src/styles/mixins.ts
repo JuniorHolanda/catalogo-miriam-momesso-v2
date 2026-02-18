@@ -27,15 +27,3 @@ export const textLink = css`
 export const smoothTransition = css`
   transition: all 0.3s ease;
 `;
-
-export const blurBg = css`
-  &::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(20px);
-  }
-`;

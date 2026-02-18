@@ -4,14 +4,9 @@ import {
   Scard,
   ScontainerImg,
   ScontainerSlider,
-  Scontent,
-  Sdialog,
-  Ssection,
-  SwrapperBtnClose,
+  Scontent
 } from "./card.styled";
 
-
-import { IoClose } from "react-icons/io5";
 import { Product } from "@/utils/interfaces";
 import { useViewportContext } from "@/contexts/ViewportContext";
 import CustomLink from "@/components/ui/Link";
@@ -63,34 +58,6 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
   return (
     <Scard>
-      <Sdialog ref={dialogRef}>
-        <SwrapperBtnClose>
-          <button onClick={() => closePopup()}><IoClose /></button>
-        </SwrapperBtnClose>
-        <Ssection>
-          {listImg
-            .map((item, index) => {
-              const expand = getFlex(index, hovered);
-              return (
-                <ScontainerImg
-                  key={item._id}
-                  $expand={expand}
-                  onMouseEnter={() => setHovered(index)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <img
-                    src={item.img}
-                    alt={item.altImg}
-                  />
-                </ScontainerImg>
-              );
-            })}
-        </Ssection>
-        <CustomLink link="#">
-          Ver Produto
-        </CustomLink>
-      </Sdialog>
-
       <ScontainerSlider>
         {listImg
           .filter((_, index) => index < maxImgs)
@@ -107,7 +74,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
                 <img
                   onClick={(e) => openPopup()}
                   src={item.img}
-                  alt={item.altImg}
+                  alt={item.altimg}
                 />
               </ScontainerImg>
             );
@@ -115,8 +82,8 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
       </ScontainerSlider>
       <Scontent>
         <h1>{product.title}</h1>
-        <p>{product.smallText}</p>
-        <CustomLink link={`/produtos/${product._id}`}>
+        <p>{product.smalltext}</p>
+        <CustomLink link={`/produtos/${product.slug}`}>
           Ver Produto
         </CustomLink>
       </Scontent>
