@@ -1,35 +1,18 @@
 'use client';
 
-import { blurBg, boxShadow, flex, smoothTransition } from '@/styles/mixins';
+import { boxShadow, flex, smoothTransition } from '@/styles/mixins';
 import styled from 'styled-components';
 
-export const SHeader = styled.header`
-  ${flex({})}
-  ${blurBg} //pseudo elemento after com backdrop filter
+export const Scontainer = styled.header`
+  ${flex({ align: 'center', justfy:'space-between'})}
   ${boxShadow}
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 15vh;
-  background-color: ${({ theme }) => `${theme.colors.backgroundAccent}25`};
-  padding: ${({ theme }) => theme.spaces.large};
-  z-index: 3;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-`;
-
-export const Scontainer = styled.div`
-  ${boxShadow}
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 10vh;
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: ${({ theme }) => theme.spaces.medium};
   gap: ${({ theme }) => theme.spaces.small};
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border-radius: ${({ theme }) => theme.borderRadios.Xlarge};
-  z-index: 2;
+  z-index: 3;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 export const ScontainerLogo = styled.div`
   display: flex;
