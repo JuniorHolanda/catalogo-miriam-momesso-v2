@@ -33,8 +33,6 @@ type SsectionProps = {
 export const Ssection = styled.section<SsectionProps>`
   position: relative;
   z-index: 0;
-  margin-top: ${({ $viewPortStyle, theme }) =>
-    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? 0 : `calc(10vh + ${theme.spaces.xLarge})`};
   margin-bottom: ${({ $viewPortStyle, theme }) =>
     $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? `calc(12vh + ${theme.spaces.xLarge})` : 0};
   ${flex({ align: 'center', justfy: 'start' })}
@@ -42,10 +40,9 @@ export const Ssection = styled.section<SsectionProps>`
   width: 100%;
   height: ${({ $viewPortStyle, theme }) =>
     $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
-      ? `calc(85vh - ${theme.spaces.xLarge})`
-      : '100vh'};
+      ? '90dvh'
+      : '100dvh'};
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.borderRadios.Xlarge};
   background-color: ${({ theme }) => theme.colors.backgroundAccent};
 `;
 

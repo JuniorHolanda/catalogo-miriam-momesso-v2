@@ -6,7 +6,6 @@ import styled from "styled-components";
 export const Scontainer = styled.div`
   ${flex({})}
   flex-direction: column;
-  padding: 20px;
   background-color: ${({ theme }) => theme.colors.backgroundBase};
   display: flex;
 
