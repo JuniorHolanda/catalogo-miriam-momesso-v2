@@ -1,5 +1,5 @@
 'use client'
-import { flex, textLink } from "@/styles/mixins";
+import { flex, } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const SWrapper = styled.section`
@@ -8,7 +8,7 @@ export const SWrapper = styled.section`
     left: 50%;
     transform: translateX(-50%);
     ${flex({align: 'start'})}
-    gap:${({theme}) => theme.spaces.xLarge};
+    ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
     padding:${({theme}) => theme.spaces.xLarge};
     border-radius: ${({theme}) => theme.spaces.large};
     background-color: #ffffffb7;
@@ -16,7 +16,7 @@ export const SWrapper = styled.section`
 `;
 
 export const SNav = styled.nav`
-    gap:${({theme}) => theme.spaces.xLarge};
+    ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
     ${flex({direction: "column"})}
     color: ${({ theme }) => theme.colors.text};
 
@@ -36,7 +36,7 @@ export const SNav = styled.nav`
         li{
             ${flex({align: 'center', justfy: 'start'})}
             width: 100%;
-            gap:${({theme}) => theme.spaces.xLarge};
+            ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
             transition: all.3s;
             &:hover {
                 transform: translateX(10px);

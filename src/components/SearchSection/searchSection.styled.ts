@@ -2,11 +2,10 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
-import { flex } from '@/styles/mixins';
+import { borderRadius, flex, gap, padding } from '@/styles/mixins';
 import { rotatePendulum } from '@/styles/animations';
 
 export const ScontainerCardProduct = styled.ul`
-  ${flex({})}
   position: absolute;
   transform: translateX(-50%);
   top: 110%;
@@ -33,17 +32,14 @@ type SsectionProps = {
 export const Ssection = styled.section<SsectionProps>`
   position: relative;
   z-index: 0;
-  margin-bottom: ${({ $viewPortStyle, theme }) =>
-    $viewPortStyle === 'sm' || $viewPortStyle === 'md' ? `calc(12vh + ${theme.spaces.xLarge})` : 0};
   ${flex({ align: 'center', justfy: 'start' })}
-  padding: ${({ theme }) => theme.spaces.xLarge};
+  ${padding({spaceKey: 'md'})}
   width: 100%;
   height: ${({ $viewPortStyle, theme }) =>
     $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
       ? '90dvh'
       : '100dvh'};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.backgroundAccent};
 `;
 
 export const SbrutalSymbol = styled.span`
@@ -70,8 +66,8 @@ export const SformInSection = styled.form<SformInSectionProps>`
   top: ${(props) => (props.$props === true ? '15%' : '50%')};
   left: 50%;
   ${flex({ direction: 'column' })};
-  padding: ${({ theme }) => theme.spaces.medium};
-  gap: ${({ theme }) => theme.spaces.medium};
+  ${padding({spaceKey: 'md'})}
+  ${gap({spaceKey: 'md'})} 
   flex: 0.5;
   height: fit-content;
   width: fit-content;
@@ -81,7 +77,6 @@ export const SformInSection = styled.form<SformInSectionProps>`
 
 
 export const Stitle = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
   font-weight: 500;
 `;
 
@@ -104,13 +99,11 @@ export const ScontainerInput = styled.div`
 
   input {
     ${flex({})}
-    border-radius: ${({ theme }) => theme.borderRadios.large};
+    ${(borderRadius({radiusKey:'md'}))}
     overflow: hidden;
     width: 100%;
     height: 100%;
-    padding: ${({ theme }) => theme.spaces.medium};
+  ${padding({spaceKey: 'md'})}
     color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.fonts.commonFont};
-    font-size: ${({ theme }) => theme.fontSize.small};
   }
 `;

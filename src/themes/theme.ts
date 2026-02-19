@@ -1,89 +1,129 @@
 export const defaultTheme = {
   fonts: {
-    titleFont: 'var(--font-title), sans-serif',
-    commonFont: 'var(--font-common), sans-serif',
+    primary: 'var(--font-primary), sans-serif',
+    secondary: 'var(--font-secondary), sans-serif',
   },
 
   spaces: {
-    microSmall: '3px',
-    small: '5px',
-    medium: '15px',
-    large: '20px',
-    xLarge: '35px',
+    msm: '3px',
+    sm: '5px',
+    md: '15px',
+    lg: '20px',
+    xlg: '35px',
+  },
+
+  border: {
+    sm: '1px',
+    md: '2px',
+    lg: '5px',
   },
 
   fontSize: {
-    microSmall: 'clamp(0.5rem, 1vw, 1rem)',
-    small: 'clamp(0.9rem, 1vw, 2rem)',
-    medium: 'clamp(1rem, 2vw, 2rem)',
-    large: 'clamp(2rem, 4vw, 4rem)',
-  },
-
-  borderRadios: {
-    minimum: '3px',
-    small: '5px',
-    medium: '10px',
-    large: '20px',
-    Xlarge: '30px',
+    sm: 'clamp(0.5rem, 1vw, 1rem)',
+    md: 'clamp(0.9rem, 1vw, 2rem)',
+    lg: 'clamp(1rem, 2vw, 2rem)',
+    xlg: 'clamp(2rem, 4vw, 4rem)',
   },
 };
 
 export const lightTheme = {
   ...defaultTheme,
   colors: {
-    backgroundBase: '#ebebeb', // principal
-    backgroundSurface: '#d6d6d6', // sessões
-    backgroundMuted: '#ffffff', // neutro
-    backgroundAccent: '#8daef2', // áreas de destaque
+    background: {
+      high: '#ffffff',
+      medium: '#f3f3f3',
+      surface: '#e7e7e7ff',
+      base: '#d3d3d3ff',
+      reverse: '#27252eff',
+    },
 
-    text: '#1e152a',
-    textAccent: '#ebebeb',
-    textMuted: '#a3a3a3',
-    textHover: '#f58415',
-    btn: '#1c1c1dff',
-    btnHover: '#f58415',
+    pallet: {
+      primary: '#244cff',
+      secondary: '#ffbb25ff',
+    },
 
-    border: '#ffffff49',
+    title: {
+      primary: '#',
+      secondary: '#ffffff',
+      reverse: '#232324',
+    },
 
-    primary: '#275af2',
-    primaryHover: '#0031c4',
-    secondary: '#F4E04D',
-    secondaryHover: '#f58415',
+    text: {
+      text: '#27252eff',
+      textMain: '#151516ff',
+      reverseText: '#d9d9d9ff',
+    },
+
+    link: {
+      primary: '#244cff',
+      activePrimary: '#3895ff',
+      secondary: '#ffbb25ff',
+      reverse: '#ffffff',
+    },
+
+    border: {
+      default: '#f3f3f3',
+      active: '#244cff',
+      error: '#e76060ff',
+    },
+
+    button: {
+      default: '#d3d3d3ff',
+      defaultHover: '#706aa4ff',
+      primary: '#4ed1adff',
+      primaryHover: '#ffbb25ff',
+    },
   },
-
-  transparence: {
-    primary: '#ffffff42',
-    secondary: '#ffffff86',
-  },
-};
+}
 
 export const darkTheme = {
   ...defaultTheme,
   colors: {
-    backgroundBase: '#1c1c1dff', // principal
-    backgroundSurface: '#343438ff', // sessões
-    backgroundMuted: '#414141ff', // neutro
-    backgroundAccent: '#1b142bff', // áreas de destaque
+      background: {
+      high: '#ffffffff',
+      medium: '#f0f0f0ff',
+      surface: '#e7e7e7ff',
+      base: '#d3d3d3ff',
+      reverse: '#27252eff',
+    },
 
-    text: '#cececeff',
-    textAccent: '#ffffffff',
-    textMuted: '#a3a3a3ff',
-    textHover: '#f58415',
-    btn: '#275af2',
-    btnHover: '#0031c4ff',
+    pallet: {
+      primary: '#244cff',
+      secondary: '#ffbb25ff',
+    },
 
-    border: '#0000001e',
+    title: {
+      primary: '#232324',
+      secondary: '#244cff',
+      reverse: '#ffffff'
+    },
 
-    primary: '#275af2',
-    primaryHover: '#0031c4ff',
-    secondary: '#F4E04D',
-    secondaryHover: '#f58415',
-  },
+    text: {
+      text: '#d3d3d3ff',
+      textMain: '#ffffffff',
+      reverseText: '#27252eff',
+    },
 
-  transparence: {
-    primary: '#ffffff42',
-    secondary: '#ffffff86',
+    link: {
+      primary: '#f0f0f0ff',
+      secondary: '#706aa4ff',
+      reverse: '#d9d9d9ff',
+    },
+
+    border: {
+      default: '#414141ff',
+      active: '#706aa4ff',
+      error: '#e76060ff',
+    },
+
+    button: {
+      default: '#d3d3d3ff',
+      defaultHover: '#706aa4ff',
+      primary: '#4ed1adff',
+      primaryHover: '#ffbb25ff',
+    },
   },
 };
+
 
 export type Theme = typeof lightTheme;
