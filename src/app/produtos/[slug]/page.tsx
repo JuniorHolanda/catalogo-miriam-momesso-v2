@@ -3,6 +3,8 @@ import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SStar, 
 import { useProducts } from "@/contexts/Product.context";
 import { notFound } from "next/navigation";
 import { useParams } from 'next/navigation';
+import { FaBox, FaHeart } from "react-icons/fa";
+import { IoMdShare } from "react-icons/io";
 
 
 export default function ProductPage () {
@@ -43,12 +45,22 @@ export default function ProductPage () {
             </SMainImg>
             <SContent>
                 <h1>{product?.title}</h1>
+                <hr />
                 <p>{product?.text}</p>
+                <hr />
                 <div>
-                    <button>compartilhar</button>
-                    <button>gostei</button>
-                    <button>coleção</button>
-                    <button>orçamento</button>
+                    <button>
+                        <IoMdShare />
+                        compartilhar
+                    </button>
+                    <button>
+                        <FaHeart/>
+                        gostei
+                    </button>
+                    <button>
+                        <FaBox />
+                        coleção
+                    </button>
                 </div>
             </SContent>
             <SInfo>

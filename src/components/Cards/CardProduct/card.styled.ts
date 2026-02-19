@@ -1,6 +1,6 @@
 'use client';
 import styled, { css } from 'styled-components';
-import { flex } from '@/styles/mixins';
+import { flex, gap, padding } from '@/styles/mixins';
 
 export const Scard = styled.article`
   display: flex;
@@ -9,11 +9,9 @@ export const Scard = styled.article`
   min-width: 400px;
   max-width: 600px;
   height: 100%;
-  gap: ${({ theme }) => theme.spaces.small};
-  padding: ${({ theme }) => theme.spaces.small};
-  border-radius: ${({ theme }) => theme.spaces.medium};
+  ${gap({spaceKey: 'md'})} 
+  ${padding({spaceKey: 'md'})}
   overflow: hidden;
-  background: ${({ theme }) => `${theme.transparence.primary}`};
   backdrop-filter: blur(10px);
 `;
 
@@ -21,9 +19,8 @@ export const ScontainerSlider = styled.section`
   display: flex;
   flex-direction: row;
   height: 60%;
-  gap: ${({ theme }) => theme.spaces.small};
-  padding: ${({ theme }) => theme.spaces.small};
-  border-radius: ${({ theme }) => theme.spaces.medium};
+  ${gap({spaceKey: 'md'})} 
+  ${padding({spaceKey: 'md'})}
   overflow: hidden;
 `;
 
@@ -32,7 +29,6 @@ export const ScontainerImg = styled.div<{ $expand: number }>`
   flex: ${({ $expand }) => $expand};
   height: 100%;
   min-width: 100px;
-  border-radius: ${({ theme }) => theme.spaces.medium};
   overflow: hidden;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
@@ -53,13 +49,12 @@ export const Scontent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  gap: ${({ theme }) => theme.spaces.small};
-  padding: ${({ theme }) => theme.spaces.small} ${({ theme }) => theme.spaces.medium};
+  ${gap({spaceKey: 'md'})}
+  ${padding({spaceKey: 'md'})}
   width: 100%;
   height: 40%;
   overflow: hidden;
   z-index: 1;
-  border-radius: ${({ theme }) => theme.spaces.medium};
 
   h1 {
     font-weight: 100;
@@ -94,7 +89,6 @@ export const Sdialog = styled.dialog`
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  border-radius: ${({ theme }) => theme.spaces.medium};
   padding: 16px;
   width: 90%;
   height: 90%;
@@ -124,7 +118,7 @@ export const SwrapperBtnClose = styled.div`
     cursor: pointer;
     height: auto;
     width: fit-content;
-    padding: ${({ theme }) => theme.spaces.small};
+  ${padding({spaceKey: 'md'})}
     outline: none;
   }
 `;
@@ -137,7 +131,6 @@ export const Ssection = styled.section`
 
   div {
     display: flex;
-    gap: 10px;
     overflow: hidden;
     height: 100%;
     width: 100%;

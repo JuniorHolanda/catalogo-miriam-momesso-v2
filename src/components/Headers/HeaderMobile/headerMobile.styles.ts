@@ -1,5 +1,5 @@
 'use client';
-import { flex } from '@/styles/mixins';
+import { borderRadius, flex, gap, padding } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const Swrapper = styled.section`
@@ -8,18 +8,15 @@ export const Swrapper = styled.section`
   left: 0;
   ${flex({})}
   width: 100%;
-  padding: ${({ theme }) => theme.spaces.medium};
+  ${padding({spaceKey: 'md'})}
 `;
 
 export const Snav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.primary};
-  gap: ${({ theme }) => theme.spaces.medium};
-  padding: ${({ theme }) => theme.spaces.medium};
+  ${gap({spaceKey: 'md'})} 
+  ${padding({spaceKey: 'md'})}
   width: 100%;
-  border-radius: ${({ theme }) => theme.borderRadios.large};
-  font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.colors.textAccent};
+  ${(borderRadius({radiusKey:'md'}))}
   z-index: 2;
 `;

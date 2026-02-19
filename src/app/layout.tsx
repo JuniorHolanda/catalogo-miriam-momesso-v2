@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import { Roboto, Changa_One } from "next/font/google";
 import StyledComponentsRegistry from '@/lib/registry'
 import { AppThemeProvider } from "@/contexts/ThemeContext";
-import { useViewportContext, ViewportProvider } from "@/contexts/ViewportContext";
-import HeaderDesktop from "@/components/Headers/HeaderDesktop";
+import { ViewportProvider } from "@/contexts/ViewportContext";
 import { Product } from "@/utils/interfaces";
 import { getProducts } from "@/services/getProductMomesso";
 import HeaderSwitcher from "@/components/Headers/HeaderSwitcher/HeaderSwitcher";
 import { ProductsProvider } from "@/contexts/Product.context";
 const changaOne = Changa_One({
-  variable: "--font-title",
+  variable: "--font-primary",
   subsets: ["latin"],
   weight: "400",
 });
 
 const roboto = Roboto({
-  variable: "--font-common",
+  variable: "--font-secondary",
   subsets: ["latin"],
 });
 

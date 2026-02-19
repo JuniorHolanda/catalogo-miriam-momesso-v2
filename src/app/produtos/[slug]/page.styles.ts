@@ -1,6 +1,6 @@
 'use client';
 
-import { flex } from "@/styles/mixins";
+import { flex, font, gap } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const SWrapper = styled.main`
@@ -9,7 +9,6 @@ export const SWrapper = styled.main`
     width: 100%;
     height: 90dvh;
     overflow: hidden;
-    background-color: #e9e9e9;
 `;
 
 export const SStar = styled.span`
@@ -18,6 +17,7 @@ export const SStar = styled.span`
     left: -40%;
     z-index: 0;
     rotate: 10deg;
+    scale: 150%;
 `;
 
 export const SSection = styled.section`
@@ -27,7 +27,7 @@ export const SSection = styled.section`
     justify-self: center;
     width: 70%;
     height: 100%;
-    gap: 10px;
+    ${gap({spaceKey: 'md'})}
     padding: 30px;
 `;
 
@@ -36,14 +36,13 @@ export const SGallery = styled.div`
     display: flex;
     flex-wrap: wrap;
     grid-template: 1fr 1fr / 1fr 1fr;
-    gap: ${({ theme }) => theme.spaces.medium};
     width: 100%;
     height: 100%;
 
     div{
         display: flex;
         flex: 1 1 48%;
-            max-height: 220px;
+        max-height: 220px;
 
         img{
             width: 100%;
@@ -52,7 +51,6 @@ export const SGallery = styled.div`
             object-position: center;
             border-radius: 30px;
         }
-
     }
 `;
 
@@ -72,38 +70,54 @@ export const SMainImg = styled.div`
 `;
 
 export const SContent = styled.div`
+    position: relative;
     ${flex({direction: 'column', align: 'start'})};
     grid-area: 2 / 1 / 4 / 2 ;
     backdrop-filter: blur(30px);
-    border: solid 2px #c5c5c51f;
+    border: solid 1.5px #ffffff44;
+    background-image: linear-gradient(10deg, #ffffff63, #2929293d);
     border-radius: 30px;
     overflow: hidden;
     padding: 30px;
-    gap: 10px;
+    ${gap({spaceKey: 'md'})}
+
 
     h1 {
-        font-family: ${({ theme }) => theme.fonts.titleFont};
-        color: white;
-        font-weight: 400;
-        font-size: 3em;
+        ${font({fontKey: 'primary', sizeKey: 'xlg'})}
+        color: ${({theme}) => theme.colors.title.secondary};
+        font-weight: 500;
     }
 
-        p {
-        font-family: ${({ theme }) => theme.fonts.commonFont};
+    p {
+        ${font({fontKey: 'secondary', sizeKey: 'xlg'})}
+        ${(flex({}))}
         color: white;
-        font-weight: 300;
+        font-weight: 600;
+        letter-spacing: 1px;
         font-size: 1em;
+        height: 100%;
     }
 
     div {
-        ${flex({})}
-        gap: 10px;
+        ${flex({align: 'end', justfy: 'end'})}
+        ${gap({spaceKey: 'md'})}
+        width: 100%;
+        height: auto;
         
         button {
+            ${flex({})}
+            ${font({fontKey: 'secondary', sizeKey: 'sm'})}
+            ${gap({spaceKey: 'md'})}
+            font-weight: 600;
             padding: 5px 15px;
-            background-color: #ffffff;
-            border-radius: 50px;
-            color: #000;
+            background-color: ${({ theme}) => theme.colors.background.high};
+            color: ${({ theme}) => theme.colors.link.primary};
+            border-radius: 10px;
+            transition: all.2s ease-in-out;
+
+            &:hover {
+                color: ${({ theme}) => theme.colors.link.activePrimary};
+            }
         }
     }
     
@@ -119,7 +133,7 @@ export const SContent = styled.div`
 export const SInfo = styled.div`
     grid-area: 3 / 2 / 4 / 3 ;
     ${flex({ direction: "column", align: 'start'})};
-    gap: 10px;
+    ${gap({spaceKey: 'md'})}
     padding: 10px;
     border: solid 2px #36363627;
     overflow: hidden;
@@ -130,9 +144,9 @@ export const SInfo = styled.div`
     
     div {
         ${flex({})};
-        gap: 10px;
-        font-family: ${({ theme }) => theme.fonts.commonFont};
-        font-size: .7em;     
+        ${gap({spaceKey: 'md'})}
+        font-size: .7em;
+        border: solid #456523;
     }
 `;
 
@@ -143,11 +157,10 @@ width: 100%;
     span {
     ${flex({})}
     padding: 5px 15px;
-    gap: 10px;
+    ${gap({spaceKey: 'md'})}
     height: fit-content;
     border-radius: 30px;
     background-color:  #fff;
-    font-family: ${({ theme }) => theme.fonts.commonFont};
     font-weight: 600;
     font-size: 1.5em;
     font-style: italic;

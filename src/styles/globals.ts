@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-// 🔹 Cria um componente global de estilos
 export const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
@@ -11,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html, body {
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.backgroundBase};
+    background-color: ${({ theme }) => theme.colors.background.medium};
     color: ${({ theme }) => theme.colors.text};
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -42,26 +41,11 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-  /*scroll bar
-  &::-webkit-scrollbar {
-    width: 8px;
+  hr {
+  all: unset;       
+  display: block;
+  height: 1px;
+  border-top: solid 1px ${({theme}) => theme.colors.border.default};
+  width: 100%;
   }
-
-  &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.backgroundSurface};
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.primary};
-    border-radius: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  // sroll bar fireFox
-  scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => theme.colors.primary} ${({ theme }) => theme.colors.secondary};
-*/
 `;

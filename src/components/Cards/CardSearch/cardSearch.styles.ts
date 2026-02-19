@@ -1,11 +1,11 @@
-import { boxShadow, flexCenter } from "@/styles/mixins";
+import { borderRadius, flex, font, gap, padding } from "@/styles/mixins";
 import Link from "next/link";
 import styled from "styled-components";
 
 export const Slink = styled(Link)`
   display: grid;
   grid-template: auto 1fr / 1fr 1fr;
-  gap: ${({ theme }) => theme.spaces.small};
+  ${gap({spaceKey: 'md'})}
   width: 100%;
   height: 100%;
 `;
@@ -15,16 +15,16 @@ export const ScontainerCategory = styled.div`
   grid-area: 1/1/2/3;
   display: flex;
   justify-content: flex-end;
-  gap: ${({ theme }) => theme.spaces.small};
+  ${gap({spaceKey: 'md'})}
   width: 100%;
   height: 100%;
 
   span {
-    background-color: ${({ theme }) => `${theme.colors.backgroundAccent}50`};
-    padding: ${({ theme }) => theme.spaces.small};
-    border-radius: ${({ theme }) => theme.borderRadios.small};
-    font-family: ${({ theme }) => theme.fonts.commonFont};
-  }
+    background-color: ${({theme}) => theme.colors.background.high};
+    ${padding({spaceKey: 'md'})}
+    ${borderRadius({radiusKey:'sm'})}
+    ${font({fontKey: 'secondary', sizeKey:'sm'})}
+}
 `;
 
 export const ScontainerText = styled.div`
@@ -32,7 +32,7 @@ export const ScontainerText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: ${({ theme }) => theme.borderRadios.medium};
+  ${(borderRadius({radiusKey:'md'}))}
   width: 100%;
   height: 100%;
   color: ${({ theme }) => theme.colors.text};
@@ -49,7 +49,7 @@ export const ScontainerText = styled.div`
 `;
 
 export const ScontainerInput = styled.div`
-  ${flexCenter};
+  ${flex({})};
   width: 100%;
   height: 100%;
   
@@ -69,11 +69,11 @@ export const ScontainerInput = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: ${({ theme }) => theme.borderRadios.large};
+    ${(borderRadius({radiusKey:'md'}))}
     overflow: hidden;
     width: 100%;
     height: 100%;
-    padding: ${({ theme }) => theme.spaces.medium};
+  ${padding({spaceKey: 'md'})}
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.commonFont};
     font-size: ${({ theme }) => theme.fontSize.small};
@@ -81,17 +81,17 @@ export const ScontainerInput = styled.div`
 `;
 
   export const ScontainerImg = styled.div`
-${flexCenter}
-  border-radius: ${({ theme }) => theme.borderRadios.medium};
-  gap: ${({ theme }) => theme.spaces.small};
+${flex({})}
+    ${(borderRadius({radiusKey:'md'}))}
+  ${gap({spaceKey: 'md'})} 
   width: 100%;
   height: 100%;
 
   div {
-    ${flexCenter}
+    ${flex({})}
     width: 50%;
     overflow: hidden;
-    border-radius: ${({ theme }) => theme.borderRadios.medium};
+    ${(borderRadius({radiusKey:'md'}))}
 
     img {
       object-fit: cover;
