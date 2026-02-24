@@ -21,8 +21,8 @@ export const defaultTheme = {
   fontSize: {
     sm: 'clamp(0.5rem, 1vw, 1rem)',
     md: 'clamp(0.9rem, 1vw, 2rem)',
-    lg: 'clamp(1rem, 2vw, 2rem)',
-    xlg: 'clamp(2rem, 4vw, 4rem)',
+    lg: 'clamp(2rem, 4vw, 8rem)',
+    xlg: 'clamp(2rem, 8vw, 10rem)',
   },
 };
 
@@ -39,6 +39,7 @@ export const lightTheme = {
 
     pallet: {
       primary: '#244cff',
+      primaryUp: '#111774',
       secondary: '#ffbb25ff',
     },
 
@@ -72,6 +73,12 @@ export const lightTheme = {
       defaultHover: '#706aa4ff',
       primary: '#4ed1adff',
       primaryHover: '#ffbb25ff',
+    },
+
+    opacity: {
+      base: '#d3d3d357',
+      primary: '#244cff5b',
+      reverse: '#00000042',
     },
   },
 }
@@ -121,6 +128,12 @@ export const darkTheme = {
       defaultHover: '#706aa4ff',
       primary: '#4ed1adff',
       primaryHover: '#ffbb25ff',
+    },
+
+    opacity: {
+      base: '#00000042',
+      primary: '#244cff5b',
+      reverse: '#d3d3d357',
     },
   },
 };

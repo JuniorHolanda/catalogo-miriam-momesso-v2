@@ -55,7 +55,7 @@ export default function () {
             </SbrutalSymbol>
 
             <SformInSection $props={animationInput}>
-                <Stitle>Sim, Temos o seu brinde</Stitle>
+                <Stitle>Sim, Temos o seu brinde.</Stitle>
                 <ScontainerInput>
                     <label htmlFor="search">Digite sua busca</label>
                     <input

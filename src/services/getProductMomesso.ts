@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Product } from "@/utils/interfaces";
 
-const API_URL = 'https://api-product-miriam-momesso-v2-next-b0xb.onrender.com/produtos'
+const API_URL = 'https://api-product-miriam-momesso-v2-next-2tly.onrender.com/produtos'
 
 export async function getProducts(): Promise<Product[]> {
 
