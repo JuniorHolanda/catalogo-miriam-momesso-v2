@@ -19,17 +19,16 @@ export const Ssection = styled.section<SsectionProps>`
       ? '90dvh'
       : '100dvh'};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.pallet.primaryUp};
+  background-color: ${({ theme }) => theme.colors.background.base};
 `;
 
 export const SbrutalSymbol = styled.span`
   position: absolute;
-  top: -50%;
-  left: -20%;
+  top: -80%;
+  left: -40%;
   z-index: 20;
-  width: clamp(200px, 50em, 80vw);
+  width: clamp(200px, 800em, 100vw);
   animation: ${rotatePendulum} 25s ease-in-out alternate-reverse infinite;
-  opacity: 0.2;
 
   img {
     width: 100%;
@@ -38,14 +37,22 @@ export const SbrutalSymbol = styled.span`
 
 export const ScontainerCardProduct = styled.ul`
   position: absolute;
-  transform: translateX(-50%);
   top: 110%;
   left: 50%;
+  ${flex({})}
+  ${padding({spaceKey:'md'})}
+  ${borderRadius({radiusKey:'md'})}
+  border: solid 1px ${({ theme }) => theme.colors.opacity.primary} ;
   width: 90vw;
   height: 50vh;
-  border-radius: 30px;
+  transform: translateX(-50%);
+  background-color: ${({ theme }) => theme.colors.opacity.base};
+  backdrop-filter: blur(10px);
 
+  
+  
   .swiper-container {
+    ${borderRadius({radiusKey:'sm'})}
     padding: 0 50px;
     height: 100%;
   }
@@ -77,8 +84,9 @@ export const SformInSection = styled.form<SformInSectionProps>`
 
 export const Stitle = styled.h1`
   ${font({fontKey:'primary', sizeKey:'lg'})}
-  color: ${({ theme }) => theme.colors.title.secondary};
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.title.reverse};
+  font-weight: 100;
+
 `;
 
 export const ScontainerInput = styled.div`

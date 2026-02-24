@@ -55,17 +55,6 @@ export const borderRadius = ({radiusKey = 'md'}: propsBorderRadius) => css`
   border-radius: ${({theme}) => theme.spaces[radiusKey]};
 `;
 
-type propsBorder = {
-  borderKey: keyof typeof defaultTheme.border;
-  dashKey?:  | "solid" | "dashed" | "dotted";
-}
-
-export const border = ({borderKey = 'md', dashKey = 'solid'}: propsBorder) => css`
-  border-width:  ${({theme}) => theme.spaces[borderKey]};
-  border-style: ${dashKey};
-`;
-
-
 
 
 
