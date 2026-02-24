@@ -12,15 +12,9 @@ export const defaultTheme = {
     xlg: '35px',
   },
 
-  border: {
-    sm: '1px',
-    md: '2px',
-    lg: '5px',
-  },
-
   fontSize: {
     sm: 'clamp(0.5rem, 1vw, 1rem)',
-    md: 'clamp(0.9rem, 1vw, 2rem)',
+    md: 'clamp(0.9rem, 1.2vw, 2rem)',
     lg: 'clamp(2rem, 4vw, 8rem)',
     xlg: 'clamp(2rem, 8vw, 10rem)',
   },
@@ -33,18 +27,19 @@ export const lightTheme = {
       high: '#ffffff',
       medium: '#f3f3f3',
       surface: '#e7e7e7ff',
-      base: '#d3d3d3ff',
+      base: 'rgb(221, 221, 221)',
       reverse: '#27252eff',
     },
 
     pallet: {
       primary: '#244cff',
       primaryUp: '#111774',
-      secondary: '#ffbb25ff',
+      secondary: '#d68710',
+      secondaryUP: '#ff711f',
     },
 
     title: {
-      primary: '#',
+      primary: '#244cff',
       secondary: '#ffffff',
       reverse: '#232324',
     },
@@ -76,7 +71,7 @@ export const lightTheme = {
     },
 
     opacity: {
-      base: '#d3d3d357',
+      base: '#d3d3d32f',
       primary: '#244cff5b',
       reverse: '#00000042',
     },

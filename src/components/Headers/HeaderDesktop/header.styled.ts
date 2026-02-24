@@ -12,7 +12,7 @@ export const Scontainer = styled.header`
   height: 10vh;
   background-color: ${({ theme }) => theme.colors.pallet.primary};
   z-index: 3;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.default};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.opacity.base};
 `;
 export const ScontainerLogo = styled.div`
   display: flex;
