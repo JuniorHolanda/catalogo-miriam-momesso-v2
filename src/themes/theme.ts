@@ -4,19 +4,19 @@ export const defaultTheme = {
     secondary: 'var(--font-secondary), sans-serif',
   },
 
+  fontSize: {
+    sm: 'clamp(0.5rem, 1vw, 1rem)',
+    md: 'clamp(0.9rem, 3vw, 5rem)',
+    lg: 'clamp(2rem, 4vw, 8rem)',
+    xlg: 'clamp(2rem, 8vw, 10rem)',
+  },
+
   spaces: {
     msm: '3px',
     sm: '5px',
     md: '15px',
     lg: '20px',
     xlg: '35px',
-  },
-
-  fontSize: {
-    sm: 'clamp(0.5rem, 1vw, 1rem)',
-    md: 'clamp(0.9rem, 1.2vw, 2rem)',
-    lg: 'clamp(2rem, 4vw, 8rem)',
-    xlg: 'clamp(2rem, 8vw, 10rem)',
   },
 };
 
@@ -47,13 +47,13 @@ export const lightTheme = {
     text: {
       text: '#27252eff',
       textMain: '#151516ff',
-      reverseText: '#d9d9d9ff',
+      reverseText: 'rgb(255, 255, 255)',
     },
 
     link: {
       primary: '#244cff',
       activePrimary: '#3895ff',
-      secondary: '#ffbb25ff',
+      secondary: '#d68710',
       reverse: '#ffffff',
     },
 
@@ -67,13 +67,13 @@ export const lightTheme = {
       default: '#d3d3d3ff',
       defaultHover: '#706aa4ff',
       primary: '#4ed1adff',
-      primaryHover: '#ffbb25ff',
+      primaryHover: '#d68710',
     },
 
     opacity: {
-      base: '#d3d3d32f',
+      base: '#6d78b848',
       primary: '#244cff5b',
-      reverse: '#00000042',
+      reverse: '#ffffff44',
     },
   },
 }

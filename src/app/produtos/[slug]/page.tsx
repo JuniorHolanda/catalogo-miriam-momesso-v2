@@ -1,5 +1,5 @@
 'use client';
-import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SStar, SWrapper } from "./page.styles";
+import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SBrutalSymbol, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag } from "./page.styles";
 import { useProducts } from "@/contexts/Product.context";
 import { notFound } from "next/navigation";
 import { useParams } from 'next/navigation';
@@ -27,9 +27,9 @@ export default function ProductPage () {
    
     return (
         <SWrapper>
-            <SStar>
+            <SBrutalSymbol>
                 <img src="/symbols/star.png" alt="" />
-            </SStar>
+            </SBrutalSymbol>
             <SSection>
                 <SGallery>
                 {
@@ -44,11 +44,12 @@ export default function ProductPage () {
                 <img src={product?.gallery[0].img} alt={product?.gallery[0].altimg} />
             </SMainImg>
             <SContent>
-                <h1>{product?.title}</h1>
-                <hr />
-                <p>{product?.text}</p>
-                <hr />
-                <div>
+                <STextContent>
+                    <h1>{product?.title}</h1>
+                    <p>{product?.text}</p>
+                </STextContent>
+                
+                <SBtnContent>
                     <button>
                         <IoMdShare />
                         compartilhar
@@ -61,11 +62,17 @@ export default function ProductPage () {
                         <FaBox />
                         coleção
                     </button>
-                </div>
+                </SBtnContent>
             </SContent>
             <SInfo>
-                   <div>
-                    <h2>Categorias</h2>
+                <SType>
+                    {
+                        product.category.imported.length > 0 ? <h2>Produto Importado</h2> : <h2>Produto Costurável</h2>
+                    }
+                </SType>
+                <ScontainerTag>
+                    <Stag>
+                        <h2>Categorias</h2>
                         <SContainerItens>
                             {
                                 allCategories.map((item, index) => (
@@ -73,17 +80,18 @@ export default function ProductPage () {
                                 ))
                             }
                         </SContainerItens>
-                   </div>
-                   <div>
-                    <h2>Medidas</h2>
-                    <SContainerItens>
-                        {
-                        product.measure?.map((item, index) => (
-                            <span key={index}>{item}</span>
-                        ))
-                    }
-                    </SContainerItens>
-                   </div>
+                    </Stag>
+                    <Stag>
+                        <h2>Medidas</h2>
+                        <SContainerItens>
+                            {
+                            product.measure?.map((item, index) => (
+                                <span key={index}>{item}</span>
+                            ))
+                        }
+                        </SContainerItens>
+                    </Stag> 
+                </ScontainerTag>
             </SInfo>
             </SSection>
         </SWrapper>

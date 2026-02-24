@@ -1,6 +1,7 @@
 'use client';
 
-import { flex, font, gap } from "@/styles/mixins";
+import { rotatePendulum } from "@/styles/animations";
+import { borderRadius, flex, font, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const SWrapper = styled.main`
@@ -9,15 +10,17 @@ export const SWrapper = styled.main`
     width: 100%;
     height: 90dvh;
     overflow: hidden;
+    background-color: ${({ theme }) => theme.colors.background.base};
 `;
 
-export const SStar = styled.span`
+export const SBrutalSymbol = styled.span`
     position: absolute;
     top: -100%;
     left: -40%;
     z-index: 0;
-    rotate: 10deg;
-    scale: 150%;
+    rotate: 55deg;
+    scale: 110%;
+    animation: ${rotatePendulum} 200s linear alternate-reverse infinite;
 `;
 
 export const SSection = styled.section`
@@ -25,14 +28,15 @@ export const SSection = styled.section`
     z-index: 1;
     grid-template: 1fr 1fr 2fr / 1fr auto;
     justify-self: center;
+    ${gap({spaceKey: 'lg'})}
+    ${padding({spaceKey:'lg'})}
     width: 70%;
     height: 100%;
-    ${gap({spaceKey: 'md'})}
-    padding: 30px;
-`;
+    `;
 
 export const SGallery = styled.div`
     grid-area: 1 / 1 / 2 / 2 ;
+    ${gap({spaceKey: 'md'})}
     display: flex;
     flex-wrap: wrap;
     grid-template: 1fr 1fr / 1fr 1fr;
@@ -59,6 +63,7 @@ export const SMainImg = styled.div`
     width: 100%;
     height: 100%;
     max-height: 600px;
+    
 
     img {
         object-fit: cover;
@@ -72,97 +77,135 @@ export const SMainImg = styled.div`
 export const SContent = styled.div`
     position: relative;
     ${flex({direction: 'column', align: 'start'})};
+    ${gap({spaceKey: 'md'})}
+    ${borderRadius({radiusKey:'md'})}
     grid-area: 2 / 1 / 4 / 2 ;
     backdrop-filter: blur(30px);
-    border: solid 1.5px #ffffff44;
-    background-image: linear-gradient(10deg, #ffffff63, #2929293d);
-    border-radius: 30px;
+    border: solid 1.5px ${({ theme }) => theme.colors.opacity.base};
     overflow: hidden;
-    padding: 30px;
-    ${gap({spaceKey: 'md'})}
+    background-color: ${({ theme }) => theme.colors.opacity.base};
+`;
 
+export const STextContent = styled.div`
+    ${flex({direction:'column', align:'start', justfy:'space-between'})};
+    height: 100%;
+    ${gap({spaceKey:'md'})}
+    ${padding({spaceKey:'lg'})}
 
     h1 {
-        ${font({fontKey: 'primary', sizeKey: 'xlg'})}
+        ${font({fontKey: 'primary', sizeKey: 'md'})}
         color: ${({theme}) => theme.colors.title.secondary};
-        font-weight: 500;
+        font-weight: 100;
+        text-transform: uppercase;
+        height: 50%;
     }
 
     p {
-        ${font({fontKey: 'secondary', sizeKey: 'xlg'})}
-        ${(flex({}))}
-        color: white;
-        font-weight: 600;
+        ${font({fontKey: 'secondary', sizeKey: 'sm'})}
+        color: ${({ theme }) => theme.colors.text.reverseText};
+        font-weight: 500;
         letter-spacing: 1px;
         font-size: 1em;
-        height: 100%;
-    }
-
-    div {
-        ${flex({align: 'end', justfy: 'end'})}
-        ${gap({spaceKey: 'md'})}
-        width: 100%;
-        height: auto;
+        height: 50%;
+        width: 70%;
+        justify-content: ce;
         
-        button {
-            ${flex({})}
-            ${font({fontKey: 'secondary', sizeKey: 'sm'})}
-            ${gap({spaceKey: 'md'})}
-            font-weight: 600;
-            padding: 5px 15px;
-            background-color: ${({ theme}) => theme.colors.background.high};
-            color: ${({ theme}) => theme.colors.link.primary};
-            border-radius: 10px;
-            transition: all.2s ease-in-out;
-
-            &:hover {
-                color: ${({ theme}) => theme.colors.link.activePrimary};
-            }
+        &::first-letter {
+            text-transform: uppercase;
         }
     }
+`;
+
+export const SBtnContent = styled.div `
+    ${flex({align: 'end', justfy: 'end'})}
+    ${gap({spaceKey: 'md'})}
+    ${padding({spaceKey: 'md'})}
+    width: 100%;
+    height: fit-content;
+    background-color: ${({ theme }) => theme.colors.background.high};
+
     
-    img {
-        object-fit: cover;
-        object-position: center;
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
+    button {
+        ${flex({})}
+        ${font({fontKey: 'secondary', sizeKey: 'sm'})}
+        ${gap({spaceKey: 'md'})}
+        font-weight: 600;
+        padding: 5px 15px;
+        background-color: ${({ theme}) => theme.colors.link.primary};
+        color: ${({ theme}) => theme.colors.text.reverseText};
+        border-radius: 10px;
+        transition: all.2s ease-in-out;
+
+        &:hover {
+            background-color: ${({ theme}) => theme.colors.link.activePrimary};
+            color: ${({ theme}) => theme.colors.text.reverseText};
+        }
     }
 `;
 
 export const SInfo = styled.div`
     grid-area: 3 / 2 / 4 / 3 ;
     ${flex({ direction: "column", align: 'start'})};
-    ${gap({spaceKey: 'md'})}
-    padding: 10px;
-    border: solid 2px #36363627;
-    overflow: hidden;
-    border-radius: 30px;
-    backdrop-filter: blur(30px);
+    ${borderRadius({radiusKey:'md'})}
     width: 100%;
     height: 100%;
+    border: solid 1px ${({ theme }) => theme.colors.opacity.primary};
+    background-color: ${({ theme }) => theme.colors.opacity.base};
+    backdrop-filter: blur(30px);
+    overflow: hidden;
+`;
+
+export const SType = styled.div`
+    ${flex({justfy:'start', align:'center'})}
+    ${padding({spaceKey:'md'})}
+    background-color: ${({ theme }) => theme.colors.background.high};
+    width: 100%;
+    height: fit-content;
     
-    div {
-        ${flex({})};
-        ${gap({spaceKey: 'md'})}
-        font-size: .7em;
-        border: solid #456523;
+    h2 {
+        ${flex({})}
+        ${font({fontKey:'secondary', sizeKey:'sm'})}
+        color: ${({ theme }) => theme.colors.title.reverse};
+        font-weight: 600;
+        letter-spacing: 1px;
+        height: 100%;
+    }
+`;
+
+export const ScontainerTag = styled.div`
+    ${flex({direction:'column', align: 'start', justfy:'space-between'})}
+    ${gap({spaceKey:'sm'})}
+    ${padding({spaceKey:'md'})}
+    height: 100%;
+`; 
+
+export const Stag = styled.div`
+    ${flex({direction:'column', align:'start'})}
+    ${gap({spaceKey:'sm'})}
+
+    h2 {
+        ${flex({ justfy:'start'})}
+        ${font({fontKey:'secondary', sizeKey:'sm'})}
+        color: ${({ theme }) => theme.colors.title.reverse};
+        font-weight: 600;
+        letter-spacing: 1px;
     }
 `;
 
 export const SContainerItens = styled.div`
-${flex({})}
-width: 100%;
+    ${flex({})}
+    ${gap({spaceKey:'md'})}
+    width: 100%;
 
     span {
-    ${flex({})}
-    padding: 5px 15px;
-    ${gap({spaceKey: 'md'})}
-    height: fit-content;
-    border-radius: 30px;
-    background-color:  #fff;
-    font-weight: 600;
-    font-size: 1.5em;
-    font-style: italic;
+        ${flex({})}
+        padding: 5px 15px;
+        ${gap({spaceKey: 'sm'})}
+        ${font({fontKey:'secondary', sizeKey:'sm'})}
+        ${borderRadius({radiusKey:'sm'})}
+        height: fit-content;
+        background-color:  ${({ theme }) => theme.colors.background.high};
+        font-weight: 600;
+        font-style: italic;
     }
 `;

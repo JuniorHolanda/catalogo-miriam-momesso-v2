@@ -28,7 +28,7 @@ export const SbrutalSymbol = styled.span`
   left: -40%;
   z-index: 20;
   width: clamp(200px, 800em, 100vw);
-  animation: ${rotatePendulum} 25s ease-in-out alternate-reverse infinite;
+  animation: ${rotatePendulum} 200s linear alternate-reverse infinite;
 
   img {
     width: 100%;
