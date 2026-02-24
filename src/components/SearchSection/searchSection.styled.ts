@@ -1,9 +1,40 @@
 'use client';
 
-import Link from 'next/link';
 import styled from 'styled-components';
-import { borderRadius, flex, gap, padding } from '@/styles/mixins';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import { rotatePendulum } from '@/styles/animations';
+
+type SsectionProps = {
+  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
+};
+
+export const Ssection = styled.section<SsectionProps>`
+  position: relative;
+  z-index: 0;
+  ${flex({ align: 'center', justfy: 'start' })}
+  ${padding({spaceKey: 'md'})}
+  width: 100%;
+  height: ${({ $viewPortStyle, theme }) =>
+    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
+      ? '90dvh'
+      : '100dvh'};
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.pallet.primaryUp};
+`;
+
+export const SbrutalSymbol = styled.span`
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  z-index: 20;
+  width: clamp(200px, 50em, 80vw);
+  animation: ${rotatePendulum} 25s ease-in-out alternate-reverse infinite;
+  opacity: 0.2;
+
+  img {
+    width: 100%;
+  }
+`;
 
 export const ScontainerCardProduct = styled.ul`
   position: absolute;
@@ -21,38 +52,6 @@ export const ScontainerCardProduct = styled.ul`
 
   .swiper-itens {
     height: 100%;
-  }
-`;
-
-
-type SsectionProps = {
-  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
-};
-
-export const Ssection = styled.section<SsectionProps>`
-  position: relative;
-  z-index: 0;
-  ${flex({ align: 'center', justfy: 'start' })}
-  ${padding({spaceKey: 'md'})}
-  width: 100%;
-  height: ${({ $viewPortStyle, theme }) =>
-    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
-      ? '90dvh'
-      : '100dvh'};
-  overflow: hidden;
-`;
-
-export const SbrutalSymbol = styled.span`
-  position: absolute;
-  top: -50%;
-  left: -40%;
-  z-index: 20;
-  width: clamp(400px, 150em, 80vw);
-  animation: ${rotatePendulum} 25s ease-in-out alternate-reverse infinite;
-  opacity: 0.2;
-
-  img {
-    width: 100%;
   }
 `;
 
@@ -77,7 +76,9 @@ export const SformInSection = styled.form<SformInSectionProps>`
 
 
 export const Stitle = styled.h1`
-  font-weight: 500;
+  ${font({fontKey:'primary', sizeKey:'lg'})}
+  color: ${({ theme }) => theme.colors.title.secondary};
+  font-weight: 400;
 `;
 
 export const ScontainerInput = styled.div`
@@ -99,11 +100,13 @@ export const ScontainerInput = styled.div`
 
   input {
     ${flex({})}
+    ${padding({spaceKey: 'md'})};
     ${(borderRadius({radiusKey:'md'}))}
+    ${font({fontKey:'secondary'})}
     overflow: hidden;
     width: 100%;
     height: 100%;
-  ${padding({spaceKey: 'md'})}
     color: ${({ theme }) => theme.colors.text};
+    ;
   }
 `;
