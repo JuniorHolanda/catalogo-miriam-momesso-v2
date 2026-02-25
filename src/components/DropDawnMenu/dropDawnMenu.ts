@@ -1,22 +1,22 @@
 'use client'
-import { flex, } from "@/styles/mixins";
+import { borderRadius, flex, gap, padding, } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const SWrapper = styled.section`
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 100%;
+    left: 0;
     transform: translateX(-50%);
     ${flex({align: 'start'})}
-    ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
-    padding:${({theme}) => theme.spaces.xLarge};
-    border-radius: ${({theme}) => theme.spaces.large};
-    background-color: #ffffffb7;
-    backdrop-filter: blur(10px);
+    ${gap({spaceKey: 'md'})};
+    ${padding({spaceKey: 'xlg'})};
+    ${borderRadius({radiusKey:'lg'})}
+    background-color: ${({theme}) => theme.colors.opacity.base};
+    backdrop-filter: blur(30px);
 `;
 
 export const SNav = styled.nav`
-    ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
+    ${gap({spaceKey: 'md'})};
     ${flex({direction: "column"})}
     color: ${({ theme }) => theme.colors.text};
 
@@ -36,7 +36,7 @@ export const SNav = styled.nav`
         li{
             ${flex({align: 'center', justfy: 'start'})}
             width: 100%;
-            ${gap({spaceKey: 'md'})}${({theme}) => theme.spaces.xLarge};
+            ${gap({spaceKey: 'md'})};
             transition: all.3s;
             &:hover {
                 transform: translateX(10px);
@@ -56,7 +56,7 @@ export const SNav = styled.nav`
                 }
             }
             span{
-                ${textLink}
+                
             }
         }
     }
