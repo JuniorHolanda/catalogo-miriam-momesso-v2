@@ -36,11 +36,34 @@ export const Snav = styled.div`
   font-weight: 800;
   color: ${({ theme }) => theme.colors.link.reverse};
 
+  .liDropDown {
+    position: relative;
+  }
+
   li {
     ${flex({})}
     ${smoothTransition}
     ${padding({spaceKey: 'sm'})}
+    ${font({fontKey:'secondary', sizeKey:'sm'})}
+    font-weight: 400;
     cursor: pointer;
     white-space: nowrap;
+    color: ${({ theme }) => theme.colors.text.reverseText};
+    z-index: 1;
+    
+    &:hover{
+      font-weight: 600;
+      transform: translateY(-3px);
+    }
+    
+    button {
+      color: ${({ theme }) => theme.colors.text.reverseText};
+      ${font({fontKey:'secondary', sizeKey:'sm'})}
+      font-weight: 400;
+
+      &:hover{
+        font-weight: 600;
+      }
+    }
   }
 `;
