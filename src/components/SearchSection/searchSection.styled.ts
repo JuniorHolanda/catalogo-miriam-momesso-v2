@@ -110,11 +110,18 @@ export const ScontainerInput = styled.div`
     ${flex({})}
     ${padding({spaceKey: 'md'})};
     ${(borderRadius({radiusKey:'md'}))}
-    ${font({fontKey:'secondary'})}
+    ${font({fontKey:'secondary', sizeKey:'sm'})}
     overflow: hidden;
     width: 100%;
     height: 100%;
     color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.opacity.base};
+    backdrop-filter: blur(10px);
+
+    &:focus {
+      outline: none;
+      border: solid 1px ${({ theme }) => theme.colors.border.active};
+    }
     ;
   }
 `;

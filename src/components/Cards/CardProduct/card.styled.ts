@@ -52,18 +52,19 @@ export const Scontent = styled.div`
   position: relative;
   justify-content: space-between;
   ${flex({direction:'column', justfy:'space-between', align:'start'})}
-  ${gap({spaceKey: 'md'})}
-  ${padding({spaceKey: 'md'})}
+  ${gap({spaceKey: 'sm'})}
+  ${padding({spaceKey: 'sm'})}
   width: 100%;
   height: 40%;
   overflow: hidden;
   z-index: 1;
+  
 
   h1 {
-    ${font({fontKey:'primary', sizeKey:'md'})}
-    word-wrap: nowrap;
+    ${font({fontKey:'primary', sizeKey:'xsm'})}
     font-weight: 100;
     color: ${({ theme }) => theme.colors.pallet.primaryUp};
+    white-space: nowrap;
   }
 
   p {

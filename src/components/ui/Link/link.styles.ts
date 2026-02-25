@@ -22,7 +22,7 @@ export const SLink = styled(Link)`
             ${flex({justfy: 'center', align: 'center'})};
             ${gap({spaceKey:'sm'})};
             ${padding({spaceKey:'sm'})};
-            ${font({fontKey:'secondary', sizeKey:'md'})};
+            ${font({fontKey:'secondary', sizeKey:'sm'})};
             height: 100%;
             width: fit-content;
             transition: all 0.2s ease-in-out;

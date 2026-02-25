@@ -6,6 +6,7 @@ export const defaultTheme = {
 
   fontSize: {
     sm: 'clamp(0.5rem, 1vw, 1rem)',
+    xsm: 'clamp(0.9rem, 1.8vw, 5rem)',
     md: 'clamp(0.9rem, 3vw, 5rem)',
     lg: 'clamp(2rem, 4vw, 8rem)',
     xlg: 'clamp(2rem, 8vw, 10rem)',
@@ -47,7 +48,7 @@ export const lightTheme = {
     text: {
       text: '#27252eff',
       textMain: '#151516ff',
-      reverseText: 'rgb(255, 255, 255)',
+      reverseText: '#ffffff',
     },
 
     link: {
