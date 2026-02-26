@@ -21,14 +21,13 @@ export const ScontainerSlider = styled.section`
   ${gap({spaceKey: 'sm'})} 
   ${padding({spaceKey: 'sm'})}
   height: 60%;
-  overflow: hidden;
 `;
 
 export const ScontainerImg = styled.div<{ $expand: number }>`
   ${flex({})}
   flex: ${({ $expand }) => $expand};
   ${borderRadius({radiusKey:'md'})}
-  height: 100%;
+  height: 200px;
   min-width: 100px;
   overflow: hidden;
   transition: all 0.2s ease-in-out;

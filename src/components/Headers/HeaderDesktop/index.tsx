@@ -14,7 +14,7 @@ export default function HeaderDesktop() {
       <Scontainer>
         <ScontainerLogo>
           <img
-            src="./main-logo.svg"
+            src="/main-logo.svg"
             alt="Logo da empresa Miriam Momesso"
           />
           
@@ -23,17 +23,14 @@ export default function HeaderDesktop() {
           <li>Home</li>
           <li className="liDropDown"
             onMouseEnter={() => setDropMenu(true)}
-            onMouseLeave={() => setDropMenu(false)}
-            >
+            onMouseLeave={() => setDropMenu(false)}>
             <button
               onClick={() => setDropMenu(prev => !prev)}>
-                Category
+              Category
             </button>
               {
                 dropMenu && <DropDawnMenu />
               }
-
-            
           </li>
           <li>Meu Kit</li>
           <li>Favoritos</li>
