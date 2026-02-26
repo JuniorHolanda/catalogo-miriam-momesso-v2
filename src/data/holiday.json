@@ -2,62 +2,118 @@
     {
         "id": 1,
         "category" : "Dia das Mães",
+        "slug": "dia-das-maes",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744212746/dia-das-maes_jk8mjs.jpg",
-        "altImg" : "uma ilustração de algumas flores coloridas",
+        "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],        
         "description" : "Confira nossas sugestões de brindes para o dia das mães."
     },
 
     {
         "id" : 2,
         "category" : "Dia das mulheres",
+        "slug": "dia-das-mulheres",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744228600/dia-das-mulheres_j9hipi.jpg",
-        "altImg" : "uma ilustração de algumas flores coloridas",
+                "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "description" : "Confira nossas sugestões de brindes para o dia das mulheres."
     },
 
     {
         "id" : 3,
         "category" : "Dia dos Médicos",
+        "slug": "dia-dos-medicos",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744228601/dia-dos-medicos_bkmyfp.jpg",
-        "altImg" : "uma ilustração de algumas flores coloridas",
+               "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "description" : "Confira nossas sugestões de brindes para o dia dos médicos."
     },
     {
         "id" : 4,
-        "category" : "Outubro Rosa",
+        "category" : "outubro-rosa",
+        "slug": "",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744228602/outubro-rosa_spfmse.jpg",
-        "altImg" : "uma ilustração de algumas flores coloridas",
+               "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "description" : "Confira nossas sugestões de brindes para o Outubro Rosas."
     },
     {
         "id" : 5,
-        "category" : "Novembro Azul",
+        "category" : "novembro-azul",
+        "slug": "",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744228600/novembro-azul_d2o83p.jpg",
+               "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "altImg" : "uma ilustração de algumas flores coloridas",
         "description" : "Confira nossas sugestões de brindes para Novembro Azul."
     },
     {
         "id" : 7,
         "category" : "Executivo",
+        "slug": "executivo",
         "start": "05-01",
         "end": "05-14",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744229953/executivo_sh0eyl.jpg",
-        "altImg" : "uma ilustração de algumas flores coloridas",
+        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1744229953/executivo_sh0eyl.jpg",        "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "description" : "Confira nossa sugestão de brindes executivos."
     },
     {
         "id" : 8,
         "category" : "Dia dos Professores",
+        "slug": "dia-dos-professores",
         "start": "05-01",
         "end": "05-14",
         "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1750275350/dia-dos-professores_ojpwrp.jpg",
@@ -67,10 +123,19 @@
         {
         "id" : 9,
         "category" : "Dia da secretária",
+        "slug": "dia-da-secretaria",
         "start": "06-30",
         "end": "09-30",
-        "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1752607661/secretaria_uwzqgx.jpg",
-        "altImg" : "Uma mulher negra sentada em uma mesa de escritório, ao fundo algumas prateleiras e documentos",
+               "gallery": [
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772041557/necessaire-cr-duo-01-banner_vfgero.jpg",
+                "altImg" : "uma necessaire rosa com itens de banho ao redor"
+            },
+            {
+                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772042829/banner-sholder-bag-patty_s0xhpd.jpg",
+                "altImg" : "Uma necessaire nas cores azul bebê e marinho em um fundo infinito"
+            }
+        ],  
         "description" : "Confira nossas sugestões de brindes para o dia da secretária."
     }
 ]

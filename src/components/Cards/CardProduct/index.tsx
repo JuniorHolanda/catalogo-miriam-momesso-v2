@@ -1,5 +1,5 @@
 "use client";
-import React, { InputHTMLAttributes, JSX, useRef, useState } from "react";
+import React, { InputHTMLAttributes, JSX, useEffect, useRef, useState } from "react";
 import {
   Scard,
   ScontainerImg,
@@ -18,8 +18,16 @@ type InptProps = InputHTMLAttributes<HTMLInputElement> & {
 export default function CardProduct({ product }: InptProps): JSX.Element {
 
   const width = useViewportContext();
-
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [randomFlex, setRandomFlex] = useState<number[]>([]);
+
+  useEffect(() => {
+    setRandomFlex([
+      randonInt(),
+      randonInt(),
+      randonInt()
+    ]);
+  }, []);
 
   const openPopup = () => {
     dialogRef.current?.showModal();
@@ -42,16 +50,14 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
   const getFlex = (index: number, hovered: number | null) => {
     if (hovered === null) {
-      // larguras padrão
-      return [randonInt(), randonInt(), randonInt()][index];
+      return randomFlex[index] ?? 3;
     }
-    if (hovered === index) {
-      // quem está hover, aumenta
-      return 5;
-    } else {
-      // os outros diminuem proporcionalmente
-      return index === 0 ? 2 : index === 1 ? 1.5 : 1;
-    }
+
+     if (hovered === index) {
+    return 5;
+  } else {
+    return index === 0 ? 2 : index === 1 ? 1.5 : 1;
+  }
   };
 
   const listImg = product.gallery;
