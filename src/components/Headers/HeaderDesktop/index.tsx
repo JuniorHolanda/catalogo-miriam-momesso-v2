@@ -12,7 +12,7 @@ export default function HeaderDesktop() {
 
   return (
       <Scontainer>
-        <ScontainerLogo>
+        <ScontainerLogo href={'/'}>
           <img
             src="/main-logo.svg"
             alt="Logo da empresa Miriam Momesso"

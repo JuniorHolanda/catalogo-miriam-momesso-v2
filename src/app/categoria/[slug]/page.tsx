@@ -34,7 +34,7 @@ export default function CategoryPage() {
             </SContainerTitle>
 
             <SBanner>
-                <Swiper
+                <Swiper 
                     className="swiper-container"
                     modules={[Navigation]}
                     navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
