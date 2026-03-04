@@ -1,5 +1,6 @@
 'use client'
 import { borderRadius, flex, gap, padding, } from "@/styles/mixins";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const SWrapper = styled.section`
@@ -60,4 +61,8 @@ export const SNav = styled.nav`
             }
         }
     }
+`;
+
+export const SLink = styled(Link)`
+    
 `;

@@ -1,6 +1,7 @@
 'use client';
 
 import { flex, font, gap, padding, smoothTransition } from '@/styles/mixins';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export const Scontainer = styled.header`
@@ -13,12 +14,12 @@ export const Scontainer = styled.header`
   z-index: 1;
   border-bottom: 1px solid ${({ theme }) => theme.colors.opacity.base};
 `;
-export const ScontainerLogo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: start;
+export const ScontainerLogo = styled(Link)`
+  ${flex({align:'center', justfy:'start'})}
+  ${padding({spaceKey:'sm'})}
   flex: 0.5;
   height: 100%;
+
 
   img {
     object-fit: contain;

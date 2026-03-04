@@ -1,7 +1,7 @@
 'use client';
 
 import { useProducts } from "@/contexts/Product.context";
-import { SNav, SWrapper } from "./dropDawnMenu";
+import { SLink, SNav, SWrapper } from "./dropDawnMenu";
 import { useEffect, useState } from "react";
 import { Product } from "@/utils/interfaces";
 import holiday from '@/data/holiday.json'
@@ -80,12 +80,16 @@ export default function DropDawnMenu() {
 				<ul>
 					{
 						holiday.map((item, i) => (
-							<li key={i}>
-								<div>
-									<img src={item.img} alt={item.altImg} />
-								</div>
-								<span>{item.category}</span>
-							</li>
+							<SLink
+								href={`/categoria/${item.slug}`}
+								key={i}>
+								<li>
+									<div>
+										<img src={item.icon} alt={item.altImg} />
+									</div>
+									<span>{item.category}</span>
+								</li>
+							</SLink>
 						))
 					}
 				</ul>
