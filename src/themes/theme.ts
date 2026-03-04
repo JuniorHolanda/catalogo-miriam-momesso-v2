@@ -81,41 +81,45 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...defaultTheme,
+  ...defaultTheme,
   colors: {
-      background: {
-      high: '#ffffffff',
-      medium: '#f0f0f0ff',
+    background: {
+      high: '#ffffff',
+      medium: '#f3f3f3',
       surface: '#e7e7e7ff',
-      base: '#d3d3d3ff',
+      base: 'rgb(221, 221, 221)',
       reverse: '#27252eff',
     },
 
     pallet: {
       primary: '#244cff',
-      secondary: '#ffbb25ff',
+      primaryUp: '#111774',
+      secondary: '#d68710',
+      secondaryUP: '#ff711f',
     },
 
     title: {
-      primary: '#232324',
-      secondary: '#244cff',
-      reverse: '#ffffff'
+      primary: '#244cff',
+      secondary: '#ffffff',
+      reverse: '#232324',
     },
 
     text: {
-      text: '#d3d3d3ff',
-      textMain: '#ffffffff',
-      reverseText: '#27252eff',
+      text: '#27252eff',
+      textMain: '#151516ff',
+      reverseText: '#ffffff',
     },
 
     link: {
-      primary: '#f0f0f0ff',
-      secondary: '#706aa4ff',
-      reverse: '#d9d9d9ff',
+      primary: '#244cff',
+      activePrimary: '#3895ff',
+      secondary: '#d68710',
+      reverse: '#ffffff',
     },
 
     border: {
-      default: '#414141ff',
-      active: '#706aa4ff',
+      default: '#f3f3f3',
+      active: '#244cff',
       error: '#e76060ff',
     },
 
@@ -123,13 +127,13 @@ export const darkTheme = {
       default: '#d3d3d3ff',
       defaultHover: '#706aa4ff',
       primary: '#4ed1adff',
-      primaryHover: '#ffbb25ff',
+      primaryHover: '#d68710',
     },
 
     opacity: {
-      base: '#00000042',
+      base: '#6d78b848',
       primary: '#244cff5b',
-      reverse: '#d3d3d357',
+      reverse: '#ffffff44',
     },
   },
 };

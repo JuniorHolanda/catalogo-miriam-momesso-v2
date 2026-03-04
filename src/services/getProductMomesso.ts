@@ -26,11 +26,20 @@ export async function likeProduct(
     );
 	return response.data;
 
-	} catch (error: any) {
-		console.error(
-			'Erro ao atualizar like:',
-			error.response?.data || error.message
-		);
+	} catch (error: unknown) {
+		if (axios.isAxiosError(error)) {
+            console.log(
+                'Erro ao atualizar like:', error.response?.data || error.message
+            );  
+        } else if(error instanceof Error) {
+            console.log(
+                'Erro ao atualizar like:', error.message
+            );
+        } else {
+            console.log(
+                'Erro ao atualizar like:', error
+            )
+        }
 		throw error;
 	}
 }
