@@ -19,9 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 
-export default async function CategoryPage({params}: {params: Promise<{ slug: string }>
-}){
-  const { slug } = await params;
+export default async function CategoryPage({ params }: Props){
+  const { slug } = params;
   const dataHoliday = categoryData.find( item => item.slug === slug);
   const products = await getProducts();
 
