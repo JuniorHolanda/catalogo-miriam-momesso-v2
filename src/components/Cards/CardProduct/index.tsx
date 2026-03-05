@@ -1,5 +1,7 @@
 "use client";
-import React, { InputHTMLAttributes, JSX, useEffect, useRef, useState } from "react";
+import React, { InputHTMLAttributes, JSX, useEffect, useState } from "react";
+import Image from "next/image";
+
 import {
   Scard,
   ScontainerImg,
@@ -18,7 +20,6 @@ type InptProps = InputHTMLAttributes<HTMLInputElement> & {
 export default function CardProduct({ product }: InptProps): JSX.Element {
 
   const width = useViewportContext();
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const [randomFlex, setRandomFlex] = useState<number[]>([]);
 
   useEffect(() => {
@@ -28,14 +29,6 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
       randonInt()
     ]);
   }, []);
-
-  const openPopup = () => {
-    dialogRef.current?.showModal();
-  };
-
-  const closePopup = () => {
-    dialogRef.current?.close();
-  };
 
 
   // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
@@ -77,10 +70,11 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <img
-                  onClick={(e) => openPopup()}
-                  src={item.img}
-                  alt={item.altimg}
+                <Image
+                    src={item.img}
+                    alt={item.altimg}
+                    width={1200}
+                    height={700}
                 />
               </ScontainerImg>
             );

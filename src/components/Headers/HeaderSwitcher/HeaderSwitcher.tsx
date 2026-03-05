@@ -2,11 +2,6 @@
 import { useViewportContext } from '@/contexts/ViewportContext';
 import HeaderDesktop from '@/components/Headers/HeaderDesktop';
 import HeaderMobile from '@/components/Headers/HeaderMobile';
-import { Product } from "@/utils/interfaces";
-
-type HeaderSwitcherProps = {
-    products: Product[];
-}
 
 export default function HeaderSwitcher() {
 
