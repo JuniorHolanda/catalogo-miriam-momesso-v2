@@ -1,4 +1,3 @@
-'use client';
 import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SBrutalSymbol, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag } from "./page.styles";
 import { useProducts } from "@/contexts/Product.context";
 import { notFound } from "next/navigation";
