@@ -11,48 +11,7 @@ import 'swiper/css/pagination';
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
 import Image from "next/image";
-import type { Metadata } from "next";
 
-type Props = {
-  params: {
-    category: string;
-  };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-
-  const categoryName = params.category
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, l => l.toUpperCase());
-
-  return {
-    title: `Brindes personalizados ${categoryName} | Momesso`,
-    description: `Confira os brindes personalizados da categoria ${categoryName}.`,
-
-    openGraph: {
-      title: `Brindes personalizados ${categoryName}`,
-      description: `Confira os brindes personalizados da categoria ${categoryName}.`,
-      url: `https://miriammomesso.com.br/categoria/${params.category}`,
-      siteName: "Catálogo Momesso Brindes",
-      images: [
-        {
-          url: "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772716380/thumb_ynbeiw.jpg",
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: "pt_BR",
-      type: "website",
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: `Brindes personalizados ${categoryName}`,
-      description: `Confira os brindes personalizados da categoria ${categoryName}.`,
-      images: ["https://res.cloudinary.com/dnr3wfqyy/image/upload/v1772716380/thumb_ynbeiw.jpg"],
-    },
-  };
-}
 
 export default function CategoryPage() {
         const { slug } = useParams<{ slug: string }>();
