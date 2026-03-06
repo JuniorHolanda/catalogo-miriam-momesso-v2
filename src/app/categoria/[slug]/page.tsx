@@ -3,6 +3,10 @@ import categoryData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
+<<<<<<< HEAD
+import Image from "next/image";
+
+=======
 import type { Metadata } from "next";
 import SwiperComponent from "@/components/Swiper";
 import { getProducts } from "@/services/getProductMomesso";
@@ -17,6 +21,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return generateCategoryMetadata(params.slug);
 }
+>>>>>>> 0f1021e7664beca925bfcd4915d9d64ecfbaeb33
 
 
 export default async function CategoryPage({ params }: Props){
