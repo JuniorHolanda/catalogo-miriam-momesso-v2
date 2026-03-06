@@ -3,59 +3,48 @@ import categoryData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
-<<<<<<< HEAD
-import Image from "next/image";
-
-=======
-import type { Metadata } from "next";
 import SwiperComponent from "@/components/Swiper";
 import { getProducts } from "@/services/getProductMomesso";
-import { generateCategoryMetadata } from "@/utils/generateCategoryMetadata";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return generateCategoryMetadata(params.slug);
+type PageProps = {
+  params: Promise<{
+    slug: string
+  }>
 }
->>>>>>> 0f1021e7664beca925bfcd4915d9d64ecfbaeb33
 
+export default async function CategoryPage({ params }: PageProps){
+    const { slug } = await params;
+    console.log(slug)
+    const dataHoliday = categoryData.find( item => item.slug === slug);
+    const products = await getProducts();
 
-export default async function CategoryPage({ params }: Props){
-  const { slug } = params;
-  const dataHoliday = categoryData.find( item => item.slug === slug);
-  const products = await getProducts();
-
-  const filteredProduct = products.filter(item =>
-      item.category.holiday.some(holiday =>
+    const filteredProduct = products.filter(item =>
+      item.category?.holiday?.some(holiday =>
           slugify(holiday).includes(slugify(slug))
       )
-  )
-  
-  //validação
-  if (!dataHoliday) {
-      notFound()
-  }
+    )
+    
+    //validação
+    if (!dataHoliday) {
+        notFound()
+    }
 
-  return(
-      <SWrapper>
-          <SContainerTitle>
-              <h1>{dataHoliday.category}</h1>
-              <p>{dataHoliday.description}</p>
-          </SContainerTitle>
-          <SwiperComponent holiday={dataHoliday}  />
-          <SSection>
-              {
-                  filteredProduct.map(product => (
-                      <SContainerProduct key={product._id}>
-                          <CardProduct product={product}/>
-                      </SContainerProduct>
-                  ))
-              }
-          </SSection>
-      </SWrapper>
-  );
+    return(
+        <SWrapper>
+            <SContainerTitle>
+                <h1>{dataHoliday.category}</h1>
+                <p>{dataHoliday.description}</p>
+            </SContainerTitle>
+            <SwiperComponent holiday={dataHoliday}  />
+            <SSection>
+                {
+                    filteredProduct.map(product => (
+                        <SContainerProduct key={product._id}>
+                            <CardProduct product={product}/>
+                        </SContainerProduct>
+                    ))
+                }
+            </SSection>
+        </SWrapper>
+    );
 }

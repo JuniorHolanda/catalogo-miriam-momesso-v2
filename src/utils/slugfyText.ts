@@ -1,4 +1,5 @@
 export default function slugify(text : string) {
+    if (!text) return ''
     return text
         .toLowerCase()
         .normalize('NFD')                 // separa acentos
