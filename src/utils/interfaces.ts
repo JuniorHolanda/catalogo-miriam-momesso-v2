@@ -24,3 +24,20 @@ export interface Product {
   like: number;
   slug: string;
 }
+
+export interface HolidayGalleryItem {
+  img: string;
+  altImg: string;
+}
+
+export interface Holiday {
+  id: number;
+  category: string;
+  icon: string;
+  altIcon: string;
+  slug: string;
+  start: string;
+  end: string;
+  gallery: HolidayGalleryItem[];
+  description: string;
+}
