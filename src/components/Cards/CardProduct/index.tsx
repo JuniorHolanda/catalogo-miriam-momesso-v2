@@ -64,7 +64,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
             const expand = getFlex(index, hovered);
 
             return (
-              <ScontainerImg
+              <ScontainerImg href={`/produtos/${product.slug}`}
                 key={item._id}
                 $expand={expand}
                 onMouseEnter={() => setHovered(index)}

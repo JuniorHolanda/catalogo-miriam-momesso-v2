@@ -1,6 +1,7 @@
 'use client';
 
 import { flex, font, gap, padding } from "@/styles/mixins";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const SWrapper = styled.main`
