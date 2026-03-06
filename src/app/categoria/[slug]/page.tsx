@@ -14,7 +14,6 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps){
     const { slug } = await params;
-    console.log(slug)
     const dataHoliday = categoryData.find( item => item.slug === slug);
     const products = await getProducts();
 

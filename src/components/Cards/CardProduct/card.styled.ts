@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
+import Link from 'next/link';
 
 export const Scard = styled.article`
   ${flex({direction:'column'})}
@@ -23,7 +24,7 @@ export const ScontainerSlider = styled.section`
   height: 60%;
 `;
 
-export const ScontainerImg = styled.div<{ $expand: number }>`
+export const ScontainerImg = styled(Link)<{ $expand: number }>`
   ${flex({})}
   flex: ${({ $expand }) => $expand};
   ${borderRadius({radiusKey:'md'})}
@@ -64,6 +65,7 @@ export const Scontent = styled.div`
     font-weight: 100;
     color: ${({ theme }) => theme.colors.pallet.primaryUp};
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   p {
