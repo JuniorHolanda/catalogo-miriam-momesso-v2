@@ -34,7 +34,7 @@ export default function DropDawnMenu() {
 			const allCategories = productFilteredCategory.map(item => item.category[type]);
 			// array de strings, elimina as categorias repetidas de allCategories 
 			const uniqueCategories = [...new Set(allCategories.flat())];
-			// recebe um objetmo de cada categoria
+			// recebe um objeto de cada categoria
 			const filtered = filterProductsForCategories(uniqueCategories, productFilteredCategory, type )
 			const setter = type === 'imported' ? setImportedCategory : setCosturaveisCategory;
 			setter(filtered);
@@ -52,7 +52,7 @@ export default function DropDawnMenu() {
 					{
 						costuraveisCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.slug}`}>
+								<SLink href={`/categoria/${item.category.main}`}>
 									<div>
 										<Image
 											src={item.thumbnail}
@@ -74,7 +74,7 @@ export default function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.slug}`}>
+								<SLink href={`/categoria/${item.category.imported}`}>
 									<div>
 										<Image
 										src={item.thumbnail}
