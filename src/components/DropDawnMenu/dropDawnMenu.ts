@@ -20,9 +20,9 @@ export const SNav = styled.nav`
     ${gap({spaceKey: 'md'})};
     ${flex({direction: "column"})}
     color: ${({ theme }) => theme.colors.text};
-
+    
     h2 {
-        padding: 10px;
+        ${padding({spaceKey: 'md'})};
         width: 100%;
         text-align: start;
         border-bottom: 2px solid;
@@ -31,38 +31,43 @@ export const SNav = styled.nav`
     
     ul {
         ${flex({direction: "column", align: 'start'})}
-        ${flex({direction: "column", align: 'start'})}
         width: 100%;
-
+        
         li{
-            ${flex({align: 'center', justfy: 'start'})}
+            ${flex({direction: "column", align: 'start'})}
+            border: solid #951;
             width: 100%;
-            ${gap({spaceKey: 'md'})};
+            height: 100%;
             transition: all.3s;
             &:hover {
                 transform: translateX(10px);
             }
-
-            div {
-                width: 40px;
-                height: 40px;
-                border-radius: 300px;
-                overflow: hidden;
-
-                img {
-                    object-fit: cover;
-                    object-position: center;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            span{
-                
-            }
         }
     }
-`;
+    `;
 
 export const SLink = styled(Link)`
+    ${flex({align: 'center', justfy: 'start'})}
+    ${gap({spaceKey:'sm'})}
+    height: 100%;
+    width: 100%;
+    border: solid #3300ff;
     
+    div {
+        width: 40px;
+        height: 40px;
+        border-radius: 300px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        span {
+            width: 100%;
+        }
+    }
 `;

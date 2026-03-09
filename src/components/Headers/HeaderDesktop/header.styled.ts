@@ -43,7 +43,6 @@ export const Snav = styled.div`
   li {
     ${flex({})}
     ${smoothTransition}
-    ${padding({spaceKey: 'sm'})}
     ${font({fontKey:'secondary', sizeKey:'sm'})}
     font-weight: 400;
     cursor: pointer;

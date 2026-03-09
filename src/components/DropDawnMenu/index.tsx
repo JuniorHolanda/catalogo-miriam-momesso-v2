@@ -34,7 +34,7 @@ export default function DropDawnMenu() {
 			const allCategories = productFilteredCategory.map(item => item.category[type]);
 			// array de strings, elimina as categorias repetidas de allCategories 
 			const uniqueCategories = [...new Set(allCategories.flat())];
-			// recebe um objetmo de cada categoria
+			// recebe um objeto de cada categoria
 			const filtered = filterProductsForCategories(uniqueCategories, productFilteredCategory, type )
 			const setter = type === 'imported' ? setImportedCategory : setCosturaveisCategory;
 			setter(filtered);
@@ -52,15 +52,17 @@ export default function DropDawnMenu() {
 					{
 						costuraveisCategory.map((item, i) => (
 							<li key={i}>
-								<div>
-									<Image
-										src={item.thumbnail}
-										alt={item.altthumbnail}
-										width={1200}
-										height={700}
-									/>
-								</div>
-								<span>{item.category.main}</span>
+								<SLink href={`/categoria/${item.category.main}`}>
+									<div>
+										<Image
+											src={item.thumbnail}
+											alt={item.altthumbnail}
+											width={1200}
+											height={700}
+										/>
+									</div>
+									<span>{item.category.main}</span>
+								</SLink>
 							</li>
 						))
 					}
@@ -72,15 +74,17 @@ export default function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<div>
-									<Image
+								<SLink href={`/categoria/${item.category.imported}`}>
+									<div>
+										<Image
 										src={item.thumbnail}
 										alt={item.altthumbnail}
 										width={1200}
 										height={700}
-									/>
-								</div>
-								<span>{item.category.imported}</span>
+										/>
+									</div>
+									<span>{item.category.imported}</span>
+								</SLink>
 							</li>
 						))
 					}
@@ -91,21 +95,19 @@ export default function DropDawnMenu() {
 				<ul>
 					{
 						holiday.map((item, i) => (
-							<SLink
-								href={`/categoria/${item.slug}`}
-								key={i}>
-								<li>
+							<li key={i}>
+								<SLink href={`/categoria/${item.slug}`}>
 									<div>
-									<Image
+										<Image
 										src={item.icon}
 										alt={item.altIcon}
 										width={1200}
 										height={700}
-									/>
+										/>
 									</div>
 									<span>{item.category}</span>
-								</li>
-							</SLink>
+								</SLink>
+							</li>
 						))
 					}
 				</ul>
