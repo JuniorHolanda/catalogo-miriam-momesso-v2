@@ -70,12 +70,14 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <Image
+                {item.img && (
+                  <Image
                     src={item.img}
-                    alt={item.altimg}
+                    alt={item.altimg ? item.altimg : `foto do ${product.title}`}
                     width={1200}
                     height={700}
-                />
+                  />
+                )}
               </ScontainerImg>
             );
           })}
