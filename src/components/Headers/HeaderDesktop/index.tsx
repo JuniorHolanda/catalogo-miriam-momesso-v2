@@ -23,7 +23,7 @@ export default function HeaderDesktop() {
           <li>Home</li>
           <li className="liDropDown"
             onMouseEnter={() => setDropMenu(true)}
-            onMouseLeave={() => setDropMenu(false)}
+            onMouseLeave={() => setDropMenu(true)}
             >
             <button
               onClick={() => setDropMenu(prev => !prev)}>
@@ -32,8 +32,6 @@ export default function HeaderDesktop() {
               {
                 dropMenu && <DropDawnMenu />
               }
-
-            
           </li>
           <li>Meu Kit</li>
           <li>Favoritos</li>

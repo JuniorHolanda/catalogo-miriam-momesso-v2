@@ -1,7 +1,7 @@
 'use client';
 
 import { useProducts } from "@/contexts/Product.context";
-import { SNav, SWrapper } from "./dropDawnMenu";
+import { SLink, SNav, SWrapper } from "./dropDawnMenu";
 import { useEffect, useState } from "react";
 import { Product } from "@/utils/interfaces";
 import holiday from '@/data/holiday.json'
@@ -51,10 +51,12 @@ export default function DropDawnMenu() {
 					{
 						costuraveisCategory.map((item, i) => (
 							<li key={i}>
-								<div>
-									<img src={item.thumbnail} alt={item.altthumbnail} />
-								</div>
-								<span>{item.category.main}</span>
+								<SLink href={`/categoria/${item.category.main}`}>
+									<div>
+										<img src={item.thumbnail} alt={item.altthumbnail} />
+									</div>
+									<span>{item.category.main}</span>
+								</SLink>
 							</li>
 						))
 					}
@@ -66,10 +68,12 @@ export default function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<div>
-									<img src={item.thumbnail} alt={item.altthumbnail} />
-								</div>
+								<SLink href={``}>
+									<div>
+										<img src={item.thumbnail} alt={item.altthumbnail} />
+									</div>
 								<span>{item.category.imported}</span>
+								</SLink>
 							</li>
 						))
 					}
@@ -81,10 +85,12 @@ export default function DropDawnMenu() {
 					{
 						holiday.map((item, i) => (
 							<li key={i}>
-								<div>
-									<img src={item.img} alt={item.altImg} />
-								</div>
-								<span>{item.category}</span>
+								<SLink href={``}>
+									<div>
+										<img src={item.img} alt={item.altImg} />
+									</div>
+									<span>{item.category}</span>
+								</SLink>
 							</li>
 						))
 					}
