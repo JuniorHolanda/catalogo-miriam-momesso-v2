@@ -14,7 +14,7 @@ export const Ssection = styled.section<SsectionProps>`
   ${flex({ align: 'center', justfy: 'start' })}
   ${padding({spaceKey: 'md'})}
   width: 100%;
-  height: ${({ $viewPortStyle, theme }) =>
+  height: ${({ $viewPortStyle }) =>
     $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
       ? '90dvh'
       : '100dvh'};

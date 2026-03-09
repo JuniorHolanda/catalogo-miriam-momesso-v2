@@ -1,7 +1,7 @@
 'use client';
 
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '@/themes/theme';
+import { darkTheme } from '@/themes/theme';
 import { ReactNode } from 'react';
 
 interface Props {

@@ -4,7 +4,9 @@ import { useProducts } from "@/contexts/Product.context";
 import { SLink, SNav, SWrapper } from "./dropDawnMenu";
 import { useEffect, useState } from "react";
 import { Product } from "@/utils/interfaces";
-import holiday from '@/data/holiday.json'
+import holiday from '@/data/holiday.json';
+import Image from "next/image";
+
 
 export default function DropDawnMenu() {
 
@@ -12,8 +14,6 @@ export default function DropDawnMenu() {
 
 	// agrupa os brindes de categoria brindes costuráveis
 	const [costuraveisCategory, setCosturaveisCategory] = useState<Product[]>([]);
-	// agrupa os brindes de categoria datas comemorativas
-	const [holidayCategory, setHolidayCategory] = useState<Product[]>([]);
 	// agrupa os brindes de categoria importados
 	const [importedCategory, setImportedCategory] = useState<Product[]>([]);
 
@@ -36,12 +36,13 @@ export default function DropDawnMenu() {
 			const uniqueCategories = [...new Set(allCategories.flat())];
 			// recebe um objetmo de cada categoria
 			const filtered = filterProductsForCategories(uniqueCategories, productFilteredCategory, type )
-			type === 'imported' ? setImportedCategory(filtered) : setCosturaveisCategory(filtered)
+			const setter = type === 'imported' ? setImportedCategory : setCosturaveisCategory;
+			setter(filtered);
 		};
 
 		filterCategories("main")
 		filterCategories("imported")
-	}, [] );
+	}, [products] );
 
     return (
         <SWrapper>
@@ -51,9 +52,14 @@ export default function DropDawnMenu() {
 					{
 						costuraveisCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.category.main}`}>
+								<SLink href={`/categoria/${item.slug}`}>
 									<div>
-										<img src={item.thumbnail} alt={item.altthumbnail} />
+										<Image
+											src={item.thumbnail}
+											alt={item.altthumbnail}
+											width={1200}
+											height={700}
+										/>
 									</div>
 									<span>{item.category.main}</span>
 								</SLink>
@@ -68,11 +74,16 @@ export default function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={``}>
+								<SLink href={`/categoria/${item.slug}`}>
 									<div>
-										<img src={item.thumbnail} alt={item.altthumbnail} />
+										<Image
+										src={item.thumbnail}
+										alt={item.altthumbnail}
+										width={1200}
+										height={700}
+										/>
 									</div>
-								<span>{item.category.imported}</span>
+									<span>{item.category.imported}</span>
 								</SLink>
 							</li>
 						))
@@ -85,9 +96,14 @@ export default function DropDawnMenu() {
 					{
 						holiday.map((item, i) => (
 							<li key={i}>
-								<SLink href={``}>
+								<SLink href={`/categoria/${item.slug}`}>
 									<div>
-										<img src={item.img} alt={item.altImg} />
+										<Image
+										src={item.icon}
+										alt={item.altIcon}
+										width={1200}
+										height={700}
+										/>
 									</div>
 									<span>{item.category}</span>
 								</SLink>

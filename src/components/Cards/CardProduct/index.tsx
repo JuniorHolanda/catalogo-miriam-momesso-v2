@@ -1,5 +1,7 @@
 "use client";
-import React, { InputHTMLAttributes, JSX, useRef, useState } from "react";
+import React, { InputHTMLAttributes, JSX, useEffect, useState } from "react";
+import Image from "next/image";
+
 import {
   Scard,
   ScontainerImg,
@@ -18,16 +20,15 @@ type InptProps = InputHTMLAttributes<HTMLInputElement> & {
 export default function CardProduct({ product }: InptProps): JSX.Element {
 
   const width = useViewportContext();
+  const [randomFlex, setRandomFlex] = useState<number[]>([]);
 
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  const openPopup = () => {
-    dialogRef.current?.showModal();
-  };
-
-  const closePopup = () => {
-    dialogRef.current?.close();
-  };
+  useEffect(() => {
+    setRandomFlex([
+      randonInt(),
+      randonInt(),
+      randonInt()
+    ]);
+  }, []);
 
 
   // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
@@ -42,16 +43,14 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
   const getFlex = (index: number, hovered: number | null) => {
     if (hovered === null) {
-      // larguras padrão
-      return [randonInt(), randonInt(), randonInt()][index];
+      return randomFlex[index] ?? 3;
     }
-    if (hovered === index) {
-      // quem está hover, aumenta
-      return 5;
-    } else {
-      // os outros diminuem proporcionalmente
-      return index === 0 ? 2 : index === 1 ? 1.5 : 1;
-    }
+
+     if (hovered === index) {
+    return 5;
+  } else {
+    return index === 0 ? 2 : index === 1 ? 1.5 : 1;
+  }
   };
 
   const listImg = product.gallery;
@@ -65,17 +64,20 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
             const expand = getFlex(index, hovered);
 
             return (
-              <ScontainerImg
+              <ScontainerImg href={`/produtos/${product.slug}`}
                 key={item._id}
                 $expand={expand}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <img
-                  onClick={(e) => openPopup()}
-                  src={item.img}
-                  alt={item.altimg}
-                />
+                {item.img && (
+                  <Image
+                    src={item.img}
+                    alt={item.altimg ? item.altimg : `foto do ${product.title}`}
+                    width={1200}
+                    height={700}
+                  />
+                )}
               </ScontainerImg>
             );
           })}

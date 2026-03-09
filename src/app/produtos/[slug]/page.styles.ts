@@ -25,7 +25,7 @@ export const SBrutalSymbol = styled.span`
 
 export const SSection = styled.section`
     display: grid;
-    z-index: 1;
+    z-index: 0;
     grid-template: 1fr 1fr 2fr / 1fr auto;
     justify-self: center;
     ${gap({spaceKey: 'lg'})}

@@ -12,9 +12,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Product } from "@/utils/interfaces";
 import { useViewport } from "@/hooks/useViewport";
+import Image from "next/image";
 
 
-export default function () {
+
+export default function SearchSection() {
     const viewPort = useViewport()
     const products = useProducts();
     const [text, setText] = useState<string>("");
@@ -51,7 +53,12 @@ export default function () {
     return (
         <Ssection $viewPortStyle={viewPort}>
             <SbrutalSymbol>
-                <img src='./symbols/star.png' alt="uma estrela azul de 7 pontas" />
+                <Image
+                    src='/symbols/star.png'
+                    alt='uma estrela azul de 7 pontas'
+                    width={1200}
+                    height={700}
+                />
             </SbrutalSymbol>
 
             <SformInSection $props={animationInput}>

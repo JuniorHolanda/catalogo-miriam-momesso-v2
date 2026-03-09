@@ -1,10 +1,13 @@
 'use client';
+
 import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SBrutalSymbol, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag } from "./page.styles";
 import { useProducts } from "@/contexts/Product.context";
 import { notFound } from "next/navigation";
 import { useParams } from 'next/navigation';
 import { FaBox, FaHeart } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
+import Image from "next/image";
+
 
 
 export default function ProductPage () {
@@ -28,20 +31,35 @@ export default function ProductPage () {
     return (
         <SWrapper>
             <SBrutalSymbol>
-                <img src="/symbols/star.png" alt="" />
+                <Image
+                    src="/symbols/star.png"
+                    alt="uma  ilustração de uma estrela de 7 pontas"
+                    width={1200}
+                    height={1200}
+                />
             </SBrutalSymbol>
             <SSection>
                 <SGallery>
                 {
                     product && product.gallery.map(item => (
                         <div  key={item._id}>
-                            <img src={item.img} alt={item.altimg}/>
+                            <Image
+                                src={item.img}
+                                alt={item.altimg}
+                                width={1200}
+                                height={700}
+                            />
                         </div>
                     ))
                 }
             </SGallery>
             <SMainImg>
-                <img src={product?.gallery[0].img} alt={product?.gallery[0].altimg} />
+                <Image
+                    src={product?.gallery[0].img}
+                    alt={product?.gallery[0].altimg}
+                    width={1200}
+                    height={700}
+                />
             </SMainImg>
             <SContent>
                 <STextContent>
