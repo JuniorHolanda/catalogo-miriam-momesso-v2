@@ -32,10 +32,10 @@ export const SNav = styled.nav`
     ul {
         ${flex({direction: "column", align: 'start'})}
         width: 100%;
+        ${gap({spaceKey:'md'})}
         
         li{
             ${flex({direction: "column", align: 'start'})}
-            border: solid #951;
             width: 100%;
             height: 100%;
             transition: all.3s;
@@ -51,7 +51,6 @@ export const SLink = styled(Link)`
     ${gap({spaceKey:'sm'})}
     height: 100%;
     width: 100%;
-    border: solid #3300ff;
     
     div {
         width: 40px;

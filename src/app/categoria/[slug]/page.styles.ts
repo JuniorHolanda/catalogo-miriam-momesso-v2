@@ -18,13 +18,15 @@ export const SWrapper = styled.main`
 export const SContainerTitle = styled.div`
     ${flex({direction:'column'})}
     color: ${({ theme }) => theme.colors.title.primary};
+
     h1 {
         ${font({fontKey:'primary', sizeKey:'xlg'})}
-    font-weight: 100;
+        font-weight: 100;
     }
+    
     p{
         ${font({fontKey:'secondary', sizeKey:'md'})}
-    font-weight: 100;
+        font-weight: 100;
     }
 `;
 

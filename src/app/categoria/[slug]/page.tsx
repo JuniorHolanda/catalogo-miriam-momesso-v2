@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import categoryData from '@/data/holiday.json'
+import categoryHolidayData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
@@ -14,30 +14,48 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps){
     const { slug } = await params;
-    const dataHoliday = categoryData.find( item => item.slug === slug);
+    const dataHoliday = categoryHolidayData.find( item => item.slug === slug);
     const products = await getProducts();
 
-    const filteredProduct = products.filter(item =>
+    const filteredProduct = products.filter(item => {
+        const category = item.category.main?.length
+            ? item.category.main
+            : item.category.imported || []
+        return category.some(cat => slugify(cat) === slug)
+    });
+
+    const filteredHoliday = products.filter(item =>
       item.category?.holiday?.some(holiday =>
           slugify(holiday).includes(slugify(slug))
       )
-    )
-    
+    );
+       
+    console.log('antes da validação');
     //validação
-    if (!dataHoliday) {
-        notFound()
+    if (filteredHoliday.length <= 0 && filteredProduct.length <= 0) {
+        console.log('rodou a validação');
+        notFound();
     }
+
+    const productSwith = filteredProduct !== undefined && filteredProduct.length > 0
+        ? filteredProduct
+        : filteredHoliday
+
+    console.log(filteredProduct);
+
 
     return(
         <SWrapper>
             <SContainerTitle>
-                <h1>{dataHoliday.category}</h1>
-                <p>{dataHoliday.description}</p>
+                <h1>{}</h1>
+                <p>{}</p>
             </SContainerTitle>
-            <SwiperComponent holiday={dataHoliday}  />
+            {
+                dataHoliday && <SwiperComponent holiday={dataHoliday}  />
+            }
             <SSection>
                 {
-                    filteredProduct.map(product => (
+                    productSwith.map(product => (
                         <SContainerProduct key={product._id}>
                             <CardProduct product={product}/>
                         </SContainerProduct>
