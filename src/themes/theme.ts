@@ -8,8 +8,8 @@ export const defaultTheme = {
     sm: 'clamp(0.5rem, 1vw, 1rem)',
     xsm: 'clamp(0.9rem, 1.8vw, 5rem)',
     md: 'clamp(0.9rem, 3vw, 5rem)',
-    lg: 'clamp(2rem, 4vw, 8rem)',
-    xlg: 'clamp(2rem, 8vw, 10rem)',
+    lg: 'clamp(3rem, 4vw, 8rem)',
+    xlg: 'clamp(2rem, 7vw, 10rem)',
   },
 
   spaces: {
@@ -34,7 +34,7 @@ export const lightTheme = {
 
     pallet: {
       primary: '#244cff',
-      primaryUp: '#111774',
+      primaryUp: '#99B2DD',
       secondary: '#d68710',
       secondaryUP: '#ff711f',
     },

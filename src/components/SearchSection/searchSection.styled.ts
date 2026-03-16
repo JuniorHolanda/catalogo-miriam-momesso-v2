@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
-import { rotatePendulum } from '@/styles/animations';
 
 type SsectionProps = {
   $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
@@ -19,20 +18,7 @@ export const Ssection = styled.section<SsectionProps>`
       ? '90dvh'
       : '100dvh'};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.base};
-`;
-
-export const SbrutalSymbol = styled.span`
-  position: absolute;
-  top: -80%;
-  left: -40%;
-  z-index: 20;
-  width: clamp(200px, 800em, 100vw);
-  animation: ${rotatePendulum} 200s linear alternate-reverse infinite;
-
-  img {
-    width: 100%;
-  }
+  background-color: ${({ theme }) => theme.colors.background.high};
 `;
 
 export const ScontainerCardProduct = styled.ul`
@@ -42,12 +28,10 @@ export const ScontainerCardProduct = styled.ul`
   ${flex({})}
   ${padding({spaceKey:'md'})}
   ${borderRadius({radiusKey:'md'})}
-  border: solid 1px ${({ theme }) => theme.colors.opacity.primary} ;
   width: 90vw;
   height: 50vh;
   transform: translateX(-50%);
-  background-color: ${({ theme }) => theme.colors.opacity.base};
-  backdrop-filter: blur(10px);
+
 
   
   
@@ -64,6 +48,7 @@ export const ScontainerCardProduct = styled.ul`
 
 type SformInSectionProps = {
   $props: boolean;
+  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
 };
 
 export const SformInSection = styled.form<SformInSectionProps>`
@@ -76,20 +61,22 @@ export const SformInSection = styled.form<SformInSectionProps>`
   ${gap({spaceKey: 'md'})} 
   flex: 0.5;
   height: fit-content;
-  width: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
+  width: ${({ $viewPortStyle }) =>
+    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
+      ? '50vw'
+      : '90vw'};
 `;
 
 
 export const Stitle = styled.h1`
   ${font({fontKey:'primary', sizeKey:'lg'})}
-  color: ${({ theme }) => theme.colors.title.reverse};
+  color: ${({ theme }) => theme.colors.title.primary};
   font-weight: 100;
-
 `;
 
-export const ScontainerInput = styled.div`
+export const ScontainerInput = styled.div<SsectionProps>`
   ${flex({})};
   width: 100%;
   height: 80px;
@@ -110,13 +97,16 @@ export const ScontainerInput = styled.div`
     ${flex({})}
     ${padding({spaceKey: 'md'})};
     ${(borderRadius({radiusKey:'md'}))}
-    ${font({fontKey:'secondary', sizeKey:'sm'})}
+    ${({ $viewPortStyle }) =>
+      $viewPortStyle === 'lg' || $viewPortStyle === 'xl' || $viewPortStyle === 'md'
+        ? font({ fontKey: 'secondary', sizeKey: 'sm' })
+        : font({ fontKey: 'secondary', sizeKey: 'md' })
+    }
     overflow: hidden;
     width: 100%;
     height: 100%;
     color: ${({ theme }) => theme.colors.text};
-    background-color: ${({ theme }) => theme.colors.opacity.base};
-    backdrop-filter: blur(10px);
+    background-color: ${({ theme }) => theme.colors.background.base};
 
     &:focus {
       outline: none;
