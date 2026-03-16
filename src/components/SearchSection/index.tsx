@@ -1,7 +1,7 @@
 'use client'
 
 import { useProducts } from "@/contexts/Product.context";
-import { SbrutalSymbol, ScontainerCardProduct, ScontainerInput, SformInSection, Ssection, Stitle } from "./searchSection.styled";
+import { ScontainerCardProduct, ScontainerInput, SformInSection, Ssection, Stitle } from "./searchSection.styled";
 import { ChangeEvent, useEffect, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
 
@@ -52,18 +52,9 @@ export default function SearchSection() {
 
     return (
         <Ssection $viewPortStyle={viewPort}>
-            <SbrutalSymbol>
-                <Image
-                    src='/symbols/star.png'
-                    alt='uma estrela azul de 7 pontas'
-                    width={1200}
-                    height={700}
-                />
-            </SbrutalSymbol>
-
-            <SformInSection $props={animationInput}>
-                <Stitle>Sim, Temos o seu brinde</Stitle>
-                <ScontainerInput>
+            <SformInSection $viewPortStyle={viewPort} $props={animationInput}>
+                <Stitle>Sim, Temos o seu brinde!</Stitle>
+                <ScontainerInput $viewPortStyle={viewPort}>
                     <label htmlFor="search">Digite sua busca</label>
                     <input
                         type="text"
