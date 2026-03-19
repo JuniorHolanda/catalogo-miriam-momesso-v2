@@ -32,9 +32,9 @@ export default function ProductPage () {
 
    
     return (
-        <SWrapper>
+        <SWrapper $viewPortStyle={viewPort}>
             <SSection $viewPortStyle={viewPort}>
-                <SGallery>
+                <SGallery $viewPortStyle={viewPort}>
                     {
                         product && product.gallery.map(item => (
                             <div  key={item._id}>

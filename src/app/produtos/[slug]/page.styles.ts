@@ -7,11 +7,15 @@ type viewPortProps = {
   $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
 };
 
-export const SWrapper = styled.main`
+
+export const SWrapper = styled.main<viewPortProps>`
     position: relative;
     ${flex({})}
     width: 100%;
-    height:90vh;
+    height: ${({ $viewPortStyle }) => $viewPortStyle === 'xl' || $viewPortStyle === "lg" || $viewPortStyle === "md" ?
+    "90vh" : "auto"    
+    };
+    height: auto;
     overflow: hidden;
     background-color: ${({ theme }) => theme.colors.background.base};
 `;
@@ -21,39 +25,32 @@ export const SSection = styled.section<viewPortProps>`
     z-index: 0;
 
     grid-template-columns: ${({ $viewPortStyle }) =>
-        $viewPortStyle === "xl" || $viewPortStyle === "lg"
+        $viewPortStyle === "xl" || $viewPortStyle === "lg" || $viewPortStyle === "md" 
             ? "1fr 1fr 2fr"
-            : $viewPortStyle === "md"
-            ? ""
-            : ""
+            : "1fr 1fr 2fr"
     };
 
     grid-template-rows: ${({ $viewPortStyle }) =>
-        $viewPortStyle === "xl" || $viewPortStyle === "lg"
+        $viewPortStyle === "xl" || $viewPortStyle === "lg" || $viewPortStyle === "md"
             ? "2fr 1fr 1fr 1fr"
-            : $viewPortStyle === "md"
-            ? ""
-            : "" 
+            : "1fr 1fr 1fr 1frfr" 
     };
 
     grid-template-areas: ${({ $viewPortStyle }) =>
     
-    $viewPortStyle === "xl" || $viewPortStyle === "lg"
+    $viewPortStyle === "xl" || $viewPortStyle === "lg" || $viewPortStyle === "md"
         ? `
             "sgallery sgallery smainImg"
             "sgallery sgallery smainImg"
             "scontent scontent smainImg"
             "scontent scontent sinfo"
         `
-        : $viewPortStyle === "md"
-        ? `
-
-        `
         : `
-            "smainImg"
-            "sgallery"
-            "scontent"
-            ""
+        "sgallery smainImg smainImg"
+        "sgallery smainImg smainImg"
+        "scontent scontent scontent "
+        "sinfo sinfo sinfo"
+            
         `
     };
 
@@ -69,9 +66,11 @@ export const SSection = styled.section<viewPortProps>`
     ${padding({spaceKey:'lg'})}
 `;
 
-export const SGallery = styled.div`
+export const SGallery = styled.div<viewPortProps>`
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-template-columns: ${({ $viewPortStyle }) => $viewPortStyle === 'xl' || $viewPortStyle === 'lg' || $viewPortStyle === 'md' ?
+        "1fr 1fr" : "1fr"
+    };
     grid-area: sgallery ;
     ${gap({spaceKey: 'md'})}
     width: 100%;
