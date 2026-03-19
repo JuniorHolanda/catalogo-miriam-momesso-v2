@@ -12,7 +12,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Product } from "@/utils/interfaces";
 import { useViewport } from "@/hooks/useViewport";
-import Image from "next/image";
 
 
 

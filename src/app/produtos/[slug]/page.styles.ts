@@ -1,52 +1,87 @@
 'use client';
 
-import { rotatePendulum } from "@/styles/animations";
 import { borderRadius, flex, font, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
+
+type viewPortProps = {
+  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
+};
 
 export const SWrapper = styled.main`
     position: relative;
     ${flex({})}
     width: 100%;
-    height: 90dvh;
+    height:90vh;
     overflow: hidden;
     background-color: ${({ theme }) => theme.colors.background.base};
 `;
 
-export const SBrutalSymbol = styled.span`
-    position: absolute;
-    top: -100%;
-    left: -40%;
-    z-index: 0;
-    rotate: 55deg;
-    scale: 110%;
-    animation: ${rotatePendulum} 200s linear alternate-reverse infinite;
-`;
-
-export const SSection = styled.section`
+export const SSection = styled.section<viewPortProps>`
     display: grid;
     z-index: 0;
-    grid-template: 1fr 1fr 2fr / 1fr auto;
+
+    grid-template-columns: ${({ $viewPortStyle }) =>
+        $viewPortStyle === "xl" || $viewPortStyle === "lg"
+            ? "1fr 1fr 2fr"
+            : $viewPortStyle === "md"
+            ? ""
+            : ""
+    };
+
+    grid-template-rows: ${({ $viewPortStyle }) =>
+        $viewPortStyle === "xl" || $viewPortStyle === "lg"
+            ? "2fr 1fr 1fr 1fr"
+            : $viewPortStyle === "md"
+            ? ""
+            : "" 
+    };
+
+    grid-template-areas: ${({ $viewPortStyle }) =>
+    
+    $viewPortStyle === "xl" || $viewPortStyle === "lg"
+        ? `
+            "sgallery sgallery smainImg"
+            "sgallery sgallery smainImg"
+            "scontent scontent smainImg"
+            "scontent scontent sinfo"
+        `
+        : $viewPortStyle === "md"
+        ? `
+
+        `
+        : `
+            "smainImg"
+            "sgallery"
+            "scontent"
+            ""
+        `
+    };
+
+    width: ${({ $viewPortStyle }) =>
+        $viewPortStyle === "xl" || $viewPortStyle === "lg" ?
+            "70%"
+        : $viewPortStyle === "md" ? "90%": "100"           
+    };
+
+    height: 100%;
     justify-self: center;
     ${gap({spaceKey: 'lg'})}
     ${padding({spaceKey:'lg'})}
-    width: 70%;
-    height: 100%;
-    `;
+`;
 
 export const SGallery = styled.div`
-    grid-area: 1 / 1 / 2 / 2 ;
-    ${gap({spaceKey: 'md'})}
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     grid-template: 1fr 1fr / 1fr 1fr;
+    grid-area: sgallery ;
+    ${gap({spaceKey: 'md'})}
     width: 100%;
     height: 100%;
 
     div{
         display: flex;
-        flex: 1 1 48%;
-        max-height: 220px;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
 
         img{
             width: 100%;
@@ -59,11 +94,9 @@ export const SGallery = styled.div`
 `;
 
 export const SMainImg = styled.div`
-    grid-area: 1 / 2 / 3 / 3;
+    grid-area: smainImg;
     width: 100%;
-    height: 100%;
-    max-height: 600px;
-    
+    height: 100%;  
 
     img {
         object-fit: cover;
@@ -79,7 +112,7 @@ export const SContent = styled.div`
     ${flex({direction: 'column', align: 'start'})};
     ${gap({spaceKey: 'md'})}
     ${borderRadius({radiusKey:'md'})}
-    grid-area: 2 / 1 / 4 / 2 ;
+    grid-area: scontent ;
     backdrop-filter: blur(30px);
     border: solid 1.5px ${({ theme }) => theme.colors.opacity.base};
     overflow: hidden;
@@ -144,15 +177,17 @@ export const SBtnContent = styled.div `
 `;
 
 export const SInfo = styled.div`
-    grid-area: 3 / 2 / 4 / 3 ;
+    grid-area: sinfo;
     ${flex({ direction: "column", align: 'start'})};
     ${borderRadius({radiusKey:'md'})}
+    ${gap({spaceKey:'sm'})}
     width: 100%;
     height: 100%;
     border: solid 1px ${({ theme }) => theme.colors.opacity.primary};
     background-color: ${({ theme }) => theme.colors.opacity.base};
     backdrop-filter: blur(30px);
     overflow: hidden;
+    
 `;
 
 export const SType = styled.div`
@@ -173,8 +208,8 @@ export const SType = styled.div`
 `;
 
 export const ScontainerTag = styled.div`
-    ${flex({direction:'column', align: 'start', justfy:'space-between'})}
-    ${gap({spaceKey:'sm'})}
+    ${flex({align: 'center', justfy:'space-between'})}
+    ${gap({spaceKey:'md'})}
     ${padding({spaceKey:'md'})}
     height: 100%;
 `; 

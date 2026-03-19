@@ -99,7 +99,7 @@ export const ScontainerInput = styled.div<SsectionProps>`
     ${(borderRadius({radiusKey:'md'}))}
     ${({ $viewPortStyle }) =>
       $viewPortStyle === 'lg' || $viewPortStyle === 'xl' || $viewPortStyle === 'md'
-        ? font({ fontKey: 'secondary', sizeKey: 'sm' })
+        ? font({ fontKey: 'secondary', sizeKey: 'xsm' })
         : font({ fontKey: 'secondary', sizeKey: 'md' })
     }
     overflow: hidden;
