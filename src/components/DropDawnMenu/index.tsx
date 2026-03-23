@@ -1,56 +1,38 @@
-'use client';
-
-import { useProducts } from "@/contexts/Product.context";
 import { SLink, SNav, SWrapper } from "./dropDawnMenu";
-import { useEffect, useState } from "react";
-import { Product } from "@/utils/interfaces";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
+import { getProducts } from "@/services/getProductMomesso";
 
 
-export default function DropDawnMenu() {
+export default async function DropDawnMenu() {
 
-	const products = useProducts();
+	const products = await getProducts();
 
-	// agrupa os brindes de categoria brindes costuráveis
-	const [costuraveisCategory, setCosturaveisCategory] = useState<Product[]>([]);
-	// agrupa os brindes de categoria importados
-	const [importedCategory, setImportedCategory] = useState<Product[]>([]);
+	const productsImportedCategory = products.filter( item => item.category?.imported.length > 0)
 
+	const productsMainCategory = products.filter(item => item.category?.main.length > 0)
 
-	function filterProductsForCategories(categories: string[], products: Product[],  type: 'imported' | 'main') {
-		return categories.map(cat =>
-      products.find(item =>
-        item.category[type].includes(cat)))
-		.filter((item): item is Product => item !== undefined);
-	}
+	//junta os itens dos array e elimina os repetidos
+	const uniqueCategoriesImported = [
+		...new Set(
+			productsImportedCategory.flatMap(
+			item => item?.category?.imported ?? []
+			)
+		)
+	];
 
-	useEffect(() => {
-
-		const filterCategories = ( type: 'imported' | 'main' ) => {
-			// array de objetos produtos baseado no parâmetro type
-			const productFilteredCategory = products.filter(product => product.category[type].length > 0);
-			// array de strings com todas as categorias de productFilteredCategory
-			const allCategories = productFilteredCategory.map(item => item.category[type]);
-			// array de strings, elimina as categorias repetidas de allCategories 
-			const uniqueCategories = [...new Set(allCategories.flat())];
-			// recebe um objeto de cada categoria
-			const filtered = filterProductsForCategories(uniqueCategories, productFilteredCategory, type )
-			const setter = type === 'imported' ? setImportedCategory : setCosturaveisCategory;
-			setter(filtered);
-		};
-
-		filterCategories("main")
-		filterCategories("imported")
-	}, [products] );
+	const uniqueProductsCategory = uniqueCategoriesImported.map(item => 
+		
+	)
 
     return (
+
         <SWrapper>
 			<SNav>
 				<h2 >Costuráveis</h2>
 				<ul>
 					{
-						costuraveisCategory.map((item, i) => (
+						productsMainCategory.map((item, i) => (
 							<li key={i}>
 								<SLink href={`/categoria/${item.category.main}`}>
 									<div>
@@ -72,7 +54,7 @@ export default function DropDawnMenu() {
 				<h2>Importados</h2>
 				<ul>
 					{
-						importedCategory.map((item, i) => (
+						productsMainCategory.map((item, i) => (
 							<li key={i}>
 								<SLink href={`/categoria/${item.category.imported}`}>
 									<div>

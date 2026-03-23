@@ -1,17 +1,19 @@
-'use client'
-import { useViewportContext } from '@/contexts/ViewportContext';
+
 import HeaderDesktop from '@/components/Headers/HeaderDesktop';
 import HeaderMobile from '@/components/Headers/HeaderMobile';
+import { SDesktop, SMobile } from './headerSwitch.styles';
 
 export default function HeaderSwitcher() {
 
-    const viewport = useViewportContext();
+    return (
+        <>
+            <SDesktop>
+                <HeaderDesktop />
+            </SDesktop>
 
-    if (!viewport) return null;
-
-    if (viewport === 'lg') {
-        return <HeaderDesktop />;
-    } else {
-        return <HeaderMobile />
-    }
+            <SMobile>
+                <HeaderMobile />
+            </SMobile>
+    </>
+    )
 }
