@@ -1,67 +1,94 @@
-'use client';
-
-import { useProducts } from "@/contexts/Product.context";
 import { SLink, SNav, SWrapper } from "./dropDawnMenu";
-import { useEffect, useState } from "react";
-import { Product } from "@/utils/interfaces";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
+import { getProducts } from "@/services/getProductMomesso";
+import { Product } from "@/utils/interfaces";
+import slugify from "@/utils/slugfyText";
+
+type filterCategoriesParams = "imported" | "main";
+
+type createCategories = {
+  	products: Product[]
+  	categories: string[]
+	originFrom: "imported" | "main"
+};
 
 
-export default function DropDawnMenu() {
 
-	const products = useProducts();
+export default async function DropDawnMenu() {
 
-	// agrupa os brindes de categoria brindes costuráveis
-	const [costuraveisCategory, setCosturaveisCategory] = useState<Product[]>([]);
-	// agrupa os brindes de categoria importados
-	const [importedCategory, setImportedCategory] = useState<Product[]>([]);
+	const products = await getProducts();
 
+	function createCategories ({products, categories, originFrom } : createCategories) {
 
-	function filterProductsForCategories(categories: string[], products: Product[],  type: 'imported' | 'main') {
-		return categories.map(cat =>
-      products.find(item =>
-        item.category[type].includes(cat)))
-		.filter((item): item is Product => item !== undefined);
+		const listCategories = categories.map(cat => {
+			const productFiltered = products.find(product =>
+				product.category?.[originFrom]?.includes(cat)
+			)
+
+		return {
+			title: cat,
+			thumbnail: productFiltered?.gallery[0]?.img ?? null,
+			altThumbnail: productFiltered?.gallery[0]?.altimg ?? null,
+		}
+
+		})
+
+		return listCategories;
+
 	}
 
-	useEffect(() => {
 
-		const filterCategories = ( type: 'imported' | 'main' ) => {
-			// array de objetos produtos baseado no parâmetro type
-			const productFilteredCategory = products.filter(product => product.category[type].length > 0);
-			// array de strings com todas as categorias de productFilteredCategory
-			const allCategories = productFilteredCategory.map(item => item.category[type]);
-			// array de strings, elimina as categorias repetidas de allCategories 
-			const uniqueCategories = [...new Set(allCategories.flat())];
-			// recebe um objeto de cada categoria
-			const filtered = filterProductsForCategories(uniqueCategories, productFilteredCategory, type )
-			const setter = type === 'imported' ? setImportedCategory : setCosturaveisCategory;
-			setter(filtered);
-		};
+	function filterCategories( origin : filterCategoriesParams ) {
+		const listProductFromCategory = products?.filter(
+			product => product.category?.[origin]?.length > 0
+		);
 
-		filterCategories("main")
-		filterCategories("imported")
-	}, [products] );
+		const uniqueCategoriesImported = [
+			...new Set(
+				listProductFromCategory.flatMap(
+				item => item?.category?.[origin]
+				)
+			)
+		];
+
+		const resultProductCategories = uniqueCategoriesImported.map(item =>
+			listProductFromCategory.find(product =>
+				product.category?.[origin].includes(item)
+			)
+		).filter((item): item is Product => Boolean(item));
+
+		const categoriesFiltred = createCategories({
+			products: resultProductCategories,
+			categories: uniqueCategoriesImported,
+			originFrom: origin
+		});
+
+		return categoriesFiltred;
+	}
+
+	const importedCategory = filterCategories("imported")
+	const mainCategory = filterCategories("main")
 
     return (
+
         <SWrapper>
 			<SNav>
 				<h2 >Costuráveis</h2>
 				<ul>
 					{
-						costuraveisCategory.map((item, i) => (
+						mainCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.category.main}`}>
+								<SLink href={`/categoria/${slugify(item.title)}`}>
 									<div>
 										<Image
-											src={item.thumbnail}
-											alt={item.altthumbnail}
+											src={item.thumbnail ?? ''}
+											alt={item.altThumbnail ?? ''}
 											width={1200}
 											height={700}
 										/>
 									</div>
-									<span>{item.category.main}</span>
+									<span>{item.title}</span>
 								</SLink>
 							</li>
 						))
@@ -74,16 +101,16 @@ export default function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.category.imported}`}>
+								<SLink href={`/categoria/${slugify(item.title)}`}>
 									<div>
 										<Image
-										src={item.thumbnail}
-										alt={item.altthumbnail}
+										src={item.thumbnail ?? ''}
+										alt={item.altThumbnail ?? ''}
 										width={1200}
 										height={700}
 										/>
 									</div>
-									<span>{item.category.imported}</span>
+									<span>{item.title}</span>
 								</SLink>
 							</li>
 						))

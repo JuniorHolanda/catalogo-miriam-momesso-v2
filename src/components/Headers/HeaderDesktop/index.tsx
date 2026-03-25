@@ -1,14 +1,12 @@
-'use client'
-
-import { useState } from "react";
-import { Scontainer, ScontainerLogo, Snav } from "./header.styled";
-import DropDawnMenu from "@/components/DropDawnMenu";
+import NavDesktop from "@/components/Navs/NavDesktop";
+import { Scontainer, ScontainerLogo } from "./header.styled";
 import Image from "next/image";
-
-
+import DropDawnMenu from "@/components/DropDawnMenu";
 
 export default function HeaderDesktop() {
-  const [dropMenu, setDropMenu] = useState<boolean>(false);
+
+
+  const dropDown = <DropDawnMenu />;
 
   return (
       <Scontainer>
@@ -19,24 +17,8 @@ export default function HeaderDesktop() {
             width={1200}
             height={700}
           />
-          
         </ScontainerLogo>
-        <Snav>
-          <li>Home</li>
-          <li className="liDropDown"
-            onMouseEnter={() => setDropMenu(true)}
-            onMouseLeave={() => setDropMenu(false)}>
-            <button
-              onClick={() => setDropMenu(prev => !prev)}>
-              Category
-            </button>
-              {
-                dropMenu && <DropDawnMenu />
-              }
-          </li>
-          <li>Meu Kit</li>
-          <li>Favoritos</li>
-        </Snav>
+        <NavDesktop dropDown={dropDown}/>
       </Scontainer>
   );
 }
