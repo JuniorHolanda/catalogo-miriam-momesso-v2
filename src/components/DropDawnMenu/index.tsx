@@ -24,11 +24,11 @@ export default async function DropDawnMenu() {
 		const listCategories = categories.map(cat => {
 			const productFiltered = products.find(product =>
 				product.category?.[originFrom]?.includes(cat)
-			)
+			);
 
 		return {
 			title: cat,
-			thumbnail: productFiltered?.gallery[0]?.img ?? null,
+			thumbnail: productFiltered?.gallery[1]?.img ?? null,
 			altThumbnail: productFiltered?.gallery[0]?.altimg ?? null,
 		}
 
