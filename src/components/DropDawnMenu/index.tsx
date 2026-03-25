@@ -3,12 +3,14 @@ import holiday from '@/data/holiday.json';
 import Image from "next/image";
 import { getProducts } from "@/services/getProductMomesso";
 import { Product } from "@/utils/interfaces";
+import slugify from "@/utils/slugfyText";
 
 type filterCategoriesParams = "imported" | "main";
 
 type createCategories = {
   	products: Product[]
   	categories: string[]
+	originFrom: "imported" | "main"
 };
 
 
@@ -17,19 +19,30 @@ export default async function DropDawnMenu() {
 
 	const products = await getProducts();
 
-	function createCategories ({products, categories } : createCategories) {
+	function createCategories ({products, categories, originFrom } : createCategories) {
 
-		const categorieList = categories.map(item => ({
-			nome: item,
-			thumbNail: thumbNailCategories.
-		}));
-		
+		const listCategories = categories.map(cat => {
+			const productFiltered = products.find(product =>
+				product.category?.[originFrom]?.includes(cat)
+			)
+
+		return {
+			title: cat,
+			thumbnail: productFiltered?.gallery[0]?.img ?? null,
+			altThumbnail: productFiltered?.gallery[0]?.altimg ?? null,
+		}
+
+		})
+
+		return listCategories;
+
 	}
 
 
 	function filterCategories( origin : filterCategoriesParams ) {
 		const listProductFromCategory = products?.filter(
-			product => product.category?.[origin]?.length > 0);
+			product => product.category?.[origin]?.length > 0
+		);
 
 		const uniqueCategoriesImported = [
 			...new Set(
@@ -47,10 +60,11 @@ export default async function DropDawnMenu() {
 
 		const categoriesFiltred = createCategories({
 			products: resultProductCategories,
-			categories: uniqueCategoriesImported
+			categories: uniqueCategoriesImported,
+			originFrom: origin
 		});
 
-		// return resultProductCategories;
+		return categoriesFiltred;
 	}
 
 	const importedCategory = filterCategories("imported")
@@ -65,16 +79,16 @@ export default async function DropDawnMenu() {
 					{
 						mainCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.category.main}`}>
+								<SLink href={`/categoria/${slugify(item.title)}`}>
 									<div>
 										<Image
-											src={item.thumbnail}
-											alt={item.altthumbnail}
+											src={item.thumbnail ?? ''}
+											alt={item.altThumbnail ?? ''}
 											width={1200}
 											height={700}
 										/>
 									</div>
-									<span>{item.category.main}</span>
+									<span>{item.title}</span>
 								</SLink>
 							</li>
 						))
@@ -87,16 +101,16 @@ export default async function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.category.imported}`}>
+								<SLink href={`/categoria/${slugify(item.title)}`}>
 									<div>
 										<Image
-										src={item.thumbnail}
-										alt={item.altthumbnail}
+										src={item.thumbnail ?? ''}
+										alt={item.altThumbnail ?? ''}
 										width={1200}
 										height={700}
 										/>
 									</div>
-									<span>{item.category.imported}</span>
+									<span>{item.title}</span>
 								</SLink>
 							</li>
 						))
