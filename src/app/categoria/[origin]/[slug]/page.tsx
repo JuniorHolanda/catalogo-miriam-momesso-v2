@@ -8,20 +8,22 @@ import { getProducts } from "@/services/getProductMomesso";
 
 type PageProps = {
   params: Promise<{
+    origin: string
     slug: string
   }>
 }
 
 export default async function CategoryPage({ params }: PageProps){
-    const { slug } = await params;
+    const { slug, origin } = await params;
+
     const dataHoliday = categoryHolidayData.find( item => item.slug === slug);
+
     const products = await getProducts();
 
-    const filteredProduct = products.filter(item => {
-        const category = item.category.main?.length
-            ? item.category.main
-            : item.category.imported || []
-        return category.some(cat => slugify(cat) === slug)
+        // const category = item.category.main?.length
+        //     ? item.category.main
+        //     : item.category.imported || []
+        // return category.some(cat => slugify(cat) === slug)
     });
 
     const filteredHoliday = products.filter(item =>
@@ -30,10 +32,8 @@ export default async function CategoryPage({ params }: PageProps){
       )
     );
        
-    console.log('antes da validação');
     //validação
     if (filteredHoliday.length <= 0 && filteredProduct.length <= 0) {
-        console.log('rodou a validação');
         notFound();
     }
 
