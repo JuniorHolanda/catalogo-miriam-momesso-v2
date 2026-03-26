@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import categoryHolidayData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
@@ -7,55 +6,47 @@ import SwiperComponent from "@/components/Swiper";
 import { getProducts } from "@/services/getProductMomesso";
 
 type PageProps = {
-  params: Promise<{
-    origin: string
+    params: Promise<{
+    origin: "imported" | "main" | "holiday"
     slug: string
   }>
 }
 
 export default async function CategoryPage({ params }: PageProps){
-    const { slug, origin } = await params;
-
-    const dataHoliday = categoryHolidayData.find( item => item.slug === slug);
-
+    const { origin, slug } = await params;
+    console.log(slug);
+    
     const products = await getProducts();
 
-        // const category = item.category.main?.length
-        //     ? item.category.main
-        //     : item.category.imported || []
-        // return category.some(cat => slugify(cat) === slug)
-    });
-
-    const filteredHoliday = products.filter(item =>
-      item.category?.holiday?.some(holiday =>
-          slugify(holiday).includes(slugify(slug))
-      )
-    );
-       
-    //validação
-    if (filteredHoliday.length <= 0 && filteredProduct.length <= 0) {
-        notFound();
+    function filteredProductsParams () {
+        
+         if (origin === "holiday") {
+            const filtered = products.filter(product =>
+            product.category?.[origin]?.some(item =>
+                slugify(item) === slug
+            )
+            );
+            return filtered
+        } else {
+            const filtered = products.filter(product =>
+                product.category?.[origin]?.includes(slug)
+            );
+            return filtered
+        }
     }
 
-    const productSwith = filteredProduct !== undefined && filteredProduct.length > 0
-        ? filteredProduct
-        : filteredHoliday
-
-    console.log(filteredProduct);
-
+    const productFiltered = filteredProductsParams()
+    
 
     return(
         <SWrapper>
             <SContainerTitle>
-                <h1>{}</h1>
-                <p>{}</p>
+                <h1>{"teste"}</h1>
+                <p>{"lorem"}</p>
             </SContainerTitle>
-            {
-                dataHoliday && <SwiperComponent holiday={dataHoliday}  />
-            }
             <SSection>
                 {
-                    productSwith.map(product => (
+                    productFiltered.map(product => (
                         <SContainerProduct key={product._id}>
                             <CardProduct product={product}/>
                         </SContainerProduct>

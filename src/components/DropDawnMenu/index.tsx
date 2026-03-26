@@ -26,13 +26,13 @@ export default async function DropDawnMenu() {
 				product.category?.[originFrom]?.includes(cat)
 			);
 
-		return {
-			title: cat,
-			thumbnail: productFiltered?.gallery[1]?.img ?? null,
-			altThumbnail: productFiltered?.gallery[0]?.altimg ?? null,
-		}
-
-		})
+			return {
+				title: cat,
+				thumbnail: productFiltered?.gallery[1]?.img ?? null,
+				altThumbnail: productFiltered?.gallery[0]?.altimg ?? null,
+				origin: originFrom
+			}
+		});
 
 		return listCategories;
 
@@ -79,7 +79,7 @@ export default async function DropDawnMenu() {
 					{
 						mainCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.title)}`}>
+								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
 									<div>
 										<Image
 											src={item.thumbnail ?? ''}
@@ -101,7 +101,7 @@ export default async function DropDawnMenu() {
 					{
 						importedCategory.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.title)}`}>
+								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
 									<div>
 										<Image
 										src={item.thumbnail ?? ''}
@@ -123,7 +123,7 @@ export default async function DropDawnMenu() {
 					{
 						holiday.map((item, i) => (
 							<li key={i}>
-								<SLink href={`/categoria/${item.slug}`}>
+								<SLink href={`/categoria/holiday/${item.slug}`}>
 									<div>
 										<Image
 										src={item.icon}
