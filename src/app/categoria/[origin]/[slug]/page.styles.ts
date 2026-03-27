@@ -1,7 +1,6 @@
 'use client';
 
 import { flex, font, gap, padding } from "@/styles/mixins";
-import Link from "next/link";
 import styled from "styled-components";
 
 export const SWrapper = styled.main`
@@ -18,6 +17,7 @@ export const SWrapper = styled.main`
 export const SContainerTitle = styled.div`
     ${flex({direction:'column'})}
     color: ${({ theme }) => theme.colors.title.primary};
+    text-transform: capitalize;
 
     h1 {
         ${font({fontKey:'primary', sizeKey:'xlg'})}

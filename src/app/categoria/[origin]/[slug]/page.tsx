@@ -1,8 +1,6 @@
-import categoryHolidayData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
-import SwiperComponent from "@/components/Swiper";
 import { getProducts } from "@/services/getProductMomesso";
 
 type PageProps = {
@@ -14,7 +12,6 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps){
     const { origin, slug } = await params;
-    console.log(slug);
     
     const products = await getProducts();
 
@@ -36,13 +33,13 @@ export default async function CategoryPage({ params }: PageProps){
     }
 
     const productFiltered = filteredProductsParams()
+    const nameCategory = slug.replace(/-/g, " ")
     
 
     return(
         <SWrapper>
             <SContainerTitle>
-                <h1>{"teste"}</h1>
-                <p>{"lorem"}</p>
+                <h1>{nameCategory}</h1>
             </SContainerTitle>
             <SSection>
                 {
