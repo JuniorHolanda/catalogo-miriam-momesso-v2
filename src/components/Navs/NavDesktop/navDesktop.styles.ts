@@ -1,14 +1,14 @@
-'use  client'
+'use  client';
 
-import { flex, font, gap, smoothTransition } from "@/styles/mixins";
-import styled from "styled-components";
+import { flex, font, gap, smoothTransition } from '@/styles/mixins';
+import styled from 'styled-components';
 
 export const Snav = styled.div`
   ${flex({})}
-  ${gap({spaceKey: 'md'})} 
+  ${gap({ spaceKey: 'md' })} 
   flex: 1;
   height: 100%;
-  ${font({sizeKey: 'sm', fontKey: 'secondary'})}
+  ${font({ sizeKey: 'sm', fontKey: 'secondary' })}
   font-weight: 800;
   color: ${({ theme }) => theme.colors.link.reverse};
 
@@ -19,24 +19,24 @@ export const Snav = styled.div`
   li {
     ${flex({})}
     ${smoothTransition}
-    ${font({fontKey:'secondary', sizeKey:'sm'})}
+    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
     font-weight: 400;
     cursor: pointer;
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.text.reverseText};
     z-index: 1000;
-    
-    &:hover{
+
+    &:hover {
       font-weight: 600;
       transform: translateY(-3px);
     }
-    
+
     button {
       color: ${({ theme }) => theme.colors.text.reverseText};
-      ${font({fontKey:'secondary', sizeKey:'sm'})}
+      ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
       font-weight: 400;
 
-      &:hover{
+      &:hover {
         font-weight: 600;
       }
     }

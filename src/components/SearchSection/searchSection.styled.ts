@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
+import Link from 'next/link';
 
 type SsectionProps = {
   $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
@@ -11,14 +12,13 @@ export const Ssection = styled.section<SsectionProps>`
   position: relative;
   z-index: 0;
   ${flex({ align: 'center', justfy: 'start' })}
-  ${padding({spaceKey: 'md'})}
+  ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: ${({ $viewPortStyle }) =>
-    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
-      ? '90dvh'
-      : '100dvh'};
+    $viewPortStyle === 'lg' || $viewPortStyle === 'xl' ? '90dvh' : '100dvh'};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  /* background-color: ${({ theme }) => theme.colors.background.high}; */
+  background-image: g;
 `;
 
 export const ScontainerCardProduct = styled.ul`
@@ -26,17 +26,14 @@ export const ScontainerCardProduct = styled.ul`
   top: 110%;
   left: 50%;
   ${flex({})}
-  ${padding({spaceKey:'md'})}
-  ${borderRadius({radiusKey:'md'})}
+  ${padding({ spaceKey: 'md' })}
+  ${borderRadius({ radiusKey: 'md' })}
   width: 90vw;
   height: 50vh;
   transform: translateX(-50%);
 
-
-  
-  
   .swiper-container {
-    ${borderRadius({radiusKey:'sm'})}
+    ${borderRadius({ radiusKey: 'sm' })}
     padding: 0 50px;
     height: 100%;
   }
@@ -57,21 +54,18 @@ export const SformInSection = styled.form<SformInSectionProps>`
   top: ${(props) => (props.$props === true ? '15%' : '50%')};
   left: 50%;
   ${flex({ direction: 'column' })};
-  ${padding({spaceKey: 'md'})}
-  ${gap({spaceKey: 'md'})} 
+  ${padding({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'md' })} 
   flex: 0.5;
   height: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
   width: ${({ $viewPortStyle }) =>
-    $viewPortStyle === 'lg' || $viewPortStyle === 'xl'
-      ? '50vw'
-      : '90vw'};
+    $viewPortStyle === 'lg' || $viewPortStyle === 'xl' ? '50vw' : '90vw'};
 `;
 
-
 export const Stitle = styled.h1`
-  ${font({fontKey:'primary', sizeKey:'lg'})}
+  ${font({ fontKey: 'primary', sizeKey: 'lg' })}
   color: ${({ theme }) => theme.colors.title.primary};
   font-weight: 100;
 `;
@@ -94,14 +88,10 @@ export const ScontainerInput = styled.div<SsectionProps>`
   }
 
   input {
-    ${flex({})}
-    ${padding({spaceKey: 'md'})};
-    ${(borderRadius({radiusKey:'md'}))}
-    ${({ $viewPortStyle }) =>
-      $viewPortStyle === 'lg' || $viewPortStyle === 'xl' || $viewPortStyle === 'md'
-        ? font({ fontKey: 'secondary', sizeKey: 'xsm' })
-        : font({ fontKey: 'secondary', sizeKey: 'md' })
-    }
+    ${flex({})};
+    ${padding({ spaceKey: 'md' })};
+    ${borderRadius({ radiusKey: 'md' })};
+    ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -112,6 +102,22 @@ export const ScontainerInput = styled.div<SsectionProps>`
       outline: none;
       border: solid 1px ${({ theme }) => theme.colors.border.active};
     }
-    ;
   }
+`;
+
+export const SContainerHoliday = styled.div`
+  ${flex({})}
+  ${gap({ spaceKey: 'md' })}
+`;
+
+export const SLink = styled(Link)`
+  ${flex({})}
+  ${padding({ spaceKey: 'sm' })}
+  ${borderRadius({ radiusKey: 'sm' })}
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+  font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: ${({ theme }) => theme.colors.text.textMain};
+  color: ${({ theme }) => theme.colors.text.reverseText};
 `;

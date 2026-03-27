@@ -1,9 +1,10 @@
 'use client'
 
 import { useProducts } from "@/contexts/Product.context";
-import { ScontainerCardProduct, ScontainerInput, SformInSection, Ssection, Stitle } from "./searchSection.styled";
+import { ScontainerCardProduct, SContainerHoliday, ScontainerInput, SformInSection, SLink, Ssection, Stitle } from "./searchSection.styled";
 import { ChangeEvent, useEffect, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
+import holiday from "@/data/holiday.json"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -21,14 +22,14 @@ export default function SearchSection() {
     const [text, setText] = useState<string>("");
     const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
     // usada para controlar a propriedade top do css do input
-    const [animationInput, setAnimationInput] = useState<boolean>(false);
+    const [contentInput, setContentInput] = useState<boolean>(false);
 
     //controla a propriedade top no css do input 
     useEffect(() => {
         if (productsFiltered.length !== 0) {
-            setAnimationInput(true);
+            setContentInput(true);
         } else {
-            setAnimationInput(false)
+            setContentInput(false)
         }
     }, [productsFiltered])
 
@@ -49,9 +50,10 @@ export default function SearchSection() {
     }
 
 
+
     return (
         <Ssection $viewPortStyle={viewPort}>
-            <SformInSection $viewPortStyle={viewPort} $props={animationInput}>
+            <SformInSection $viewPortStyle={viewPort} $props={contentInput}>
                 <Stitle>Sim, Temos o seu brinde!</Stitle>
                 <ScontainerInput $viewPortStyle={viewPort}>
                     <label htmlFor="search">Digite sua busca</label>
@@ -64,6 +66,20 @@ export default function SearchSection() {
                         onChange={controllerInput}
                     />
                 </ScontainerInput>
+                <SContainerHoliday>
+                    {
+                        !contentInput && (
+                            holiday.map(data =>
+                                <SLink
+                                    href={`categoria/holiday/${data.slug}`}
+                                    key={data.id}
+                                >
+                                    {data.category}
+                                </SLink>
+                            )
+                        )
+                    }
+                </SContainerHoliday>
 
                 {productsFiltered.length > 0 && (
                     <ScontainerCardProduct>
@@ -90,7 +106,6 @@ export default function SearchSection() {
                     </ScontainerCardProduct>
                 )}
             </SformInSection>
-
         </Ssection>
     );
 }
