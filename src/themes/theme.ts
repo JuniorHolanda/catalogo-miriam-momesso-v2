@@ -5,8 +5,8 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    sm: 'clamp(.7rem, 1vw, 1rem)',
-    xsm: 'clamp(1rem, 1.2vw, 5rem)',
+    sm: 'clamp(.5rem, 1vw, .7rem)',
+    xsm: 'clamp(1rem, 1.2vw, 7rem)',
     md: 'clamp(1rem, 3vw, 5rem)',
     lg: 'clamp(3rem, 4vw, 8rem)',
     xlg: 'clamp(2rem, 7vw, 10rem)',
@@ -77,7 +77,7 @@ export const lightTheme = {
       reverse: '#ffffff44',
     },
   },
-}
+};
 
 export const darkTheme = {
   ...defaultTheme,
@@ -137,6 +137,5 @@ export const darkTheme = {
     },
   },
 };
-
 
 export type Theme = typeof lightTheme;
