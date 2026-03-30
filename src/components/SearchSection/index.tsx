@@ -13,7 +13,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Product } from "@/utils/interfaces";
 import { useViewport } from "@/hooks/useViewport";
-import Image from "next/image";
 
 
 
@@ -75,12 +74,6 @@ export default function SearchSection() {
                                     href={`categoria/holiday/${data.slug}`}
                                     key={data.id}
                                 >
-                                    <Image
-                                        src={data.img ?? ''}
-                                        alt={data.altImg ?? ''}
-                                        width={1200}
-                                        height={700}
-                                    />
                                     {data.category}
                                 </SLink>
                             )
