@@ -5,7 +5,7 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    sm: 'clamp(.5rem, 1vw, .7rem)',
+    sm: 'clamp(.9rem, 1vw, .7rem)',
     xsm: 'clamp(1rem, 1.2vw, 7rem)',
     md: 'clamp(1rem, 3vw, 5rem)',
     lg: 'clamp(3rem, 4vw, 8rem)',
