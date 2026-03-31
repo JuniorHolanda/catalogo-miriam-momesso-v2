@@ -60,8 +60,7 @@ export const SformInSection = styled.form<SformInSectionProps>`
   height: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
-  width: ${({ $viewPortStyle }) =>
-    $viewPortStyle === 'lg' || $viewPortStyle === 'xl' ? '50vw' : '90vw'};
+  width: 90vw;
 `;
 
 export const Stitle = styled.h1`
@@ -72,8 +71,16 @@ export const Stitle = styled.h1`
 
 export const ScontainerInput = styled.div<SsectionProps>`
   ${flex({})};
-  width: 100%;
+  width: 50%;
   height: 80px;
+  
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 
   label {
     position: absolute;
@@ -108,16 +115,37 @@ export const ScontainerInput = styled.div<SsectionProps>`
 export const SContainerHoliday = styled.div`
   ${flex({})}
   ${gap({ spaceKey: 'md' })}
-`;
+  width: 100%;
+
+  .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+  
+  .swiper-container-holiday {
+    ${flex({})}
+    width: 100%;
+    
+    .swiper-item-holiday{
+      ${flex({})}
+    }
+  }
+  `;
 
 export const SLink = styled(Link)`
-  ${flex({})}
-  ${padding({ spaceKey: 'sm' })}
-  ${borderRadius({ radiusKey: 'sm' })}
+  ${flex({direction:"column"})}
+  ${gap({ spaceKey: 'md' })}
+  ${padding({ spaceKey: 'md' })}
+  ${borderRadius({ radiusKey: 'md' })}
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-  font-weight: 300;
+  width: 300px;
+  font-weight: 900;
   overflow: hidden;
   white-space: nowrap;
-  background-color: ${({ theme }) => theme.colors.text.textMain};
-  color: ${({ theme }) => theme.colors.text.reverseText};
+  background-color: ${({ theme }) => theme.colors.background.high};
+  color: ${({ theme }) => theme.colors.text.text};
+  
+  img {
+    ${borderRadius({ radiusKey: 'sm' })}
+    
+  }
 `;
