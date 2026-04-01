@@ -67,48 +67,50 @@ export default function SearchSection() {
                         onChange={controllerInput}
                     />
                 </ScontainerInput>
+        {
+            holiday?.length > 0 && !contentInput && (
                 <SContainerHoliday>
-                    <Swiper
-                        className="swiper-container-holiday"
-                        spaceBetween={15}
-                        loop={holiday.length > 5}
-                        modules={[Autoplay, FreeMode]}
-                        freeMode
-                        autoplay={{
-                            delay: 0,
-                            disableOnInteraction: false,
-                        }}
-                        speed={8000}
-                        slidesPerView={5}
-                        grabCursor
-                    >
-                        {
-                            holiday?.length > 0 && !contentInput && (
-                                holiday.map(data =>
-                                    <SwiperSlide
-                                        className="swiper-item-holiday"
-                                        key={data.id}
-                                    >
-                                    <SLink
-                                        href={`categoria/holiday/${data.slug}`}
-                                    >
-                                        <Image className="container-img-holiday"
-                                            src={data.icon ?? ''}
-                                            alt={data.altImg ?? ''}
-                                            width={1200}
-                                            height={700}
-                                        />
-                                        <SContainerInfoHoliday>
-                                            <h2>{data.category}</h2>
-                                            {/* <p>{data.description}</p> */}
-                                        </SContainerInfoHoliday>
-                                    </SLink>
-                                    </SwiperSlide>
-                                )
-                            )
-                        }
-                    </Swiper>
+                            <Swiper
+                                className="swiper-container-holiday"
+                                spaceBetween={15}
+                                loop={holiday.length > 5}
+                                modules={[Autoplay, FreeMode]}
+                                freeMode
+                                autoplay={{
+                                    delay: 0,
+                                    disableOnInteraction: false,
+                                }}
+                                speed={8000}
+                                slidesPerView={5}
+                                grabCursor
+                            >
+                                {
+                                    holiday.map(data =>
+                                        <SwiperSlide
+                                            className="swiper-item-holiday"
+                                            key={data.id}
+                                        >
+                                        <SLink
+                                            href={`categoria/holiday/${data.slug}`}
+                                        >
+                                            <Image className="container-img-holiday"
+                                                src={data.icon ?? ''}
+                                                alt={data.altImg ?? ''}
+                                                width={1200}
+                                                height={700}
+                                            />
+                                            <SContainerInfoHoliday>
+                                                <h2>{data.category}</h2>
+                                                {/* <p>{data.description}</p> */}
+                                            </SContainerInfoHoliday>
+                                        </SLink>
+                                        </SwiperSlide>
+                                    )
+                                }
+                            </Swiper>
                 </SContainerHoliday>
+                )
+            }
 
                 {productsFiltered.length > 0 && (
                     <ScontainerCardProduct>
