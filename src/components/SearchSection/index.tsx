@@ -1,7 +1,7 @@
 'use client'
 
 import { useProducts } from "@/contexts/Product.context";
-import { ScontainerCardProduct, SContainerHoliday, ScontainerInput, SformInSection, SLink, Ssection, Stitle } from "./searchSection.styled";
+import { ScontainerCardProduct, SContainerHoliday, SContainerInfoHoliday, ScontainerInput, SformInSection, SLink, Ssection, Stitle } from "./searchSection.styled";
 import { ChangeEvent, useEffect, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
 import holiday from "@/data/holiday.json"
@@ -87,41 +87,27 @@ export default function SearchSection() {
                                 holiday.map(data =>
                                     <SwiperSlide
                                         className="swiper-item-holiday"
-                                        key={data.id}>
-                                        <SLink
+                                        key={data.id}
+                                    >
+                                    <SLink
                                         href={`categoria/holiday/${data.slug}`}
                                     >
-                                        <Image
+                                        <Image className="container-img-holiday"
                                             src={data.icon ?? ''}
                                             alt={data.altImg ?? ''}
                                             width={1200}
                                             height={700}
                                         />
-                                        {data.category}
+                                        <SContainerInfoHoliday>
+                                            <h2>{data.category}</h2>
+                                            {/* <p>{data.description}</p> */}
+                                        </SContainerInfoHoliday>
                                     </SLink>
                                     </SwiperSlide>
                                 )
                             )
                         }
                     </Swiper>
-                    {/* {
-                        !contentInput && (
-                            holiday.map(data =>
-                                <SLink
-                                    href={`categoria/holiday/${data.slug}`}
-                                    key={data.id}
-                                >
-                                    <Image
-                                        src={data.icon ?? ''}
-                                        alt={data.altImg ?? ''}
-                                        width={1200}
-                                        height={700}
-                                    />
-                                    {data.category}
-                                </SLink>
-                            )
-                        )
-                    } */}
                 </SContainerHoliday>
 
                 {productsFiltered.length > 0 && (

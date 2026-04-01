@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
+import { CgEnter } from 'react-icons/cg';
 
 type SsectionProps = {
   $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
@@ -116,36 +117,59 @@ export const SContainerHoliday = styled.div`
   ${flex({})}
   ${gap({ spaceKey: 'md' })}
   width: 100%;
-
+  height: 400px;
+  
   .swiper-wrapper {
     transition-timing-function: linear !important;
+    height: 100%;
   }
   
   .swiper-container-holiday {
     ${flex({})}
     width: 100%;
+    height: 100%;
     
     .swiper-item-holiday{
       ${flex({})}
+      width: 100%;
+      height: 100%;
     }
   }
   `;
 
 export const SLink = styled(Link)`
   ${flex({direction:"column"})}
-  ${gap({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'sm' })}
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
   width: 300px;
-  font-weight: 900;
+  height: 100%;
   overflow: hidden;
-  white-space: nowrap;
   background-color: ${({ theme }) => theme.colors.background.high};
   color: ${({ theme }) => theme.colors.text.text};
   
+  
   img {
     ${borderRadius({ radiusKey: 'sm' })}
-    
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
+  }
+`;
+
+export const SContainerInfoHoliday = styled.div`
+  ${flex({direction:"column",justfy:"center", align:"center"})}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  h2 {
+    ${font({fontKey:"secondary", sizeKey:"xsm"})}
+    font-weight: 900;
   }
 `;
