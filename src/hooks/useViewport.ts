@@ -11,9 +11,9 @@ export function useViewport(breakpoint = 800) {
     function handleResize() {
       const width = window.innerWidth;
 
-      if (width <= 880) {
+      if (width <= 500) {
         setViewport('sm');
-      } else if (width <= 1400) {
+      } else if (width <= 900) {
         setViewport('md');
       } else if (width <= 1920) {
         setViewport('lg');

@@ -14,6 +14,7 @@ import 'swiper/css/pagination';
 import { Product } from "@/utils/interfaces";
 import { useViewport } from "@/hooks/useViewport";
 import Image from "next/image";
+import Stories from 'react-insta-stories';
 
 
 
@@ -68,7 +69,7 @@ export default function SearchSection() {
                     />
                 </ScontainerInput>
         {
-            holiday?.length > 0 && !contentInput && (
+            holiday?.length > 0 && !contentInput && viewPort !== "sm" ? (
                 <SContainerHoliday>
                             <Swiper
                                 className="swiper-container-holiday"
@@ -81,7 +82,10 @@ export default function SearchSection() {
                                     disableOnInteraction: false,
                                 }}
                                 speed={8000}
-                                slidesPerView={5}
+                                slidesPerView={
+                                    viewPort === 'xl' || viewPort === 'lg'
+                                    ? 5 : 2
+                                }
                                 grabCursor
                             >
                                 {
@@ -109,6 +113,21 @@ export default function SearchSection() {
                                 }
                             </Swiper>
                 </SContainerHoliday>
+                ) : (
+                    <div>
+                        {
+                            holiday?.length > 0 && !contentInput && viewPort === "sm" && (
+                                holiday.map(data =>
+                                    <Stories
+                                        stories={data.icon}
+                                        defaultInterval={1500}
+                                        width={432}
+                                        height={768}
+                                    />
+                                 )
+                            )
+                        } 
+                    </div>
                 )
             }
 
