@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null;
+export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null | string;
 
 export function useViewport(breakpoint = 800) {
   const [viewport, setViewport] = useState(() => {
