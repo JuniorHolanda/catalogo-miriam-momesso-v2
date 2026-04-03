@@ -5,7 +5,12 @@ import { useEffect, useState } from 'react';
 export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null;
 
 export function useViewport(breakpoint = 800) {
-  const [viewport, setViewport] = useState<ViewportType>(null);
+  const [viewport, setViewport] = useState(() => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768 ? "sm" : "lg";
+  }
+  return null;
+});
 
   useEffect(() => {
     function handleResize() {
