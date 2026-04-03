@@ -3,23 +3,20 @@
 import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
-import { CgEnter } from 'react-icons/cg';
+import Image from 'next/image';
 
-type SsectionProps = {
-  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
-};
-
-export const Ssection = styled.section<SsectionProps>`
+export const Ssection = styled.section`
   position: relative;
   z-index: 0;
   ${flex({ align: 'center', justfy: 'start' })}
   ${padding({ spaceKey: 'md' })}
   width: 100%;
-  height: ${({ $viewPortStyle }) =>
-    $viewPortStyle === 'lg' || $viewPortStyle === 'xl' ? '90dvh' : '100dvh'};
+  height: 100%;
   overflow: hidden;
-  /* background-color: ${({ theme }) => theme.colors.background.high}; */
-  background-image: g;
+
+  @media (max-width: 500) {
+    height: 90dvh;
+  }
 `;
 
 export const ScontainerCardProduct = styled.ul`
@@ -46,7 +43,6 @@ export const ScontainerCardProduct = styled.ul`
 
 type SformInSectionProps = {
   $props: boolean;
-  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
 };
 
 export const SformInSection = styled.form<SformInSectionProps>`
@@ -58,31 +54,34 @@ export const SformInSection = styled.form<SformInSectionProps>`
   ${padding({ spaceKey: 'md' })}
   ${gap({ spaceKey: 'md' })} 
   flex: 0.5;
-  height: fit-content;
   z-index: 100;
   transition: all ease-in-out 0.1s;
   width: 90vw;
-  `;
+  height: 100%;
+`;
 
 export const Stitle = styled.h1`
   ${font({ fontKey: 'primary', sizeKey: 'lg' })}
   color: ${({ theme }) => theme.colors.title.primary};
   font-weight: 100;
-  `;
+  width: 100%;
+  text-align: center;
+  height: auto;
+`;
 
-export const ScontainerInput = styled.div<SsectionProps>`
+export const ScontainerInput = styled.div`
   ${flex({})};
   width: 50%;
-  height: 80px;
-  
+  height: 10%;
+
   @media (max-width: 1200px) {
     width: 70%;
   }
-  
+
   @media (max-width: 1000px) {
     width: 100%;
   }
-  
+
   label {
     position: absolute;
     width: 1px;
@@ -94,7 +93,7 @@ export const ScontainerInput = styled.div<SsectionProps>`
     white-space: nowrap;
     border: 0;
   }
-  
+
   input {
     ${flex({})};
     ${padding({ spaceKey: 'md' })};
@@ -105,72 +104,67 @@ export const ScontainerInput = styled.div<SsectionProps>`
     height: 100%;
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background.base};
-    
+
     &:focus {
       outline: none;
       border: solid 1px ${({ theme }) => theme.colors.border.active};
     }
   }
-  `;
+`;
 
 export const SContainerHoliday = styled.div`
   ${flex({})}
   ${gap({ spaceKey: 'md' })}
   width: 100%;
-  height: 400px;
-  
-  .swiper-wrapper {
-    transition-timing-function: linear !important;
-    height: 100%;
-  }
-  
-  .swiper-container-holiday {
+  height: auto;
+
+  .swiper{
     ${flex({})}
     width: 100%;
     height: 100%;
-    
-    .swiper-item-holiday{
+
+    .swiper-wrapper {
+    transition-timing-function: linear !important;
+    height: 100%;
+
+    .swiper-slide {
       ${flex({})}
       width: 100%;
       height: 100%;
     }
   }
-  `;
-
-export const SLink = styled(Link)`
-  ${flex({direction:"column"})}
-  ${gap({ spaceKey: 'sm' })}
-  ${padding({ spaceKey: 'md' })}
-  ${borderRadius({ radiusKey: 'md' })}
-  ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-  width: 300px;
-  height: 100%;
-  overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.high};
-  color: ${({ theme }) => theme.colors.text.text};
-  
-  
-  img {
-    ${borderRadius({ radiusKey: 'sm' })}
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: auto;
   }
 `;
 
+export const SLink = styled(Link)`
+  ${flex({ direction: 'column' })}
+  ${gap({ spaceKey: 'sm' })}
+  ${padding({ spaceKey: 'lg' })}
+  ${borderRadius({ radiusKey: 'md' })}
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.background.high};
+  color: ${({ theme }) => theme.colors.text.text};
+`;
+
+export const SImage = styled(Image)`
+  ${borderRadius({radiusKey:'sm'})}
+  object-fit: cover;
+  object-position: center;
+`;
+
 export const SContainerInfoHoliday = styled.div`
-  ${flex({direction:"column",justfy:"center", align:"center"})}
+  ${flex({ direction: 'column', justfy: 'center', align: 'center' })}
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-
+  height: fit-content;
 
   h2 {
-    ${font({fontKey:"secondary", sizeKey:"xsm"})}
+    ${font({ fontKey: 'secondary', sizeKey: 'xsm' })}
     font-weight: 900;
   }
 `;

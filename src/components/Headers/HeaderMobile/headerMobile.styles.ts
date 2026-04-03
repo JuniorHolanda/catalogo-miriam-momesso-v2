@@ -8,6 +8,7 @@ export const Swrapper = styled.section`
   left: 0;
   ${flex({})}
   width: 100%;
+  height: 10vh;
   ${padding({spaceKey: 'md'})}
 `;
 

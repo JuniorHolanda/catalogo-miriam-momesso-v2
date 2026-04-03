@@ -1,11 +1,11 @@
-import SearchSection from "@/components/SearchSection";
+import HeroSection from "@/components/HeroSection";
 import { Scontainer } from "./page.styles";
 
 export default function Home() {
 
   return (
     <Scontainer>
-     <SearchSection />
+     <HeroSection />
     </Scontainer>
   );
 }
