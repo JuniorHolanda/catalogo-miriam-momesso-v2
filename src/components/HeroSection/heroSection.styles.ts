@@ -15,7 +15,6 @@ export const Ssection = styled.section`
 
 export const SDesktop = styled.div`
   display: block;
-  border: solid red;
   width: 100%;
   height: 100%;
 

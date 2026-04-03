@@ -7,6 +7,7 @@ import {
   SContainerInfoHoliday,
   ScontainerInput,
   SformInSection,
+  SImage,
   SLink,
   Ssection,
   Stitle,
@@ -21,18 +22,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Product } from "@/utils/interfaces";
-import { useViewport } from "@/hooks/useViewport";
 import Image from "next/image";
+import { useViewport } from "@/hooks/useViewport";
 
 export default function SearchSection() {
-  const viewPort = useViewport();
   const products = useProducts();
   const [text, setText] = useState<string>("");
   const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
   // usada para controlar a propriedade top do css do input
   const [contentInput, setContentInput] = useState<boolean>(false);
-  // objetos usados para o stories da lib stories-insta-react
-
+  const viewPort = useViewport();
+  
   //controla a propriedade top no css do input
   useEffect(() => {
     if (productsFiltered.length !== 0) {
@@ -59,10 +59,10 @@ export default function SearchSection() {
   }
 
   return (
-    <Ssection $viewPortStyle={viewPort}>
-      <SformInSection $viewPortStyle={viewPort} $props={contentInput}>
+    <Ssection>
+      <SformInSection $props={contentInput}>
         <Stitle>Sim, Temos o seu brinde!</Stitle>
-        <ScontainerInput $viewPortStyle={viewPort}>
+        <ScontainerInput >
           <label htmlFor="search">Digite sua busca</label>
           <input
             type="text"
@@ -75,7 +75,6 @@ export default function SearchSection() {
         </ScontainerInput>
         <SContainerHoliday>
           <Swiper
-            className="swiper-container-holiday"
             spaceBetween={15}
             loop={holiday.length > 5}
             modules={[Autoplay, FreeMode]}
@@ -89,18 +88,17 @@ export default function SearchSection() {
             grabCursor
           >
             {holiday.map((data) => (
-              <SwiperSlide className="swiper-item-holiday" key={data.id}>
+              <SwiperSlide key={data.id}>
                 <SLink href={`categoria/holiday/${data.slug}`}>
-                  <Image
+                  <SImage
                     className="container-img-holiday"
                     src={data.icon ?? ""}
                     alt={data.altImg ?? ""}
-                    width={1200}
-                    height={700}
+                    width={400}
+                    height={400}
                   />
                   <SContainerInfoHoliday>
                     <h2>{data.category}</h2>
-                    {/* <p>{data.description}</p> */}
                   </SContainerInfoHoliday>
                 </SLink>
               </SwiperSlide>
