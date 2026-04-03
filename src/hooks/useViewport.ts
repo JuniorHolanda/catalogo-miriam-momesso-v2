@@ -6,11 +6,11 @@ export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null | string;
 
 export function useViewport(breakpoint = 800) {
   const [viewport, setViewport] = useState(() => {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 768 ? "sm" : "lg";
-  }
-  return null;
-});
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 'sm' : 'lg';
+    }
+    return null;
+  });
 
   useEffect(() => {
     function handleResize() {

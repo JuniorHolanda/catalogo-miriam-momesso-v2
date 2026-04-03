@@ -4,7 +4,7 @@ import { borderRadius, flex, font, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
 
 type viewPortProps = {
-  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null;
+  $viewPortStyle: 'sm' | 'md' | 'lg' | 'xl' | null | string;
 };
 
 
