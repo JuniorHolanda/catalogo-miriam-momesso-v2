@@ -1,4 +1,5 @@
 import SearchSection from "../SearchDesktop";
+import SearchMobile from "../SearchMobile";
 import StoriesMobile from "../stories";
 import { SDesktop, SMobile, Ssection } from "./heroSection.styles";
 
@@ -13,6 +14,7 @@ export default function HeroSection() {
       </SDesktop>
 
       <SMobile>
+        <SearchMobile />
         <StoriesMobile />
       </SMobile>
 
