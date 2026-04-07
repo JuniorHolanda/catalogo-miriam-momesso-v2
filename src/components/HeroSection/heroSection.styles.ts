@@ -30,6 +30,7 @@ export const SMobile = styled.div`
   height: 100%;
 
   @media (max-width: 400px) {
-    display: block;
+    ${flex({direction:'column'})}
+    ${gap({spaceKey:'md'})}
   }
 `;
