@@ -11,16 +11,16 @@ export const Ssection = styled.section`
   width: 100%;
   height: 90dvh;
   overflow: hidden;
-`;
+  `;
 
 export const SDesktop = styled.div`
-  display: block;
-  width: 100%;
-  height: 100%;
+display: block;
+width: 100%;
+height: 100%;
 
-  @media (max-width: 400px) {
-    display: none;
-  }
+@media (max-width: 400px) {
+  display: none;
+}
 `;
 
 export const SMobile = styled.div`

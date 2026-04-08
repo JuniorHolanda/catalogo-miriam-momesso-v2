@@ -7,3 +7,13 @@ export const rotatePendulum = keyframes`
         transform: rotate(90deg);
     }
 `;
+
+
+export const entraceToTop = keyframes`
+    from {
+        transform: translateY(10px);
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`;
