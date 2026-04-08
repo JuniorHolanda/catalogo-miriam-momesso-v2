@@ -1,13 +1,14 @@
 'use client';
 
 import styled from 'styled-components';
-import { flex, padding } from '@/styles/mixins';
+import { flex, gap, padding } from '@/styles/mixins';
 
 export const Ssection = styled.section`
   position: relative;
   z-index: 0;
-  ${flex({ align: 'center', justfy: 'start' })}
-  ${padding({ spaceKey: 'md' })}
+  ${flex({ align: 'center', justfy: 'start' })};
+  ${padding({ spaceKey: 'md' })};
+  ${gap({ spaceKey: 'md' })};
   width: 100%;
   height: 90dvh;
   overflow: hidden;
@@ -29,6 +30,7 @@ export const SMobile = styled.div`
   height: 100%;
 
   @media (max-width: 400px) {
-    display: block;
+    ${flex({direction:'column'})}
+    ${gap({spaceKey:'md'})}
   }
 `;
