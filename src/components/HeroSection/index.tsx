@@ -10,7 +10,7 @@ export default function HeroSection() {
     <Ssection >
 
       <SDesktop>
-        <SearchSection/>
+        <SearchSection />
       </SDesktop>
 
       <SMobile>
