@@ -24,14 +24,11 @@ export default async function CategoryPage({ params }: PageProps) {
                 )
             );
             return filtered
-        } else if (origin === "imported" || origin === "main") {
+        } else {
             const filtered = products.filter(product =>
                 product.category?.[origin]?.includes(slug)
             );
             return filtered
-        } else {
-            // aqui ele precisa filtar tanto categoria quanto produto
-            return products
         }
     }
 

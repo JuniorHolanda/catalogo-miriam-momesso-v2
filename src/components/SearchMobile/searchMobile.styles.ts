@@ -1,8 +1,9 @@
-'use client'
+'use client';
 
-import { borderRadius, flex, font, padding } from "@/styles/mixins";
-import Link from "next/link";
-import styled from "styled-components"
+import { entraceToTop } from '@/styles/animations';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 export const ScontainerInput = styled.form`
   ${flex({})};
@@ -47,6 +48,39 @@ export const ScontainerInput = styled.form`
   }
 `;
 
-export const SLink = styled(Link)`
+export const SContainerProductsFinded = styled.ul`
+  ${flex({ direction: 'column', justfy: 'start', align: 'start' })}
+  ${gap({spaceKey:'md'})}
+  ${padding({spaceKey:'md'})}
+  z-index: 10012; // por conta do swiper que internamente tem um z-index 999 e o conteudo dele 1000 e barra de progresso 1001
+  position: fixed;
+  height: 90dvh;
+  width: 100%;
+  top: 10vh;
+  backdrop-filter: blur(50px);
+  background-color: ${({ theme }) => theme.colors.opacity.base};
+  overflow-y: scroll;
+  opacity: 0;
+  animation: ${entraceToTop} .5s ease-in-out forwards;
+  
+  li {
+    ${flex({align: 'center', justfy: 'start'})}
+    ${padding({spaceKey:'sm'})}
+    ${gap({spaceKey:'md'})}
+    width: 100%;
+  }
+  `;
 
+export const SLink = styled(Link)`
+  ${flex({})}
+  ${gap({spaceKey:'md'})}
+
+  span {
+    border-radius: 300px;
+    overflow: hidden;
+  }
+
+  h2 {
+    ${font({fontKey: 'secondary'})}
+  }
 `;
