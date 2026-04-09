@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
 import Image from 'next/image';
+import { entraceToTop } from '@/styles/animations';
 
 export const Ssection = styled.section`
-  position: relative;
   z-index: 0;
-  ${flex({ align: 'center', justfy: 'start' })}
+  ${flex({ align: 'center', justfy: 'center' })}
   ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: 100%;
@@ -19,17 +19,27 @@ export const Ssection = styled.section`
   }
 `;
 
+export const SformInSection = styled.form<SformInSectionProps>`
+  position: relative;
+  ${flex({ direction: 'column' })};
+  ${padding({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'md' })} 
+  flex: 0.5;
+  z-index: 100;
+  transition: all ease-in-out 0.1s;
+  width: 90vw;
+  height: 100%;
+`;
+
 export const ScontainerCardProduct = styled.ul`
-  position: absolute;
-  top: 110%;
-  left: 50%;
   ${flex({})}
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
   width: 90vw;
   height: 50vh;
-  transform: translateX(-50%);
-
+  opacity: 0;
+  animation: ${entraceToTop} .3s ease-in-out forwards;
+  
   .swiper-container {
     ${borderRadius({ radiusKey: 'sm' })}
     padding: 0 50px;
@@ -45,21 +55,6 @@ type SformInSectionProps = {
   $props: boolean;
 };
 
-export const SformInSection = styled.form<SformInSectionProps>`
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: ${(props) => (props.$props === true ? '15%' : '50%')};
-  left: 50%;
-  ${flex({ direction: 'column' })};
-  ${padding({ spaceKey: 'md' })}
-  ${gap({ spaceKey: 'md' })} 
-  flex: 0.5;
-  z-index: 100;
-  transition: all ease-in-out 0.1s;
-  width: 90vw;
-  height: 100%;
-`;
-
 export const Stitle = styled.h1`
   ${font({ fontKey: 'primary', sizeKey: 'lg' })}
   color: ${({ theme }) => theme.colors.title.primary};
@@ -67,7 +62,7 @@ export const Stitle = styled.h1`
   width: 100%;
   text-align: center;
   height: auto;
-`;
+  `;
 
 export const ScontainerInput = styled.div`
   ${flex({})};

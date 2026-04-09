@@ -1,30 +1,27 @@
-import categoryHolidayData from '@/data/holiday.json'
 import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
-import SwiperComponent from "@/components/Swiper";
 import { getProducts } from "@/services/getProductMomesso";
 
 type PageProps = {
     params: Promise<{
-    origin: "imported" | "main" | "holiday"
-    slug: string
-  }>
+        origin: "imported" | "main" | "holiday"
+        slug: string
+    }>
 }
 
-export default async function CategoryPage({ params }: PageProps){
+export default async function CategoryPage({ params }: PageProps) {
     const { origin, slug } = await params;
-    console.log(slug);
-    
+
     const products = await getProducts();
 
-    function filteredProductsParams () {
-        
-         if (origin === "holiday") {
+    function filteredProductsParams() {
+
+        if (origin === "holiday") {
             const filtered = products.filter(product =>
-            product.category?.[origin]?.some(item =>
-                slugify(item) === slug
-            )
+                product.category?.[origin]?.some(item =>
+                    slugify(item) === slug
+                )
             );
             return filtered
         } else {
@@ -36,19 +33,19 @@ export default async function CategoryPage({ params }: PageProps){
     }
 
     const productFiltered = filteredProductsParams()
-    
 
-    return(
+
+    return (
         <SWrapper>
             <SContainerTitle>
-                <h1>{"teste"}</h1>
-                <p>{"lorem"}</p>
+                <h1>{slug}</h1>
+                {/* <p>{"lorem"}</p> */}
             </SContainerTitle>
             <SSection>
                 {
                     productFiltered.map(product => (
                         <SContainerProduct key={product._id}>
-                            <CardProduct product={product}/>
+                            <CardProduct product={product} />
                         </SContainerProduct>
                     ))
                 }

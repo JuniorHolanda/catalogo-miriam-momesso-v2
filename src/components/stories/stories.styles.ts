@@ -5,7 +5,7 @@ import CustomLink from '../ui/Link';
 export const SContainerStories = styled.div`
   position: relative;
   ${flex({})}
-  height:100%;
+  height:90%;
   overflow: hidden;
   ${borderRadius({ radiusKey: 'md' })}
 `;

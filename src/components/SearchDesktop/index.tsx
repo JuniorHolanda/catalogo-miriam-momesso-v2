@@ -22,7 +22,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Product } from "@/utils/interfaces";
-import Image from "next/image";
 import { useViewport } from "@/hooks/useViewport";
 
 export default function SearchSection() {
@@ -32,7 +31,7 @@ export default function SearchSection() {
   // usada para controlar a propriedade top do css do input
   const [contentInput, setContentInput] = useState<boolean>(false);
   const viewPort = useViewport();
-  
+
   //controla a propriedade top no css do input
   useEffect(() => {
     if (productsFiltered.length !== 0) {
@@ -62,7 +61,7 @@ export default function SearchSection() {
     <Ssection>
       <SformInSection $props={contentInput}>
         <Stitle>Sim, Temos o seu brinde!</Stitle>
-        <ScontainerInput >
+        <ScontainerInput>
           <label htmlFor="search">Digite sua busca</label>
           <input
             type="text"
@@ -73,38 +72,40 @@ export default function SearchSection() {
             onChange={controllerInput}
           />
         </ScontainerInput>
-        <SContainerHoliday>
-          <Swiper
-            spaceBetween={15}
-            loop={holiday.length > 5}
-            modules={[Autoplay, FreeMode]}
-            freeMode
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            speed={8000}
-            slidesPerView={viewPort === "xl" || viewPort === "lg" ? 5 : 2}
-            grabCursor
-          >
-            {holiday.map((data) => (
-              <SwiperSlide key={data.id}>
-                <SLink href={`categoria/holiday/${data.slug}`}>
-                  <SImage
-                    className="container-img-holiday"
-                    src={data.icon ?? ""}
-                    alt={data.altImg ?? ""}
-                    width={400}
-                    height={400}
-                  />
-                  <SContainerInfoHoliday>
-                    <h2>{data.category}</h2>
-                  </SContainerInfoHoliday>
-                </SLink>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </SContainerHoliday>
+        {!contentInput && (
+          <SContainerHoliday>
+            <Swiper
+              spaceBetween={15}
+              loop={holiday.length > 5}
+              modules={[Autoplay, FreeMode]}
+              freeMode
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              speed={8000}
+              slidesPerView={viewPort === "xl" || viewPort === "lg" ? 5 : 2}
+              grabCursor
+            >
+              {holiday.map((data) => (
+                <SwiperSlide key={data.id}>
+                  <SLink href={`categoria/holiday/${data.slug}`}>
+                    <SImage
+                      className="container-img-holiday"
+                      src={data.icon ?? ""}
+                      alt={data.altImg ?? ""}
+                      width={400}
+                      height={400}
+                    />
+                    <SContainerInfoHoliday>
+                      <h2>{data.category}</h2>
+                    </SContainerInfoHoliday>
+                  </SLink>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </SContainerHoliday>
+        )}
 
         {productsFiltered.length > 0 && (
           <ScontainerCardProduct>

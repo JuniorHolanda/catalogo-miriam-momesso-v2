@@ -10,7 +10,6 @@ export default function StoriesMobile() {
     content: () => (
 
       <>
-
         <SContent>
           <SInfo>
             <h1>{item.category}</h1>
