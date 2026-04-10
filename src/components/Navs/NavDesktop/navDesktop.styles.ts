@@ -1,6 +1,6 @@
 'use  client';
 
-import { flex, font, gap, smoothTransition } from '@/styles/mixins';
+import { flex, font, gap, padding, smoothTransition } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const Snav = styled.div`
@@ -25,11 +25,6 @@ export const Snav = styled.div`
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.text.reverseText};
     z-index: 1000;
-
-    &:hover {
-      font-weight: 600;
-      transform: translateY(-3px);
-    }
 
     button {
       color: ${({ theme }) => theme.colors.text.reverseText};

@@ -17,7 +17,7 @@ export default function NavDesktop({ dropDown }: { dropDown: React.ReactNode }) 
         onMouseLeave={() => setDropMenu(false)}
       >
         <button onClick={() => setDropMenu(prev => !prev)}>
-          Category
+          Categoria
         </button>
 
         {dropMenu && dropDown}
