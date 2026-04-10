@@ -12,35 +12,39 @@ export const SWrapper = styled.section`
     ${gap({spaceKey: 'md'})};
     ${padding({spaceKey: 'xlg'})};
     ${borderRadius({radiusKey:'lg'})}
+    max-height: 90dvh;
     background-color: ${({theme}) => theme.colors.opacity.base};
     backdrop-filter: blur(30px);
-`;
+    `;
 
 export const SNav = styled.nav`
-    ${gap({spaceKey: 'md'})};
-    ${flex({direction: "column"})}
+    ${gap({spaceKey: 'sm'})};
+    ${flex({direction: "column", align: "start", justfy:'start'})}
     color: ${({ theme }) => theme.colors.text};
+    height: 100%;
     
     h2 {
         ${padding({spaceKey: 'md'})};
         width: 100%;
+        height: auto;
         text-align: start;
         border-bottom: 2px solid;
         color: ${({ theme }) => theme.colors.text};
     }
     
     ul {
-        ${flex({direction: "column", align: 'start'})}
+        ${flex({direction: "column", align: 'start', justfy:'start'})}
+        ${gap({spaceKey:'sm'})}
         width: 100%;
-        ${gap({spaceKey:'md'})}
+        height: auto;
         
         li{
             ${flex({direction: "column", align: 'start'})}
             width: 100%;
             height: 100%;
-            transition: all.3s;
+            transition: all.2s;
             &:hover {
-                transform: translateX(10px);
+                transform: translateX(5px);
             }
         }
     }
