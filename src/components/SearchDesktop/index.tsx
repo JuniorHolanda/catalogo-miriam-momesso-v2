@@ -120,10 +120,10 @@ export default function SearchSection() {
               // controla a quantidade de slides com base na quantidade de produtos filtrados e tambem com base na tela se é molbile, ou tablet ou desktop
               slidesPerView={
                 productsFiltered.length > 3 && viewPort == "lg"
-                  ? 3
+                  ? 3.5
                   : productsFiltered.length > 3 && viewPort == "md"
-                    ? 2
-                    : 1
+                    ? 1.5
+                    : 1.3
               }
               grabCursor={true}
             >
