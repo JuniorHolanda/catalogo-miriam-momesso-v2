@@ -32,7 +32,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
 
   // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
-  const maxImgs = width === undefined || width === "md" || width === "lg" ? 3 : 1;
+  const maxImgs = width === undefined || width === "md" || width === "lg" ? 2 : 1;
 
   // gera números inteiros aleatórios entre 2 e 5 usados para definir os tamanhos das imagens do card
   const randonInt = () => {
