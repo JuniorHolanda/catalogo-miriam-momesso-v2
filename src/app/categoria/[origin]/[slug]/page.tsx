@@ -38,7 +38,8 @@ export default async function CategoryPage({ params }: PageProps) {
     return (
         <SWrapper>
             <SContainerTitle>
-                <h1>{slug}</h1>
+                {/* expressão que troca "-" por " "  */}
+                <h1>{slug.replace(/-/g, ' ')}</h1>
                 {/* <p>{"lorem"}</p> */}
             </SContainerTitle>
             <SSection>

@@ -10,8 +10,6 @@ import Image from "next/image";
 import { useViewport } from "@/hooks/useViewport";
 
 
-
-
 export default function ProductPage () {
 
     const { slug } = useParams<{ slug: string }>();
