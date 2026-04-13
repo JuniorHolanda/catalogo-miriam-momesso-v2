@@ -14,7 +14,7 @@ export default function SmallCardProduct({product} : ProductProps){
     
     return (
         
-        <SWrapper>
+        <SWrapper href={`/produtos/${product.slug}`}>
             <SContainerImg>
                 <Image 
                     src={product.thumbnail}
