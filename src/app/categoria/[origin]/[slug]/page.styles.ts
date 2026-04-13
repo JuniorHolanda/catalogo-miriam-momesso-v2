@@ -5,35 +5,39 @@ import styled from 'styled-components';
 
 export const SWrapper = styled.main`
   position: relative;
-  ${flex({ direction: 'column', justfy: 'start' })}
-  ${padding({ spaceKey: 'xlg' })}
-    ${gap({ spaceKey: 'xlg' })}
-    background-color: ${({ theme }) => theme.colors.background.base};
+  ${flex({ direction: 'column', justfy: 'start' })};
+  ${padding({ spaceKey: 'sm' })};
+  ${gap({ spaceKey: 'xlg' })};
+  background-color: ${({ theme }) => theme.colors.background.base};
   width: 100%;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  background-color: ${({ theme }) => theme.colors.background.base};
+  
+  @media (min-width: 600px) {
+    ${padding({ spaceKey: 'xlg' })};
+  }
 `;
 
 export const SContainerTitle = styled.div`
-  ${flex({ direction: 'column' })}
+  ${flex({ direction: 'column' })};
   color: ${({ theme }) => theme.colors.title.primary};
 
   h1 {
-    ${font({ fontKey: 'primary', sizeKey: 'xlg' })}
+    ${font({ fontKey: 'primary', sizeKey: 'xlg' })};
     font-weight: 100;
     text-transform: capitalize;
     
   }
 
   p {
-    ${font({ fontKey: 'secondary', sizeKey: 'md' })}
+    ${font({ fontKey: 'secondary', sizeKey: 'md' })};
     font-weight: 100;
   }
 `;
 
 export const SSection = styled.section`
-  ${flex({ justfy: 'start', align: 'start' })}
-  ${gap({ spaceKey: 'md' })}
+  ${flex({ justfy: 'start', align: 'start' })};
+  ${gap({ spaceKey: 'md' })};
   flex-wrap: wrap;
   width: 100%;
 `;
@@ -41,7 +45,6 @@ export const SSection = styled.section`
 export const SContainerProduct = styled.div`
   ${flex({})}
   flex: 0 0 100%;
-  height: 400px;
   width: 100%;
 
   @media (min-width: 606px) {

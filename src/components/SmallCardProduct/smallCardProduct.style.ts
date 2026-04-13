@@ -1,24 +1,27 @@
 'use client';
 
-import { flex, gap } from '@/styles/mixins';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
+import Link from 'next/link';
 import styled from 'styled-components';
 
-export const SWrapper = styled.div`
+export const SWrapper = styled(Link)`
   display: none;
   ${gap({ spaceKey: 'md' })};
+  ${padding({spaceKey:'sm'})};
+  ${borderRadius({radiusKey:'md'})};
+  background-color: ${({ theme }) => theme.colors.background.high};
   width: 100%;
   height: 120px;
-
-  border: solid #456891;
-
+  
   @media (max-width: 600px) {
     ${flex({})}
   }
-`;
+  `;
 
 export const SContainerImg = styled.div`
   ${flex({})}
-  border: solid #789543;
+  ${borderRadius({radiusKey:'sm'})};
+  overflow: hidden;
   height: 100%;
   width: 30%;
 
@@ -31,6 +34,14 @@ export const SContainerImg = styled.div`
 `;
 
 export const SContent = styled.div`
-    border: solid #782364;
     width: 70%;
+
+    h2 {
+      ${font({fontKey:'secondary', sizeKey:'md'})};
+    }
+    
+    p{
+      
+      ${font({fontKey:'secondary', sizeKey:'sm'})};
+    }
 `;

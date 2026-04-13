@@ -1,79 +1,72 @@
-'use client';
-
-import { SContainerItens, SContent, SGallery, SInfo, SMainImg, SSection, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag } from "./page.styles";
-import { useProducts } from "@/contexts/Product.context";
+import { SContainerItens, SContent, SInfo, SSection, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag, SContainerBtnContent, SArrows, SContainerContentTag } from "./page.styles";
 import { notFound } from "next/navigation";
-import { useParams } from 'next/navigation';
-import { FaBox, FaHeart } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight, FaBox, FaHeart } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
-import Image from "next/image";
-import { useViewport } from "@/hooks/useViewport";
+import { getProducts } from "@/services/getProductMomesso";
+import slugify from "@/utils/slugfyText";
+import GalleryProduct from "@/components/GalleryProduct";
+
+type ProductPageParams = {
+    params: Promise<{
+        slug: string
+    }>
+};
 
 
-export default function ProductPage () {
+export default async function ProductPage({ params }: ProductPageParams) {
 
-    const { slug } = useParams<{ slug: string }>();
-    const products = useProducts();
-    const product = products.find(item => item.slug === slug);
-    const viewPort = useViewport()
-    
+    const { slug } = await params;
+    console.log("este é o slug " + slug)
+    const products = await getProducts();
+    const product = products.find(item =>
+        slugify(item.slug) === slug
+    );
+
+
     //validação
     if (!product) {
-        notFound()
+        notFound();
     }
-    
-    const allCategories = [
-  ...product.category.holiday,
-  ...product.category.main,
-  ...product.category.imported
-];
 
-   
+    const allCategories = [
+        ...product.category.holiday,
+        ...product.category.main,
+        ...product.category.imported
+    ];
+
+
     return (
-        <SWrapper $viewPortStyle={viewPort}>
-            <SSection $viewPortStyle={viewPort}>
-                <SGallery $viewPortStyle={viewPort}>
-                    {
-                        product && product.gallery.map(item => (
-                            <div  key={item._id}>
-                                <Image
-                                    src={item.img}
-                                    alt={item.altimg}
-                                    width={1200}
-                                    height={700}
-                                />
-                            </div>
-                        ))
-                    }
-                </SGallery>
-                <SMainImg>
-                    <Image
-                        src={product?.gallery[0].img}
-                        alt={product?.gallery[0].altimg}
-                        width={1200}
-                        height={700}
-                    />
-                </SMainImg>
+        <SWrapper>
+            <SSection>
+                <GalleryProduct $product={product} />
                 <SContent>
                     <STextContent>
                         <h1>{product?.title}</h1>
                         <p>{product?.text}</p>
                     </STextContent>
-                    
-                    <SBtnContent>
-                        <button>
-                            <IoMdShare />
-                            compartilhar
-                        </button>
-                        <button>
-                            <FaHeart/>
-                            gostei
-                        </button>
-                        <button>
-                            <FaBox />
-                            coleção
-                        </button>
-                    </SBtnContent>
+
+                    <SContainerBtnContent>
+                        <SArrows>
+                            <FaAngleLeft />
+                        </SArrows>
+                        <SBtnContent>
+                            <button>
+                                <IoMdShare />
+                                compartilhar
+                            </button>
+                            <button>
+                                <FaHeart />
+                                gostei
+                            </button>
+                            <button>
+                                <FaBox />
+                                coleção
+                            </button>
+                        </SBtnContent>
+                        <SArrows>
+                            <FaAngleRight />
+                        </SArrows>
+                    </SContainerBtnContent>
                 </SContent>
                 <SInfo>
                     <SType>
@@ -84,24 +77,40 @@ export default function ProductPage () {
                     <ScontainerTag>
                         <Stag>
                             <h2>Categorias</h2>
-                            <SContainerItens>
-                                {
-                                    allCategories.map((item, index) => (
-                                        <span key={index}>{item}</span>
-                                    ))
-                                }
-                            </SContainerItens>
+                            <SContainerContentTag>
+                                <SArrows>
+                                    <FaAngleLeft />
+                                </SArrows>
+                                <SContainerItens>
+                                    {
+                                        allCategories.map((item, index) => (
+                                            <span key={index}>{item}</span>
+                                        ))
+                                    }
+                                </SContainerItens>
+                                <SArrows>
+                                    <FaAngleRight />
+                                </SArrows>
+                            </SContainerContentTag>
                         </Stag>
                         <Stag>
                             <h2>Medidas</h2>
-                            <SContainerItens>
-                                {
-                                product.measure?.map((item, index) => (
-                                    <span key={index}>{item}</span>
-                                ))
-                            }
-                            </SContainerItens>
-                        </Stag> 
+                            <SContainerContentTag>
+                                <SArrows>
+                                    <FaAngleLeft />
+                                </SArrows>
+                                <SContainerItens>
+                                    {
+                                        product.measure?.map((item, index) => (
+                                            <span key={index}>{item}</span>
+                                        ))
+                                    }
+                                </SContainerItens>
+                                <SArrows>
+                                    <FaAngleRight />
+                                </SArrows>
+                            </SContainerContentTag>
+                        </Stag>
                     </ScontainerTag>
                 </SInfo>
             </SSection>
