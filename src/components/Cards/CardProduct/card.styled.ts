@@ -4,8 +4,8 @@ import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
 
 export const Scard = styled.article`
-  ${flex({ direction: 'column' })}
-  ${gap({ spaceKey: 'md' })} 
+  display: none;
+  ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
   width: 100%;
@@ -13,6 +13,10 @@ export const Scard = styled.article`
   overflow: hidden;
   backdrop-filter: blur(10px);
   background-color: ${({ theme }) => theme.colors.background.surface};
+
+  @media (min-width: 600px) {
+    ${flex({ direction: 'column' })}
+  }
 `;
 
 export const ScontainerSlider = styled.section`

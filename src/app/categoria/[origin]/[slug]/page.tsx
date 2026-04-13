@@ -2,6 +2,7 @@ import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.s
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
 import { getProducts } from "@/services/getProductMomesso";
+import SmallCardProduct from "@/components/SmallCardProduct";
 
 type PageProps = {
     params: Promise<{
@@ -38,8 +39,7 @@ export default async function CategoryPage({ params }: PageProps) {
     return (
         <SWrapper>
             <SContainerTitle>
-                {/* expressão que troca "-" por " "  */}
-                <h1>{slug.replace(/-/g, ' ')}</h1>
+                <h1>{slug}</h1>
                 {/* <p>{"lorem"}</p> */}
             </SContainerTitle>
             <SSection>
@@ -47,6 +47,7 @@ export default async function CategoryPage({ params }: PageProps) {
                     productFiltered.map(product => (
                         <SContainerProduct key={product._id}>
                             <CardProduct product={product} />
+                            <SmallCardProduct product={product} />
                         </SContainerProduct>
                     ))
                 }
