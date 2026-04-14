@@ -10,7 +10,8 @@ export const SWrapper = styled.main`
   ${gap({ spaceKey: 'xlg' })};
   background-color: ${({ theme }) => theme.colors.background.base};
   width: 100%;
-  overflow: hidden;
+  height: 90dvh;
+  overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
   
   @media (min-width: 600px) {
