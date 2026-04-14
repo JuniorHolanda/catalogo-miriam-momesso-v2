@@ -5,8 +5,10 @@ import styled from 'styled-components';
 
 export const SWrapper = styled.main`
   ${flex({})}
+  padding: ${({ theme }) => theme.spaces.md};
   width: 100%;
-  height: 90dvh;
+  height: 80dvh;
+  margin-top: 10dvh;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
 
@@ -32,7 +34,6 @@ export const SSection = styled.section`
   ${gap({ spaceKey: 'md' })}
   width: 95%;
   height: fit-content;
-  padding-top: 10px;
   z-index: 0;
 
   @media (min-width: 550px) {
