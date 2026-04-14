@@ -2,30 +2,47 @@
 
 import { useProducts } from "@/contexts/Product.context";
 import { ScontainerInput, SContainerProductsFinded, SLink } from "./searchMobile.styles";
-import {  ChangeEvent, useState } from "react";
+import {  ChangeEvent, useEffect, useState } from "react";
 import slugify from "@/utils/slugfyText";
 import { Product } from "@/utils/interfaces";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 
 export default function SearchMobile() {
 
+  const pathname = usePathname();
   const products = useProducts()
   const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
   const [text, setText] = useState<string>("");
 
+  useEffect(() => {
+    console.log('o pathname mudou' + pathname)
+    setText("");
+    showFindedProducts("")
+  },[pathname])
 
-  function showFindedProducts(e: ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value;
+
+  function showFindedProducts(e: ChangeEvent<HTMLInputElement> | "") {
+    // quando o valor está vazio, esconde o SContainerProductsFinded
+    let value = "";
+
+    if (e === "") {
+      value = e
+    } else {
+      value = e.target.value;
+    }
+
     setText(value);
+    
 
     if(slugify(value) === ''){
       setProductsFiltered([]);
       return;
-    }
+    };
 
     const productFinded = products.filter(product =>
-      slugify(product.title)?.includes(slugify(text))
+      slugify(product.title)?.includes(slugify(value))
     );
 
     setProductsFiltered(productFinded); 
@@ -50,7 +67,9 @@ export default function SearchMobile() {
           {
             productsFiltered.map(product => (
               <li key={product._id}>
-                <SLink href={`/produtos/${product.slug}`}>
+                <SLink
+                  href={`/produtos/${product.slug}`}
+                  >
                   <span>
                     <Image
                       src={product.thumbnail}

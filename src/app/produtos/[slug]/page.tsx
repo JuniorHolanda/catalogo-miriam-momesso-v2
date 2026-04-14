@@ -16,7 +16,6 @@ type ProductPageParams = {
 export default async function ProductPage({ params }: ProductPageParams) {
 
     const { slug } = await params;
-    console.log("este é o slug " + slug)
     const products = await getProducts();
     const product = products.find(item =>
         slugify(item.slug) === slug
