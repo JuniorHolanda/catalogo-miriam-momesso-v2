@@ -3,7 +3,6 @@ import { HiOutlineHome } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { TfiDropbox } from "react-icons/tfi";
 import { SLink, Snav, Swrapper } from "./headerMobile.styles";
-import Link from "next/link";
 
 export default function HeaderMoblie() {
 

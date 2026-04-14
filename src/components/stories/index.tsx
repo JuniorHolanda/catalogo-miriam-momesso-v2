@@ -8,7 +8,6 @@ export default function StoriesMobile() {
 
   const listStories = holiday.map((item) => ({
     content: () => (
-
       <>
         <SContent>
           <SInfo>

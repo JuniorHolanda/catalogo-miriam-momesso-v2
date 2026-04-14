@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import CustomLink from '../ui/Link';
 
 export const SContainerStories = styled.div`
+  ${flex({})};
+  ${borderRadius({ radiusKey: 'md' })};
   position: relative;
-  ${flex({})}
-  height:90%;
+  height:100%;
   overflow: hidden;
-  ${borderRadius({ radiusKey: 'md' })}
 `;
 
 export const SContent = styled.div`

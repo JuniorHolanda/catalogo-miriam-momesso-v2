@@ -2,6 +2,7 @@
 import HeaderDesktop from '@/components/Headers/HeaderDesktop';
 import HeaderMobile from '@/components/Headers/HeaderMobile';
 import { SDesktop, SMobile } from './headerSwitch.styles';
+import SearchMobile from '@/components/SearchMobile';
 
 export default function HeaderSwitcher() {
 
@@ -12,6 +13,7 @@ export default function HeaderSwitcher() {
             </SDesktop>
 
             <SMobile>
+                <SearchMobile />
                 <HeaderMobile />
             </SMobile>
         </>

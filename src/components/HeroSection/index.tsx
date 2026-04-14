@@ -14,7 +14,6 @@ export default function HeroSection() {
       </SDesktop>
 
       <SMobile>
-        <SearchMobile />
         <StoriesMobile />
       </SMobile>
 

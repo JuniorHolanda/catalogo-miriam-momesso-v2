@@ -6,9 +6,15 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const ScontainerInput = styled.form`
+  position: fixed;
+  top: 0;
+  left: 0;
   ${flex({})};
+  ${padding({ spaceKey: 'md' })};
+  z-index: 1;
+  background-color: ${({ theme }) => theme.colors.background.high};
   width: 50%;
-  height: 7%;
+  height: 10dvh;
 
   @media (max-width: 1200px) {
     width: 70%;
@@ -54,14 +60,15 @@ export const SContainerProductsFinded = styled.ul`
   ${padding({spaceKey:'md'})}
   z-index: 10012; // por conta do swiper que internamente tem um z-index 999 e o conteudo dele 1000 e barra de progresso 1001
   position: fixed;
-  height: 90dvh;
+  height: 80dvh;
   width: 100%;
-  top: 10vh;
+  top: 10dvh;
   backdrop-filter: blur(50px);
   background-color: ${({ theme }) => theme.colors.opacity.base};
   overflow-y: scroll;
   opacity: 0;
   animation: ${entraceToTop} .5s ease-in-out forwards;
+
   
   li {
     ${flex({align: 'center', justfy: 'start'})}

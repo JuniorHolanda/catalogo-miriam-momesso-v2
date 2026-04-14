@@ -5,7 +5,7 @@ import { AppThemeProvider } from "@/contexts/ThemeContext";
 import { ViewportProvider } from "@/contexts/ViewportContext";
 import { Product } from "@/utils/interfaces";
 import { getProducts } from "@/services/getProductMomesso";
-import HeaderSwitcher from "@/components/Headers/HeaderSwitcher/HeaderSwitcher";
+import HeaderSwitcher from "@/components/Headers/HeaderSwitcher";
 import { ProductsProvider } from "@/contexts/Product.context";
 const changaOne = Changa_One({
   variable: "--font-primary",

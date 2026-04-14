@@ -7,11 +7,12 @@ export const Ssection = styled.section`
   position: relative;
   z-index: 0;
   ${flex({ align: 'center', justfy: 'start' })};
-  ${padding({ spaceKey: 'md' })};
+  padding: 0 ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })};
   width: 100%;
-  height: 90dvh;
+  height: 80dvh;
   overflow: hidden;
+  margin-top: 10dvh;
   `;
 
 export const SDesktop = styled.div`
@@ -19,7 +20,7 @@ display: block;
 width: 100%;
 height: 100%;
 
-@media (max-width: 400px) {
+@media (max-width: 550px) {
   display: none;
 }
 `;
@@ -28,8 +29,11 @@ export const SMobile = styled.div`
   display: none;
   width: 100%;
   height: 100%;
+  padding: ${({ theme }) => theme.spaces.md} 0;
 
-  @media (max-width: 400px) {
+  
+
+  @media (max-width: 550px) {
     ${flex({direction:'column'})}
     ${gap({spaceKey:'md'})}
   }

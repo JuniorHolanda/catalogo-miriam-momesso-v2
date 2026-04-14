@@ -21,6 +21,7 @@ export const Snav = styled.nav`
   ${padding({spaceKey: 'md'})}
   ${(borderRadius({radiusKey:'md'}))}
   width: 100%;
+  height: 100%;
   z-index: 2;
   `;
 
