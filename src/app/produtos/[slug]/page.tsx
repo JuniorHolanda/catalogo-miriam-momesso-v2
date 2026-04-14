@@ -5,12 +5,67 @@ import { IoMdShare } from "react-icons/io";
 import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
 import GalleryProduct from "@/components/GalleryProduct";
+import { Metadata } from "next";
+import { Product } from "@/utils/interfaces";
 
 type ProductPageParams = {
     params: Promise<{
         slug: string
     }>
 };
+
+export async function generateMetadata({
+    params
+} : ProductPageParams): Promise<Metadata> {
+    const { slug } = await params;
+    const products = await getProducts();
+    const product = products.find(item => slugify(item.slug) === slug );
+    
+    if (!product) {
+        return {
+            title: "Produto não encontrado",
+            description: "Infelizmente este produto não foi encontrado, no entanto possuimos diversos outros brindes, fique a vontade para procurar."
+        };
+    }
+    const keywordFromCategory = [ ... new Set(Object.values(product.category).flat())];
+    
+    return {
+        title: product.title,
+        description: product.text.slice(0, 250),
+        keywords: keywordFromCategory,
+        alternates: {
+            canonical: `https://seusite.com/produto/${product.slug}`,
+        },
+
+        openGraph: {
+            title: product.title,
+            description: product.text.slice(0, 250),
+            siteName: 'Catálogo Miriam Momesso',
+            type: "website",
+            locale: "pt_BR",
+            url: `https://seusite.com/produto/${product.slug}`,
+            images: [
+                {
+                    url: product.thumbnail,
+                    alt: product.title,
+                    width: 1200,
+                    height: 630,
+                }
+            ]
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: product.title,
+            description: product.text.slice(0, 250),
+            images: [product.thumbnail],
+        },
+
+        robots: {
+            index: true,
+            follow: true,
+        },
+    } 
+}
 
 
 export default async function ProductPage({ params }: ProductPageParams) {
