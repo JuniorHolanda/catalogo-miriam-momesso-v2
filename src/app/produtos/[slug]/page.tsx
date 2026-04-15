@@ -6,7 +6,6 @@ import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
 import GalleryProduct from "@/components/GalleryProduct";
 import { Metadata } from "next";
-import { Product } from "@/utils/interfaces";
 
 type ProductPageParams = {
     params: Promise<{
