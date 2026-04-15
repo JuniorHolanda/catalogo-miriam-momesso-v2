@@ -6,6 +6,7 @@ import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
 import GalleryProduct from "@/components/GalleryProduct";
 import { Metadata } from "next";
+import ShareButtom from "@/components/ui/ShareButtom";
 
 type ProductPageParams = {
     params: Promise<{
@@ -103,10 +104,9 @@ export default async function ProductPage({ params }: ProductPageParams) {
                             <FaAngleLeft />
                         </SArrows>
                         <SBtnContent>
-                            <button>
-                                <IoMdShare />
-                                compartilhar
-                            </button>
+                            <ShareButtom product={product} >
+                                Compartilhar
+                            </ShareButtom>
                             <button>
                                 <FaHeart />
                                 gostei
