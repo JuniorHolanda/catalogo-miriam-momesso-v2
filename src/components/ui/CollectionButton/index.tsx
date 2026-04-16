@@ -28,28 +28,42 @@ export default function CollectionButtom(
         useEffect(() => {
             const stored = JSON.parse(localStorage.getItem("collection") || "[]");
             SetCollectionData(stored);
+            console.log(collectionData)
         }, [])
 
         function hadleCollection(){
-
+            setShowCollection(true)
         }
 
     
     return (
-        <SWrapper >
-            {/* {
-                collection && (
-                    collection.map( item => (
-                        <div>
+        <>
+            {
+                showCollection && collectionData.length > 0 && (
+                    collectionData.map( item => (
+                        <div key={item.id}>
                             {
                                 item.name
                             }
                         </div>
                     ))
                 )
-            } */}
-            <IoMdShare />
-            <>{children}</>
-        </SWrapper>
+            }
+
+            {
+                showCollection && collectionData.length <= 0 && (
+                    
+                        <div >
+                           <h2>criar coleção</h2>
+                        </div>
+        
+                )
+            }
+            
+            <SWrapper onClick={() => hadleCollection()} >
+                <IoMdShare />
+                <>{children}</>
+            </SWrapper>
+        </>
     )
 } 
