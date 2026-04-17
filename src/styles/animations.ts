@@ -17,3 +17,13 @@ export const entraceToTop = keyframes`
         opacity: 1;
     }
 `;
+
+
+export const entraceToBottomCollection = keyframes`
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`;

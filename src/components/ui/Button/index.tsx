@@ -1,11 +1,11 @@
 import { SButton } from "./button.styles";
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    text: string;
+    children: string;
 }
 
-export default function Button({ text, ...rest }: Props) {
+export default function CustomButton({ children, ...rest }: Props) {
     return (
-        <SButton{...rest}>{text}</SButton>
+        <SButton {...rest}>{children}</SButton>
     )
 }

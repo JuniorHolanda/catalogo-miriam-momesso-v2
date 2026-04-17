@@ -49,7 +49,7 @@ export const SContent = styled.div`
   ${flex({ direction: 'column', align: 'start' })};
   ${gap({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
-    grid-area: scontent;
+  grid-area: scontent;
   width: 100%;
   height: fit-content;
   backdrop-filter: blur(30px);
@@ -59,9 +59,9 @@ export const SContent = styled.div`
 
 export const STextContent = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })};
-  height: auto;
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'lg' })}
+  height: auto;
 
     h1 {
     ${font({ fontKey: 'primary', sizeKey: 'md' })}
@@ -92,7 +92,7 @@ export const SContainerBtnContent = styled.div`
   width: 100%;
   height: 10dvh;
   background-color: ${({ theme }) => theme.colors.background.medium};
-`;
+  `;
 
 export const SArrows = styled.div`
   ${flex({ align: 'center', justfy: 'center' })};
@@ -165,8 +165,8 @@ export const SType = styled.div`
 export const ScontainerTag = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })}
   ${gap({ spaceKey: 'md' })}
-    ${padding({ spaceKey: 'md' })}
-    width: 100%;
+  ${padding({ spaceKey: 'md' })}
+  width: 100%;
   height: 100%;
 `;
 
