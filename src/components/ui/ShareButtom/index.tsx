@@ -6,8 +6,6 @@ import { SWrapper } from "./shareButtom.styles";
 import { useEffect, useState } from "react";
 
 type propsCustomLink = {
-    children: React.ReactNode
-    className?: string
     id?: string[]
     product?: Product
 }
@@ -15,7 +13,7 @@ type propsCustomLink = {
 // para compartilhar produtos únicos, o componente recebe o product, captura o id e armazena no dataID
 // para compartilhar catgorias, coleções ou favoritos, o componente recebe um array de id, transforma em string e armazena no dataID
 
-export default function ShareButtom({ className, children, id, product }: propsCustomLink) {
+export default function ShareButtom({ id, product }: propsCustomLink) {
     //usado para decidor qual rota usar
     const [isProduct, setIsProduct] = useState<boolean>(false);
 
@@ -64,7 +62,7 @@ export default function ShareButtom({ className, children, id, product }: propsC
     return (
         <SWrapper onClick={handleShare}>
             <IoMdShare />
-            <>{children}</>
+            <span>Compartilhar</span>
         </SWrapper>
     )
 } 

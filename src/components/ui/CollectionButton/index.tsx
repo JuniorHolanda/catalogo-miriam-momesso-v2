@@ -1,6 +1,5 @@
 "use client";
 
-import { IoMdShare } from "react-icons/io";
 import {
   SContainerCollection,
   SFeedbackCollection,
@@ -10,16 +9,14 @@ import { useEffect, useState } from "react";
 import InputSetCollection from "../InputSetCollection";
 import CustomButton from "../Button";
 import { Collection } from "@/utils/types";
+import { FaBox } from "react-icons/fa";
 
 type PropsCollectionButtom = {
-  children: React.ReactNode;
   className?: string;
   idProduct: string;
 };
 
 export default function CollectionButtom({
-  className,
-  children,
   idProduct,
 }: PropsCollectionButtom) {
   // guarda os dados da localStored
@@ -128,8 +125,8 @@ export default function CollectionButtom({
       }
 
       <SWrapper onClick={() => setShowCollection(true)}>
-        <IoMdShare />
-        <>{children}</>
+        <FaBox className="icon" />
+        <span>coleção</span>
       </SWrapper>
     </>
   );

@@ -8,7 +8,6 @@ export const SForm = styled.form`
     ${gap({spaceKey:"md"})}
     width: 100%;
     height: fit-content;
-    border: solid rgb(0, 128, 255);
     
     input {
         ${borderRadius({radiusKey:'md'})};

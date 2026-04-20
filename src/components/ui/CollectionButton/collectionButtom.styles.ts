@@ -7,8 +7,18 @@ import styled from "styled-components";
 
 
 export const SWrapper = styled.button`
-${flex({})}
-    border: solid #846;
+    ${flex({})}
+    ${padding({spaceKey:'sm'})}
+    width: 40px;
+    height: 40px;
+    span {
+        display: none;
+
+        @media (min-width: 550px) {
+            display: block;
+        }
+    }
+    
 `;
 
 
@@ -23,13 +33,11 @@ export const SContainerCollection = styled.div`
     background-color: ${({ theme }) => theme.colors.background.high};
     opacity: 0;
     animation: ${entraceToBottomCollection} ease-in-out .3s forwards;
-    border: solid rgb(26, 3, 41);
 
     h1 {
         display: flex;
         width: 100%;
         height: 100%;
-        background-color: rgb(104, 46, 61);
     }
 `;
 
@@ -39,7 +47,6 @@ export const SFeedbackCollection = styled.span`
     font-weight: 600;
     ${borderRadius({radiusKey:'md'})}
     ${padding({spaceKey:'md'})}
-    background-color: rgb(0, 255, 85);
     width: 70%;
     position: fixed;
     transform: translate(-50%, -50%);
@@ -55,7 +62,6 @@ export const SContainerNewCollection = styled.div`
     width: 100%;
     color: ${({ theme }) => theme.colors.text.text};
     height: fit-content;
-    border: solid #810;
     
 
     
@@ -78,7 +84,6 @@ export const SContainerButtonAdd = styled.div`
     ${flex({justfy: 'end'})}
     width: 100%;
     height: 100%;
-    border: solid #789;
 
     .buttonAdd{
         ${font({fontKey:'secondary', sizeKey:'md'})}

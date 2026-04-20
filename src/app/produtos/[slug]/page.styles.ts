@@ -55,7 +55,6 @@ export const SContent = styled.div`
   backdrop-filter: blur(30px);
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
-  border: solid rgb(81, 8, 252);
 `;
 
 export const STextContent = styled.div`
@@ -63,14 +62,12 @@ export const STextContent = styled.div`
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'lg' })}
   height: 100%;
-  border: solid rgb(248, 9, 248);
 
     h1 {
     ${font({ fontKey: 'primary', sizeKey: 'md' })}
     color: ${({ theme }) => theme.colors.title.reverse};
     font-weight: 100;
     text-transform: uppercase;
-    border: solid #493;
   }
 
   p {
