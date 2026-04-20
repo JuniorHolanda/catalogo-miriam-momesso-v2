@@ -27,7 +27,6 @@ export default function InputSetCollection ({
 }: PropsSetForm) {
 
     const [textInput, setTextInput] = useState<string>("");
-    const [collectionData, SetCollectionData] = useState<Collection[]>([]);
 
     function SetDataLocalStorage(e: React.FormEvent) {
         const stored = JSON.parse(localStorage.getItem("collection") || "[]");
@@ -39,10 +38,7 @@ export default function InputSetCollection ({
         };
         const updated = [...stored, data]
         localStorage.setItem("collection", JSON.stringify(updated));
-        SetCollectionData(updated);
-
         
-
         //informa para o pai que o sucesso da tarefa e o pai atualiza a UI
         onSuccess?.(true);
     }

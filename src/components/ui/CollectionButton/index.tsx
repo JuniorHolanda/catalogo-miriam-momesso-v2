@@ -9,7 +9,6 @@ import {
 import { useEffect, useState } from "react";
 import InputSetCollection from "../InputSetCollection";
 import CustomButton from "../Button";
-import { Product } from "@/utils/interfaces";
 
 type Collection = {
   id?: string;
@@ -33,46 +32,45 @@ export default function CollectionButtom({
   // mostra o componente de coleção
   const [showCollection, setShowCollection] = useState<boolean>(false);
   const [createNewCollection, showCreateNewCollection] = useState<boolean>(false);
+  // condição para renderizar aviso de sucesso ao criar coleção
   const [collectionCreated, setCollectionCreated] = useState<boolean>(false);
 
 
   function hiddenCollection(hiden: boolean) {
+    //atualiza showCollection com novos dados inseridos
+    const stored = JSON.parse(localStorage.getItem("collection") || "[]");
+    SetCollectionData(stored);
+
     setShowCollection(false);
-    setCollectionCreated(true)
+    setCollectionCreated(true);
     setTimeout(() => {
       setCollectionCreated(false)
     }, 2000);
-  }
-  function updateCollection(item: Collection) {
-
-    const stored: Collection[] = JSON.parse(
-      localStorage.getItem("collection") || "[]"
-    );
-
-    const updated = stored.map(collection => {
-      if (collection.id === item.id) {
-
-        const novosItens = item.itensId.filter(
-          newItem => !collection.itensId.includes(newItem)
-        );
-
-        return {
-          ...collection,
-          itensId: [...collection.itensId, ...novosItens]
-        };
-      }
-
-      return collection;
-    });
-
-    localStorage.setItem("collection", JSON.stringify(updated));
-
   }
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("collection") || "[]");
     SetCollectionData(stored);
   }, []);
+
+  function updateCollection(collection : Collection) {
+    const iDCollectionSelected = collection.id;
+    const newItem = idProduct;
+    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]");
+
+    const updated = stored.map(item => {
+      if (item.id === iDCollectionSelected) {
+          return {
+              ...item,
+              itensId: [item.itensId, newItem]
+          };
+      }
+      return item;
+    });
+
+    // salva de volta
+    localStorage.setItem("collection", JSON.stringify(updated));
+  }
 
   return (
     <>
@@ -86,37 +84,36 @@ export default function CollectionButtom({
       {
         showCollection && collectionData.length > 0 && (
           <SContainerCollection>
+            {/* mostra lista de coleções */}
             {
               collectionData.map(item =>
                 <div key={item.id}>
-                  <button
-                    onClick={() => updateCollection(item)}
+                  <button onClick={() => updateCollection(item)}
                   >
                     {item.name}
                   </button>
                 </div>
               )
             }
+            {/* cria nova coleção */}
             {
               !createNewCollection ?
                 <CustomButton onClick={() => showCreateNewCollection(true)}>
                   Criar nova coleção
                 </CustomButton>
                 : <InputSetCollection
-                  idProduct={idProduct}
-                  placeholder="Nome da categoria"
-                  children={'Criar categoria'}
-                  onSuccess={hiddenCollection}
+                    idProduct={idProduct}
+                    placeholder="Nome da categoria"
+                    children={'Criar categoria'}
+                    onSuccess={hiddenCollection}
                 />
-            }
-            {
-
             }
           </ SContainerCollection>
 
         )
       }
       {
+        // quando não há coleções
         showCollection && collectionData.length <= 0 && (
           <SContainerCollection>
             <InputSetCollection

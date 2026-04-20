@@ -13,21 +13,24 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps) {
     const { origin, slug } = await params;
-
+    
     const products = await getProducts();
-
+    
     function filteredProductsParams() {
-
+        
         if (origin === "holiday") {
             const filtered = products.filter(product =>
                 product.category?.[origin]?.some(item =>
-                    slugify(item) === slug
+                    slugify(item) === slugify(slug)
                 )
             );
             return filtered
         } else {
+            console.log('ainda funciona')
             const filtered = products.filter(product =>
-                product.category?.[origin]?.includes(slug)
+                product.category?.[origin]?.some(item =>
+                    slugify(item) === slugify(slug)
+                )
             );
             return filtered
         }
