@@ -32,7 +32,7 @@ export const SSection = styled.section`
     'scontent scontent scontent '
     'sinfo sinfo sinfo';
   ${gap({ spaceKey: 'md' })}
-  width: 95%;
+  width: 100%;
   height: fit-content;
   z-index: 0;
 
@@ -49,26 +49,28 @@ export const SContent = styled.div`
   ${flex({ direction: 'column', align: 'start' })};
   ${gap({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
-    grid-area: scontent;
+  grid-area: scontent;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   backdrop-filter: blur(30px);
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
+  border: solid rgb(81, 8, 252);
 `;
 
 export const STextContent = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })};
-  height: auto;
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'lg' })}
+  height: 100%;
+  border: solid rgb(248, 9, 248);
 
     h1 {
     ${font({ fontKey: 'primary', sizeKey: 'md' })}
     color: ${({ theme }) => theme.colors.title.reverse};
     font-weight: 100;
     text-transform: uppercase;
-    height: 50%;
+    border: solid #493;
   }
 
   p {
@@ -77,7 +79,6 @@ export const STextContent = styled.div`
     font-weight: 500;
     letter-spacing: 1px;
     font-size: 1em;
-    height: 50%;
     width: auto;
     justify-content: ce;
 
@@ -92,7 +93,7 @@ export const SContainerBtnContent = styled.div`
   width: 100%;
   height: 10dvh;
   background-color: ${({ theme }) => theme.colors.background.medium};
-`;
+  `;
 
 export const SArrows = styled.div`
   ${flex({ align: 'center', justfy: 'center' })};
@@ -165,8 +166,8 @@ export const SType = styled.div`
 export const ScontainerTag = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })}
   ${gap({ spaceKey: 'md' })}
-    ${padding({ spaceKey: 'md' })}
-    width: 100%;
+  ${padding({ spaceKey: 'md' })}
+  width: 100%;
   height: 100%;
 `;
 

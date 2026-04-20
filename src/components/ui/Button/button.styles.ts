@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const SButton = styled.button`
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.text};
-  ${padding({spaceKey: 'md'})}
-    ${(borderRadius({radiusKey:'md'}))}
-  width: fit-content;
+  ${padding({ spaceKey: 'md' })}
+  ${borderRadius({ radiusKey: 'md' })}
+  width: 100%;
 `;
