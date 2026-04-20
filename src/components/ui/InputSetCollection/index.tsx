@@ -3,18 +3,13 @@
 import { InputHTMLAttributes, useEffect, useState } from "react";
 import CustomButton from "../Button"
 import { SForm } from "./inputSetCollection.styles"
-
-type Collection = {
-    id: string;
-    name: string;
-    itensId: string[];
-};
+import { Collection } from "@/utils/types";
 
 type PropsSetForm = {
     children: React.ReactNode;
     className?: string;
-    idProduct: string[];
-    onSuccess?: (hide: boolean) => void;
+    idProduct: string;
+    onSuccess?: (text: string) => void;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 
@@ -34,13 +29,13 @@ export default function InputSetCollection ({
         const data: Collection = {
             id: crypto.randomUUID(),
             name: textInput,
-            itensId: idProduct,
+            itensId: [idProduct],
         };
         const updated = [...stored, data]
         localStorage.setItem("collection", JSON.stringify(updated));
         
         //informa para o pai que o sucesso da tarefa e o pai atualiza a UI
-        onSuccess?.(true);
+        onSuccess?.(`Coleção ${textInput} criada com sucesso!`);
     }
 
 
