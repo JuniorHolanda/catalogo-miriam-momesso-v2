@@ -17,7 +17,6 @@ export default function SearchMobile() {
   const [text, setText] = useState<string>("");
 
   useEffect(() => {
-    console.log('o pathname mudou' + pathname)
     setText("");
     showFindedProducts("")
   },[pathname])
