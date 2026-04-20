@@ -3,23 +3,24 @@
 import { IoMdShare } from "react-icons/io";
 import {
   SContainerCollection,
-  SContainerNewCollection,
-  SForm,
+  SFeedbackCollection,
   SWrapper,
 } from "./collectionButtom.styles";
 import { useEffect, useState } from "react";
+import InputSetCollection from "../InputSetCollection";
 import CustomButton from "../Button";
+import { Product } from "@/utils/interfaces";
 
 type Collection = {
-  id: string;
-  name: string;
-  itens: string;
+  id?: string;
+  name?: string;
+  itensId: string[];
 };
 
 type PropsCollectionButtom = {
   children: React.ReactNode;
   className?: string;
-  idProduct: string;
+  idProduct: string[];
 };
 
 export default function CollectionButtom({
@@ -27,13 +28,45 @@ export default function CollectionButtom({
   children,
   idProduct,
 }: PropsCollectionButtom) {
-  //recebe o valor de collection se ja houver na localStorage, ou vazio
+  // guarda os dados da localStored
   const [collectionData, SetCollectionData] = useState<Collection[]>([]);
+  // mostra o componente de coleção
   const [showCollection, setShowCollection] = useState<boolean>(false);
-  const [textInput, setTextInput] = useState<string>("");
+  const [createNewCollection, showCreateNewCollection] = useState<boolean>(false);
+  const [collectionCreated, setCollectionCreated] = useState<boolean>(false);
 
-  function hadleCollection() {
-    setShowCollection(true);
+
+  function hiddenCollection(hiden: boolean) {
+    setShowCollection(false);
+    setCollectionCreated(true)
+    setTimeout(() => {
+      setCollectionCreated(false)
+    }, 2000);
+  }
+  function updateCollection(item: Collection) {
+
+    const stored: Collection[] = JSON.parse(
+      localStorage.getItem("collection") || "[]"
+    );
+
+    const updated = stored.map(collection => {
+      if (collection.id === item.id) {
+
+        const novosItens = item.itensId.filter(
+          newItem => !collection.itensId.includes(newItem)
+        );
+
+        return {
+          ...collection,
+          itensId: [...collection.itensId, ...novosItens]
+        };
+      }
+
+      return collection;
+    });
+
+    localStorage.setItem("collection", JSON.stringify(updated));
+
   }
 
   useEffect(() => {
@@ -41,55 +74,62 @@ export default function CollectionButtom({
     SetCollectionData(stored);
   }, []);
 
-  function SetDataLocalStorage(e: React.FormEvent) {
-    e.preventDefault;
-
-    const data: Collection = {
-      id: crypto.randomUUID(),
-      name: textInput,
-      itens: idProduct,
-    };
-
-    localStorage.setItem("collection", JSON.stringify(data));
-  }
-
   return (
     <>
-      {showCollection &&
-        collectionData.length > 0 &&
-        <SContainerCollection>
+      {
+        collectionCreated && (
+          <SFeedbackCollection>
+            Coleção criada com sucesso!
+          </SFeedbackCollection>
+        )
+      }
+      {
+        showCollection && collectionData.length > 0 && (
+          <SContainerCollection>
             {
-                collectionData.map(item => (
-                    <h1>{item.name}</h1>
-                ))
-            
+              collectionData.map(item =>
+                <div key={item.id}>
+                  <button
+                    onClick={() => updateCollection(item)}
+                  >
+                    {item.name}
+                  </button>
+                </div>
+              )
             }
-            
-        </SContainerCollection>
-    
-    }
+            {
+              !createNewCollection ?
+                <CustomButton onClick={() => showCreateNewCollection(true)}>
+                  Criar nova coleção
+                </CustomButton>
+                : <InputSetCollection
+                  idProduct={idProduct}
+                  placeholder="Nome da categoria"
+                  children={'Criar categoria'}
+                  onSuccess={hiddenCollection}
+                />
+            }
+            {
 
-      {showCollection && collectionData.length <= 0 && (
-        <SContainerCollection>
-          <SContainerNewCollection>
-            <p>
-              Nenhuma coleção por aqui, clique em nova coleção para criar uma
-              nova.
-            </p>
-            <SForm onSubmit={SetDataLocalStorage}>
-              <input
-                type="text"
-                placeholder="insira o nome da coleção"
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
-              />
-              <CustomButton type="submit">Criar Coleção</CustomButton>
-            </SForm>
-          </SContainerNewCollection>
-        </SContainerCollection>
-      )}
+            }
+          </ SContainerCollection>
 
-      <SWrapper onClick={() => hadleCollection()}>
+        )
+      }
+      {
+        showCollection && collectionData.length <= 0 && (
+          <SContainerCollection>
+            <InputSetCollection
+              idProduct={idProduct}
+              placeholder="Nome da categoria"
+              children={'Criar coleção'}
+              onSuccess={hiddenCollection}
+            />
+          </SContainerCollection>
+        )
+      }
+
+      <SWrapper onClick={() => setShowCollection(true)}>
         <IoMdShare />
         <>{children}</>
       </SWrapper>

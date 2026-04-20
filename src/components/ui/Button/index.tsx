@@ -1,7 +1,7 @@
 import { SButton } from "./button.styles";
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    children: string;
+    children: React.ReactNode;
 }
 
 export default function CustomButton({ children, ...rest }: Props) {
