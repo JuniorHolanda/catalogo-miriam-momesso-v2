@@ -4,18 +4,19 @@ import { flex, font, gap, padding } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const SWrapper = styled.main`
-  position: relative;
   ${flex({ direction: 'column', justfy: 'start' })};
   ${padding({ spaceKey: 'sm' })};
-  ${gap({ spaceKey: 'xlg' })};
+  ${gap({ spaceKey: 'md' })};
   background-color: ${({ theme }) => theme.colors.background.base};
   width: 100%;
-  height: 90dvh;
+  height: 80dvh;
+  margin-top: 10dvh;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
   
-  @media (min-width: 600px) {
+  @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
+    ${gap({ spaceKey: 'xlg' })};
   }
 `;
 
