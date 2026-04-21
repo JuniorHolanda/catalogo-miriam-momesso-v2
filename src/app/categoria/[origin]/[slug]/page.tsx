@@ -37,13 +37,12 @@ export default async function CategoryPage({ params }: PageProps) {
     }
 
     const productFiltered = filteredProductsParams()
-
+    const title = slug.replace(/-/g, " ");
 
     return (
         <SWrapper>
             <SContainerTitle>
-                <h1>{slug}</h1>
-                {/* <p>{"lorem"}</p> */}
+                <h1>{title}</h1>
             </SContainerTitle>
             <SSection>
                 {

@@ -10,9 +10,8 @@ export const Ssection = styled.section`
   padding: 0 ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })};
   width: 100%;
-  height: 80dvh;
+  height: 100%;
   overflow: hidden;
-  margin-top: 10dvh;
   `;
 
 export const SDesktop = styled.div`
