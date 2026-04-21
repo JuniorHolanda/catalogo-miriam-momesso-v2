@@ -7,8 +7,9 @@ export const SContainerStories = styled.div`
   ${borderRadius({ radiusKey: 'md' })};
   position: relative;
   height:100%;
+  width: 100%;
   overflow: hidden;
-`;
+  `;
 
 export const SContent = styled.div`
   ${flex({direction:'column'})};

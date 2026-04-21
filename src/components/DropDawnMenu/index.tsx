@@ -8,8 +8,8 @@ import slugify from "@/utils/slugfyText";
 type filterCategoriesParams = "imported" | "main";
 
 type createCategories = {
-  	products: Product[]
-  	categories: string[]
+	products: Product[]
+	categories: string[]
 	originFrom: "imported" | "main"
 };
 
@@ -19,7 +19,7 @@ export default async function DropDawnMenu() {
 
 	const products = await getProducts();
 
-	function createCategories ({products, categories, originFrom } : createCategories) {
+	function createCategories({ products, categories, originFrom }: createCategories) {
 
 		const listCategories = categories.map(cat => {
 			const productFiltered = products.find(product =>
@@ -39,7 +39,7 @@ export default async function DropDawnMenu() {
 	}
 
 
-	function filterCategories( origin : filterCategoriesParams ) {
+	function filterCategories(origin: filterCategoriesParams) {
 		const listProductFromCategory = products?.filter(
 			product => product.category?.[origin]?.length > 0
 		);
@@ -47,7 +47,7 @@ export default async function DropDawnMenu() {
 		const uniqueCategoriesImported = [
 			...new Set(
 				listProductFromCategory.flatMap(
-				item => item?.category?.[origin]
+					item => item?.category?.[origin]
 				)
 			)
 		];
@@ -70,9 +70,9 @@ export default async function DropDawnMenu() {
 	const importedCategory = filterCategories("imported")
 	const mainCategory = filterCategories("main")
 
-    return (
+	return (
 
-        <SWrapper>
+		<SWrapper>
 			<SNav>
 				<h2 >Costuráveis</h2>
 				<ul>
@@ -104,10 +104,10 @@ export default async function DropDawnMenu() {
 								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
 									<div>
 										<Image
-										src={item.thumbnail ?? ''}
-										alt={item.altThumbnail ?? ''}
-										width={1200}
-										height={700}
+											src={item.thumbnail ?? ''}
+											alt={item.altThumbnail ?? ''}
+											width={1200}
+											height={700}
 										/>
 									</div>
 									<span>{item.title}</span>
@@ -126,10 +126,10 @@ export default async function DropDawnMenu() {
 								<SLink href={`/categoria/holiday/${item.slug}`}>
 									<div>
 										<Image
-										src={item.icon}
-										alt={item.altIcon}
-										width={1200}
-										height={700}
+											src={item.icon}
+											alt={item.altIcon}
+											width={1200}
+											height={700}
 										/>
 									</div>
 									<span>{item.category}</span>
@@ -140,5 +140,5 @@ export default async function DropDawnMenu() {
 				</ul>
 			</SNav>
 		</SWrapper>
-    );
+	);
 }

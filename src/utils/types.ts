@@ -1,5 +1,5 @@
 export type Collection = {
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
   itensId: string[];
 };

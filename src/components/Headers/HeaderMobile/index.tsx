@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineHome } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { TfiDropbox } from "react-icons/tfi";
-import { SLink, Snav, Swrapper } from "./headerMobile.styles";
+import { SContainerBtnShowMenu, SLink, Snav, Swrapper } from "./headerMobile.styles";
 
 export default function HeaderMoblie() {
 
@@ -18,12 +18,12 @@ export default function HeaderMoblie() {
                 <SLink href={linkWhatsApp}>
                     <FaWhatsapp />
                 </SLink>
-                <SLink href={'#'}>
+                <SLink href={'/colecao'}>
                     <TfiDropbox />
                 </SLink>
-                <SLink href={'#'}>
+                <SContainerBtnShowMenu >
                     <SlMenu />
-                </SLink>
+                </SContainerBtnShowMenu>
             </Snav>
         </Swrapper>
     )

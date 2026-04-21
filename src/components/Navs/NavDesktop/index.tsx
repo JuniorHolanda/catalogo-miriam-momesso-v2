@@ -24,7 +24,6 @@ export default function NavDesktop({ dropDown }: { dropDown: React.ReactNode }) 
       </li>
 
       <li>Meu Kit</li>
-      <li>Favoritos</li>
     </Snav>
   );
 }

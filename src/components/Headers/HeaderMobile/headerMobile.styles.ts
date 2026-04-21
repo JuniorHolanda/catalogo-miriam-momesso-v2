@@ -1,5 +1,5 @@
 'use client';
-import { borderRadius, flex, gap, padding } from '@/styles/mixins';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -30,3 +30,10 @@ export const SLink = styled(Link)`
   font-size: clamp(1rem, 6rem, 8vw);
   color: ${({ theme }) => theme.colors.link.primary};
 `;
+
+export const SContainerBtnShowMenu = styled.div`
+  ${flex({})}
+  font-size: clamp(1rem, 6rem, 8vw);
+  color: ${({ theme }) => theme.colors.link.primary};
+`;
+
