@@ -10,7 +10,6 @@ export const SWrapper = styled.section`
   width: 100%;
   height: 100%;
   overflow: scroll;
-  border: solid rgb(0, 59, 236);
 
   @media (min-width: 550px) {
     ${flex({ direction: 'row', align: 'start' })}
@@ -31,10 +30,8 @@ export const SNav = styled.nav`
   ${gap({ spaceKey: 'sm' })};
   color: ${({ theme }) => theme.colors.text};
   height: 100%;
-  border: solid rgb(162, 0, 255);
 
   @media (min-width: 550px) {
-    border: solid rgb(255, 251, 0);
     width: 30%;
     height: 100%;
     ${gap({ spaceKey: 'sm' })};
@@ -49,21 +46,21 @@ export const SContainerListCat = styled.div`
   height: 100%;
 
   ul {
-    ${flex({ align: 'start', justfy: 'start' })}
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
     ${gap({ spaceKey: 'sm' })}
     flex-wrap: wrap-reverse;
     width: 100%;
     height: 100%;
-    border: solid #730;
 
     li {
-      ${flex({ direction: 'column', align: 'center', justfy: 'space-between' })}
+      ${flex({ direction: 'column', align: 'start', justfy: 'start' })}
       ${borderRadius({ radiusKey: 'sm' })}
       color: ${({ theme }) => theme.colors.text.text};
       overflow: hidden;
       
       @media (min-width: 550px) {
-          width: calc(33.3% - 5px);
+          width: 100%;
           height: 50px;
       }
     }
@@ -72,15 +69,13 @@ export const SContainerListCat = styled.div`
 export const SLink = styled(Link)`
   ${flex({ align: 'center', justfy: 'start' })};
   ${gap({ spaceKey: 'sm' })};
-  ${padding({ spaceKey: 'sm' })};
   height: 100%;
-  border: solid #785;
 `
 export const SContainerThumb = styled.div`
-    height: 100%;
-    border: solid #781;
-    width: 40%;
+    height: 40px;
+    width: 40px;
     overflow: hidden;
+    border-radius: 300px;
 
     span {
       width: 100%;
