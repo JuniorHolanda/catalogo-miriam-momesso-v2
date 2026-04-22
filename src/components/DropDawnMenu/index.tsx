@@ -1,9 +1,11 @@
-import { SLink, SNav, SWrapper } from "./dropDawnMenu";
+'use client'
+import { SContainerListCat, SContainerThumb, SContainerTitleCat, SLink, SNav, SWrapper } from "./dropDawnMenu";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
 import { getProducts } from "@/services/getProductMomesso";
 import { Product } from "@/utils/interfaces";
 import slugify from "@/utils/slugfyText";
+import { useProducts } from "@/contexts/Product.context";
 
 type filterCategoriesParams = "imported" | "main";
 
@@ -15,9 +17,9 @@ type createCategories = {
 
 
 
-export default async function DropDawnMenu() {
+export default function DropDawnMenu() {
 
-	const products = await getProducts();
+	const products = useProducts();
 
 	function createCategories({ products, categories, originFrom }: createCategories) {
 
@@ -74,70 +76,86 @@ export default async function DropDawnMenu() {
 
 		<SWrapper>
 			<SNav>
-				<h2 >Costuráveis</h2>
-				<ul>
-					{
-						mainCategory.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-									<div>
-										<Image
-											src={item.thumbnail ?? ''}
-											alt={item.altThumbnail ?? ''}
-											width={1200}
-											height={700}
-										/>
-									</div>
-									<span>{item.title}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+				<SContainerTitleCat>
+					<h2 >Costuráveis</h2>
+				</SContainerTitleCat>
+				<SContainerListCat>
+					<ul>
+						{
+							mainCategory.map((item, i) => (
+								<li key={i}>
+									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
+										<SContainerThumb>
+											<Image
+												src={item.thumbnail ?? ''}
+												alt={item.altThumbnail ?? ''}
+												width={1200}
+												height={700}
+												objectFit="couver"
+											/>
+										</SContainerThumb>
+										<span>{item.title}</span>
+									</SLink>
+								</li>
+							))
+						}
+					</ul>
+				</SContainerListCat>
 			</SNav>
+
+
 			<SNav>
-				<h2>Importados</h2>
-				<ul>
-					{
-						importedCategory.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-									<div>
-										<Image
-											src={item.thumbnail ?? ''}
-											alt={item.altThumbnail ?? ''}
-											width={1200}
-											height={700}
-										/>
-									</div>
-									<span>{item.title}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+				<SContainerTitleCat>
+					<h2>Importados</h2>
+				</SContainerTitleCat>
+				<SContainerListCat>
+					<ul>
+						{
+							importedCategory.map((item, i) => (
+								<li key={i}>
+									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
+										<SContainerThumb>
+											<Image
+												src={item.thumbnail ?? ''}
+												alt={item.altThumbnail ?? ''}
+												width={1200}
+												height={700}
+											/>
+										</SContainerThumb>
+										<span>{item.title}</span>
+									</SLink>
+								</li>
+							))
+						}
+					</ul>
+				</SContainerListCat>
 			</SNav>
+
 			<SNav>
-				<h2>Datas</h2>
-				<ul>
-					{
-						holiday.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/holiday/${item.slug}`}>
-									<div>
-										<Image
-											src={item.icon}
-											alt={item.altIcon}
-											width={1200}
-											height={700}
-										/>
-									</div>
-									<span>{item.category}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+					<SContainerTitleCat>
+						<h2>Datas</h2>
+					</SContainerTitleCat>
+					<SContainerListCat>
+						<ul>
+							{
+								holiday.map((item, i) => (
+									<li key={i}>
+										<SLink href={`/categoria/holiday/${item.slug}`}>
+											<SContainerThumb>
+												<Image
+													src={item.icon}
+													alt={item.altIcon}
+													width={1200}
+													height={700}
+												/>
+											</SContainerThumb>
+											<span>{item.category}</span>
+										</SLink>
+									</li>
+								))
+							}
+						</ul>
+				</SContainerListCat>
 			</SNav>
 		</SWrapper>
 	);

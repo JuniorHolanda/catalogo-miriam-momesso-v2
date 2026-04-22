@@ -5,8 +5,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const Scontainer = styled.header`
+  position: relative;
   ${flex({ align: 'center', justfy:'space-between'})}
-  ${padding({spaceKey: 'sm'})}
   ${gap({spaceKey: 'sm'})}
   width: 100%;
   height: 10vh;

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { Snav } from "./navDesktop.styles";
+import { SItemMenu, SList, Snav } from "./navDesktop.styles";
 
 
 
@@ -9,21 +9,23 @@ export default function NavDesktop({ dropDown }: { dropDown: React.ReactNode }) 
 
   return (
     <Snav>
-      <li>Home</li>
+      <SList>
+        <SItemMenu>Home</SItemMenu>
 
-      <li
-        className="liDropDown"
-        onMouseEnter={() => setDropMenu(true)}
-        onMouseLeave={() => setDropMenu(false)}
-      >
-        <button onClick={() => setDropMenu(prev => !prev)}>
-          Categoria
-        </button>
+        <SItemMenu
+          className="liDropDown"
+          onMouseEnter={() => setDropMenu(true)}
+          onMouseLeave={() => setDropMenu(false)}
+        >
+          <button onClick={() => setDropMenu(prev => !prev)}>
+            Categoria
+          </button>
 
-        {dropMenu && dropDown}
-      </li>
+          {dropMenu && dropDown}
+        </SItemMenu>
 
-      <li>Meu Kit</li>
+        <SItemMenu>Meu Kit</SItemMenu>
+      </SList>
     </Snav>
   );
 }

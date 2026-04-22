@@ -3,6 +3,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { TfiDropbox } from "react-icons/tfi";
 import { SContainerBtnShowMenu, SLink, Snav, Swrapper } from "./headerMobile.styles";
+import MenuCategoryMobile from "@/components/MenuCategoryMobile";
 
 export default function HeaderMoblie() {
 
@@ -22,7 +23,7 @@ export default function HeaderMoblie() {
                     <TfiDropbox />
                 </SLink>
                 <SContainerBtnShowMenu >
-                    <SlMenu />
+                    <MenuCategoryMobile />
                 </SContainerBtnShowMenu>
             </Snav>
         </Swrapper>
