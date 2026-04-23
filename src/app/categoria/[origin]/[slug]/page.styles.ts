@@ -5,18 +5,21 @@ import styled from 'styled-components';
 
 export const SWrapper = styled.main`
   ${flex({ direction: 'column', justfy: 'start' })};
-  ${padding({ spaceKey: 'sm' })};
+  ${padding({ spaceKey: 'md' })};
   ${gap({ spaceKey: 'md' })};
   background-color: ${({ theme }) => theme.colors.background.base};
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.background.base};
   height: 80dvh;
   margin-top: 10dvh;
-  overflow-y: scroll;
-  background-color: ${({ theme }) => theme.colors.background.base};
+  overflow: scroll;
   
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
+    margin-top: 0;
+    height: fit-content;
+    overflow: visible;
   }
   `;
 

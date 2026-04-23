@@ -11,13 +11,11 @@ export const SWrapper = styled.main`
   margin-top: 10dvh;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
-
+  
   @media (min-width: 550px) {
-    padding: 0 50px;
-  }
-
-  @media (min-width: 1000px) {
-    padding: 0 50px;
+    ${padding({spaceKey:'xlg'})}
+    margin-top: 0;
+    height: 100%;
   }
 `;
 

@@ -11,7 +11,7 @@ export const Scontainer = styled.div`
   ${padding({spaceKey:'md'})}
   width: 100%;
   margin-top: 10dvh;
-  height: 80vh;
+  height: 80dvh;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   
