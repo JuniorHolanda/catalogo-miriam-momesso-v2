@@ -15,7 +15,7 @@ export const SContainerMenu = styled(motion.nav)`
   top: 10vh;
   left: 0;
   width: 100%;
-  height: 81dvh;
+  height: 80dvh;
   background-color: ${({theme}) => theme.colors.opacity.base};
   backdrop-filter: blur(50px);
 `;
