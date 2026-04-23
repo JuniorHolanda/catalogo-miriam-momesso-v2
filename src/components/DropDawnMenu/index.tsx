@@ -1,25 +1,25 @@
-import { SLink, SNav, SWrapper } from "./dropDawnMenu";
+'use client'
+import { SContainerListCat, SContainerThumb, SContainerTitleCat, SLink, SNav, SWrapper } from "./dropDawnMenu";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
-import { getProducts } from "@/services/getProductMomesso";
 import { Product } from "@/utils/interfaces";
 import slugify from "@/utils/slugfyText";
-
+import { useProducts } from "@/contexts/Product.context";
 type filterCategoriesParams = "imported" | "main";
 
 type createCategories = {
-  	products: Product[]
-  	categories: string[]
+	products: Product[]
+	categories: string[]
 	originFrom: "imported" | "main"
 };
 
 
 
-export default async function DropDawnMenu() {
+export default function DropDawnMenu() {
 
-	const products = await getProducts();
+	const products = useProducts();
 
-	function createCategories ({products, categories, originFrom } : createCategories) {
+	function createCategories({ products, categories, originFrom }: createCategories) {
 
 		const listCategories = categories.map(cat => {
 			const productFiltered = products.find(product =>
@@ -39,7 +39,7 @@ export default async function DropDawnMenu() {
 	}
 
 
-	function filterCategories( origin : filterCategoriesParams ) {
+	function filterCategories(origin: filterCategoriesParams) {
 		const listProductFromCategory = products?.filter(
 			product => product.category?.[origin]?.length > 0
 		);
@@ -47,7 +47,7 @@ export default async function DropDawnMenu() {
 		const uniqueCategoriesImported = [
 			...new Set(
 				listProductFromCategory.flatMap(
-				item => item?.category?.[origin]
+					item => item?.category?.[origin]
 				)
 			)
 		];
@@ -70,75 +70,109 @@ export default async function DropDawnMenu() {
 	const importedCategory = filterCategories("imported")
 	const mainCategory = filterCategories("main")
 
-    return (
+	return (
 
-        <SWrapper>
+		<SWrapper>
 			<SNav>
-				<h2 >Costuráveis</h2>
-				<ul>
-					{
-						mainCategory.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-									<div>
-										<Image
-											src={item.thumbnail ?? ''}
-											alt={item.altThumbnail ?? ''}
-											width={1200}
-											height={700}
-										/>
-									</div>
-									<span>{item.title}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+				<SContainerTitleCat>
+					<h2 >Costuráveis</h2>
+				</SContainerTitleCat>
+				<SContainerListCat>
+					<ul>
+						{
+							mainCategory.map((item, i) => (
+								<li key={i}>
+									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
+										<SContainerThumb>
+											<Image
+												src={item.thumbnail ?? ''}
+												alt={item.altThumbnail ?? ''}
+												width={300}
+												height={300}
+
+												style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
+											/>
+										</SContainerThumb>
+										<span>{item.title}</span>
+									</SLink>
+								</li>
+							))
+						}
+					</ul>
+				</SContainerListCat>
 			</SNav>
+
+
 			<SNav>
-				<h2>Importados</h2>
-				<ul>
-					{
-						importedCategory.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-									<div>
-										<Image
-										src={item.thumbnail ?? ''}
-										alt={item.altThumbnail ?? ''}
-										width={1200}
-										height={700}
-										/>
-									</div>
-									<span>{item.title}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+				<SContainerTitleCat>
+					<h2>Importados</h2>
+				</SContainerTitleCat>
+				<SContainerListCat>
+					<ul>
+						{
+							importedCategory.map((item, i) => (
+								<li key={i}>
+									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
+										<SContainerThumb>
+											<Image
+												src={item.thumbnail ?? ''}
+												alt={item.altThumbnail ?? ''}
+												width={300}
+												height={300}
+												style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
+											/>
+										</SContainerThumb>
+										<span>{item.title}</span>
+									</SLink>
+								</li>
+							))
+						}
+					</ul>
+				</SContainerListCat>
 			</SNav>
+
 			<SNav>
-				<h2>Datas</h2>
-				<ul>
-					{
-						holiday.map((item, i) => (
-							<li key={i}>
-								<SLink href={`/categoria/holiday/${item.slug}`}>
-									<div>
-										<Image
-										src={item.icon}
-										alt={item.altIcon}
-										width={1200}
-										height={700}
-										/>
-									</div>
-									<span>{item.category}</span>
-								</SLink>
-							</li>
-						))
-					}
-				</ul>
+					<SContainerTitleCat>
+						<h2>Datas</h2>
+					</SContainerTitleCat>
+					<SContainerListCat>
+						<ul>
+							{
+								holiday.map((item, i) => (
+									<li key={i}>
+										<SLink href={`/categoria/holiday/${item.slug}`}>
+											<SContainerThumb>
+												<Image
+													src={item.icon}
+													alt={item.altIcon}
+													width={300}
+													height={300}
+													style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
+												/>
+											</SContainerThumb>
+											<span>{item.category}</span>
+										</SLink>
+									</li>
+								))
+							}
+						</ul>
+				</SContainerListCat>
 			</SNav>
 		</SWrapper>
-    );
+	);
 }

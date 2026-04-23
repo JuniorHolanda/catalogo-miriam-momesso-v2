@@ -5,9 +5,6 @@ import DropDawnMenu from "@/components/DropDawnMenu";
 
 export default function HeaderDesktop() {
 
-
-  const dropDown = <DropDawnMenu />;
-
   return (
       <Scontainer>
         <ScontainerLogo href={'/'}>
@@ -18,7 +15,7 @@ export default function HeaderDesktop() {
             height={700}
           />
         </ScontainerLogo>
-        <NavDesktop dropDown={dropDown}/>
+        <NavDesktop/>
       </Scontainer>
   );
 }

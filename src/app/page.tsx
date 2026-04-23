@@ -1,11 +1,18 @@
-import HeroSection from "@/components/HeroSection";
-import { Scontainer } from "./page.styles";
+import { Scontainer, SDesktop, SMobile } from "./page.styles";
+import SearchSection from "@/components/SearchDesktop";
+import StoriesMobile from "@/components/stories";
 
 export default function Home() {
 
   return (
     <Scontainer>
-     <HeroSection />
+      <SDesktop>
+        <SearchSection />
+      </SDesktop>
+
+      <SMobile>
+        <StoriesMobile />
+      </SMobile>
     </Scontainer>
   );
 }

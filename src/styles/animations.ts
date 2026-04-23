@@ -27,3 +27,12 @@ export const entraceToBottomCollection = keyframes`
         opacity: 1;
     }
 `;
+
+export const entraceToLeft = keyframes`
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`;
