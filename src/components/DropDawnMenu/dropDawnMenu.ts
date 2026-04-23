@@ -9,7 +9,7 @@ export const SWrapper = styled.section`
   width: 100%;
   height: 100%;
   overflow: scroll;
-
+  
   @media (min-width: 550px) {
     ${flex({ direction: 'row', align: 'start' })}
     ${padding({ spaceKey: 'xlg' })};
@@ -17,16 +17,15 @@ export const SWrapper = styled.section`
     width: 100%;
     height: 100%;
   }
-`
+  `
 
 export const SNav = styled.nav`
   ${flex({ direction: 'column', align: 'start', justfy: 'start' })}
-  ${gap({ spaceKey: 'md' })};
   color: ${({ theme }) => theme.colors.text};
   height: 100%;
   width: 100%;
-
-
+  
+  
   @media (min-width: 550px) {
     width: auto;
     height: 100%;
@@ -34,10 +33,11 @@ export const SNav = styled.nav`
     ${flex({ direction: 'column', align: 'start', justfy: 'start' })}
     color: ${({ theme }) => theme.colors.text};
   }
-`
+  `
 
 export const SContainerListCat = styled.div`
   ${flex({ justfy:'space-between'})}
+  ${padding({spaceKey:'md'})}
   width: 100%;
   height: 100%;
       
@@ -96,6 +96,7 @@ export const SContainerThumb = styled.div`
 export const SContainerTitleCat = styled.div`
   display: block;
   width: 100%;
+
 
   h2 {
     ${padding({ spaceKey: 'md' })};
