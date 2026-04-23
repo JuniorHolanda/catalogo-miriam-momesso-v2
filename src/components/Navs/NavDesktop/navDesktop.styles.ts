@@ -23,14 +23,15 @@ export const SList = styled.ul`
 export const SItemMenu = styled.li`
   ${flex({})}
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-    ${padding({ spaceKey: 'md' })}
-    ${smoothTransition}
-    font-weight: 400;
+  ${padding({ spaceKey: 'md' })}
+  ${smoothTransition}
+  font-weight: 400;
   cursor: pointer;
   white-space: nowrap;
   color: ${({ theme }) => theme.colors.text.reverseText};
   z-index: 1000;
   height: 100%;
+
 
   button {
     color: ${({ theme }) => theme.colors.text.reverseText};

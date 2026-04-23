@@ -1,14 +1,14 @@
 'use client';
 
-import { flex, gap } from "@/styles/mixins";
+import { flex, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const Scontainer = styled.div`
   position: relative;
   z-index: 0;
   ${flex({ align: 'center', justfy: 'start' })};
-  padding: 0 ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })};
+  ${padding({spaceKey:'md'})}
   width: 100%;
   margin-top: 10dvh;
   height: 80vh;
@@ -47,7 +47,8 @@ height: 100%;
 export const SMobile = styled.div`
   display: none;
   width: 100%;
-  height: 80dvh;
+  height: 100%;
+  
   
 
   @media (max-width: 550px) {

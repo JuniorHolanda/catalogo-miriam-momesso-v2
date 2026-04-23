@@ -27,7 +27,7 @@ export default function MenuCategoryMobile() {
           </SContainerMenu>
         )}
       </AnimatePresence>
-      <SlMenu className="iconShowMenu" />
+      <SlMenu />
     </SWrapper>
   )
 }
