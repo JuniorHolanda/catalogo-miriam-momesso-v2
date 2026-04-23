@@ -10,9 +10,16 @@ export const Scontainer = styled.div`
   padding: 0 ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })};
   width: 100%;
-  height: 100%;
+  margin-top: 10dvh;
+  height: 80vh;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
+  
+  
+  @media (min-width: 550px) {
+    height: 90vh;
+    margin-top: 0;
+  }
 ;
 `;
 

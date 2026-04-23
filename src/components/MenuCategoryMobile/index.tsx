@@ -1,7 +1,7 @@
 'use client'
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { SlMenu } from "react-icons/sl"
-import { SContainerBtnHiddenMenu, SContainerMenu, SContent, SWrapper } from "./menuCategoryMobile"
+import { SContainerMenu, SContent, SWrapper } from "./menuCategoryMobile"
 import { useState } from "react"
 import DropDawnMenu from "../DropDawnMenu"
 

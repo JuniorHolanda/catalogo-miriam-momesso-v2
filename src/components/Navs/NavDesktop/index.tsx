@@ -1,30 +1,50 @@
 'use client'
 import { useState } from "react";
-import { SItemMenu, SList, Snav } from "./navDesktop.styles";
+import { SContainerMenu, SItemMenu, SLink, SList, Snav } from "./navDesktop.styles";
+import { AnimatePresence } from "framer-motion";
+import DropDawnMenu from "@/components/DropDawnMenu";
 
-
-
-export default function NavDesktop({ dropDown }: { dropDown: React.ReactNode }) {
+export default function NavDesktop() {
   const [dropMenu, setDropMenu] = useState(false);
 
   return (
     <Snav>
       <SList>
-        <SItemMenu>Home</SItemMenu>
+        <SItemMenu>
+          <SLink href={'/'}>
+            Home
+          </SLink>
+        </SItemMenu>
 
         <SItemMenu
           className="liDropDown"
           onMouseEnter={() => setDropMenu(true)}
           onMouseLeave={() => setDropMenu(false)}
+          onClick={() => setDropMenu(prev => !prev)}
         >
-          <button onClick={() => setDropMenu(prev => !prev)}>
+          <button>
             Categoria
           </button>
 
-          {dropMenu && dropDown}
+          <AnimatePresence>
+            {dropMenu &&
+              <SContainerMenu
+                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                transition={{ duration: 0.3 }}
+              >
+                <DropDawnMenu />
+              </SContainerMenu>
+            }
+          </AnimatePresence>
         </SItemMenu>
 
-        <SItemMenu>Meu Kit</SItemMenu>
+        <SItemMenu>
+          <SLink href={'/colecao'}>
+            Meu Kit
+          </SLink>
+        </SItemMenu>
       </SList>
     </Snav>
   );

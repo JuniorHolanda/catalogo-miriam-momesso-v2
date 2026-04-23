@@ -2,11 +2,9 @@
 import { SContainerListCat, SContainerThumb, SContainerTitleCat, SLink, SNav, SWrapper } from "./dropDawnMenu";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
-import { getProducts } from "@/services/getProductMomesso";
 import { Product } from "@/utils/interfaces";
 import slugify from "@/utils/slugfyText";
 import { useProducts } from "@/contexts/Product.context";
-
 type filterCategoriesParams = "imported" | "main";
 
 type createCategories = {
@@ -89,9 +87,15 @@ export default function DropDawnMenu() {
 											<Image
 												src={item.thumbnail ?? ''}
 												alt={item.altThumbnail ?? ''}
-												width={1200}
-												height={700}
-												objectFit="couver"
+												width={300}
+												height={300}
+
+												style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
 											/>
 										</SContainerThumb>
 										<span>{item.title}</span>
@@ -118,8 +122,14 @@ export default function DropDawnMenu() {
 											<Image
 												src={item.thumbnail ?? ''}
 												alt={item.altThumbnail ?? ''}
-												width={1200}
-												height={700}
+												width={300}
+												height={300}
+												style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
 											/>
 										</SContainerThumb>
 										<span>{item.title}</span>
@@ -145,8 +155,14 @@ export default function DropDawnMenu() {
 												<Image
 													src={item.icon}
 													alt={item.altIcon}
-													width={1200}
-													height={700}
+													width={300}
+													height={300}
+													style={{
+													objectFit: 'cover',
+													objectPosition:'center',
+													width: '100%',
+													height: '100%'
+												}}
 												/>
 											</SContainerThumb>
 											<span>{item.category}</span>

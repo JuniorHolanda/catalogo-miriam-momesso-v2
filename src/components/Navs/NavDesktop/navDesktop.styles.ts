@@ -1,6 +1,8 @@
 'use  client'
 
 import { flex, font, gap, padding, smoothTransition } from '@/styles/mixins'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 export const Snav = styled.nav`
@@ -29,7 +31,6 @@ export const SItemMenu = styled.li`
   color: ${({ theme }) => theme.colors.text.reverseText};
   z-index: 1000;
   height: 100%;
-  border: solid rgb(245, 0, 184);
 
   button {
     color: ${({ theme }) => theme.colors.text.reverseText};
@@ -40,4 +41,16 @@ export const SItemMenu = styled.li`
       font-weight: 600;
     }
   }
+`
+
+export const SLink = styled(Link)``
+
+export const SContainerMenu = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  top: 10vh;
+  left: 0;
+  background-color: ${({ theme }) => theme.colors.opacity.base};
+  backdrop-filter: blur(30px);
 `
