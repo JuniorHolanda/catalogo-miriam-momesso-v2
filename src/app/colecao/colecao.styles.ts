@@ -30,7 +30,7 @@ export const SContainerCards = styled.div`
   ${gap({ spaceKey: 'md' })}
   width: 100%;
   height: fit-content;
-`
+  `
 
 export const SContent = styled(Link)`
   ${flex({})}
