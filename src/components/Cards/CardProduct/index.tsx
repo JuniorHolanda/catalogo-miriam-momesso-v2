@@ -1,5 +1,5 @@
 "use client";
-import React, { InputHTMLAttributes, JSX, useEffect, useState } from "react";
+import { InputHTMLAttributes, JSX, useEffect, useState } from "react";
 import Image from "next/image";
 
 import {

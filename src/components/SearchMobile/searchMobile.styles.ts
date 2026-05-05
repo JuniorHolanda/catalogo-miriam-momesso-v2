@@ -6,14 +6,11 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const ScontainerInput = styled.form`
-  position: fixed;
-  top: 0;
-  left: 0;
   ${flex({})};
   ${padding({ spaceKey: 'md' })};
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.background.high};
-  width: 50%;
+  width: 100%;
   height: 10dvh;
 
   @media (max-width: 1200px) {

@@ -7,8 +7,7 @@ export const SWrapper = styled.main`
   ${flex({})}
   padding: ${({ theme }) => theme.spaces.md};
   width: 100%;
-  height: 80dvh;
-  margin-top: 10dvh;
+  height: 100%;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
   

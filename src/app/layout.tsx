@@ -92,8 +92,9 @@ export default async function RootLayout({
           <AppThemeProvider>
             <ViewportProvider>
               <ProductsProvider products={listproducts}>
-                <HeaderSwitcher/> 
-                {children}
+                <HeaderSwitcher>
+                  {children}
+                </HeaderSwitcher> 
               </ProductsProvider>
             </ViewportProvider>
           </AppThemeProvider>

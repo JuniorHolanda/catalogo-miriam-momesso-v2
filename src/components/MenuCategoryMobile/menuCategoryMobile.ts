@@ -18,7 +18,7 @@ export const SContainerMenu = styled(motion.nav)`
   height: 80dvh;
   background-color: ${({theme}) => theme.colors.opacity.base};
   backdrop-filter: blur(50px);
-`;
+  `;
 
 export const SContent = styled.button`
   ${flex({})}

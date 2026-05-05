@@ -9,7 +9,7 @@ export const SWrapper = styled.section`
   width: 100%;
   height: 100%;
   overflow: scroll;
-  
+
   @media (min-width: 550px) {
     ${flex({ direction: 'row', align: 'start' })}
     ${padding({ spaceKey: 'xlg' })};
@@ -17,15 +17,14 @@ export const SWrapper = styled.section`
     width: 100%;
     height: 100%;
   }
-  `
+`
 
 export const SNav = styled.nav`
   ${flex({ direction: 'column', align: 'start', justfy: 'start' })}
   color: ${({ theme }) => theme.colors.text};
   height: 100%;
   width: 100%;
-  
-  
+
   @media (min-width: 550px) {
     width: auto;
     height: 100%;
@@ -33,16 +32,15 @@ export const SNav = styled.nav`
     ${flex({ direction: 'column', align: 'start', justfy: 'start' })}
     color: ${({ theme }) => theme.colors.text};
   }
-  `
+`
 
 export const SContainerListCat = styled.div`
-  ${flex({ justfy:'space-between'})}
-  ${padding({spaceKey:'md'})}
+  ${flex({ justfy: 'space-between' })}
+  ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: 100%;
-      
-      
-      ul {
+
+  ul {
     display: grid;
     grid-template: auto / 1fr 1fr 1fr;
     justify-self: start;
@@ -50,7 +48,6 @@ export const SContainerListCat = styled.div`
     ${gap({ spaceKey: 'sm' })}
     flex-wrap: wrap-reverse;
     width: 100%;
-    
 
     li {
       ${flex({ direction: 'column', align: 'center', justfy: 'center' })}
@@ -58,7 +55,6 @@ export const SContainerListCat = styled.div`
       color: ${({ theme }) => theme.colors.text.text};
       overflow: hidden;
       background-color: #00000048;
-      
 
       @media (min-width: 550px) {
         align-items: start;
@@ -70,7 +66,7 @@ export const SContainerListCat = styled.div`
   }
 `
 export const SLink = styled(Link)`
-  ${flex({ direction: 'column',align: 'center', justfy: 'center' })};
+  ${flex({ direction: 'column', align: 'center', justfy: 'center' })};
   ${gap({ spaceKey: 'sm' })};
   ${padding({ spaceKey: 'md' })};
 
@@ -97,7 +93,6 @@ export const SContainerTitleCat = styled.div`
   display: block;
   width: 100%;
 
-
   h2 {
     ${padding({ spaceKey: 'md' })};
     ${font({ fontKey: 'secondary', sizeKey: 'md' })}
@@ -107,7 +102,7 @@ export const SContainerTitleCat = styled.div`
     text-align: start;
     border-bottom: 1px solid;
     color: ${({ theme }) => theme.colors.text.text};
-    
+
     @media (min-width: 550px) {
       ${font({ fontKey: 'secondary', sizeKey: 'md' })}
       font-weight: 300;

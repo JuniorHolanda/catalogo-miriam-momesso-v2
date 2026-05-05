@@ -4,14 +4,11 @@ import { flex, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
 
 export const Scontainer = styled.div`
-  position: relative;
-  z-index: 0;
   ${flex({ align: 'center', justfy: 'start' })};
   ${gap({ spaceKey: 'md' })};
   ${padding({spaceKey:'md'})}
   width: 100%;
-  margin-top: 10dvh;
-  height: 80dvh;
+  height: 100%;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   

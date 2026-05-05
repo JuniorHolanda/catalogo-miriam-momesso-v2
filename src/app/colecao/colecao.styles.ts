@@ -8,8 +8,8 @@ export const SWrapper = styled.main`
   ${flex({ direction: 'column', justfy: 'start' })}
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'sm' })}
-  margin-top: 10dvh;
-  height: 80dvh;
+  height: 100%;
+  width: 100%;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
 `
@@ -27,19 +27,18 @@ export const SContainerTitle = styled.div`
 export const SContainerCards = styled.div`
   ${flex({ direction: 'column', justfy: 'start', align: 'center' })}
   ${padding({ spaceKey: 'sm' })}
-  ${gap({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'sm' })}
   width: 100%;
   height: fit-content;
-  `
+`
 
 export const SContent = styled(Link)`
   ${flex({})}
   ${borderRadius({ radiusKey: 'md' })}
-    ${padding({ spaceKey: 'sm' })}
-    ${gap({ spaceKey: 'md' })}
-    width: 100%;
-  height: 120px; // verificar porque não ta fazendo efeito
-  min-height: 120px;
+  ${padding({ spaceKey: 'sm' })}
+  ${gap({ spaceKey: 'md' })}
+  width: 100%;
+  height: 120px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
 `

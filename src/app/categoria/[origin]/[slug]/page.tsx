@@ -3,6 +3,7 @@ import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
 import { getProducts } from "@/services/getProductMomesso";
 import SmallCardProduct from "@/components/SmallCardProduct";
+import { Product } from "@/utils/interfaces";
 
 type PageProps = {
     params: Promise<{
@@ -13,30 +14,20 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps) {
     const { origin, slug } = await params;
-    
     const products = await getProducts();
-    
-    function filteredProductsParams() {
-        
-        if (origin === "holiday") {
-            const filtered = products.filter(product =>
-                product.category?.[origin]?.some(item =>
-                    slugify(item) === slugify(slug)
-                )
-            );
-            return filtered
-        } else {
-            console.log('ainda funciona')
-            const filtered = products.filter(product =>
-                product.category?.[origin]?.some(item =>
-                    slugify(item) === slugify(slug)
-                )
-            );
-            return filtered
-        }
-    }
 
-    const productFiltered = filteredProductsParams()
+
+    const productFiltered = products.filter(product =>
+        product.category?.[origin]?.some(item =>
+            slugify(item) === slugify(slug)
+        )
+    );
+
+    const renderProducts = (Component: React.FC<{ product: Product }>) =>
+        productFiltered.map(product => (
+            <Component key={product._id} product={product} />
+        ));
+
     const title = slug.replace(/-/g, " ");
 
     return (
@@ -45,14 +36,8 @@ export default async function CategoryPage({ params }: PageProps) {
                 <h1>{title}</h1>
             </SContainerTitle>
             <SSection>
-                {
-                    productFiltered.map(product => (
-                        <SContainerProduct key={product._id}>
-                            <CardProduct product={product} />
-                            <SmallCardProduct product={product} />
-                        </SContainerProduct>
-                    ))
-                }
+                {renderProducts(SmallCardProduct)}
+                {renderProducts(CardProduct)}
             </SSection>
         </SWrapper>
     );
