@@ -9,6 +9,7 @@ export const SContainerStories = styled.div`
   height:100%;
   width: 100%;
   overflow: hidden;
+  z-index: 1;
   `;
 
 export const SContent = styled.div`
@@ -17,7 +18,6 @@ export const SContent = styled.div`
   position: absolute;
   width: 100%;
   height: fit-content;
-  z-index: 1000;
   bottom: 0;
   ${padding({ spaceKey: 'md' })};
   background-image: linear-gradient( #00000000, #130d497a 90%);

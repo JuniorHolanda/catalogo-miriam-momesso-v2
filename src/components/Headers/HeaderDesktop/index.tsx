@@ -1,7 +1,6 @@
 import NavDesktop from "@/components/Navs/NavDesktop";
 import { Scontainer, ScontainerLogo } from "./header.styled";
 import Image from "next/image";
-import DropDawnMenu from "@/components/DropDawnMenu";
 
 export default function HeaderDesktop() {
 

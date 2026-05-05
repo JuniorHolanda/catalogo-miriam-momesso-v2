@@ -4,14 +4,10 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const Swrapper = styled.section`
-  position: fixed;
-  bottom: 0;
-  left: 0;
   ${flex({})}
   width: 100%;
   height: 10vh;
   ${padding({spaceKey: 'md'})}
-  z-index: 1;
   background-color: ${({ theme }) => theme.colors.background.high};
   `;
 
