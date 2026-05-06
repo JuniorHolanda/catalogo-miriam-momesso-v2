@@ -44,6 +44,7 @@ export const SInfo = styled.div`
 
 export const SBtnCategory = styled(CustomLink)`
   width: 100%;
+  z-index: 1000; // solução temporária
 `;
 
 export const SStories = styled.div`
