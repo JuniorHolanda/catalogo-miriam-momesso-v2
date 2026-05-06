@@ -7,16 +7,10 @@ import Image from 'next/image';
 import { entraceToTop } from '@/styles/animations';
 
 export const Ssection = styled.section`
-  z-index: 0;
   ${flex({ align: 'center', justfy: 'center' })}
   ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: 100%;
-  overflow: hidden;
-
-  @media (max-width: 500) {
-    height: 90dvh;
-  }
 `;
 
 export const SformInSection = styled.form<SformInSectionProps>`
