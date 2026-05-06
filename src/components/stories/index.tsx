@@ -15,7 +15,7 @@ export default function StoriesMobile() {
             <p>{item.description}</p>
           </SInfo>
           <SBtnCategory link={`/categoria/holiday/${item.slug}`}>
-            Ver produto
+            Ver Categoria
           </SBtnCategory>
         </SContent>
 
