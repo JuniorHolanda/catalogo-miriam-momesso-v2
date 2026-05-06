@@ -13,6 +13,7 @@ export const Scontainer = styled.header`
   background-color: ${({ theme }) => theme.colors.pallet.primary};
   z-index: 1;
   border-bottom: 1px solid ${({ theme }) => theme.colors.opacity.base};
+  z-index: 999; //solução rápida para corrigir problema
 `;
 export const ScontainerLogo = styled(Link)`
   ${flex({align:'center', justfy:'start'})}
