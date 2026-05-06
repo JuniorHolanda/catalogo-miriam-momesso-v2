@@ -4,7 +4,7 @@ import { useProducts } from '@/contexts/Product.context';
 import { Product } from '@/utils/interfaces';
 import CreateProductsMap from '@/utils/productsMap';
 import { useParams, useSearchParams } from 'next/navigation';
-import { SSection, STitle, SWrapper } from './collectionItens.styles';
+import { SSection, STitleContainer, SWrapper } from './collectionItens.styles';
 import SmallCardProduct from '@/components/SmallCardProduct';
 
 export default function CollectionItens() {
@@ -29,9 +29,9 @@ export default function CollectionItens() {
 
   return (
     <SWrapper>
-      <STitle>
+      <STitleContainer>
         <h1>{title}</h1>
-      </STitle>
+      </STitleContainer>
       <SSection>
         {renderProducts(SmallCardProduct)}
         {renderProducts(CardProduct)}

@@ -16,6 +16,7 @@ export const Scard = styled.article`
 
   @media (min-width: 600px) {
     ${flex({ direction: 'column' })}
+    flex: 0 0 calc((100% - 45px) / 4);
   }
 `;
 
