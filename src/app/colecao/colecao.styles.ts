@@ -12,6 +12,11 @@ export const SWrapper = styled.main`
   width: 100%;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
+
+
+  @media (min-width: 500px) {
+    ${flex({ direction: 'column', justfy: 'start' })}
+  }
 `
 export const SContainerTitle = styled.div`
   ${flex({})}
@@ -30,6 +35,11 @@ export const SContainerCards = styled.div`
   ${gap({ spaceKey: 'sm' })}
   width: 100%;
   height: fit-content;
+
+  @media (min-width: 500px) {
+    ${flex({ direction: 'row', justfy: 'start' })}
+    flex-wrap: wrap;
+  }
 `
 
 export const SContent = styled(Link)`
@@ -41,11 +51,22 @@ export const SContent = styled(Link)`
   height: 120px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
+
+  @media (min-width: 500px) {
+    height: 400px;
+    flex: 0 0 calc((100% - 15px) / 4);
+    ${flex({ direction: 'column', justfy: 'start' })}
+  }
 `
 
 export const SContainerTitleCard = styled.div`
   ${flex({})}
   width: 50%;
+
+  @media (min-width: 500px) {
+    width: 100%;
+    white-space: nowrap;
+  }
 
   h2 {
     ${font({ fontKey: 'secondary', sizeKey: 'md' })};
@@ -62,7 +83,10 @@ export const SContainerThumb = styled.div`
   ${borderRadius({ radiusKey: 'md' })}
 
   // não usar estilo normal aqui, apenas estilos que venham de váriaveis
-    .thumb {
+  .thumb {
     ${borderRadius({ radiusKey: 'md' })}
+  }
+  @media (min-width: 500px) {
+    width: 100%;
   }
 `

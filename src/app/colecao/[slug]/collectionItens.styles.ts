@@ -1,26 +1,41 @@
-import { flex, gap, padding } from '@/styles/mixins'
+import { flex, font, gap, padding } from '@/styles/mixins'
 import styled from 'styled-components'
 
 export const SWrapper = styled.main`
-  ${flex({ justfy: 'start', align: 'start' })};
-  ${gap({ spaceKey: 'md' })};
-  flex-wrap: wrap;
+  ${flex({ direction: 'column', justfy: 'start' })}
   width: 100%;
+  height: 100%;
   overflow: scroll;
-  
+
   @media (min-width: 500px) {
-    ${flex({ direction: 'row', justfy: 'start' })}
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
-    margin-top: 0;
     height: fit-content;
     overflow: visible;
   }
-  `
-export const STitle =  styled.div`
-${flex({})}
-`;
+`
+export const STitleContainer = styled.div`
+  ${flex({})}
+  ${font({ fontKey: 'secondary', sizeKey: 'md' })}
+  ${padding({ spaceKey: 'sm' })};
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.title.primary};
+  height: fit-content;
 
-export const SSection =  styled.section`
+  @media (min-width: 500px) {
+    ${font({ fontKey: 'secondary', sizeKey: 'lg' })}
+  }
+`
+
+export const SSection = styled.section`
   ${flex({ direction: 'column', justfy: 'start', align: 'start' })};
-`;
+  ${gap({ spaceKey: 'sm' })};
+  ${padding({ spaceKey: 'sm' })};
+  width: 100%;
+
+  @media (min-width: 500px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-wrap: wrap;
+  }
+`
