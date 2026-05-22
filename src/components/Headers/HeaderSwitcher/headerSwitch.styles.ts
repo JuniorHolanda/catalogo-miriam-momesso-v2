@@ -4,7 +4,9 @@ import { flex } from '@/styles/mixins'
 import styled from 'styled-components'
 
 export const SDesktop = styled.div`
-  display: block;
+  ${flex({direction:'column'})}
+  height: 100vh;
+  overflow: hidden;
 
   @media (max-width: 550px) {
     display: none;

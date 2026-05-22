@@ -1,4 +1,4 @@
-import { SContainerItens, SContent, SInfo, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag, SContainerBtnContent, SContainerContentTag } from "./page.styles";
+import { SContainerItens, SContent, SInfo, SWrapper, STextContent, SType, Stag, ScontainerTag, SContainerContentTag, SContainerBtnActions } from "./page.styles";
 import { notFound } from "next/navigation";
 import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
@@ -96,22 +96,14 @@ export default async function ProductPage({ params }: ProductPageParams) {
           <h1>{product?.title}</h1>
           <p>{product?.text}</p>
         </STextContent>
-
-        <SContainerBtnContent>
-          <SBtnContent>
-            <ShareButtom product={product} />
-            <CollectionButtom idProduct={product._id} />
-          </SBtnContent>
-        </SContainerBtnContent>
       </SContent>
-
       <SInfo>
         <SType>
           {
             product.category.imported.length > 0 ? <h2>Produto Importado</h2> : <h2>Produto Costurável</h2>
           }
         </SType>
-        
+
         <ScontainerTag>
           <Stag>
             <h2>Categorias</h2>
@@ -119,7 +111,9 @@ export default async function ProductPage({ params }: ProductPageParams) {
               <SContainerItens>
                 {
                   allCategories.map((item, index) => (
-                    <span key={index}>{item}</span>
+                    <li key={index}>
+                      <span>{item}</span>
+                    </li>
                   ))
                 }
               </SContainerItens>
@@ -131,7 +125,11 @@ export default async function ProductPage({ params }: ProductPageParams) {
               <SContainerItens>
                 {
                   product.measure?.map((item, index) => (
-                    <span key={index}>{item}</span>
+                    <li key={index}>
+                      <span>
+                        {item}
+                      </span>
+                    </li>
                   ))
                 }
               </SContainerItens>
@@ -139,6 +137,10 @@ export default async function ProductPage({ params }: ProductPageParams) {
           </Stag>
         </ScontainerTag>
       </SInfo>
+      <SContainerBtnActions>
+        <ShareButtom product={product} />
+        <CollectionButtom idProduct={product._id} />
+      </SContainerBtnActions>
     </SWrapper>
   );
 }
