@@ -1,15 +1,19 @@
 "use client";
 
 import {
+  SBtnCategory,
+  SButtonCategory,
+  SContainerBtnCategory,
   SContainerCollection,
   SFeedbackCollection,
   SWrapper,
 } from "./collectionButtom.styles";
 import { useEffect, useState } from "react";
 import InputSetCollection from "../InputSetCollection";
-import CustomButton from "../Button";
 import { Collection } from "@/utils/types";
-import { FaBox } from "react-icons/fa";
+import { FaBox, FaFolderPlus } from "react-icons/fa";
+import CustomButton from "../Button";
+import { RiFolderCloseFill } from "react-icons/ri";
 
 type PropsCollectionButtom = {
   className?: string;
@@ -27,8 +31,8 @@ export default function CollectionButtom({
   // condição para renderizar aviso de sucesso ao criar coleção
   const [collectionCreated, setCollectionCreated] = useState<boolean | string>(false);
 
-
-  function hiddenCollection(text : string) {
+  // mostra mensagem de sucesso ao adicionar ou remover produtos das coleções e esconde o componente
+  function hiddenCollection(text: string) {
     //atualiza showCollection com novos dados inseridos
     const stored = JSON.parse(localStorage.getItem("collection") || "[]");
     SetCollectionData(stored);
@@ -45,20 +49,19 @@ export default function CollectionButtom({
     SetCollectionData(stored);
   }, []);
 
-  function updateCollection(collection : Collection) {
-    const iDCollectionSelected = collection.id; //string
+  function updateCollection(collection: Collection) {
+    const iDCollectionSelected = collection.id; //id da coleção
     const nameCollection = collection.name
-    const newItem = idProduct; //string
-    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]"); //object
-    
-    
+    const newItem = idProduct; //id do produto
+    //lista de coleções na localStorage
+    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]");
+
     const updated = stored.map(item => {
       if (item.id === iDCollectionSelected) {
-        console.log(item.itensId);
-          return {
-              ...item,
-              itensId: [...item.itensId, newItem]
-          };
+        return {
+          ...item,
+          itensId: [...item.itensId, newItem]
+        };
       }
       return item;
     });
@@ -66,6 +69,25 @@ export default function CollectionButtom({
     // salva de volta
     localStorage.setItem("collection", JSON.stringify(updated));
     hiddenCollection(`Produto adicionado à ${nameCollection}`);
+  };
+
+  function removeItemCollection(collection: Collection) {
+    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]");
+
+    const iDCollectionSelected = collection.id;
+
+    const updatedCollections = stored.map(item => {
+      if (item.id === iDCollectionSelected) {
+        return {
+          ...item,
+          itensId: item.itensId.filter(id => id !== idProduct)
+        };
+      }
+      return item;
+    });
+
+    localStorage.setItem('collection', JSON.stringify(updatedCollections));
+    hiddenCollection(`Produto removido da lista ${collection.name}`);
   }
 
   return (
@@ -81,16 +103,36 @@ export default function CollectionButtom({
       }
       {
         showCollection && collectionData.length > 0 && (
+
           <SContainerCollection>
             {/* mostra lista de coleções */}
             {
-              collectionData.map(item =>
-                <div key={item.id}>
-                  <button onClick={() => updateCollection(item)}
-                  >
-                    {item.name}
-                  </button>
-                </div>
+              collectionData.map(item => {
+                const hasProduct = item.itensId.includes(idProduct);
+
+                return (
+                  <SContainerBtnCategory key={item.id}>
+                    <SButtonCategory>
+                      {item.name}
+                    </SButtonCategory>
+                    <SBtnCategory $iconRemove={hasProduct} onClick={() => {
+                      if (hasProduct) {
+                        removeItemCollection(item);
+                      } else {
+                        updateCollection(item);
+                      }
+                    }}>
+                      {
+                        hasProduct ?
+                          <RiFolderCloseFill />
+                          : <FaFolderPlus />
+                      }
+                    </SBtnCategory>
+                  </SContainerBtnCategory>
+                )
+              }
+
+
               )
             }
             {/* cria nova coleção */}
@@ -100,10 +142,10 @@ export default function CollectionButtom({
                   Criar nova coleção
                 </CustomButton>
                 : <InputSetCollection
-                    idProduct={idProduct}
-                    placeholder="Nome da categoria"
-                    children={'Criar categoria'}
-                    onSuccess={hiddenCollection}
+                  idProduct={idProduct}
+                  placeholder="Nome da categoria"
+                  children={'Criar categoria'}
+                  onSuccess={hiddenCollection}
                 />
             }
           </ SContainerCollection>

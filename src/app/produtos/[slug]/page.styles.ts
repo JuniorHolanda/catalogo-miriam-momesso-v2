@@ -1,37 +1,22 @@
-'use client';
+'use client'
 
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
-import styled from 'styled-components';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import styled from 'styled-components'
 
-export const SWrapper = styled.main`
-  ${flex({})}
-  padding: ${({ theme }) => theme.spaces.md};
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  background-color: ${({ theme }) => theme.colors.background.base};
-  
-  @media (min-width: 550px) {
-    ${padding({spaceKey:'xlg'})}
-    margin-top: 0;
-    height: 100%;
-  }
-`;
-
-export const SSection = styled.section`
+export const SWrapper = styled.section`
   display: grid;
-  justify-self: start;
-  align-self: start;
-  grid-template-columns: 1fr;
+  justify-items: start;
+  align-items: start;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'smainImg smainImg smainImg'
     'scontent scontent scontent '
     'sinfo sinfo sinfo';
+  padding: ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })}
   width: 100%;
   height: fit-content;
-  z-index: 0;
+  background-color: ${({ theme }) => theme.colors.background.surface};
 
   @media (min-width: 550px) {
     grid-template-columns: 2fr 1fr 1fr;
@@ -40,7 +25,7 @@ export const SSection = styled.section`
       'smainImg smainImg sinfo'
       'scontent scontent scontent ';
   }
-`;
+`
 
 export const SContent = styled.div`
   ${flex({ direction: 'column', align: 'start' })};
@@ -48,11 +33,11 @@ export const SContent = styled.div`
   ${borderRadius({ radiusKey: 'md' })}
   grid-area: scontent;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   backdrop-filter: blur(30px);
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
-`;
+`
 
 export const STextContent = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })};
@@ -60,7 +45,7 @@ export const STextContent = styled.div`
   ${padding({ spaceKey: 'lg' })}
   height: 100%;
 
-    h1 {
+  h1 {
     ${font({ fontKey: 'primary', sizeKey: 'md' })}
     color: ${({ theme }) => theme.colors.title.reverse};
     font-weight: 100;
@@ -80,14 +65,14 @@ export const STextContent = styled.div`
       text-transform: uppercase;
     }
   }
-`;
+`
 
 export const SContainerBtnContent = styled.div`
   ${flex({ align: 'center', justfy: 'center' })};
   width: 100%;
   height: 10dvh;
   background-color: ${({ theme }) => theme.colors.background.medium};
-  `;
+`
 
 export const SArrows = styled.div`
   ${flex({ align: 'center', justfy: 'center' })};
@@ -100,33 +85,15 @@ export const SArrows = styled.div`
   @media (min-width: 550px) {
     display: none;
   }
-`;
+`
 
 export const SBtnContent = styled.div`
   ${flex({ justfy: 'start' })}
   ${gap({ spaceKey: 'md' })}
-    ${padding({ spaceKey: 'md' })}
-    width: 100%;
+  ${padding({ spaceKey: 'md' })}
+  width: 100%;
   overflow-x: scroll;
-
-  button {
-    ${flex({})}
-    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-    ${gap({ spaceKey: 'md' })}
-    font-weight: 600;
-    padding: 5px 15px;
-    background-color: ${({ theme }) => theme.colors.link.primary};
-    color: ${({ theme }) => theme.colors.text.reverseText};
-    border-radius: 10px;
-    transition: all.2s ease-in-out;
-    width: 80%;
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.link.activePrimary};
-      color: ${({ theme }) => theme.colors.text.reverseText};
-    }
-  }
-`;
+`
 
 export const SInfo = styled.div`
   grid-area: sinfo;
@@ -134,11 +101,11 @@ export const SInfo = styled.div`
   ${borderRadius({ radiusKey: 'md' })};
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
-  height: 100%;
+  height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
   backdrop-filter: blur(30px);
   overflow: hidden;
-  `;
+`
 
 export const SType = styled.div`
   ${flex({ justfy: 'start', align: 'center' })}
@@ -146,29 +113,30 @@ export const SType = styled.div`
   background-color: ${({ theme }) => theme.colors.background.medium};
   width: 100%;
   height: fit-content;
-  
+
   h2 {
-      ${flex({})}
-      ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+    ${flex({})}
+    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
       color: ${({ theme }) => theme.colors.title.reverse};
-      font-weight: 600;
-      letter-spacing: 1px;
-      height: 100%;
-    }
-    `;
+    font-weight: 600;
+    letter-spacing: 1px;
+    height: 100%;
+  }
+`
 
 export const ScontainerTag = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })}
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'md' })}
   width: 100%;
-  height: 100%;
-`;
+  height: fit-content;
+`
 
 export const Stag = styled.div`
   ${flex({ direction: 'column', align: 'start' })}
   ${gap({ spaceKey: 'sm' })}
-    width: 100%;
+  width: 100%;
+  height: fit-content;
 
   h2 {
     ${flex({ justfy: 'start' })}
@@ -176,12 +144,12 @@ export const Stag = styled.div`
         color: ${({ theme }) => theme.colors.title.reverse};
     font-weight: 600;
   }
-`;
+`
 
 export const SContainerContentTag = styled.div`
-${flex({})}
-width: 100%;
-`;
+  ${flex({})}
+  width: 100%;
+`
 
 export const SContainerItens = styled.div`
   ${flex({ justfy: 'start' })}
@@ -195,7 +163,7 @@ export const SContainerItens = styled.div`
   }
 
   span {
-    ${flex({justfy:'start'})}
+    ${flex({ justfy: 'start' })}
     ${gap({ spaceKey: 'sm' })}
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
     ${borderRadius({ radiusKey: 'sm' })}
@@ -206,4 +174,4 @@ export const SContainerItens = styled.div`
     font-weight: 600;
     font-style: italic;
   }
-`;
+`

@@ -2,6 +2,7 @@
 
 import { borderRadius, flex, gap, padding } from "@/styles/mixins";
 import styled from "styled-components";
+import CustomButton from "../Button";
 
 export const SForm = styled.form`
     ${flex({direction:'column'})}
@@ -16,4 +17,8 @@ export const SForm = styled.form`
         width: 100%;
         height: 5vh;
     }
+`;
+
+export const SButtonCategory = styled(CustomButton)`
+    
 `;

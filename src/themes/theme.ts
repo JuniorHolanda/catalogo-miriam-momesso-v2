@@ -19,7 +19,11 @@ export const defaultTheme = {
     lg: '20px',
     xlg: '35px',
   },
-};
+
+  iconSize: {
+      md: 'clamp(1rem, 6rem, 8vw)'
+  }
+}
 
 export const lightTheme = {
   ...defaultTheme,
@@ -37,6 +41,13 @@ export const lightTheme = {
       primaryUp: '#99B2DD',
       secondary: '#d68710',
       secondaryUP: '#ff711f',
+    },
+
+    feedback: {
+      success: '#22c55e',
+      error: '#ef4444',
+      warning: '#f59e0b',
+      info: '#3b82f6',
     },
 
     title: {
@@ -65,10 +76,10 @@ export const lightTheme = {
     },
 
     button: {
-      default: '#d3d3d3ff',
-      defaultHover: '#706aa4ff',
-      primary: '#4ed1adff',
-      primaryHover: '#d68710',
+      default: '#244cff',
+      hover: '#2495ff',
+      active: '#d68710',
+      focus: '#ff711f',
     },
 
     opacity: {
@@ -77,7 +88,7 @@ export const lightTheme = {
       reverse: '#ffffff44',
     },
   },
-};
+}
 
 export const darkTheme = {
   ...defaultTheme,
@@ -98,6 +109,13 @@ export const darkTheme = {
       secondaryUP: '#ff711f',
     },
 
+    feedback: {
+      success: '#22c55e',
+      error: '#ef4444',
+      warning: '#f59e0b',
+      info: '#3b82f6',
+    },
+
     title: {
       primary: '#244cff',
       secondary: '#ffffff',
@@ -136,6 +154,6 @@ export const darkTheme = {
       reverse: '#ffffff44',
     },
   },
-};
+}
 
-export type Theme = typeof lightTheme;
+export type Theme = typeof lightTheme

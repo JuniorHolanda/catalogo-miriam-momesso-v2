@@ -1,14 +1,14 @@
 
 import HeaderDesktop from '@/components/Headers/HeaderDesktop';
 import HeaderMobile from '@/components/Headers/HeaderMobile';
-import { SDesktop, SMobile } from './headerSwitch.styles';
+import { SContainerContent, SDesktop, SMobile } from './headerSwitch.styles';
 import SearchMobile from '@/components/SearchMobile';
 
 type Props = {
-  children: React.ReactNode;
+    children: React.ReactNode;
 };
 
-export default function HeaderSwitcher( {children} : Props) {
+export default function HeaderSwitcher({ children }: Props) {
 
     return (
         <>
@@ -19,7 +19,9 @@ export default function HeaderSwitcher( {children} : Props) {
 
             <SMobile>
                 <SearchMobile />
+                <SContainerContent>
                     {children}
+                </SContainerContent>
                 <HeaderMobile />
             </SMobile>
         </>
