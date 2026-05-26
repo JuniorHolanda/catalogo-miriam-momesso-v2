@@ -106,7 +106,7 @@ export const darkTheme = {
 
     pallet: {
       primary: '#244cff',
-      primaryUp: '#111774',
+      primaryUp: '#99B2DD',
       secondary: '#d68710',
       secondaryUP: '#ff711f',
     },
@@ -144,10 +144,11 @@ export const darkTheme = {
     },
 
     button: {
-      default: '#d3d3d3ff',
-      defaultHover: '#706aa4ff',
-      primary: '#4ed1adff',
-      primaryHover: '#d68710',
+      default: '#244cff',
+      hover: '#22c55e',
+      active: '#d68710',
+      focus: '#ff711f',
+      inactive: '#27252eff'
     },
 
     opacity: {
