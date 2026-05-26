@@ -10,6 +10,7 @@ export const SDesktop = styled.div`
 
   @media (max-width: 550px) {
     display: none;
+    width: 100vw;
   }
 `
 

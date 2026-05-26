@@ -14,9 +14,10 @@ export const Scard = styled.article`
   backdrop-filter: blur(10px);
   background-color: ${({ theme }) => theme.colors.background.surface};
 
-  @media (min-width: 600px) {
+  @media (min-width: 550px) {
     ${flex({ direction: 'column' })}
     flex: 0 0 calc((100% - 45px) / 4);
+    height: 400px;
   }
 `;
 
