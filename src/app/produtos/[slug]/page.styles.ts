@@ -1,46 +1,37 @@
-'use client';
+'use client'
 
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
-import styled from 'styled-components';
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { color } from 'framer-motion'
+import styled from 'styled-components'
 
-export const SWrapper = styled.main`
-  ${flex({})}
-  padding: ${({ theme }) => theme.spaces.md};
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  background-color: ${({ theme }) => theme.colors.background.base};
-  
-  @media (min-width: 550px) {
-    ${padding({spaceKey:'xlg'})}
-    margin-top: 0;
-    height: 100%;
-  }
-`;
-
-export const SSection = styled.section`
+export const SWrapper = styled.section`
   display: grid;
-  justify-self: start;
-  align-self: start;
-  grid-template-columns: 1fr;
+  justify-items: start;
+  align-items: start;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'smainImg smainImg smainImg'
     'scontent scontent scontent '
-    'sinfo sinfo sinfo';
+    'sinfo sinfo sinfo'
+    'btnAction btnAction btnAction';
+  padding: ${({ theme }) => theme.spaces.md};
   ${gap({ spaceKey: 'md' })}
   width: 100%;
-  height: fit-content;
-  z-index: 0;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.background.surface};
+  overflow-y: scroll;
 
   @media (min-width: 550px) {
+    overflow-y: visible;
+    height: 100%;
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       'smainImg smainImg sinfo'
-      'scontent scontent scontent ';
+      'smainImg smainImg scontent'
+      'btnAction btnAction scontent ';
   }
-`;
+`
 
 export const SContent = styled.div`
   ${flex({ direction: 'column', align: 'start' })};
@@ -48,22 +39,24 @@ export const SContent = styled.div`
   ${borderRadius({ radiusKey: 'md' })}
   grid-area: scontent;
   width: 100%;
-  height: 100%;
-  backdrop-filter: blur(30px);
-  overflow: hidden;
+  height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
-`;
+
+  @media (min-width: 550px) {
+    height: 100%;
+  }
+`
 
 export const STextContent = styled.div`
-  ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })};
+  ${flex({ direction: 'column', align: 'start', justfy: 'start' })};
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'lg' })}
   height: 100%;
 
-    h1 {
-    ${font({ fontKey: 'primary', sizeKey: 'md' })}
+  h1 {
+    ${font({ fontKey: 'secondary', sizeKey: 'md' })}
     color: ${({ theme }) => theme.colors.title.reverse};
-    font-weight: 100;
+    font-weight: 900;
     text-transform: uppercase;
   }
 
@@ -80,14 +73,27 @@ export const STextContent = styled.div`
       text-transform: uppercase;
     }
   }
-`;
+`
 
-export const SContainerBtnContent = styled.div`
-  ${flex({ align: 'center', justfy: 'center' })};
+export const SContainerBtnActions = styled.div`
+  grid-area: btnAction;
+  ${flex({ justfy: 'start' })};
   width: 100%;
-  height: 10dvh;
-  background-color: ${({ theme }) => theme.colors.background.medium};
-  `;
+  height: fit-content;
+  background-color: ${({ theme }) => theme.colors.background.high};
+  ${gap({ spaceKey: 'md' })}
+  ${padding({ spaceKey: 'md' })}
+  ${borderRadius({ radiusKey: 'sm' })}
+  
+  @media (min-width: 550px) {
+    ${flex({ align: 'center', justfy: 'start' })};
+    ${borderRadius({ radiusKey: 'md' })}
+    height: 100%;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none; // esconder a barra no edge antigo
+  }
+`
 
 export const SArrows = styled.div`
   ${flex({ align: 'center', justfy: 'center' })};
@@ -100,110 +106,96 @@ export const SArrows = styled.div`
   @media (min-width: 550px) {
     display: none;
   }
-`;
-
-export const SBtnContent = styled.div`
-  ${flex({ justfy: 'start' })}
-  ${gap({ spaceKey: 'md' })}
-    ${padding({ spaceKey: 'md' })}
-    width: 100%;
-  overflow-x: scroll;
-
-  button {
-    ${flex({})}
-    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-    ${gap({ spaceKey: 'md' })}
-    font-weight: 600;
-    padding: 5px 15px;
-    background-color: ${({ theme }) => theme.colors.link.primary};
-    color: ${({ theme }) => theme.colors.text.reverseText};
-    border-radius: 10px;
-    transition: all.2s ease-in-out;
-    width: 80%;
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.link.activePrimary};
-      color: ${({ theme }) => theme.colors.text.reverseText};
-    }
-  }
-`;
+`
 
 export const SInfo = styled.div`
   grid-area: sinfo;
-  ${flex({ direction: 'column', align: 'start' })};
+  ${flex({ direction: 'column', align: 'start', justfy: 'start' })};
   ${borderRadius({ radiusKey: 'md' })};
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
-  height: 100%;
+  height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
   backdrop-filter: blur(30px);
-  overflow: hidden;
-  `;
+
+  @media (min-width: 550px) {
+    height: 100%;
+  }
+`
 
 export const SType = styled.div`
   ${flex({ justfy: 'start', align: 'center' })}
   ${padding({ spaceKey: 'md' })}
-  background-color: ${({ theme }) => theme.colors.background.medium};
   width: 100%;
   height: fit-content;
-  
+
   h2 {
-      ${flex({})}
-      ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-      color: ${({ theme }) => theme.colors.title.reverse};
-      font-weight: 600;
-      letter-spacing: 1px;
-      height: 100%;
-    }
-    `;
+    ${flex({})}
+    ${font({ fontKey: 'secondary', sizeKey: 'md' })}
+    color: ${({ theme }) => theme.colors.title.reverse};
+    font-weight: 900;
+    text-transform: uppercase;
+    height: 100%;
+  }
+`
 
 export const ScontainerTag = styled.div`
   ${flex({ direction: 'column', align: 'start', justfy: 'space-between' })}
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'md' })}
   width: 100%;
-  height: 100%;
-`;
+  height: fit-content;
+`
 
 export const Stag = styled.div`
   ${flex({ direction: 'column', align: 'start' })}
   ${gap({ spaceKey: 'sm' })}
-    width: 100%;
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid;
+  border-color: ${({ theme }) => theme.colors.border.default};
+  padding-bottom: ${({ theme }) => theme.spaces.sm};
 
   h2 {
     ${flex({ justfy: 'start' })}
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-        color: ${({ theme }) => theme.colors.title.reverse};
-    font-weight: 600;
+    width: 100%;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.title.reverse};
+    font-weight: 900;
   }
-`;
+`
 
 export const SContainerContentTag = styled.div`
-${flex({})}
-width: 100%;
-`;
+  ${flex({})}
+  width: 100%;
+`
 
-export const SContainerItens = styled.div`
+export const SContainerItens = styled.ul`
   ${flex({ justfy: 'start' })}
-  ${gap({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'sm' })}
   width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none; // esconder a barra no edge antigo
 
   @media (min-width: 550px) {
-    flex-direction: column;
+    flex-direction: row;
   }
 
-  span {
-    ${flex({justfy:'start'})}
+  li {
+    ${flex({ justfy: 'start' })}
     ${gap({ spaceKey: 'sm' })}
-    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
     ${borderRadius({ radiusKey: 'sm' })}
     height: fit-content;
     width: 100%;
-    padding: 5px 15px;
-    background-color: ${({ theme }) => theme.colors.background.surface};
-    font-weight: 600;
-    font-style: italic;
+    width: fit-content;
+    span {
+      color: ${({ theme }) => theme.colors.text.text};
+      ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+      font-weight: 400;
+      text-transform: capitalize;
+    }
   }
-`;
+`

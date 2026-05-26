@@ -1,4 +1,4 @@
-import { SContainerItens, SContent, SInfo, SSection, SWrapper, STextContent, SBtnContent, SType, Stag, ScontainerTag, SContainerBtnContent, SContainerContentTag } from "./page.styles";
+import { SContainerItens, SContent, SInfo, SWrapper, STextContent, SType, Stag, ScontainerTag, SContainerContentTag, SContainerBtnActions } from "./page.styles";
 import { notFound } from "next/navigation";
 import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
@@ -8,137 +8,139 @@ import ShareButtom from "@/components/ui/ShareButtom";
 import CollectionButtom from "@/components/ui/CollectionButton";
 
 type ProductPageParams = {
-    params: Promise<{
-        slug: string
-    }>
+  params: Promise<{
+    slug: string
+  }>
 };
 
 export async function generateMetadata({
-    params
-} : ProductPageParams): Promise<Metadata> {
-    const { slug } = await params;
-    const products = await getProducts();
-    const product = products.find(item => slugify(item.slug) === slug );
-    
-    if (!product) {
-        return {
-            title: "Produto não encontrado",
-            description: "Infelizmente este produto não foi encontrado, no entanto possuimos diversos outros brindes, fique a vontade para procurar."
-        };
-    }
-    const keywordFromCategory = [ ... new Set(Object.values(product.category).flat())];
-    
+  params
+}: ProductPageParams): Promise<Metadata> {
+  const { slug } = await params;
+  const products = await getProducts();
+  const product = products.find(item => slugify(item.slug) === slug);
+
+  if (!product) {
     return {
-        title: product.title,
-        description: product.text.slice(0, 250),
-        keywords: keywordFromCategory,
-        alternates: {
-            canonical: `https://seusite.com/produto/${product.slug}`,
-        },
+      title: "Produto não encontrado",
+      description: "Infelizmente este produto não foi encontrado, no entanto possuimos diversos outros brindes, fique a vontade para procurar."
+    };
+  }
+  const keywordFromCategory = [... new Set(Object.values(product.category).flat())];
 
-        openGraph: {
-            title: product.title,
-            description: product.text.slice(0, 250),
-            siteName: 'Catálogo Miriam Momesso',
-            type: "website",
-            locale: "pt_BR",
-            url: `https://seusite.com/produto/${product.slug}`,
-            images: [
-                {
-                    url: product.thumbnail,
-                    alt: product.title,
-                    width: 1200,
-                    height: 630,
-                }
-            ]
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: product.title,
-            description: product.text.slice(0, 250),
-            images: [product.thumbnail],
-        },
+  return {
+    title: product.title,
+    description: product.text.slice(0, 250),
+    keywords: keywordFromCategory,
+    alternates: {
+      canonical: `https://seusite.com/produto/${product.slug}`,
+    },
 
-        robots: {
-            index: true,
-            follow: true,
-        },
-    } 
+    openGraph: {
+      title: product.title,
+      description: product.text.slice(0, 250),
+      siteName: 'Catálogo Miriam Momesso',
+      type: "website",
+      locale: "pt_BR",
+      url: `https://seusite.com/produto/${product.slug}`,
+      images: [
+        {
+          url: product.thumbnail,
+          alt: product.title,
+          width: 1200,
+          height: 630,
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.title,
+      description: product.text.slice(0, 250),
+      images: [product.thumbnail],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
 }
 
 
 export default async function ProductPage({ params }: ProductPageParams) {
 
-    const { slug } = await params;
-    const products = await getProducts();
-    const product = products.find(item =>
-        slugify(item.slug) === slug
-    );
+  const { slug } = await params;
+  const products = await getProducts();
+  const product = products.find(item =>
+    slugify(item.slug) === slug
+  );
 
 
-    //validação
-    if (!product) {
-        notFound();
-    }
+  //validação
+  if (!product) {
+    notFound();
+  }
 
-    const allCategories = [
-        ...product.category.holiday,
-        ...product.category.main,
-        ...product.category.imported
-    ];
+  const allCategories = [
+    ...product.category.holiday,
+    ...product.category.main,
+    ...product.category.imported
+  ];
 
 
-    return (
-        <SWrapper>
-            <SSection>
-                <GalleryProduct $product={product} />
-                <SContent>
-                    <STextContent>
-                        <h1>{product?.title}</h1>
-                        <p>{product?.text}</p>
-                    </STextContent>
+  return (
+    <SWrapper>
+      <GalleryProduct $product={product} />
+      <SContent>
+        <STextContent>
+          <h1>{product?.title}</h1>
+          <p>{product?.text}</p>
+        </STextContent>
+      </SContent>
+      <SInfo>
+        <SType>
+          {
+            product.category.imported.length > 0 ? <h2>Produto Importado</h2> : <h2>Produto Costurável</h2>
+          }
+        </SType>
 
-                    <SContainerBtnContent>
-                        <SBtnContent>
-                            <ShareButtom product={product} />
-                            <CollectionButtom idProduct={product._id} />
-                        </SBtnContent>
-                    </SContainerBtnContent>
-                </SContent>
-                <SInfo>
-                    <SType>
-                        {
-                            product.category.imported.length > 0 ? <h2>Produto Importado</h2> : <h2>Produto Costurável</h2>
-                        }
-                    </SType>
-                    <ScontainerTag>
-                        <Stag>
-                            <h2>Categorias</h2>
-                            <SContainerContentTag>
-                                <SContainerItens>
-                                    {
-                                        allCategories.map((item, index) => (
-                                            <span key={index}>{item}</span>
-                                        ))
-                                    }
-                                </SContainerItens>
-                            </SContainerContentTag>
-                        </Stag>
-                        <Stag>
-                            <h2>Medidas</h2>
-                            <SContainerContentTag>
-                                <SContainerItens>
-                                    {
-                                        product.measure?.map((item, index) => (
-                                            <span key={index}>{item}</span>
-                                        ))
-                                    }
-                                </SContainerItens>
-                            </SContainerContentTag>
-                        </Stag>
-                    </ScontainerTag>
-                </SInfo>
-            </SSection>
-        </SWrapper>
-    );
+        <ScontainerTag>
+          <Stag>
+            <h2>Categorias</h2>
+            <SContainerContentTag>
+              <SContainerItens>
+                {
+                  allCategories.map((item, index) => (
+                    <li key={index}>
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </SContainerItens>
+            </SContainerContentTag>
+          </Stag>
+          <Stag>
+            <h2>Medidas</h2>
+            <SContainerContentTag>
+              <SContainerItens>
+                {
+                  product.measure?.map((item, index) => (
+                    <li key={index}>
+                      <span>
+                        {item}
+                      </span>
+                    </li>
+                  ))
+                }
+              </SContainerItens>
+            </SContainerContentTag>
+          </Stag>
+        </ScontainerTag>
+      </SInfo>
+      <SContainerBtnActions>
+        <ShareButtom product={product} />
+        <CollectionButtom idProduct={product._id} />
+      </SContainerBtnActions>
+    </SWrapper>
+  );
 }
