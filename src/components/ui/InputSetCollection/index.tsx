@@ -1,7 +1,6 @@
 'use client'
 
 import { InputHTMLAttributes, useEffect, useState } from "react";
-import CustomButton from "../Button"
 import { SButtonCategory, SForm } from "./inputSetCollection.styles"
 import { Collection } from "@/utils/types";
 
@@ -27,7 +26,7 @@ export default function InputSetCollection({
         const stored = JSON.parse(localStorage.getItem("collection") || "[]");
         e.preventDefault();
         const data: Collection = {
-            id: crypto.randomUUID(),
+            id: crypto.randomUUID(), // gera id dinâmico
             name: textInput,
             itensId: [idProduct],
         };
@@ -38,16 +37,27 @@ export default function InputSetCollection({
         onSuccess?.(`Coleção ${textInput} criada com sucesso!`);
     }
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!textInput.trim()) return; // bloqueia submit vazio
+        SetDataLocalStorage(e);
+    };
+
 
     return (
-        <SForm onSubmit={SetDataLocalStorage}>
+        <SForm tabIndex={0} onSubmit={handleSubmit}>
             <input
                 {...rest}
                 type="text"
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
+                required
+
             />
-            <SButtonCategory type="submit">
+            <SButtonCategory
+                type="submit"
+                disabled={!textInput.trim()}
+            >
                 {children}
             </SButtonCategory>
         </SForm>

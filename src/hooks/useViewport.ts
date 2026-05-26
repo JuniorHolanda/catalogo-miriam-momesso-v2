@@ -7,7 +7,7 @@ export type ViewportType = 'sm' | 'md' | 'lg' | 'xl' | null | string;
 export function useViewport(breakpoint = 800) {
   const [viewport, setViewport] = useState(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth < 768 ? 'sm' : 'lg';
+      return window.innerWidth < 550 ? 'sm' : 'lg';
     }
     return null;
   });
@@ -16,7 +16,7 @@ export function useViewport(breakpoint = 800) {
     function handleResize() {
       const width = window.innerWidth;
 
-      if (width <= 500) {
+      if (width <= 550) {
         setViewport('sm');
       } else if (width <= 900) {
         setViewport('md');

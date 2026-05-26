@@ -80,7 +80,7 @@ export const SContainerBtnActions = styled.div`
   ${flex({ justfy: 'start' })};
   width: 100%;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.background.medium};
+  background-color: ${({ theme }) => theme.colors.background.high};
   ${gap({ spaceKey: 'md' })}
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'sm' })}

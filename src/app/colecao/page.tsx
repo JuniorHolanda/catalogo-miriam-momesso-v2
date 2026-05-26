@@ -43,7 +43,7 @@ export default function CollectionPage() {
 
         {
           collectionFull !== null && collectionFull?.length > 0 && (
-            collectionFull?.map((collection, i) => (
+            collectionFull?.map(collection => (
               <SContent
                 href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}
                 key={collection.id}>

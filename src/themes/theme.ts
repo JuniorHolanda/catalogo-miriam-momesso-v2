@@ -21,6 +21,7 @@ export const defaultTheme = {
   },
 
   iconSize: {
+      sm: 'clamp(.5rem, 2rem, 3vw)',
       md: 'clamp(1rem, 6rem, 8vw)'
   }
 }
@@ -77,9 +78,10 @@ export const lightTheme = {
 
     button: {
       default: '#244cff',
-      hover: '#2495ff',
+      hover: '#22c55e',
       active: '#d68710',
       focus: '#ff711f',
+      inactive: '#27252eff'
     },
 
     opacity: {
