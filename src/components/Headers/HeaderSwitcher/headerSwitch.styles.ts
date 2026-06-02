@@ -4,10 +4,11 @@ import { flex } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const SDesktop = styled.div`
-  display: block;
+  display: none;
   
-  @media (max-width: 550px) {
-    display: none;
+  @media (min-width: 550px) {
+    ${flex({direction:'column'})}
+    height: 100vh
   }
   `;
 

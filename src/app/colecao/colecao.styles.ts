@@ -12,9 +12,9 @@ export const SWrapper = styled.main`
   width: 100%;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
-
-
-  @media (min-width: 500px) {
+  
+  
+  @media (min-width: 550px) {
     ${flex({ direction: 'column', justfy: 'start' })}
   }
 `
@@ -36,9 +36,10 @@ export const SContainerCards = styled.div`
   width: 100%;
   height: fit-content;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     ${flex({ direction: 'row', justfy: 'start' })}
     flex-wrap: wrap;
+    height: 100%;
   }
 `
 
