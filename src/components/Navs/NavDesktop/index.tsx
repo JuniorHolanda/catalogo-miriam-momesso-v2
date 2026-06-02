@@ -42,7 +42,7 @@ export default function NavDesktop() {
 
         <SItemMenu>
           <SLink href={'/colecao'}>
-            Meu Kit
+            Coleções
           </SLink>
         </SItemMenu>
       </SList>
