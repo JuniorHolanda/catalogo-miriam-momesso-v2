@@ -1,91 +1,41 @@
-"use client";
-import { InputHTMLAttributes, JSX, useEffect, useState } from "react";
-import Image from "next/image";
+import { InputHTMLAttributes, JSX } from "react";
 
 import {
   Scard,
-  ScontainerImg,
   ScontainerSlider,
   Scontent
 } from "./card.styled";
 
 import { Product } from "@/utils/interfaces";
-import { useViewportContext } from "@/contexts/ViewportContext";
 import CustomLink from "@/components/ui/Link";
+import ThumbCardDesktop from "../ThumbCardDesktop";
 
 type InptProps = InputHTMLAttributes<HTMLInputElement> & {
   product: Product;
 };
 
 export default function CardProduct({ product }: InptProps): JSX.Element {
-
-  const width = useViewportContext();
-  const [randomFlex, setRandomFlex] = useState<number[]>([]);
-
-  useEffect(() => {
-    setRandomFlex([
-      randonInt(),
-      randonInt(),
-      randonInt()
-    ]);
-  }, []);
-
-
-  // controla a quantidade de img por card, 3 pra desktop e 1 pra mobile
-  const maxImgs = width === undefined || width === "md" || width === "lg" ? 2 : 1;
-
-  // gera números inteiros aleatórios entre 2 e 5 usados para definir os tamanhos das imagens do card
-  const randonInt = () => {
-    return Math.floor(Math.random() * 2) + 3;
-  }
-
-  const [hovered, setHovered] = useState<number | null>(null);
-
-  const getFlex = (index: number, hovered: number | null) => {
-    if (hovered === null) {
-      return randomFlex[index] ?? 3;
-    }
-
-     if (hovered === index) {
-    return 5;
-  } else {
-    return index === 0 ? 2 : index === 1 ? 1.5 : 1;
-  }
-  };
-
+  const url = `/produtos/${product.slug}`
   const listImg = product.gallery;
 
   return (
     <Scard>
       <ScontainerSlider>
-        {listImg
-          .filter((_, index) => index < maxImgs)
-          .map((item, index) => {
-            const expand = getFlex(index, hovered);
-
-            return (
-              <ScontainerImg href={`/produtos/${product.slug}`}
-                key={item._id}
-                $expand={expand}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
-              >
-                {item.img && (
-                  <Image
-                    src={item.img}
-                    alt={item.altimg ? item.altimg : `foto do ${product.title}`}
-                    width={1200}
-                    height={700}
-                  />
-                )}
-              </ScontainerImg>
-            );
-          })}
+        {listImg.slice(0, 2)
+          .map(item => (
+            <ThumbCardDesktop
+              key={item._id}
+              item={item}
+              title={product.title}
+              url={url}
+            />
+          ))
+        }
       </ScontainerSlider>
       <Scontent>
         <h1>{product.title}</h1>
         <p>{product.smalltext}</p>
-        <CustomLink link={`/produtos/${product.slug}`}>
+        <CustomLink link={url}>
           Ver Produto
         </CustomLink>
       </Scontent>

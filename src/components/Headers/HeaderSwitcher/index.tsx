@@ -1,7 +1,7 @@
 
 import HeaderDesktop from '@/components/Headers/HeaderDesktop';
 import HeaderMobile from '@/components/Headers/HeaderMobile';
-import { SDesktop, SMobile } from './headerSwitch.styles';
+import { SContainerContent, SDesktop, SMobile } from './headerSwitch.styles';
 import SearchMobile from '@/components/SearchMobile';
 import Footer from '@/components/Footer';
 
@@ -21,7 +21,9 @@ export default function HeaderSwitcher({ children }: Props) {
 
             <SMobile>
                 <SearchMobile />
-                {children}
+                <SContainerContent>
+                    {children}
+                </SContainerContent>
                 <HeaderMobile />
             </SMobile>
         </>

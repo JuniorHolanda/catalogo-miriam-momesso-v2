@@ -29,7 +29,7 @@ export const SLink = styled(Link)`
 
 export const SContainerBtnShowMenu = styled.div`
   ${flex({})}
-  font-size: clamp(1rem, 6rem, 8vw);
+  font-size: ${({ theme }) => theme.iconSize.md};
   color: ${({ theme }) => theme.colors.link.primary};
 `;
 

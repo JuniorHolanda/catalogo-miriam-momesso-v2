@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { SGallery, SMainImg, SWrapper } from "./galleryProduct.styles"
 import { Product } from "@/utils/interfaces"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 type GalleryProductsProps = {
     $product : Product

@@ -5,13 +5,13 @@ export const SWrapper = styled.main`
   ${flex({ direction: 'column', justfy: 'start' })}
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: auto;
+  scrollbar-width: none;        //Firefox
+  -ms-overflow-style: none;     // IE / Edge antigo
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
-    height: fit-content;
-    overflow: visible;
   }
 `
 export const STitleContainer = styled.div`
@@ -32,10 +32,12 @@ export const SSection = styled.section`
   ${gap({ spaceKey: 'sm' })};
   ${padding({ spaceKey: 'sm' })};
   width: 100%;
-
-  @media (min-width: 500px) {
+  
+  
+  @media (min-width: 550px) {
+    ${gap({ spaceKey: 'lg' })};
+    ${padding({ spaceKey: 'lg' })};
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    flex-wrap: wrap;
   }
 `

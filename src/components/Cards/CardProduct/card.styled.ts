@@ -1,7 +1,6 @@
-'use client';
-import styled from 'styled-components';
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
-import Link from 'next/link';
+'use client'
+import styled from 'styled-components'
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 
 export const Scard = styled.article`
   display: none;
@@ -14,41 +13,36 @@ export const Scard = styled.article`
   backdrop-filter: blur(10px);
   background-color: ${({ theme }) => theme.colors.background.surface};
 
-  @media (min-width: 600px) {
+  @media (min-width: 550px) {
     ${flex({ direction: 'column' })}
     flex: 0 0 calc((100% - 45px) / 4);
+    height: 400px;
   }
-`;
+`
 
 export const ScontainerSlider = styled.section`
   ${flex({})}
   ${gap({ spaceKey: 'sm' })} 
   ${padding({ spaceKey: 'sm' })}
   height: 60%;
-`;
+  width: 100%;
 
-export const ScontainerImg = styled(Link)<{ $expand: number }>`
-  ${flex({})}
-  flex: ${({ $expand }) => $expand};
-  ${borderRadius({ radiusKey: 'md' })}
-  height: 200px;
-  min-width: 100px;
-  overflow: hidden;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-
-  img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 100%;
-    transition: all ease-in-out 0.3s;
+  :nth-child(1) {
+    width: 50%;
 
     &:hover {
-      scale: 120%;
+      width: 100%;
     }
   }
-`;
+
+  :nth-child(2) {
+    width: 50%;
+
+    &:hover {
+      width: 100%;
+    }
+  }
+`
 
 export const Scontent = styled.div`
   position: relative;
@@ -74,4 +68,4 @@ export const Scontent = styled.div`
     color: ${({ theme }) => theme.colors.text};
     width: 100%;
   }
-`;
+`

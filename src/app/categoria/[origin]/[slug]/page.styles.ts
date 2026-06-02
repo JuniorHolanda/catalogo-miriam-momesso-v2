@@ -11,20 +11,21 @@ export const SWrapper = styled.main`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background.base};
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
-    margin-top: 0;
     height: fit-content;
-    overflow: visible;
   }
 `
 
 export const SContainerTitle = styled.div`
   ${flex({ direction: 'column' })};
   color: ${({ theme }) => theme.colors.title.primary};
+
+  @media (min-width: 550px) {
+  }
 
   h1 {
     ${font({ fontKey: 'primary', sizeKey: 'xlg' })};
