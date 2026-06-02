@@ -13,7 +13,6 @@ export const SWrapper = styled.main`
   height: 100%;
   overflow-y: scroll;
 
-
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
@@ -38,8 +37,6 @@ export const SContainerTitle = styled.div`
     ${font({ fontKey: 'secondary', sizeKey: 'md' })};
     font-weight: 100;
   }
-
-
 `
 
 export const SSection = styled.section`

@@ -1,4 +1,4 @@
-import { SContainerProduct, SContainerTitle, SSection, SWrapper } from "./page.styles";
+import { SContainerTitle, SSection, SWrapper } from "./page.styles";
 import CardProduct from "@/components/Cards/CardProduct";
 import slugify from "@/utils/slugfyText";
 import { getProducts } from "@/services/getProductMomesso";
