@@ -2,13 +2,16 @@
 
 import { Collection } from "@/utils/types";
 import { useEffect, useState } from "react"
-import { SContainerCards, SContainerThumb, SContainerTitle, SContainerTitleCard, SContent, SWrapper } from "./colecao.styles";
+import { SBtnOptionsCard, SContainerCards, SContainerIcons, SContainerThumb, SContainerTitle, SContent, SLink, SWrapper } from "./colecao.styles";
 import { useProducts } from "@/contexts/Product.context";
 import { Product } from "@/utils/interfaces";
 import Image from "next/image";
 import slugify from "@/utils/slugfyText";
 import CreateProductsMap from "@/utils/productsMap";
 import CreateListCollectionProducts from "@/utils/collectionWithProducts";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { PiShareNetworkFill } from "react-icons/pi";
+import { AnimatePresence } from "framer-motion";
 
 type CollectionFull = Collection & {
   products: Product[];
@@ -29,8 +32,21 @@ export default function CollectionPage() {
     const productsMap = CreateProductsMap(products);
     const ListCollectionProducts = CreateListCollectionProducts(stored, productsMap)
     setCollectionFull(ListCollectionProducts)
-  }, [products]);
+  }, []);
 
+  function deleteItemLocalstorage(id: string) {
+    const stored: Collection[] = JSON.parse(
+      localStorage.getItem("collection") || "[]"
+    );
+
+    const update = stored.filter(item => id !== item.id);
+
+    localStorage.setItem('collection', JSON.stringify(update));
+
+    const productsMap = CreateProductsMap(products);
+    const ListCollectionProducts = CreateListCollectionProducts(update, productsMap);
+    setCollectionFull(ListCollectionProducts);
+  }
 
   return (
     <SWrapper>
@@ -40,50 +56,54 @@ export default function CollectionPage() {
         </h1>
       </SContainerTitle>
       <SContainerCards>
-
+        <AnimatePresence>
         {
           collectionFull !== null && collectionFull?.length > 0 && (
-            collectionFull?.map(collection => (
+            collectionFull?.map((collection, i) => (
               <SContent
-                href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}
-                key={collection.id}>
-                <SContainerThumb>
-                  {
-                    collection.products.slice(0, 4)
-                      .map((product, i) => (
-                        <Image
-                          priority
-                          className="thumb"
-                          key={product._id}
-                          src={product.thumbnail}
-                          alt={product.altthumbnail}
-                          width={200}
-                          height={200}
-                          style={{
-                            transform: `translateX(${-i * 10}px)`,
-                            opacity: `${collection.products.length > 1
-                              ? i + .3
-                              : 1}`,
-                            position: 'absolute',
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: 'center',
-                            overflow: 'hidden',
-                            boxShadow: '5px 0px 5px #0000001f'
-
-                          }}
-                        />
-                      ))
-                  }
+                key={collection.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  damping: 13,
+                  stiffness: 100,
+                  delay: i * .2,
+                }}
+                exit={{ opacity: 0, scale: 0.5 }}
+              >
+                <SContainerThumb href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}>
+                  <Image
+                    className="thumb"
+                    src={collection.products.at(-1)?.thumbnail ?? './favicon.png'}
+                    alt={collection.products.at(-1)?.altthumbnail ?? 'Imagem do produto não encontrada'}
+                    width={100}
+                    height={100}
+                    style={{
+                      width: '150px',
+                      height: '150px',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      overflow: 'hidden',
+                    }}
+                  />
                 </SContainerThumb>
-                <SContainerTitleCard>
+                <SLink href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}>
                   <h2>{collection.name}</h2>
-                </SContainerTitleCard>
+                </SLink>
+                <SContainerIcons>
+                  <SBtnOptionsCard onClick={() => deleteItemLocalstorage(collection.id)}>
+                    <FaRegTrashCan />
+                  </SBtnOptionsCard>
+                  <SBtnOptionsCard>
+                    <PiShareNetworkFill />
+                  </SBtnOptionsCard>
+                </SContainerIcons>
               </SContent>
             ))
           )
         }
+        </AnimatePresence>
       </SContainerCards>
     </SWrapper>
   )
