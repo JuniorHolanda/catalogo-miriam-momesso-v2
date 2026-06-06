@@ -21,7 +21,7 @@ export const defaultTheme = {
   },
 
   iconSize: {
-      sm: 'clamp(.5rem, 2rem, 3vw)',
+      sm: 'clamp(.5rem, 1.3rem, 3vw)',
       md: 'clamp(1rem, 6rem, 8vw)'
   }
 }

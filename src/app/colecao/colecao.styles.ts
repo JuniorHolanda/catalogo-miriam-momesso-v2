@@ -1,6 +1,8 @@
 'use client'
 
+import CustomButton from '@/components/ui/Button'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -12,14 +14,13 @@ export const SWrapper = styled.main`
   width: 100%;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background.base};
-  
-  
+
   @media (min-width: 550px) {
-    ${flex({ direction: 'column', justfy: 'start' })}
+    ${flex({ direction: 'column', justfy: 'center' })};
   }
 `
 export const SContainerTitle = styled.div`
-  ${flex({})}
+  ${flex({})};
 
   h1 {
     ${font({ fontKey: 'primary', sizeKey: 'lg' })}
@@ -35,38 +36,44 @@ export const SContainerCards = styled.div`
   ${gap({ spaceKey: 'sm' })}
   width: 100%;
   height: fit-content;
-
+  
   @media (min-width: 550px) {
-    ${flex({ direction: 'row', justfy: 'start' })}
+    ${gap({ spaceKey: 'md' })}
+    ${flex({ direction: 'row', justfy: 'center' })}
     flex-wrap: wrap;
     height: 100%;
   }
 `
 
-export const SContent = styled(Link)`
+export const SContent = styled(motion.div)`
   ${flex({})}
   ${borderRadius({ radiusKey: 'md' })}
-  ${padding({ spaceKey: 'sm' })}
+  ${padding({ spaceKey: 'md' })}
   ${gap({ spaceKey: 'md' })}
   width: 100%;
   height: 120px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
 
-  @media (min-width: 500px) {
-    height: 400px;
-    flex: 0 0 calc((100% - 15px) / 4);
-    ${flex({ direction: 'column', justfy: 'start' })}
+  @media (min-width: 550px) {
+    position: relative;
+    flex-direction: column;
+    ${gap({ spaceKey: 'sm' })};
+    padding: 0;
+    height: fit-content;
+    width: fit-content;
   }
-`
+  `
 
-export const SContainerTitleCard = styled.div`
+export const SLink = styled(Link)`
   ${flex({})}
   width: 50%;
-
-  @media (min-width: 500px) {
+  
+  @media (min-width: 550px) {
+    ${padding({ spaceKey: 'md' })};
     width: 100%;
     white-space: nowrap;
+    background-color: ${({ theme }) => theme.colors.background.surface};
   }
 
   h2 {
@@ -75,19 +82,49 @@ export const SContainerTitleCard = styled.div`
   }
 `
 
-export const SContainerThumb = styled.div`
+export const SContainerThumb = styled(Link)`
+  grid-area: thumb;
   overflow: hidden;
   ${flex({})}
   width: 50%;
   height: 100%;
   position: relative;
-  ${borderRadius({ radiusKey: 'md' })}
+  ${borderRadius({ radiusKey: 'md' })};
 
   // não usar estilo normal aqui, apenas estilos que venham de váriaveis
   .thumb {
     ${borderRadius({ radiusKey: 'md' })}
   }
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     width: 100%;
+  }
+`
+
+export const SContainerIcons = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  ${flex({ direction: 'column', justfy: 'start' })};
+  ${padding({ spaceKey: 'sm' })};
+  ${gap({ spaceKey: 'sm' })}
+  ${font({ fontKey: 'secondary' })};
+  width: fit-content;
+  height: 100%;
+
+  & > :nth-child(1) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.feedback.error};
+    }
+  }
+`
+
+export const SBtnOptionsCard = styled(CustomButton)`
+  background-color: ${({ theme }) => theme.colors.opacity.base};
+  color: ${({ theme }) => theme.colors.link.primary};
+  transition: all ease-in-out 0.2s;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.link.reverse};
   }
 `
