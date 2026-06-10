@@ -3,6 +3,7 @@
 import { InputHTMLAttributes, useEffect, useState } from "react";
 import { SButtonCategory, SForm } from "./inputSetCollection.styles"
 import { Collection } from "@/utils/types";
+import getLocalStorage from "@/utils/getLocalStorage";
 
 type PropsSetForm = {
     children: React.ReactNode;
@@ -23,7 +24,7 @@ export default function InputSetCollection({
     const [textInput, setTextInput] = useState<string>("");
 
     function SetDataLocalStorage(e: React.FormEvent) {
-        const stored = JSON.parse(localStorage.getItem("collection") || "[]");
+        const stored = getLocalStorage();
         e.preventDefault();
         const data: Collection = {
             id: crypto.randomUUID(), // gera id dinâmico
