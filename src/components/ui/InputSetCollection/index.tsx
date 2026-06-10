@@ -24,7 +24,7 @@ export default function InputSetCollection({
     const [textInput, setTextInput] = useState<string>("");
 
     function SetDataLocalStorage(e: React.FormEvent) {
-        const stored = getLocalStorage('InputSetCollection');
+        const stored = getLocalStorage();
         e.preventDefault();
         const data: Collection = {
             id: crypto.randomUUID(), // gera id dinâmico

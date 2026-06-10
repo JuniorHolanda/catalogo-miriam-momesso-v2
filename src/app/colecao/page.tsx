@@ -23,7 +23,7 @@ export default function CollectionPage() {
   const products = useProducts();
 
   useEffect(() => {
-    const stored = getLocalStorage('CollectionPage')
+    const stored = getLocalStorage()
     // cria um mapa baseado nos id de cada produto. melhora o desempenho
     const productsMap = CreateProductsMap(products);
     const ListCollectionProducts = CreateListCollectionProducts(stored, productsMap)
@@ -32,7 +32,7 @@ export default function CollectionPage() {
   }, []);
 
   function deleteItemLocalstorage(id: string) {
-    const stored = getLocalStorage('CollectionPage  no deleteItemLocalstorage')
+    const stored = getLocalStorage()
 
     const update = stored.filter(item => id !== item.id);
 

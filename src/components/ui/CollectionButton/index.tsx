@@ -49,7 +49,7 @@ export default function CollectionButtom({
 
 
   useEffect(() => {
-    const stored = getLocalStorage('collectionButton')
+    const stored = getLocalStorage()
     // cria um mapa baseado nos id de cada produto. melhora o desempenho
     const productsMap = CreateProductsMap(products);
     const list = CreateListCollectionProducts(stored, productsMap);
@@ -59,7 +59,7 @@ export default function CollectionButtom({
 
   // mostra mensagem de sucesso ao adicionar ou remover produtos das coleções e esconde o componente
   function hiddenCollection(text: string) {
-    const stored = getLocalStorage('collectionButton hiddenCollection')
+    const stored = getLocalStorage()
     setCollectionData(stored);
 
     setShowCollection(false);
@@ -74,7 +74,7 @@ export default function CollectionButtom({
     const nameCollection = collection.name
     const newItem = idProduct; //id do produto
     //lista de coleções na localStorage
-    const stored = getLocalStorage('collectionButton updateCollection')
+    const stored = getLocalStorage()
 
     const updated = stored.map(item => {
       if (item.id === iDCollectionSelected) {
@@ -92,7 +92,7 @@ export default function CollectionButtom({
   };
 
   function removeItemCollection(collection: Collection) {
-    const stored = getLocalStorage('collection Button removeItemCollection')
+    const stored = getLocalStorage()
 
     const iDCollectionSelected = collection.id;
 

@@ -22,7 +22,7 @@ export default function CollectionItens() {
   const idCollectionReceived = searchParams.get("idCollection");
 
   useEffect(() => {
-    const stored = getLocalStorage('slug do collection ');
+    const stored = getLocalStorage();
     if (idCollectionReceived) {
       const newCollection: Collection = {
         id: idCollectionReceived,
