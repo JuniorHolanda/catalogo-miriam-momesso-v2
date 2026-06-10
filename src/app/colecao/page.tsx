@@ -27,7 +27,7 @@ export default function CollectionPage() {
     // cria um mapa baseado nos id de cada produto. melhora o desempenho
     const productsMap = CreateProductsMap(products);
     const ListCollectionProducts = CreateListCollectionProducts(stored, productsMap)
-    
+
     setCollectionFull(ListCollectionProducts)
   }, []);
 
@@ -63,7 +63,7 @@ export default function CollectionPage() {
                     type: "spring",
                     damping: 13,
                     stiffness: 100,
-                    delay: i * .2,
+                    delay: i * .05,
                   }}
                   exit={{ opacity: 0, scale: 0.5 }}
                 >
@@ -74,13 +74,7 @@ export default function CollectionPage() {
                       alt={collection.products.at(-1)?.altthumbnail ?? 'Imagem do produto não encontrada'}
                       width={100}
                       height={100}
-                      style={{
-                        width: '150px',
-                        height: '150px',
-                        objectFit: 'cover',
-                        objectPosition: 'center',
-                        overflow: 'hidden',
-                      }}
+
                     />
                   </SContainerThumb>
                   <SLink href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}>

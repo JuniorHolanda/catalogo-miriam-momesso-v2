@@ -7,7 +7,7 @@ export const SDesktop = styled.div`
   display: none;
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'column' })}
+    ${flex({ direction: 'column' })};
     height: 100vh;
     overflow: hidden;
     width: 100vw;
@@ -15,7 +15,7 @@ export const SDesktop = styled.div`
 `
 
 export const SMobile = styled.div`
-  ${flex({ direction: 'column' })}
+  ${flex({ direction: 'column' })};
   overflow-y: scroll;
   width: 100%;
   height: 100dvh;
@@ -27,6 +27,7 @@ export const SMobile = styled.div`
 
 export const SContainerContent = styled.div`
   ${flex({ direction: 'column', justfy: 'start' })}
-  height: 80dvh;
+  height: 100%;
   overflow-y: scroll;
+  width: 100%;
 `

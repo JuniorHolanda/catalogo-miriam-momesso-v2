@@ -13,11 +13,11 @@ export const SWrapper = styled.main`
   ${padding({ spaceKey: 'sm' })}
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: ${({ theme }) => theme.colors.background.base};
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'column', justfy: 'center' })};
+    ${flex({ direction: 'column', justfy: 'start' })};
   }
 `
 export const SContainerTitle = styled.div`
@@ -32,15 +32,15 @@ export const SContainerTitle = styled.div`
 `
 
 export const SContainerCards = styled.div`
-  ${flex({ direction: 'column', justfy: 'start', align: 'center' })}
-  ${padding({ spaceKey: 'sm' })}
-  ${gap({ spaceKey: 'sm' })}
+  ${flex({ direction: 'column', justfy: 'start', align: 'center' })};
+  ${padding({ spaceKey: 'sm' })};
+  ${gap({ spaceKey: 'sm' })};
   width: 100%;
   height: fit-content;
 
   @media (min-width: 550px) {
-    ${gap({ spaceKey: 'md' })}
-    ${flex({ direction: 'row', justfy: 'center' })}
+    ${gap({ spaceKey: 'md' })};
+    ${flex({ direction: 'row', justfy: 'center' })};
     flex-wrap: wrap;
     height: 100%;
   }
@@ -52,14 +52,14 @@ export const SContent = styled(motion.div)`
   ${padding({ spaceKey: 'md' })}
   ${gap({ spaceKey: 'md' })}
   width: 100%;
-  height: 120px;
+  height: fit-content;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
+  position: relative;
 
   @media (min-width: 550px) {
-    position: relative;
     flex-direction: column;
-    ${gap({ spaceKey: 'sm' })};
+    gap: 0;
     padding: 0;
     height: fit-content;
     width: fit-content;
@@ -67,8 +67,9 @@ export const SContent = styled(motion.div)`
 `
 
 export const SLink = styled(Link)`
-  ${flex({})}
-  width: 50%;
+  ${flex({ justfy: 'start', align: 'center' })}
+  width: 100%;
+  height: 100%;
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'md' })};
@@ -78,7 +79,7 @@ export const SLink = styled(Link)`
   }
 
   h2 {
-    ${font({ fontKey: 'secondary', sizeKey: 'md' })};
+    ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
     color: ${({ theme }) => theme.colors.text.text};
   }
 `
@@ -92,9 +93,12 @@ export const SContainerThumb = styled(Link)`
   position: relative;
   ${borderRadius({ radiusKey: 'md' })};
 
-  // não usar estilo normal aqui, apenas estilos que venham de váriaveis
   .thumb {
     ${borderRadius({ radiusKey: 'md' })}
+    object-fit: contain;
+    object-position: center;
+    overflow: hidden;
+    width: 150px;
   }
   @media (min-width: 550px) {
     width: 100%;
@@ -102,20 +106,27 @@ export const SContainerThumb = styled(Link)`
 `
 
 export const SContainerIcons = styled.div`
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  ${flex({ direction: 'column', justfy: 'start' })};
+  ${flex({ justfy: 'start' })};
   ${gap({ spaceKey: 'sm' })};
-  ${padding({ spaceKey: 'sm' })};
-  ${font({ fontKey: 'secondary' })};
-  width: fit-content;
-  height: 100%;
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
+  height: 40%;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 
   & > :nth-child(1) {
     &:hover {
       background-color: ${({ theme }) => theme.colors.feedback.error};
     }
+  }
+
+  @media (min-width: 550px) {
+    top: 0px;
+    right: 0px;
+    ${flex({ direction: 'column', justfy: 'start' })};
+    ${padding({ spaceKey: 'sm' })};
+    width: fit-content;
+    height: 100%;
   }
 `
 
@@ -124,7 +135,13 @@ export const SBtnOptionsCard = styled(CustomButton)`
   color: ${({ theme }) => theme.colors.link.primary};
   transition: all ease-in-out 0.2s;
   backdrop-filter: blur(4px);
+  width: fit-content;
+  height: 100%;
+  ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
 
+  @media (min-width: 550px) {
+    height: 40px;
+  }
   &:hover {
     color: ${({ theme }) => theme.colors.link.reverse};
   }
@@ -134,15 +151,28 @@ export const SContainerShareBtn = styled.div`
   color: ${({ theme }) => theme.colors.link.primary};
   transition: all ease-in-out 0.2s;
   backdrop-filter: blur(4px);
-  
+  ${borderRadius({ radiusKey: 'md' })}
+  overflow: hidden;
+  height: 100%;
+
   :hover {
     color: ${({ theme }) => theme.colors.link.reverse};
   }
-  `
+
+  @media (min-width: 550px) {
+    height: 40px;
+  }
+`
 
 export const SShareButton = styled(ShareButtom)`
-  ${borderRadius({ radiusKey: 'md' })}
-  ${font({ fontKey: 'secondary' })};
+  width: fit-content;
+  height: 100%;
+  ${font({ fontKey: 'secondary', sizeKey: 'md' })};
   color: ${({ theme }) => theme.colors.link.primary};
   background-color: ${({ theme }) => theme.colors.opacity.base};
+
+  @media (min-width: 550px) {
+    ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
+    height: 40px;
+  }
 `
