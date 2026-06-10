@@ -21,6 +21,7 @@ import CreateProductsMap from "@/utils/productsMap";
 import CreateListCollectionProducts from "@/utils/collectionWithProducts";
 import { Product } from "@/utils/interfaces";
 import Image from "next/image";
+import getLocalStorage from "@/utils/getLocalStorage";
 
 
 type PropsCollectionButtom = {
@@ -48,10 +49,7 @@ export default function CollectionButtom({
 
 
   useEffect(() => {
-    const stored: Collection[] = JSON.parse(
-      localStorage.getItem("collection") || "[]"
-    );
-
+    const stored = getLocalStorage('collectionButton')
     // cria um mapa baseado nos id de cada produto. melhora o desempenho
     const productsMap = CreateProductsMap(products);
     const list = CreateListCollectionProducts(stored, productsMap);
@@ -61,7 +59,7 @@ export default function CollectionButtom({
 
   // mostra mensagem de sucesso ao adicionar ou remover produtos das coleções e esconde o componente
   function hiddenCollection(text: string) {
-    const stored = JSON.parse(localStorage.getItem("collection") || "[]");
+    const stored = getLocalStorage('collectionButton hiddenCollection')
     setCollectionData(stored);
 
     setShowCollection(false);
@@ -76,7 +74,7 @@ export default function CollectionButtom({
     const nameCollection = collection.name
     const newItem = idProduct; //id do produto
     //lista de coleções na localStorage
-    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]");
+    const stored = getLocalStorage('collectionButton updateCollection')
 
     const updated = stored.map(item => {
       if (item.id === iDCollectionSelected) {
@@ -94,7 +92,7 @@ export default function CollectionButtom({
   };
 
   function removeItemCollection(collection: Collection) {
-    const stored: Collection[] = JSON.parse(localStorage.getItem("collection") || "[]");
+    const stored = getLocalStorage('collection Button removeItemCollection')
 
     const iDCollectionSelected = collection.id;
 

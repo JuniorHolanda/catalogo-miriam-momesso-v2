@@ -1,6 +1,7 @@
 'use client'
 
 import CustomButton from '@/components/ui/Button'
+import ShareButtom from '@/components/ui/ShareButtom'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -36,7 +37,7 @@ export const SContainerCards = styled.div`
   ${gap({ spaceKey: 'sm' })}
   width: 100%;
   height: fit-content;
-  
+
   @media (min-width: 550px) {
     ${gap({ spaceKey: 'md' })}
     ${flex({ direction: 'row', justfy: 'center' })}
@@ -63,12 +64,12 @@ export const SContent = styled(motion.div)`
     height: fit-content;
     width: fit-content;
   }
-  `
+`
 
 export const SLink = styled(Link)`
   ${flex({})}
   width: 50%;
-  
+
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'md' })};
     width: 100%;
@@ -105,8 +106,8 @@ export const SContainerIcons = styled.div`
   top: 0px;
   right: 0px;
   ${flex({ direction: 'column', justfy: 'start' })};
+  ${gap({ spaceKey: 'sm' })};
   ${padding({ spaceKey: 'sm' })};
-  ${gap({ spaceKey: 'sm' })}
   ${font({ fontKey: 'secondary' })};
   width: fit-content;
   height: 100%;
@@ -127,4 +128,21 @@ export const SBtnOptionsCard = styled(CustomButton)`
   &:hover {
     color: ${({ theme }) => theme.colors.link.reverse};
   }
+`
+
+export const SContainerShareBtn = styled.div`
+  color: ${({ theme }) => theme.colors.link.primary};
+  transition: all ease-in-out 0.2s;
+  backdrop-filter: blur(4px);
+  
+  :hover {
+    color: ${({ theme }) => theme.colors.link.reverse};
+  }
+  `
+
+export const SShareButton = styled(ShareButtom)`
+  ${borderRadius({ radiusKey: 'md' })}
+  ${font({ fontKey: 'secondary' })};
+  color: ${({ theme }) => theme.colors.link.primary};
+  background-color: ${({ theme }) => theme.colors.opacity.base};
 `

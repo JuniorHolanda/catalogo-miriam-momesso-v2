@@ -1,7 +1,6 @@
 'use client'
 
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
-import { color } from 'framer-motion'
 import styled from 'styled-components'
 
 export const SWrapper = styled.section`
@@ -20,7 +19,7 @@ export const SWrapper = styled.section`
   height: 100%;
   background-color: ${({ theme }) => theme.colors.background.surface};
   overflow-y: scroll;
-
+  
   @media (min-width: 550px) {
     overflow-y: visible;
     height: 100%;
