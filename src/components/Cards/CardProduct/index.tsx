@@ -2,13 +2,13 @@ import { InputHTMLAttributes, JSX } from "react";
 
 import {
   Scard,
-  ScontainerSlider,
-  Scontent
+  SContainerThumb,
+  SLink
 } from "./card.styled";
 
 import { Product } from "@/utils/interfaces";
 import CustomLink from "@/components/ui/Link";
-import ThumbCardDesktop from "../ThumbCardDesktop";
+import Image from "next/image";
 
 type InptProps = InputHTMLAttributes<HTMLInputElement> & {
   product: Product;
@@ -20,25 +20,21 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
 
   return (
     <Scard>
-      <ScontainerSlider>
-        {listImg.slice(0, 2)
-          .map(item => (
-            <ThumbCardDesktop
-              key={item._id}
-              item={item}
-              title={product.title}
-              url={url}
-            />
-          ))
-        }
-      </ScontainerSlider>
-      <Scontent>
+      <SContainerThumb>
+        <Image
+          src={product.thumbnail}
+          alt={product.altthumbnail? product.altthumbnail : `imagem do produto ${product.title}`}
+          width={150}
+          height={150}
+          style={{
+            objectFit: 'cover',
+            width: '100%'
+          }}
+        />
+      </SContainerThumb>
+      <SLink href={url}>
         <h1>{product.title}</h1>
-        <p>{product.smalltext}</p>
-        <CustomLink link={url}>
-          Ver Produto
-        </CustomLink>
-      </Scontent>
+      </SLink>
     </Scard>
   );
 }

@@ -1,12 +1,11 @@
 'use client';
 
-import { flex, gap, padding } from "@/styles/mixins";
+import { flex, gap} from "@/styles/mixins";
 import styled from "styled-components";
 
 export const Scontainer = styled.div`
   ${flex({ align: 'center', justfy: 'start' })};
   ${gap({ spaceKey: 'md' })};
-  ${padding({spaceKey:'md'})}
   width: 100%;
   height: 100%;
   overflow: hidden;

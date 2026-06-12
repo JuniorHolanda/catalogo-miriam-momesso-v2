@@ -1,53 +1,30 @@
-'use client';
+'use client'
 
-import styled from 'styled-components';
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins';
-import Link from 'next/link';
-import Image from 'next/image';
-import { entraceToTop } from '@/styles/animations';
+import styled from 'styled-components'
+import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import Link from 'next/link'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export const Ssection = styled.section`
-  ${flex({ align: 'center', justfy: 'center' })}
-  ${padding({ spaceKey: 'md' })}
+  ${flex({ align: 'center', justfy: 'center' })};
+  overflow: hidden;
   width: 100%;
   height: 100%;
-`;
+`
 
 export const SformInSection = styled.form<SformInSectionProps>`
   position: relative;
   ${flex({ direction: 'column' })};
-  ${padding({ spaceKey: 'md' })}
-  ${gap({ spaceKey: 'md' })} 
-  flex: 0.5;
+  ${gap({ spaceKey: 'md' })}
   z-index: 100;
   transition: all ease-in-out 0.1s;
-  width: 90vw;
+  width: 100%;
   height: 100%;
-`;
-
-export const ScontainerCardProduct = styled.ul`
-  ${flex({})}
-  ${padding({ spaceKey: 'md' })}
-  ${borderRadius({ radiusKey: 'md' })}
-  width: 90vw;
-  height: 50vh;
-  opacity: 0;
-  animation: ${entraceToTop} .3s ease-in-out forwards;
-  
-  .swiper-container {
-    ${borderRadius({ radiusKey: 'sm' })}
-    padding: 0 50px;
-    height: 100%;
-  }
-
-  .swiper-itens {
-    height: 100%;
-  }
-`;
-
+`
 type SformInSectionProps = {
-  $props: boolean;
-};
+  $props: boolean
+}
 
 export const Stitle = styled.h1`
   ${font({ fontKey: 'primary', sizeKey: 'lg' })}
@@ -56,23 +33,34 @@ export const Stitle = styled.h1`
   width: 100%;
   text-align: center;
   height: auto;
-  `;
+`
 
-export const ScontainerInput = styled.div`
+export const SMotionTitle = styled(motion.div)`
+  ${flex({})}
+`
+
+export const SMotionInput = styled(motion.div)`
+  ${flex({})}
+  width: 100%;
+`
+type PropsSContainerInput = {
+  $haveContent: boolean
+}
+export const ScontainerInput = styled.div<PropsSContainerInput>`
   ${flex({})};
-  width: 50%;
-  height: 10%;
-
-  @media (max-width: 1200px) {
-    width: 70%;
-  }
-
-  @media (max-width: 1000px) {
-    width: 100%;
-  }
+  ${padding({ spaceKey: 'md' })};
+  position: ${({ $haveContent }) => {
+    return $haveContent ? 'absolute' : 'static'
+  }};
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  z-index: 3;
+  background-color: ${({ theme, $haveContent }) =>
+    $haveContent ? theme.colors.opacity.base : 'transparent'};
+  backdrop-filter: blur(5px);
 
   label {
-    position: absolute;
     width: 1px;
     height: 1px;
     padding: 0;
@@ -89,17 +77,20 @@ export const ScontainerInput = styled.div`
     ${borderRadius({ radiusKey: 'md' })};
     ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
     overflow: hidden;
-    width: 100%;
+    width: 60%;
     height: 100%;
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background.base};
-
     &:focus {
       outline: none;
       border: solid 1px ${({ theme }) => theme.colors.border.active};
     }
   }
-`;
+`
+export const SMotionSwiper = styled(motion.div)`
+  ${flex({})}
+  width: 100%;
+`
 
 export const SContainerHoliday = styled.div`
   ${flex({})}
@@ -107,47 +98,89 @@ export const SContainerHoliday = styled.div`
   width: 100%;
   height: auto;
 
-  .swiper{
+  .swiper {
     ${flex({})}
     width: 100%;
     height: 100%;
 
     .swiper-wrapper {
-    transition-timing-function: linear !important;
-    height: 100%;
-
-    .swiper-slide {
-      ${flex({})}
-      width: 100%;
+      transition-timing-function: linear !important;
       height: 100%;
+
+      .swiper-slide {
+        ${flex({})}
+        width: 100%;
+        height: 100%;
+      }
     }
   }
+`
+
+export const SContainerResponseSearch = styled.div`
+  position: absolute;
+  z-index: 1;
+  ${padding({ spaceKey: 'xlg' })};
+  padding-top: 15vh;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: ${({ theme }) => theme.colors.opacity.base};
+  backdrop-filter: blur(30px);
+  align-items: stretch;
+  `
+export const SContainerCard = styled.span`
+  display: grid;
+  ${gap({ spaceKey: 'md' })};
+  grid-template: 1fr / repeat(8, 1fr);
+  width: 100%;
+  height: auto;
+`
+export const SMotionCard = styled(motion.div)`
+  ${flex({})};
+`
+
+export const SLottie = styled.div`
+  ${flex({ direction: 'column', justfy: 'start' })}
+  grid-column: 1 / 9;
+  width: 100%;
+  height: 100%;
+
+  h2 {
+    ${flex({})}
+    width: 100%;
+    overflow-wrap: anywhere;
+    ${font({ fontKey: 'primary', sizeKey: 'lg' })}
+    text-align: center;
+    font-weight: 100;
+    color: ${({ theme }) => theme.colors.title.primary};
   }
-`;
+
+  p {
+    ${font({ fontKey: 'secondary', sizeKey: 'md' })}
+    font-weight: 100;
+    color: ${({ theme }) => theme.colors.text.text};
+  }
+`
 
 export const SLink = styled(Link)`
-  ${flex({ direction: 'column' })}
-  ${gap({ spaceKey: 'sm' })}
-  ${padding({ spaceKey: 'lg' })}
-  ${borderRadius({ radiusKey: 'md' })}
-  ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+  ${flex({ direction: 'column' })};
+  ${gap({ spaceKey: 'sm' })};
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
+  overflow: hidden;
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.background.high};
   color: ${({ theme }) => theme.colors.text.text};
-`;
+  `
 
 export const SImage = styled(Image)`
-  ${borderRadius({radiusKey:'sm'})}
+  ${borderRadius({ radiusKey: 'lg' })};
   object-fit: cover;
   object-position: center;
-`;
+  `
 
 export const SContainerInfoHoliday = styled.div`
   ${flex({ direction: 'column', justfy: 'center', align: 'center' })}
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: fit-content;
@@ -156,4 +189,4 @@ export const SContainerInfoHoliday = styled.div`
     ${font({ fontKey: 'secondary', sizeKey: 'xsm' })}
     font-weight: 900;
   }
-`;
+`
