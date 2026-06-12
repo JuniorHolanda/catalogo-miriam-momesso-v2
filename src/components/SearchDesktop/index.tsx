@@ -1,45 +1,44 @@
 "use client";
 
 import { useProducts } from "@/contexts/Product.context";
+
 import {
-  ScontainerCardProduct,
+  SContainerCard,
   SContainerHoliday,
   SContainerInfoHoliday,
   ScontainerInput,
+  SContainerResponseSearch,
   SformInSection,
   SImage,
   SLink,
+  SLottie,
+  SMotionCard,
+  SMotionInput,
+  SMotionSwiper,
+  SMotionTitle,
   Ssection,
   Stitle,
 } from "./searchDesktop.styles";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
 import holiday from "@/data/holiday.json";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, FreeMode } from "swiper/modules";
+import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Product } from "@/utils/interfaces";
-import { useViewport } from "@/hooks/useViewport";
+import Lottie from "lottie-react";
+import animationData from '@/Lotties/gatinho-corta-fio.json'
+
 
 export default function SearchSection() {
   const products = useProducts();
   const [text, setText] = useState<string>("");
   const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
-  // usada para controlar a propriedade top do css do input
-  const [contentInput, setContentInput] = useState<boolean>(false);
-  const viewPort = useViewport();
+  const [notFound, setNotFound] = useState(false);
+  const haveContent = productsFiltered.length > 0;
 
-  //controla a propriedade top no css do input
-  useEffect(() => {
-    if (productsFiltered.length !== 0) {
-      setContentInput(true);
-    } else {
-      setContentInput(false);
-    }
-  }, [productsFiltered]);
 
   function controllerInput(e: ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
@@ -48,47 +47,81 @@ export default function SearchSection() {
     // se o input estiver vazio, limpa o productsFiltered
     if (value.trim() === "") {
       setProductsFiltered([]);
+      setNotFound(false);
       return;
     }
 
     const filtered = products.filter((product) =>
       product.title.toLowerCase().includes(value.toLowerCase()),
     );
+
     setProductsFiltered(filtered);
+    setNotFound(filtered.length === 0);
   }
+
 
   return (
     <Ssection>
-      <SformInSection $props={contentInput}>
-        <Stitle>Sim, Temos o seu brinde!</Stitle>
-        <ScontainerInput>
-          <label htmlFor="search">Digite sua busca</label>
-          <input
-            type="text"
-            name="q"
-            id="search"
-            placeholder="Pesquisar produtos 🔎"
-            value={text}
-            onChange={controllerInput}
-          />
-        </ScontainerInput>
-        {!contentInput && (
-          <SContainerHoliday>
-            <Swiper
-              spaceBetween={15}
-              loop={holiday.length > 5}
-              modules={[Autoplay, FreeMode]}
-              freeMode
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
-              speed={8000}
-              slidesPerView={viewPort === "xl" || viewPort === "lg" ? 5 : 2}
-              grabCursor
-            >
-              {holiday.map((data) => (
-                <SwiperSlide key={data.id}>
+      <SformInSection $props={haveContent}>
+        {!haveContent && (
+          <SMotionTitle
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              ease: 'easeOut',
+            }}
+          >
+            <Stitle>Sim, Temos o seu brinde!</Stitle>
+          </SMotionTitle>
+        )}
+        <SMotionInput
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: 'easeOut',
+          }}
+        >
+          <ScontainerInput $haveContent={(haveContent || notFound)}>
+            <label htmlFor="search">Digite sua busca</label>
+            <input
+              type="text"
+              name="q"
+              id="search"
+              placeholder="Pesquisar produtos 🔎"
+              value={text}
+              onChange={controllerInput}
+            />
+          </ScontainerInput>
+        </SMotionInput>
+        <SContainerHoliday>
+          <Swiper
+            spaceBetween={15}
+            loop={holiday.length > 5}
+            modules={[Autoplay, FreeMode]}
+            freeMode
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            speed={8000}
+            slidesPerView={5}
+            grabCursor
+          >
+            {holiday.map((data, i) => (
+
+              <SwiperSlide key={data.id}>
+                <SMotionSwiper
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    type: 'spring',
+                    damping: 13,
+                    stiffness: 100,
+                    delay: i * .2
+                  }}
+                >
                   <SLink href={`categoria/holiday/${data.slug}`}>
                     <SImage
                       className="container-img-holiday"
@@ -101,44 +134,51 @@ export default function SearchSection() {
                       <h2>{data.category}</h2>
                     </SContainerInfoHoliday>
                   </SLink>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </SContainerHoliday>
-        )}
+                </SMotionSwiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </SContainerHoliday>
 
-        {productsFiltered.length > 0 && (
-          <ScontainerCardProduct>
-            <Swiper
-              className="swiper-container"
-              modules={[Navigation]}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              spaceBetween={55}
-              // controla a quantidade de slides com base na quantidade de produtos filtrados e tambem com base na tela se é molbile, ou tablet ou desktop
-              slidesPerView={
-                productsFiltered.length > 3 && viewPort == "lg"
-                  ? 3.5
-                  : productsFiltered.length > 3 && viewPort == "md"
-                    ? 1.5
-                    : 1.3
+        {(haveContent || notFound) && (
+          <SContainerResponseSearch>
+            <SContainerCard>
+              {
+                productsFiltered.map((item, i) => (
+                  <SMotionCard key={item._id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      type: 'spring',
+                      damping: 13,
+                      stiffness: 100,
+                      delay: i * .01
+                    }}
+                  >
+                    <CardProduct product={item} />
+                  </SMotionCard>
+                ))
               }
-              grabCursor={true}
-            >
-              {productsFiltered.map((item) => (
-                <SwiperSlide className="swiper-itens" key={item._id}>
-                  <CardProduct product={item} />
-                </SwiperSlide>
-              ))}
-
-              {/* Setas de navegação */}
-              <div className="swiper-button-prev" />
-              <div className="swiper-button-next" />
-            </Swiper>
-          </ScontainerCardProduct>
+              {
+                notFound && (
+                  <SLottie>
+                    <h2>Não encontramos nada para {text}</h2>
+                    <p>Procure algo como bolsa, mochila, necessaire... </p>
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      style={{
+                        width: 350,
+                        height: 350,
+                      }}
+                    />
+                  </SLottie>
+                )
+              }
+            </SContainerCard>
+          </SContainerResponseSearch>
         )}
+
       </SformInSection>
     </Ssection>
   );
