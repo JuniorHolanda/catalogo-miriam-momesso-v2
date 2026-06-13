@@ -16,7 +16,6 @@ type InptProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export default function CardProduct({ product }: InptProps): JSX.Element {
   const url = `/produtos/${product.slug}`
-  const listImg = product.gallery;
 
   return (
     <Scard>
