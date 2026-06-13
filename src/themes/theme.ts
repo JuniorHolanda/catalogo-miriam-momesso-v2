@@ -9,7 +9,7 @@ export const defaultTheme = {
     xsm: 'clamp(1.2rem, 1.5vw, 7rem)',
     md: 'clamp(1.5rem, 3vw, 5rem)',
     lg: 'clamp(3rem, 4vw, 8rem)',
-    xlg: 'clamp(2rem, 7vw, 10rem)',
+    xlg: 'clamp(4rem, 6vw, 10rem)',
   },
 
   spaces: {

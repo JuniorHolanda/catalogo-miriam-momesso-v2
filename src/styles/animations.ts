@@ -18,6 +18,15 @@ export const entraceToTop = keyframes`
     }
 `;
 
+export const entraceToBottom = keyframes`
+    from {
+        transform: translateY(-10px);
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`;
+
 
 export const entraceToBottomCollection = keyframes`
     from {

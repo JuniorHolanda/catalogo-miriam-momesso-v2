@@ -1,9 +1,7 @@
-import { SContainerTitle, SSection, SWrapper } from "./page.styles";
-import CardProduct from "@/components/Cards/CardProduct";
+import { SContainerTitle, SWrapper } from "./page.styles";
 import slugify from "@/utils/slugfyText";
 import { getProducts } from "@/services/getProductMomesso";
-import SmallCardProduct from "@/components/SmallCardProduct";
-import { Product } from "@/utils/interfaces";
+import CategoryProducts from "@/components/CategoryProducts";
 
 type PageProps = {
     params: Promise<{
@@ -23,11 +21,6 @@ export default async function CategoryPage({ params }: PageProps) {
         )
     );
 
-    const renderProducts = (Component: React.FC<{ product: Product }>) =>
-        productFiltered.map(product => (
-            <Component key={product._id} product={product} />
-        ));
-
     const title = slug.replace(/-/g, " ");
 
     return (
@@ -35,10 +28,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <SContainerTitle>
                 <h1>{title}</h1>
             </SContainerTitle>
-            <SSection>
-                {renderProducts(SmallCardProduct)}
-                {renderProducts(CardProduct)}
-            </SSection>
+            <CategoryProducts products={productFiltered} />
         </SWrapper>
     );
 }

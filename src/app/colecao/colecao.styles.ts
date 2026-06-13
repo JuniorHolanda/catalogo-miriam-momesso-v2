@@ -56,12 +56,12 @@ export const SContent = styled(motion.div)`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   position: relative;
+  
 
   @media (min-width: 550px) {
     flex-direction: column;
     gap: 0;
     padding: 0;
-    height: fit-content;
     width: fit-content;
   }
 `

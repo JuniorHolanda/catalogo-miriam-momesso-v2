@@ -152,7 +152,7 @@ export default function SearchSection() {
                       type: 'spring',
                       damping: 13,
                       stiffness: 100,
-                      delay: i * .01
+                      delay: i * .02
                     }}
                   >
                     <CardProduct product={item} />
