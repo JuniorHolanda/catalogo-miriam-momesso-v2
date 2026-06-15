@@ -7,7 +7,6 @@ import {
 } from "./card.styled";
 
 import { Product } from "@/utils/interfaces";
-import CustomLink from "@/components/ui/Link";
 import Image from "next/image";
 
 type InptProps = InputHTMLAttributes<HTMLInputElement> & {

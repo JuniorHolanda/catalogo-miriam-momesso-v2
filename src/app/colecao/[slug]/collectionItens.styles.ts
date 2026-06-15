@@ -8,7 +8,7 @@ export const SWrapper = styled.main`
   overflow-y: auto;
   scrollbar-width: none;        //Firefox
   -ms-overflow-style: none;     // IE / Edge antigo
-
+  
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     ${gap({ spaceKey: 'xlg' })};
@@ -27,17 +27,19 @@ export const STitleContainer = styled.div`
   }
 `
 
+
 export const SSection = styled.section`
   ${flex({ direction: 'column', justfy: 'start', align: 'start' })};
   ${gap({ spaceKey: 'sm' })};
   ${padding({ spaceKey: 'sm' })};
+  flex-wrap: wrap;
   width: 100%;
+  height: 100%;
+  border: solid #487;
   
   
   @media (min-width: 550px) {
     ${gap({ spaceKey: 'lg' })};
     ${padding({ spaceKey: 'lg' })};
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
 `

@@ -1,14 +1,14 @@
 'use client'
-import CardProduct from '@/components/Cards/CardProduct';
+
 import { useProducts } from '@/contexts/Product.context';
 import { Product } from '@/utils/interfaces';
 import CreateProductsMap from '@/utils/productsMap';
 import { useParams, useSearchParams } from 'next/navigation';
 import { SSection, STitleContainer, SWrapper } from './collectionItens.styles';
-import SmallCardProduct from '@/components/SmallCardProduct';
 import { useEffect } from 'react';
 import { Collection } from '@/utils/types';
 import getLocalStorage from '@/utils/getLocalStorage';
+import ProductsCategorys from '@/components/ProductsCategorys';
 
 export default function CollectionItens() {
   const products = useProducts()
@@ -49,21 +49,13 @@ export default function CollectionItens() {
     .map(idProduct => productsMap.get(idProduct))
     .filter((product): product is Product => product !== undefined);
 
-  // cria um componente do tipo produto
-  const renderProducts = (Component: React.FC<{ product: Product }>) =>
-    listProductsFromId.map(product => (
-      <Component key={product._id} product={product} />
-    ));
 
   return (
     <SWrapper>
       <STitleContainer>
         <h1>{title}</h1>
       </STitleContainer>
-      <SSection>
-        {renderProducts(SmallCardProduct)};
-        {renderProducts(CardProduct)};
-      </SSection>
+        <ProductsCategorys products={listProductsFromId}/>
     </SWrapper>
   );
 }

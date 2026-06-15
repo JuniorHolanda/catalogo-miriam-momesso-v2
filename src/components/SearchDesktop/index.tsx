@@ -19,7 +19,6 @@ import {
   Ssection,
   Stitle,
 } from "./searchDesktop.styles";
-import { ChangeEvent, useState } from "react";
 import CardProduct from "../Cards/CardProduct";
 import holiday from "@/data/holiday.json";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -27,37 +26,20 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Product } from "@/utils/interfaces";
 import Lottie from "lottie-react";
 import animationData from '@/Lotties/gatinho-corta-fio.json'
+import { useProductSearch } from "@/hooks/searchProducts";
 
 
 export default function SearchSection() {
   const products = useProducts();
-  const [text, setText] = useState<string>("");
-  const [productsFiltered, setProductsFiltered] = useState<Product[]>([]);
-  const [notFound, setNotFound] = useState(false);
+  const {
+  text,
+  productsFiltered,
+  notFound,
+  controllerInput,
+} = useProductSearch(products);
   const haveContent = productsFiltered.length > 0;
-
-
-  function controllerInput(e: ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value;
-    setText(value);
-
-    // se o input estiver vazio, limpa o productsFiltered
-    if (value.trim() === "") {
-      setProductsFiltered([]);
-      setNotFound(false);
-      return;
-    }
-
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(value.toLowerCase()),
-    );
-
-    setProductsFiltered(filtered);
-    setNotFound(filtered.length === 0);
-  }
 
 
   return (

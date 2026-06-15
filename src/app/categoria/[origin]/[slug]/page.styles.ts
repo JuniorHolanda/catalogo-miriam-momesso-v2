@@ -31,14 +31,10 @@ export const SContainerTitle = styled.div`
     font-weight: 100;
     text-transform: capitalize;
     ${font({ fontKey: 'primary', sizeKey: 'lg' })};
-    
+    text-align: center;
+
     @media (min-width: 550px) {
       ${font({ fontKey: 'primary', sizeKey: 'xlg' })};
     }
-  }
-
-  p {
-    ${font({ fontKey: 'secondary', sizeKey: 'md' })};
-    font-weight: 100;
   }
 `

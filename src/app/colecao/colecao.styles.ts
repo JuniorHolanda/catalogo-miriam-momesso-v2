@@ -2,6 +2,7 @@
 
 import CustomButton from '@/components/ui/Button'
 import ShareButtom from '@/components/ui/ShareButtom'
+import { entraceToBottom } from '@/styles/animations'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -21,13 +22,20 @@ export const SWrapper = styled.main`
   }
 `
 export const SContainerTitle = styled.div`
-  ${flex({})};
+  ${flex({ direction: 'column' })};
+  color: ${({ theme }) => theme.colors.title.primary};
+  opacity: 0;
+  animation: ${entraceToBottom} ease-in-out 0.5s forwards;
 
   h1 {
-    ${font({ fontKey: 'primary', sizeKey: 'lg' })}
+    ${font({ fontKey: 'primary', sizeKey: 'lg' })};
+    font-weight: 100;
+    text-transform: capitalize;
     text-align: center;
-    font-weight: 300;
-    color: ${({ theme }) => theme.colors.title.primary};
+
+    @media (min-width: 550px) {
+      ${font({ fontKey: 'primary', sizeKey: 'xlg' })};
+    }
   }
 `
 
@@ -56,7 +64,6 @@ export const SContent = styled(motion.div)`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   position: relative;
-  
 
   @media (min-width: 550px) {
     flex-direction: column;
