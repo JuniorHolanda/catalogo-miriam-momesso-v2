@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion';
 import CardProduct from '@/components/Cards/CardProduct';
 import { Product } from '@/utils/interfaces';
 import { SWrapper } from './productsCategory.styles';
@@ -21,7 +20,7 @@ export default function ProductsCategorys({ products }: Props) {
             type: 'spring',
             damping: 13,
             stiffness: 100,
-            delay: i * .01
+            delay: i * .12
           }}
         >
           <CardProduct product={product} />

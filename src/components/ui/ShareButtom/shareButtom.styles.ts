@@ -13,18 +13,19 @@ export const SWrapper = styled.button`
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.reverseText};
   transition: all ease-in-out 0.2s;
-
+  
   &:hover {
     background-color: ${({ theme }) => theme.colors.button.hover};
   }
-
+  
   &:active {
     background-color: ${({ theme }) => theme.colors.button.active};
     transform: scale(0.98);
     background: darkerblue;
   }
-
-  @media (min-width: 500px) {
+  
+  @media (min-width: 550px) {
+    height: 100%;
     width: fit-content;
     ${padding({ spaceKey: 'md' })}
     ${gap({ spaceKey: 'md' })}

@@ -41,7 +41,6 @@ export default function CollectionButtom({
   const [collectionData, setCollectionData] = useState<Collection[]>([]);
   // mostra o componente de coleção
   const [showCollection, setShowCollection] = useState<boolean>(false);
-  const [createNewCollection, setShowCreateNewCollection] = useState<boolean>(false);
   // condição para renderizar aviso de sucesso ao criar coleção
   const [collectionCreated, setCollectionCreated] = useState<boolean | string>(false);
   const [collectionFull, setCollectionFull] = useState<CollectionFull[] | []>([]);
@@ -88,7 +87,6 @@ export default function CollectionButtom({
 
     localStorage.setItem("collection", JSON.stringify(updated));
     hiddenCollection(`Produto adicionado à lista ${nameCollection} 🙏​`);
-    setShowCreateNewCollection(false)
   };
 
   function removeItemCollection(collection: Collection) {
@@ -108,12 +106,10 @@ export default function CollectionButtom({
 
     localStorage.setItem('collection', JSON.stringify(updatedCollections));
     hiddenCollection(`Produto removido da lista ${collection.name} ✌️`);
-    setShowCreateNewCollection(false)
   }
 
   return (
     <>
-      {/* feedback adicionar e remover localstorage */}
       {
         collectionCreated && (
           <SFeedbackCollection>
