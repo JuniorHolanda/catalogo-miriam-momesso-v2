@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import Link from 'next/link'
 
-export const Scard = styled.article`
+export const SWrapper = styled(Link)`
   ${flex({})}
   ${borderRadius({ radiusKey: 'md' })}
   width: 100%;
   height: 100px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.opacity.base};
+  cursor: pointer;
 
   @media (min-width: 550px) {
     ${flex({ direction: 'column' })}
@@ -24,7 +25,7 @@ export const SContainerThumb = styled.div`
   width: auto;
 `
 
-export const SLink = styled(Link)`
+export const STitle = styled(Link)`
   ${flex({ align: 'center', justfy: 'center' })}
   ${padding({ spaceKey: 'sm' })}
   position: relative;

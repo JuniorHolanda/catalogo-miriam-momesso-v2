@@ -138,7 +138,9 @@ export default async function ProductPage({ params }: ProductPageParams) {
         </ScontainerTag>
       </SInfo>
       <SContainerBtnActions>
-        <ShareButtom product={product} />
+        <ShareButtom product={product}>
+          compartilhar
+        </ShareButtom>
         <CollectionButtom idProduct={product._id} />
       </SContainerBtnActions>
     </SWrapper>

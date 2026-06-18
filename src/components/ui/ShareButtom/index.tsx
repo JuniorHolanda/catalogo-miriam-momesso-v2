@@ -12,7 +12,7 @@ type propsCustomLink = {
     nameCollection?: string
     product?: Product
     className?: string
-    content?: React.ReactNode
+    children?: React.ReactNode
 }
 
 // para compartilhar produtos únicos, o componente recebe o product, captura o id e armazena no dataID
@@ -23,7 +23,7 @@ export default function ShareButtom({
     idCollection,
     product,
     className,
-    content,
+    children,
     nameCollection }: propsCustomLink) {
     //usado para decidor qual rota usar
     const [isProduct, setIsProduct] = useState<boolean>(false);
@@ -47,10 +47,10 @@ export default function ShareButtom({
     const handleShare = async () => {
 
         const ids = getIds();
-        
+
         if (!ids.length) return;
-        
-        const slug = nameCollection? slugify(nameCollection) : ''
+
+        const slug = nameCollection ? slugify(nameCollection) : ''
 
         // monta rota colecao, categorias, ou produtos baseado state
         const url = !isProduct ? `${window.location.origin}/colecao/${slug}?id=${ids.join(",")}&idCollection=${idCollection}`
@@ -75,7 +75,7 @@ export default function ShareButtom({
         <SWrapper className={className} onClick={handleShare}>
             <IoMdShare />
             {
-                content && <span>{content}</span>
+                children && <span>{children}</span>
             }
         </SWrapper>
     )

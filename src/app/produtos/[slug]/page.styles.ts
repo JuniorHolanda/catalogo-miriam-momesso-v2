@@ -1,30 +1,26 @@
 'use client'
 
+import { entraceToBottom, entraceToLeft } from '@/styles/animations'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import styled from 'styled-components'
 
 export const SWrapper = styled.section`
-  display: grid;
-  justify-items: start;
-  align-items: start;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    'smainImg smainImg smainImg'
-    'scontent scontent scontent '
-    'sinfo sinfo sinfo'
-    'btnAction btnAction btnAction';
-  padding: ${({ theme }) => theme.spaces.md};
+  ${flex({ direction: 'column', justfy: 'start' })}
   ${gap({ spaceKey: 'md' })}
+  ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.background.surface};
-  overflow-y: scroll;
-  
+  overflow-y: auto;
+
   @media (min-width: 550px) {
-    overflow-y: visible;
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    overflow-y: hidden;
     height: 100%;
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 7fr 2fr;
     grid-template-areas:
       'smainImg smainImg sinfo'
       'smainImg smainImg scontent'
@@ -40,9 +36,14 @@ export const SContent = styled.div`
   width: 100%;
   height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
+  opacity: 0;
+  animation: ${entraceToLeft} ease-in-out 0.6s .7s forwards;
 
   @media (min-width: 550px) {
+    overflow-y: auto;
     height: 100%;
+    scrollbar-width: none; //Firefox
+    -ms-overflow-style: none;
   }
 `
 
@@ -64,9 +65,7 @@ export const STextContent = styled.div`
     color: ${({ theme }) => theme.colors.text.text};
     font-weight: 500;
     letter-spacing: 1px;
-    font-size: 1em;
     width: auto;
-    justify-content: ce;
 
     &::first-letter {
       text-transform: uppercase;
@@ -77,33 +76,20 @@ export const STextContent = styled.div`
 export const SContainerBtnActions = styled.div`
   grid-area: btnAction;
   ${flex({ justfy: 'start' })};
+  ${gap({ spaceKey: 'md' })}
+  ${padding({ spaceKey: 'md' })}
+  ${borderRadius({ radiusKey: 'md' })}
   width: 100%;
   height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
-  ${gap({ spaceKey: 'md' })}
-  ${padding({ spaceKey: 'md' })}
-  ${borderRadius({ radiusKey: 'sm' })}
-  
+  opacity: 0;
+  animation: ${entraceToBottom} ease-in-out 0.5s .7s forwards;
+  border: solid #485;
+
   @media (min-width: 550px) {
     ${flex({ align: 'center', justfy: 'start' })};
-    ${borderRadius({ radiusKey: 'md' })}
     height: 100%;
     width: 100%;
-    scrollbar-width: none;
-    -ms-overflow-style: none; // esconder a barra no edge antigo
-  }
-`
-
-export const SArrows = styled.div`
-  ${flex({ align: 'center', justfy: 'center' })};
-  ${padding({ spaceKey: 'sm' })};
-  color: ${({ theme }) => theme.colors.button.default};
-  height: 100%;
-  width: 15%;
-  font-size: clamp(0.7px, 1.5rem, 8vw);
-
-  @media (min-width: 550px) {
-    display: none;
   }
 `
 
@@ -116,6 +102,8 @@ export const SInfo = styled.div`
   height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
   backdrop-filter: blur(30px);
+    opacity: 0;
+  animation: ${entraceToLeft} ease-in-out 0.5s 0.6s forwards;
 
   @media (min-width: 550px) {
     height: 100%;

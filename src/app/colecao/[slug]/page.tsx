@@ -4,11 +4,11 @@ import { useProducts } from '@/contexts/Product.context';
 import { Product } from '@/utils/interfaces';
 import CreateProductsMap from '@/utils/productsMap';
 import { useParams, useSearchParams } from 'next/navigation';
-import { SSection, STitleContainer, SWrapper } from './collectionItens.styles';
+import { SMotionCard, SMotionContainerCards, STitleContainer, SWrapper } from './collectionItens.styles';
 import { useEffect } from 'react';
 import { Collection } from '@/utils/types';
 import getLocalStorage from '@/utils/getLocalStorage';
-import ProductsCategorys from '@/components/ProductsCategorys';
+import CardProduct from '@/components/Cards/CardProduct';
 
 export default function CollectionItens() {
   const products = useProducts()
@@ -55,7 +55,23 @@ export default function CollectionItens() {
       <STitleContainer>
         <h1>{title}</h1>
       </STitleContainer>
-        <ProductsCategorys products={listProductsFromId}/>
+      <SMotionContainerCards>
+        {listProductsFromId.map((product, i) => (
+          <SMotionCard
+            key={product._id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              damping: 13,
+              stiffness: 100,
+              delay: i * .12
+            }}
+          >
+            <CardProduct product={product} />
+          </SMotionCard>
+        ))}
+      </SMotionContainerCards>
     </SWrapper>
   );
 }

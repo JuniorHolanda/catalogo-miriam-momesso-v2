@@ -28,6 +28,7 @@ export const entraceToBottom = keyframes`
 `;
 
 
+
 export const entraceToBottomCollection = keyframes`
     from {
         transform: translateX(-100%);
@@ -39,7 +40,7 @@ export const entraceToBottomCollection = keyframes`
 
 export const entraceToLeft = keyframes`
     from {
-        transform: translateX(100%);
+        transform: translateX(10px);
     } to {
         transform: translateX(0);
         opacity: 1;

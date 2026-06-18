@@ -52,7 +52,6 @@ export const SWrapperCollection = styled.div`
   ${font({ fontKey: 'secondary', sizeKey: 'md' })};
   color: ${({ theme }) => theme.colors.text.text};
   font-weight: 600;
-  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -61,6 +60,7 @@ export const SWrapperCollection = styled.div`
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   z-index: 998; // corrigir esse valor alto depois
+  position: fixed;
 
   h1 {
     display: flex;
@@ -101,7 +101,7 @@ export const SContainerBtn = styled.div`
 `
 
 export const SCollection = styled.div<PropsHasProduct>`
-  position: relative;
+
   ${flex({})};
   ${gap({ spaceKey: 'md' })};
   width: 100%;

@@ -1,9 +1,9 @@
 import { InputHTMLAttributes, JSX } from "react";
 
 import {
-  Scard,
   SContainerThumb,
-  SLink
+  STitle,
+  SWrapper
 } from "./card.styled";
 
 import { Product } from "@/utils/interfaces";
@@ -17,7 +17,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
   const url = `/produtos/${product.slug}`
 
   return (
-    <Scard>
+    <SWrapper href={url}>
       <SContainerThumb>
         <Image
           src={product.thumbnail}
@@ -30,9 +30,9 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
           }}
         />
       </SContainerThumb>
-      <SLink href={url}>
+      <STitle href={url}>
         <h1>{product.title}</h1>
-      </SLink>
-    </Scard>
+      </STitle>
+    </SWrapper>
   );
 }
