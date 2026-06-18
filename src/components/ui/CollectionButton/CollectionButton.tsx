@@ -5,9 +5,12 @@ import {
   SCollection,
   SContainerBtn,
   SContainerCollection,
+  SContainerEmptyThumb,
   SContainerThumb,
   SFeedbackCollection,
+  SInputSetCollection,
   STitleCollection,
+  STitleNewCollection,
   SWrapper,
   SWrapperCollection,
 } from "./collectionButtom.styles";
@@ -22,6 +25,8 @@ import CreateListCollectionProducts from "@/utils/collectionWithProducts";
 import { Product } from "@/utils/interfaces";
 import Image from "next/image";
 import getLocalStorage from "@/utils/getLocalStorage";
+import { emoji } from "@/utils/emojis";
+import { AnimatePresence } from "framer-motion";
 
 
 type PropsCollectionButtom = {
@@ -45,6 +50,18 @@ export default function CollectionButtom({
   const [collectionCreated, setCollectionCreated] = useState<boolean | string>(false);
   const [collectionFull, setCollectionFull] = useState<CollectionFull[] | []>([]);
   const products = useProducts();
+  const positiveEmojis = emoji({ typeEmoji: 'positive' })
+  const negativeEmojis = emoji({ typeEmoji: 'negative' })
+  const textToCollectionEmpty = [
+    'Coleção vazia',
+    'Tá meio vazio aqui',
+    'Pra me excluir, vá no menu coleções',
+    'Vai me deixar vazio?',
+    'Estou vazio, esqueceu de mim?',
+    'Pra que me deixar vazio?'
+  ]
+
+  const randomicNumber = () => Math.floor(Math.random() * textToCollectionEmpty.length)
 
 
   useEffect(() => {
@@ -86,7 +103,7 @@ export default function CollectionButtom({
     });
 
     localStorage.setItem("collection", JSON.stringify(updated));
-    hiddenCollection(`Produto adicionado à lista ${nameCollection} 🙏​`);
+    hiddenCollection(`Produto adicionado à lista ${nameCollection} ${positiveEmojis}`);
   };
 
   function removeItemCollection(collection: Collection) {
@@ -105,17 +122,30 @@ export default function CollectionButtom({
     });
 
     localStorage.setItem('collection', JSON.stringify(updatedCollections));
-    hiddenCollection(`Produto removido da lista ${collection.name} ✌️`);
+    hiddenCollection(`Produto removido da lista ${collection.name} ${positiveEmojis}`);
   }
 
   return (
     <>
       {
-        collectionCreated && (
-          <SFeedbackCollection>
-            <span>{collectionCreated}</span>
-          </SFeedbackCollection>
-        )
+        <AnimatePresence>
+          {
+            collectionCreated && (
+              <SFeedbackCollection
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: 'spring',
+                  damping: 13,
+                  stiffness: 100,
+                }}
+                exit={{ opacity: 0, y: 10, }}
+              >
+                <span>{collectionCreated}</span>
+              </SFeedbackCollection>
+            )
+          }
+        </AnimatePresence>
       }
       {
         showCollection && (
@@ -124,11 +154,33 @@ export default function CollectionButtom({
             <SContainerBtn >
               {
                 collectionData.length > 0 ?
-                  <h2>Adicione o produto à uma coleção  ou crie uma nova.</h2>
-                  : <h2>Nenhuma coleção por aqui 😢 vamos criar uma nova?</h2>
+                  <STitleNewCollection
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      type: 'spring',
+                      damping: 13,
+                      stiffness: 100,
+                    }}
+                  >
+                    <h2>Adicione o produto à uma coleção  ou crie uma nova.</h2>
+                  </STitleNewCollection>
+                  : <STitleNewCollection
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      type: 'spring',
+                      damping: 13,
+                      stiffness: 100,
+                    }}
+                  >
+                    <h3>{negativeEmojis}</h3>
+                    <h2>{`Nenhuma coleção por aqui`}</h2>
+                    <p>Que tal criar uma nova?</p>
+                  </STitleNewCollection>
               }
 
-              <InputSetCollection
+              <SInputSetCollection
                 idProduct={idProduct}
                 placeholder="Criar nova coleção"
                 children={'Confirmar'}
@@ -140,23 +192,42 @@ export default function CollectionButtom({
 
             <SContainerCollection>
               {
-                collectionFull.map(item => {
+                collectionFull.map((item, i) => {
                   const hasProduct = item.itensId.includes(idProduct);
 
                   return (
-                    <SCollection $hasProduct={hasProduct} key={item.id}>
+                    <SCollection
+                      key={item.id}
+                      $hasProduct={hasProduct}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        type: 'spring',
+                        damping: 13,
+                        stiffness: 100,
+                        delay: i * .05
+                      }}
+                    >
                       <SContainerThumb>
-                        <Image
-                          src={item.products.at(-1)?.thumbnail ?? '/favicon.png'}
-                          alt={item.products.at(-1)?.altthumbnail ?? 'produto Miriam Momesso'}
-                          width={100}
-                          height={100}
-                          style={{
-                            objectFit: 'cover',
-                            height: '100%',
-                            width: '100%',
-                          }}
-                        />
+                        {
+                          item.products.length > 0 ?
+                            <Image
+                              src={item.products.at(-1)?.thumbnail ?? '/favicon.png'}
+                              alt={item.products.at(-1)?.altthumbnail ?? 'produto Miriam Momesso'}
+                              width={300}
+                              height={300}
+                              style={{
+                                objectFit: 'cover',
+                                height: '100%',
+                                width: '100%',
+                              }}
+                            />
+                            : <SContainerEmptyThumb>
+                              {/* chamar a função emoji direto no card e não em variavel para fazer uma chamada para cada card e gerar emojis diferentes*/}
+                              <span>{emoji({ typeEmoji: 'negative' })}</span>
+                              <p>{textToCollectionEmpty[randomicNumber()]}</p>
+                            </SContainerEmptyThumb>
+                        }
                       </SContainerThumb>
                       <STitleCollection>
                         {item.name}

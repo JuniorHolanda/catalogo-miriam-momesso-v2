@@ -14,7 +14,7 @@ export const SWrapper = styled.div`
     ${flex({ direction: 'row' })};
     flex-wrap: wrap;
     display: grid;
-    grid-template: auto / repeat(8, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 `
 

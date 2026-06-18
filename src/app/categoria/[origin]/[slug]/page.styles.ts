@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import { entraceToBottom } from '@/styles/animations'
 import { flex, font, gap, padding } from '@/styles/mixins'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 export const SWrapper = styled.main`
   ${flex({ direction: 'column', justfy: 'start', align: 'center' })};

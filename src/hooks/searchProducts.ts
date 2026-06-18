@@ -8,7 +8,6 @@ export function useProductSearch(products: Product[]) {
   const [notFound, setNotFound] = useState(false)
 
   function controllerInput(e: ChangeEvent<HTMLInputElement>) {
-    console.log('começou o hook')
     const value = e.target.value
 
     setText(value)
@@ -28,7 +27,6 @@ export function useProductSearch(products: Product[]) {
     setNotFound(filtered.length === 0)
   }
 
-  console.log('terminou o hook')
 
   return {
     text,

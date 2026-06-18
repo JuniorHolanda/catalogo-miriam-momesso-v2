@@ -127,11 +127,12 @@ export const SContainerResponseSearch = styled.div`
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   align-items: stretch;
-  `
+`
 export const SContainerCard = styled.span`
   display: grid;
   ${gap({ spaceKey: 'md' })};
-  grid-template: 1fr / repeat(8, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
   width: 100%;
   height: auto;
 `
@@ -171,13 +172,13 @@ export const SLink = styled(Link)`
   height: 100%;
   background-color: ${({ theme }) => theme.colors.background.high};
   color: ${({ theme }) => theme.colors.text.text};
-  `
+`
 
 export const SImage = styled(Image)`
   ${borderRadius({ radiusKey: 'lg' })};
   object-fit: cover;
   object-position: center;
-  `
+`
 
 export const SContainerInfoHoliday = styled.div`
   ${flex({ direction: 'column', justfy: 'center', align: 'center' })}

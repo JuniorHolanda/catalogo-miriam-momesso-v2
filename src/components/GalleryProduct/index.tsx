@@ -11,8 +11,6 @@ type GalleryProductsProps = {
 
 
 export default function GalleryProduct({ $product }: GalleryProductsProps) {
-    console.log($product);
-
 
     const [mainImg, setMainImg] = useState($product.thumbnail);
     const [mainAltImg, setMainAltImg] = useState($product.altthumbnail);
@@ -43,6 +41,7 @@ export default function GalleryProduct({ $product }: GalleryProductsProps) {
                                     alt={item.altimg}
                                     width={800}
                                     height={800}
+                                    priority
                                     onClick={() => changeMainImg(item.img, item.altimg)}
                                     style={{
                                         width: '100%',
@@ -72,8 +71,9 @@ export default function GalleryProduct({ $product }: GalleryProductsProps) {
                         <Image
                             src={mainImg}
                             alt={mainAltImg}
-                            width={800}
-                            height={800}
+                            width={1200}
+                            height={1200}
+                            priority
                             style={{
                                 width: '100%',
                                 height: '100%',
