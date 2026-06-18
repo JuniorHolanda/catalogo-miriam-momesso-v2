@@ -2,6 +2,7 @@
 
 import { entraceToBottom, entraceToLeft } from '@/styles/animations'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const SWrapper = styled.section`
@@ -73,7 +74,7 @@ export const STextContent = styled.div`
   }
 `
 
-export const SContainerBtnActions = styled.div`
+export const SContainerBtnActions = styled(motion.div)`
   grid-area: btnAction;
   ${flex({ justfy: 'start' })};
   ${gap({ spaceKey: 'md' })}
@@ -82,9 +83,6 @@ export const SContainerBtnActions = styled.div`
   width: 100%;
   height: fit-content;
   background-color: ${({ theme }) => theme.colors.background.high};
-  opacity: 0;
-  animation: ${entraceToBottom} ease-in-out 0.5s .7s forwards;
-  border: solid #485;
 
   @media (min-width: 550px) {
     ${flex({ align: 'center', justfy: 'start' })};

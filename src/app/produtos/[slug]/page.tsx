@@ -5,7 +5,7 @@ import slugify from "@/utils/slugfyText";
 import GalleryProduct from "@/components/GalleryProduct";
 import { Metadata } from "next";
 import ShareButtom from "@/components/ui/ShareButtom";
-import CollectionButtom from "@/components/ui/CollectionButton";
+import CollectionButtom from "@/components/ui/CollectionButton/CollectionButton";
 
 type ProductPageParams = {
   params: Promise<{
@@ -137,7 +137,15 @@ export default async function ProductPage({ params }: ProductPageParams) {
           </Stag>
         </ScontainerTag>
       </SInfo>
-      <SContainerBtnActions>
+      <SContainerBtnActions
+      initial={{opacity: 0, y:10}}
+      animate={{opacity: 1, y:0}}
+      transition={{
+        duration: 0.4,
+        ease: 'easeInOut',
+        delay: .5
+      }}
+      >
         <ShareButtom product={product}>
           compartilhar
         </ShareButtom>

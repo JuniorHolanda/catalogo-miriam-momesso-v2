@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const SButton = styled.button`
   ${flex({})}
-  ${font({fontKey:'secondary', sizeKey:'md'})}
+  ${font({fontKey:'secondary', sizeKey:'xsm'})}
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
   background-color: ${({ theme }) => theme.colors.button.default};

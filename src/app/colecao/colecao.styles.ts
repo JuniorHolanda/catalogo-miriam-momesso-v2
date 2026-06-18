@@ -48,9 +48,9 @@ export const SContainerCards = styled.div`
 
   @media (min-width: 550px) {
     ${gap({ spaceKey: 'md' })};
-    ${flex({ direction: 'row', justfy: 'center' })};
-    flex-wrap: wrap;
-    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    height: fit-content;
   }
 `
 
@@ -69,25 +69,29 @@ export const SContent = styled(motion.div)`
     flex-direction: column;
     gap: 0;
     padding: 0;
-    width: fit-content;
+    height: 100%;
+    width: 150px;
   }
 `
 
-export const SLink = styled(Link)`
-  ${flex({ justfy: 'start', align: 'center' })}
+export const Stitle = styled.div`
+  ${flex({ justfy: 'center', align: 'center' })}
   width: 100%;
   height: 100%;
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'md' })};
     width: 100%;
-    white-space: nowrap;
+    height: fit-content;
     background-color: ${({ theme }) => theme.colors.background.surface};
   }
 
   h2 {
-    ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
+    ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
     color: ${({ theme }) => theme.colors.text.text};
+    width: 100%;
+    text-align: center;
+    word-break: break-all;
   }
 `
 
@@ -105,9 +109,33 @@ export const SContainerThumb = styled(Link)`
     object-fit: contain;
     object-position: center;
     overflow: hidden;
-    width: 150px;
+    width: 100%;
   }
   @media (min-width: 550px) {
+    width: 100%;
+  }
+`
+
+export const SContainerLottie = styled.div`
+  ${flex({})}
+  ${borderRadius({ radiusKey: 'md' })}
+  ${padding({ spaceKey: 'md' })}
+  ${gap({ spaceKey: 'md' })}
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.background.high};
+  position: relative;
+
+  span {
+    ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
+  }
+
+  @media (min-width: 550px) {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    height: 100%;
     width: 100%;
   }
 `

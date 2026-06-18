@@ -5,7 +5,7 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    sm: 'clamp(.9rem, 1vw, .7rem)',
+    sm: 'clamp(1rem, 1vw, 1.5rem)',
     xsm: 'clamp(1.2rem, 1.5vw, 7rem)',
     md: 'clamp(1.5rem, 3vw, 5rem)',
     lg: 'clamp(3rem, 4vw, 8rem)',
@@ -85,7 +85,7 @@ export const lightTheme = {
     },
 
     opacity: {
-      base: '#6d78b848',
+      base: '#474f7c48',
       primary: '#244cff5b',
       reverse: '#ffffff44',
     },

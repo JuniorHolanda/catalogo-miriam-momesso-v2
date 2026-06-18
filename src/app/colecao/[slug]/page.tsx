@@ -38,7 +38,6 @@ export default function CollectionItens() {
       }
     }
 
-    console.log('deu certo');
 
   }, [])
 
