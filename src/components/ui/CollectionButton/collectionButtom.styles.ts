@@ -82,7 +82,7 @@ export const SContainerCollection = styled.div`
   ${flex({ direction: 'column', justfy: 'start' })};
   ${gap({ spaceKey: 'md' })}
   width: 100%;
-  height: fit-content;
+  height: auto;
   scrollbar-width: none; //Firefox
   -ms-overflow-style: none; // IE / Edge antigo
 
@@ -101,6 +101,7 @@ export const SContainerBtn = styled.div`
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
   height: auto;
+  
 
   @media (min-width: 550px) {
     width: 70%;
@@ -111,6 +112,7 @@ export const STitleNewCollection = styled(motion.div)`
   ${flex({ direction: 'column', justfy: 'center' })};
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
+
 
   h3 {
         ${font({ fontKey: 'primary', sizeKey: 'lg' })};
@@ -139,22 +141,28 @@ export const STitleNewCollection = styled(motion.div)`
 
 export const SInputSetCollection = styled(InputSetCollection)`
   width: 100%;
+
   
   @media (min-width: 550px) {
+    width: 80%;
+  }
+
+    @media (min-width: 1000px) {
     width: 50%;
-    
   }
 `
 
 export const SCollection = styled(motion.div)<PropsHasProduct>`
+  position: relative;
   ${flex({})};
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
-  height: 8vh;
   overflow: hidden;
-
+  height: 8vh;
+  
+  
   @media (min-width: 550px) {
-    position: relative;
+    height: 8vh;
     ${flex({ direction: 'column' })};
     ${padding({ spaceKey: 'sm' })}
     ${borderRadius({ radiusKey: 'md' })};
@@ -193,16 +201,19 @@ export const SContainerEmptyThumb = styled.span`
 export const STitleCollection = styled.span`
   grid-area: titleCollection;
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
-  ${padding({ spaceKey: 'sm' })};
-  ${flex({})};
+  ${padding({ spaceKey: 'md' })};
   ${borderRadius({ radiusKey: 'md' })};
+  ${flex({justfy:'start'})};
   width: 100%;
-  height: fit-content;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.background.surface};
   color: ${({ theme }) => theme.colors.text.text};
   font-weight: 900;
-
+  
   @media (min-width: 550px) {
+    ${padding({ spaceKey: 'sm' })};
+    ${flex({})};
+    height: fit-content;
     background-color: transparent;
     color: ${({ theme }) => theme.colors.text.reverseText};
   }

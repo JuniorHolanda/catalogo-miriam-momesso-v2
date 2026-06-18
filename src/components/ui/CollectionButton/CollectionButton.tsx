@@ -15,7 +15,6 @@ import {
   SWrapperCollection,
 } from "./collectionButtom.styles";
 import { useEffect, useState } from "react";
-import InputSetCollection from "../InputSetCollection";
 import { Collection } from "@/utils/types";
 import { FaBox, FaFolderPlus } from "react-icons/fa";
 import { RiFolderCloseFill } from "react-icons/ri";

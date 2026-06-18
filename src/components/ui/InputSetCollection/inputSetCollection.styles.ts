@@ -44,16 +44,18 @@ export const SButtonCategory = styled(CustomButton)`
   opacity: ${({ disabled }) => (disabled ? 0.3 : 1)};
 
   & > :nth-child(1) {
-    display: block;
-    @media (min-width: 550px) {
+    ${flex({})}
+    font-size: ${({ theme }) => theme.iconSize.md};
+
+    @media (min-width: 900px) {
       display: none;
     }
   }
 
   & > :nth-child(2) {
     display: none;
-    @media (min-width: 550px) {
-      display: block;
+    @media (min-width: 900px) {
+      ${flex({})}
     }
   }
 
