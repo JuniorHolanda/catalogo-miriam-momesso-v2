@@ -67,6 +67,7 @@ export const SContent = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.background.high};
   position: relative;
 
+
   @media (min-width: 550px) {
     flex-direction: column;
     gap: 0;
@@ -79,6 +80,11 @@ export const SContent = styled(motion.div)`
 export const SAnimationCardContainer = styled(motion.div)`
   ${flex({})}
   height: 100%;
+  width: 100%;
+
+  @media (min-width: 550px) {
+    width: auto;
+  }
 `
 
 export const Stitle = styled(Link)`
@@ -145,7 +151,6 @@ export const SContainerLottie = styled.div`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   position: relative;
-  border: solid #487;
 
   span {
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}

@@ -35,7 +35,7 @@ export const SMotionContainerCards = styled.div`
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
-
+  
   @media (min-width: 550px) {
     display: grid;
     grid-template: auto / repeat(8, 1fr);

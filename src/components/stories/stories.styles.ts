@@ -4,12 +4,13 @@ import CustomLink from '../ui/Link';
 
 export const SContainerStories = styled.div`
   ${flex({})};
-  ${borderRadius({ radiusKey: 'md' })};
+  ${borderRadius({ radiusKey: 'lg' })};
   position: relative;
   height:100%;
-  width: 100%;
+  width: 95%;
   overflow: hidden;
   z-index: 1;
+  background-color: transparent;
   `;
 
 export const SContent = styled.div`
