@@ -49,8 +49,8 @@ export default function CollectionButtom({
   const [collectionCreated, setCollectionCreated] = useState<boolean | string>(false);
   const [collectionFull, setCollectionFull] = useState<CollectionFull[] | []>([]);
   const products = useProducts();
-  const positiveEmojis = emoji({ typeEmoji: 'positive' })
-  const negativeEmojis = emoji({ typeEmoji: 'negative' })
+  const positiveEmojis = emoji({ typeEmoji: 'positive' });
+  const negativeEmojis = emoji({ typeEmoji: 'negative' });
   const textToCollectionEmpty = [
     'Coleção vazia',
     'Tá meio vazio aqui',
@@ -60,7 +60,7 @@ export default function CollectionButtom({
     'Pra que me deixar vazio?'
   ]
 
-  const randomicNumber = () => Math.floor(Math.random() * textToCollectionEmpty.length)
+  const randomicNumber = () => Math.floor(Math.random() * textToCollectionEmpty.length);
 
 
   useEffect(() => {

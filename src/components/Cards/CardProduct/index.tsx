@@ -30,7 +30,7 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
           }}
         />
       </SContainerThumb>
-      <STitle href={url}>
+      <STitle>
         <h1>{product.title}</h1>
       </STitle>
     </SWrapper>

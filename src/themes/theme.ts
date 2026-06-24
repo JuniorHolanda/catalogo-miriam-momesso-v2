@@ -21,9 +21,9 @@ export const defaultTheme = {
   },
 
   iconSize: {
-      sm: 'clamp(.5rem, 1.3rem, 3vw)',
-      md: 'clamp(1rem, 4rem, 6vw)'
-  }
+    sm: 'clamp(.5rem, 1.3rem, 3vw)',
+    md: 'clamp(1rem, 4rem, 6vw)',
+  },
 }
 
 export const lightTheme = {
@@ -60,6 +60,7 @@ export const lightTheme = {
     text: {
       text: '#27252eff',
       textMain: '#151516ff',
+      secondaryText: '#747272',
       reverseText: '#ffffff',
     },
 
@@ -81,7 +82,7 @@ export const lightTheme = {
       hover: '#22c55e',
       active: '#d68710',
       focus: '#ff711f',
-      inactive: '#27252eff'
+      inactive: '#27252eff',
     },
 
     opacity: {
@@ -128,6 +129,7 @@ export const darkTheme = {
       text: '#27252eff',
       textMain: '#151516ff',
       reverseText: '#ffffff',
+      secondaryText: '#464646',
     },
 
     link: {
@@ -148,7 +150,7 @@ export const darkTheme = {
       hover: '#22c55e',
       active: '#d68710',
       focus: '#ff711f',
-      inactive: '#27252eff'
+      inactive: '#27252eff',
     },
 
     opacity: {

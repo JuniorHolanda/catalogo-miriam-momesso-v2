@@ -23,7 +23,7 @@ export const SList = styled.ul`
 export const SItemMenu = styled.li`
   ${flex({})}
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-  ${padding({ spaceKey: 'md' })}
+  ${padding({ spaceKey: 'sm' })}
   ${smoothTransition}
   font-weight: 400;
   cursor: pointer;
@@ -32,26 +32,12 @@ export const SItemMenu = styled.li`
   z-index: 1000;
   height: 100%;
 
-
   button {
     color: ${({ theme }) => theme.colors.text.reverseText};
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
     font-weight: 400;
 
-    &:hover {
-      font-weight: 600;
-    }
   }
 `
 
 export const SLink = styled(Link)``
-
-export const SContainerMenu = styled(motion.div)`
-  position: absolute;
-  width: 100%;
-  height: 90vh;
-  top: 10vh;
-  left: 0;
-  background-color: ${({ theme }) => theme.colors.opacity.base};
-  backdrop-filter: blur(30px);
-`

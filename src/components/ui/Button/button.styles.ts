@@ -10,6 +10,7 @@ export const SButton = styled.button`
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.reverseText};
   width: 100%;
+  transition: all ease-in-out .2s;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.button.hover};

@@ -1,6 +1,6 @@
 'use client';
 
-import { flex, font, gap, padding, smoothTransition } from '@/styles/mixins';
+import { flex, gap, padding } from '@/styles/mixins';
 import Link from 'next/link';
 import styled from 'styled-components';
 
