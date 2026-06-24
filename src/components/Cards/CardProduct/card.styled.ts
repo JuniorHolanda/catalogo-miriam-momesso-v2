@@ -25,7 +25,7 @@ export const SContainerThumb = styled.div`
   width: auto;
 `
 
-export const STitle = styled(Link)`
+export const STitle = styled.span`
   ${flex({ align: 'center', justfy: 'center' })}
   ${padding({ spaceKey: 'sm' })}
   position: relative;

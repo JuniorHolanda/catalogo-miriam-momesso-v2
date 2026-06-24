@@ -1,120 +1,120 @@
 [
-    {
-        "id": 1,
-        "category" : "Dia das Mães",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891857/card-dia-das-maes_zetvbt.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "dia-das-maes",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891766/banner-dia-das-maes_kfrzjy.jpg",
-                "altImg" : "uma ilustração de rosas em um fundo creme"
-            }
-        ],       
-        "description" : "Confira nossas sugestões de brindes para o dia das mães."
-    },
+  {
+    "id": 1,
+    "category": "Dia das Mães",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891857/card-dia-das-maes_zetvbt.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "dia-das-maes",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891766/banner-dia-das-maes_kfrzjy.jpg",
+        "altImg": "uma ilustração de rosas em um fundo creme"
+      }
+    ],
+    "description": "Confira nossas sugestões de brindes para o dia das mães."
+  },
 
-    {
-        "id" : 2,
-        "category" : "Dia das mulheres",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-dia-das-mulheres_xbeq2p.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "dia-das-mulheres",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-dia-das-mulheres_o0nccb.jpg",
-                "altImg" : "uma ilustração de diversas mulheres"
-            }
-        ],  
-        "description" : "Confira nossas sugestões de brindes para o dia das mulheres."
-    },
+  {
+    "id": 2,
+    "category": "Dia das mulheres",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-dia-das-mulheres_xbeq2p.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "dia-das-mulheres",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-dia-das-mulheres_o0nccb.jpg",
+        "altImg": "uma ilustração de diversas mulheres"
+      }
+    ],
+    "description": "Confira nossas sugestões de brindes para o dia das mulheres."
+  },
 
-    {
-        "id" : 3,
-        "category" : "Dia dos Médicos",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-dia-dos-medicos_pdjd3g.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "dia-dos-medicos",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891767/banner-dia-dos-medicos_rugneu.jpg",
-                "altImg" : "uma ilustração de um estétoscópio e um coração"
-            }
-        ],  
-        "description" : "Confira nossas sugestões de brindes para o dia dos médicos."
-    },
+  {
+    "id": 3,
+    "category": "Dia dos Médicos",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-dia-dos-medicos_pdjd3g.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "dia-dos-medicos",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891767/banner-dia-dos-medicos_rugneu.jpg",
+        "altImg": "uma ilustração de um estétoscópio e um coração"
+      }
+    ],
+    "description": "Confira nossas sugestões de brindes para o dia dos médicos."
+  },
 
-    {
-        "id" : 4,
-        "category" : "outubro-rosa",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-outubro-rosa_apvmhf.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891764/outubro-rosa_xps7ls.jpg",
-                "altImg" : "diversas mulheres em 3d com um laço uma fita de outubro rosa no peito"
-            }
-        ],  
-        "description" : "Confira nossas sugestões de brindes para o Outubro Rosas."
-    },
+  {
+    "id": 4,
+    "category": "Outubro Rosa",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-outubro-rosa_apvmhf.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "outubro-rosa",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891764/outubro-rosa_xps7ls.jpg",
+        "altImg": "diversas mulheres em 3d com um laço uma fita de outubro rosa no peito"
+      }
+    ],
+    "description": "Confira nossas sugestões de brindes para o Outubro Rosas."
+  },
 
-    {
-        "id" : 5,
-        "category" : "novembro-azul",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891860/card-novembro-azul_wffwnz.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-novembro-azul_exmk1f.jpg",
-                "altImg" : "uma ilustração 3d de uma fita azul com alguns itens de escritório representando o novembro azul"
-            }
-        ],  
-        "altImg" : "uma ilustração de algumas flores coloridas",
-        "description" : "Confira nossas sugestões de brindes para Novembro Azul."
-    },
+  {
+    "id": 5,
+    "category": "Novembro Azul",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891860/card-novembro-azul_wffwnz.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "novembro-azul",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-novembro-azul_exmk1f.jpg",
+        "altImg": "uma ilustração 3d de uma fita azul com alguns itens de escritório representando o novembro azul"
+      }
+    ],
+    "altImg": "uma ilustração de algumas flores coloridas",
+    "description": "Confira nossas sugestões de brindes para Novembro Azul."
+  },
 
-    {
-        "id" : 7,
-        "category" : "Executivo",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-executivo_wgnmwb.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "executivo",
-        "start": "05-01",
-        "end": "05-14",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-executivo_tpzp0w.jpg",
-                "altImg" : "alguns brindes personalizados executivos em 3d"
-            }
-        ],  
-        "description" : "Confira nossa sugestão de brindes executivos."
-    },
-    {
-        "id" : 8,
-        "category" : "Dia da secretária",
-        "icon" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891858/card-dia-da-secretaria_sw7xif.jpg",
-        "altIcon": "uma ilustração de flores representando o dia das mães",
-        "slug": "dia-da-secretaria",
-        "start": "06-30",
-        "end": "09-30",
-        "gallery": [
-            {
-                "img" : "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-dia-secretaria_zvpsyw.jpg",
-                "altImg" : "uma mulher negra segurando alguns documentos em um escritório"
-            }
-        ],  
-        "description" : "Confira nossas sugestões de brindes para o dia da secretária."
-    }
+  {
+    "id": 7,
+    "category": "Executivo",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-executivo_wgnmwb.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "executivo",
+    "start": "05-01",
+    "end": "05-14",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-executivo_tpzp0w.jpg",
+        "altImg": "alguns brindes personalizados executivos em 3d"
+      }
+    ],
+    "description": "Confira nossa sugestão de brindes executivos."
+  },
+  {
+    "id": 8,
+    "category": "Dia da secretária",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891858/card-dia-da-secretaria_sw7xif.jpg",
+    "altIcon": "uma ilustração de flores representando o dia das mães",
+    "slug": "dia-da-secretaria",
+    "start": "06-30",
+    "end": "09-30",
+    "gallery": [
+      {
+        "img": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891765/banner-dia-secretaria_zvpsyw.jpg",
+        "altImg": "uma mulher negra segurando alguns documentos em um escritório"
+      }
+    ],
+    "description": "Confira nossas sugestões de brindes para o dia da secretária."
+  }
 ]

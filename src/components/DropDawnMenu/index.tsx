@@ -1,8 +1,8 @@
 'use client'
-import { SContainerListCat, SContainerThumb, SContainerTitleCat, SLink, SNav, SWrapper } from "./dropDawnMenu";
+import { SContainerblockCategory, SContainerListCat, SContainerThumb, SContainerTitleCat, SLiCards, SLink, STitleCategory, SWrapper } from "./dropDawnMenu";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
-import { Product } from "@/utils/interfaces";
+import { Holiday, Product } from "@/utils/interfaces";
 import slugify from "@/utils/slugfyText";
 import { useProducts } from "@/contexts/Product.context";
 type filterCategoriesParams = "imported" | "main";
@@ -13,7 +13,23 @@ type createCategories = {
 	originFrom: "imported" | "main"
 };
 
-
+type CategoryItem = {
+	title: string;
+	thumbnail: string | null;
+	altThumbnail: string | null;
+	origin: string;
+};
+type RenderBlockProps =
+	{
+		title: string;
+		type: 'category';
+		category: CategoryItem[];
+	}
+	| {
+		title: string;
+		type: 'holiday';
+		dataHoliday: Holiday[];
+	};
 
 export default function DropDawnMenu() {
 
@@ -40,10 +56,12 @@ export default function DropDawnMenu() {
 
 
 	function filterCategories(origin: filterCategoriesParams) {
+		// separa os produtos por  com base na origin imported ou main
 		const listProductFromCategory = products?.filter(
 			product => product.category?.[origin]?.length > 0
 		);
 
+		// junta todos os as categorias em um array sem repetições
 		const uniqueCategoriesImported = [
 			...new Set(
 				listProductFromCategory.flatMap(
@@ -68,111 +86,146 @@ export default function DropDawnMenu() {
 	}
 
 	const importedCategory = filterCategories("imported")
-	const mainCategory = filterCategories("main")
+	const mainCategory = filterCategories("main");
 
-	return (
+	// decide qual bloco de categoria retornar com base no type, 
+	// type category aceita → mainCategory e importedCategory como valor da chave category
+	// type holiday aceita → holiday como valor da chave dataHoliday
 
-		<SWrapper>
-			<SNav>
-				<SContainerTitleCat>
-					<h2 >Costuráveis</h2>
-				</SContainerTitleCat>
-				<SContainerListCat>
-					<ul>
+	function renderBlock(props: RenderBlockProps) {
+
+		if (props.type === 'category') {
+			return (
+				<SContainerblockCategory>
+
+					<SContainerTitleCat>
+						<h2 >{props.title}</h2>
+					</SContainerTitleCat>
+
+					<SContainerListCat>
 						{
-							mainCategory.map((item, i) => (
-								<li key={i}>
+							props.category.map((item, i) => (
+								<SLiCards
+									key={i}
+									initial={{ opacity: 0, y: -10 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{
+										type: "spring",
+										damping: 13,
+										stiffness: 100,
+										delay: i * .03
+									}}
+								>
 									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-										<SContainerThumb>
+										<SContainerThumb
+
+										>
 											<Image
 												src={item.thumbnail ?? ''}
 												alt={item.altThumbnail ?? ''}
-												width={300}
-												height={300}
+												width={100}
+												height={100}
 
 												style={{
+													width: '50px',
+													flex: 1,
 													objectFit: 'cover',
-													objectPosition:'center',
-													width: '100%',
-													height: '100%'
+													objectPosition: 'center',
 												}}
 											/>
 										</SContainerThumb>
-										<span>{item.title}</span>
+										<STitleCategory>
+											<span>{item.title}</span>
+										</STitleCategory>
 									</SLink>
-								</li>
+								</SLiCards>
 							))
 						}
-					</ul>
-				</SContainerListCat>
-			</SNav>
+					</SContainerListCat>
 
-
-			<SNav>
-				<SContainerTitleCat>
-					<h2>Importados</h2>
-				</SContainerTitleCat>
-				<SContainerListCat>
-					<ul>
-						{
-							importedCategory.map((item, i) => (
-								<li key={i}>
-									<SLink href={`/categoria/${slugify(item.origin)}/${slugify(item.title)}`}>
-										<SContainerThumb>
-											<Image
-												src={item.thumbnail ?? ''}
-												alt={item.altThumbnail ?? ''}
-												width={300}
-												height={300}
-												style={{
-													objectFit: 'cover',
-													objectPosition:'center',
-													width: '100%',
-													height: '100%'
-												}}
-											/>
-										</SContainerThumb>
-										<span>{item.title}</span>
-									</SLink>
-								</li>
-							))
-						}
-					</ul>
-				</SContainerListCat>
-			</SNav>
-
-			<SNav>
+				</SContainerblockCategory>
+			)
+		} else {
+			return (
+				<SContainerblockCategory>
 					<SContainerTitleCat>
 						<h2>Datas</h2>
 					</SContainerTitleCat>
 					<SContainerListCat>
-						<ul>
-							{
-								holiday.map((item, i) => (
-									<li key={i}>
-										<SLink href={`/categoria/holiday/${item.slug}`}>
-											<SContainerThumb>
-												<Image
-													src={item.icon}
-													alt={item.altIcon}
-													width={300}
-													height={300}
-													style={{
+						{
+							props.dataHoliday.map((item, i) => (
+								<SLiCards
+									key={i}
+									initial={{ opacity: 0, y: -10 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{
+										type: "spring",
+										damping: 13,
+										stiffness: 100,
+										delay: i * .03
+									}}
+								>
+									<SLink href={`/categoria/holiday/${item.slug}`}>
+										<SContainerThumb>
+											<Image
+												src={item.icon}
+												alt={item.altIcon}
+												width={100}
+												height={100}
+												style={{
+													width: '50px',
 													objectFit: 'cover',
-													objectPosition:'center',
-													width: '100%',
-													height: '100%'
+													objectPosition: 'center',
 												}}
-												/>
-											</SContainerThumb>
+											/>
+										</SContainerThumb>
+										<STitleCategory>
 											<span>{item.category}</span>
-										</SLink>
-									</li>
-								))
-							}
-						</ul>
-				</SContainerListCat>
-			</SNav>
+										</STitleCategory>
+									</SLink>
+								</SLiCards>
+							))
+						}
+					</SContainerListCat>
+				</SContainerblockCategory>
+			)
+		}
+	}
+	return (
+		<SWrapper
+			initial={{ opacity: 0, y: -10 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{
+				type: "spring",
+				damping: 13,
+				stiffness: 100,
+			}}
+			exit={
+				{
+					opacity: 0,
+					y: 10,
+					transition: {
+						duration: 0.21
+					}
+				}}
+		>
+			{renderBlock({
+				title: 'Costuráveis',
+				type: 'category',
+				category: mainCategory,
+			})}
+
+			{renderBlock({
+				title: 'Importados',
+				type: 'category',
+				category: importedCategory,
+			})}
+
+			{renderBlock({
+				title: 'Datas',
+				type: 'holiday',
+				dataHoliday: holiday,
+			})}
 		</SWrapper>
 	);
 }
