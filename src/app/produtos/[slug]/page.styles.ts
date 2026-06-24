@@ -1,7 +1,7 @@
 'use client'
 
-import CustomButton from '@/components/ui/Button'
-import { entraceToBottom, entraceToLeft } from '@/styles/animations'
+import CustomLink from '@/components/ui/Link'
+import { entraceToLeft } from '@/styles/animations'
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
@@ -97,8 +97,8 @@ export const SContainerBtnActions = styled(motion.div)`
     width: 100%;
   }
 `
-export const BtnBuget = styled(CustomButton)`
-  ${flex({ justfy: 'center' })};
+export const BtnBuget = styled(CustomLink)`
+  ${flex({ direction:'row', justfy: 'center' })};
   ${gap({ spaceKey: 'md' })};
   ${padding({ spaceKey: 'md' })};
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}

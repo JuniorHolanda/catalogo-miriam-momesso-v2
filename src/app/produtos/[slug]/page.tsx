@@ -77,6 +77,10 @@ export default async function ProductPage({ params }: ProductPageParams) {
   const product = products.find(item =>
     slugify(item.slug) === slug
   );
+  const urlProduct = `http://catalogo.miriammomesso.com.br/produtos/${slug}`
+  const whatsappText = `Olá! Gostaria de mais informações sobre o produto ${product?.title}`;
+  const whatsappNumber = '551138070539';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)} ${urlProduct}`;
 
 
   //validação
@@ -159,7 +163,9 @@ export default async function ProductPage({ params }: ProductPageParams) {
           compartilhar
         </ShareButtom>
         <CollectionButtom idProduct={product._id} />
-        <BtnBuget>
+        <BtnBuget
+          link={whatsappLink}
+        >
           <FaMoneyBill1Wave className="icon" />
           <span>Orçamento</span>
         </BtnBuget >
