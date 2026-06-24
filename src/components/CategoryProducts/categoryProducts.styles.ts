@@ -1,6 +1,6 @@
 'use client'
 
-import { flex, gap } from '@/styles/mixins'
+import { flex, gap, gridForCardsContainer } from '@/styles/mixins'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
@@ -11,10 +11,7 @@ export const SWrapper = styled.div`
   align-items: stretch;
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'row' })};
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    ${gridForCardsContainer()}
   }
 `
 

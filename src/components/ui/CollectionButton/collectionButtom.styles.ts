@@ -1,6 +1,6 @@
 'use client'
 
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { borderRadius, flex, font, gap, gridForCardsContainer, padding } from '@/styles/mixins'
 import styled from 'styled-components'
 import CustomButton from '../Button'
 import { motion } from 'framer-motion'
@@ -10,29 +10,22 @@ type PropsHasProduct = {
   $hasProduct: boolean
 }
 
-export const SWrapper = styled.button`
+export const SWrapper = styled(CustomButton)`
   position: relative;
   ${flex({})};
-  ${padding({ spaceKey: 'sm' })};
-  ${borderRadius({ radiusKey: 'sm' })};
+  ${padding({ spaceKey: 'md' })};
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   width: 100%;
-  height: 40px;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.reverseText};
-  transition: all ease-in-out 0.2s;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.button.hover};
+  
+  .icon {
+    font-size: ${({ theme }) => theme.iconSize.sm};
   }
 
-  &:active {
-    background-color: ${({ theme }) => theme.colors.button.active};
-    transform: scale(0.98);
-    background: darkerblue;
-  }
-
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     width: fit-content;
     ${padding({ spaceKey: 'md' })};
     ${gap({ spaceKey: 'md' })};
@@ -73,7 +66,7 @@ export const SWrapperCollection = styled.div`
   }
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'column', justfy: 'center' })};
+    ${flex({ direction: 'column', justfy: 'start' })};
     height: 85vh;
   }
 `
@@ -87,9 +80,7 @@ export const SContainerCollection = styled.div`
   -ms-overflow-style: none; // IE / Edge antigo
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'row', align: 'center' })};
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 150px);
+    ${gridForCardsContainer()}
     justify-content: center;
     height: fit-content;
     width: 100%;
@@ -101,7 +92,6 @@ export const SContainerBtn = styled.div`
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
   height: auto;
-  
 
   @media (min-width: 550px) {
     width: 70%;
@@ -113,13 +103,11 @@ export const STitleNewCollection = styled(motion.div)`
   ${gap({ spaceKey: 'sm' })};
   width: 100%;
 
-
   h3 {
-        ${font({ fontKey: 'primary', sizeKey: 'lg' })};
-
+    ${font({ fontKey: 'primary', sizeKey: 'lg' })};
   }
-  
-  h2{
+
+  h2 {
     ${font({ fontKey: 'primary', sizeKey: 'md' })};
   }
   p {
@@ -142,12 +130,11 @@ export const STitleNewCollection = styled(motion.div)`
 export const SInputSetCollection = styled(InputSetCollection)`
   width: 100%;
 
-  
   @media (min-width: 550px) {
     width: 80%;
   }
 
-    @media (min-width: 1000px) {
+  @media (min-width: 1000px) {
     width: 50%;
   }
 `
@@ -159,8 +146,7 @@ export const SCollection = styled(motion.div)<PropsHasProduct>`
   width: 100%;
   overflow: hidden;
   height: 8vh;
-  
-  
+
   @media (min-width: 550px) {
     height: 8vh;
     ${flex({ direction: 'column' })};
@@ -203,19 +189,20 @@ export const STitleCollection = styled.span`
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   ${padding({ spaceKey: 'md' })};
   ${borderRadius({ radiusKey: 'md' })};
-  ${flex({justfy:'start'})};
+  ${flex({ justfy: 'start' })};
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.background.surface};
   color: ${({ theme }) => theme.colors.text.text};
-  font-weight: 900;
-  
+  font-weight: 600;
+
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'sm' })};
     ${flex({})};
     height: fit-content;
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.text.reverseText};
+    color: ${({ theme }) => theme.colors.title.reverse};
+    word-break: break-all;
   }
 `
 
@@ -249,25 +236,23 @@ export const SBtnCollection = styled(CustomButton)<PropsHasProduct>`
 `
 
 export const SFeedbackCollection = styled(motion.span)`
-  ${flex({})};
+  ${flex({})}
   ${font({ fontKey: 'secondary', sizeKey: 'md' })};
   ${borderRadius({ radiusKey: 'md' })};
   ${padding({ spaceKey: 'md' })};
+  word-break: break-all;
   text-align: center;
   color: ${({ theme }) => theme.colors.text.text};
   font-weight: 600;
-  width: 70%;
+  width: 300px;
+  height: 150px;
   position: fixed;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+  // divide a largura do elemento e subtrai o valor de 50% para ficar no meio, precisa ser assim devido ao problema de centralização quando o pai tem propriedades transform
+  right: calc(50% - 150px);
+  top: calc(50% - 75px);
   word-wrap: nowrap;
   background-color: ${({ theme }) => theme.colors.feedback.success};
   ${font({ fontKey: 'secondary', sizeKey: 'xsm' })}
-
-  @media (min-width: 550px) {
-    width: 20%;
-  }
 `
 
 export const SContainerButtonAdd = styled.div`

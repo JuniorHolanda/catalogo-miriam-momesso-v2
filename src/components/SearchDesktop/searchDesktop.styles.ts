@@ -1,7 +1,7 @@
 'use client'
 
 import styled from 'styled-components'
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { borderRadius, flex, font, gap, gridForCardsContainer, padding } from '@/styles/mixins'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -129,10 +129,9 @@ export const SContainerResponseSearch = styled.div`
   align-items: stretch;
 `
 export const SContainerCard = styled.span`
-  display: grid;
+  ${gridForCardsContainer()}
   ${gap({ spaceKey: 'md' })};
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
+  justify-content: center;
   width: 100%;
   height: auto;
 `

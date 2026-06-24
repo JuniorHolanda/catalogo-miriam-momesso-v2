@@ -3,7 +3,7 @@
 import CustomButton from '@/components/ui/Button'
 import ShareButtom from '@/components/ui/ShareButtom'
 import { entraceToBottom } from '@/styles/animations'
-import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
+import { borderRadius, flex, font, gap, gridForCardsContainer, padding } from '@/styles/mixins'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import styled from 'styled-components'
@@ -18,7 +18,8 @@ export const SWrapper = styled.main`
   background-color: ${({ theme }) => theme.colors.background.base};
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'column', justfy: 'start' })};
+    ${flex({ direction: 'column'})};
+    justify-content: flex-start;
   }
 `
 export const SContainerTitle = styled.div`
@@ -48,9 +49,10 @@ export const SContainerCards = styled.div`
 
   @media (min-width: 550px) {
     ${gap({ spaceKey: 'md' })};
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    ${gridForCardsContainer()}
+    justify-content: center;
     height: fit-content;
+    width: 100%;
   }
 `
 
@@ -74,7 +76,12 @@ export const SContent = styled(motion.div)`
   }
 `
 
-export const Stitle = styled.div`
+export const SAnimationCardContainer = styled(motion.div)`
+  ${flex({})}
+  height: 100%;
+`
+
+export const Stitle = styled(Link)`
   ${flex({ justfy: 'center', align: 'center' })}
   width: 100%;
   height: 100%;
@@ -102,7 +109,6 @@ export const SContainerThumb = styled(Link)`
   width: 50%;
   height: 100%;
   position: relative;
-  ${borderRadius({ radiusKey: 'md' })};
 
   .thumb {
     ${borderRadius({ radiusKey: 'md' })}
@@ -116,6 +122,19 @@ export const SContainerThumb = styled(Link)`
   }
 `
 
+export const SContainerEmptyThumb = styled.span`
+  ${flex({ direction: 'column' })};
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
+  ${padding({ spaceKey: 'sm' })};
+  text-align: center;
+  color: ${({ theme }) => theme.colors.text.secondaryText};
+  height: 100%;
+
+  span {
+    font-size: 5em;
+  }
+`
+
 export const SContainerLottie = styled.div`
   ${flex({})}
   ${borderRadius({ radiusKey: 'md' })}
@@ -126,6 +145,7 @@ export const SContainerLottie = styled.div`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
   position: relative;
+  border: solid #487;
 
   span {
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
@@ -149,6 +169,7 @@ export const SContainerIcons = styled.div`
   right: 5px;
   top: 5px;
 
+
   & > :nth-child(1) {
     &:hover {
       background-color: ${({ theme }) => theme.colors.feedback.error};
@@ -161,7 +182,7 @@ export const SContainerIcons = styled.div`
     ${flex({ direction: 'column', justfy: 'start' })};
     ${padding({ spaceKey: 'sm' })};
     width: fit-content;
-    height: 100%;
+    height: fit-content;
   }
 `
 

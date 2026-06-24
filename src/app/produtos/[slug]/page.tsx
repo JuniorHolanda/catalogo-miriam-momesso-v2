@@ -1,11 +1,13 @@
-import { SContainerItens, SContent, SInfo, SWrapper, STextContent, SType, Stag, ScontainerTag, SContainerContentTag, SContainerBtnActions } from "./page.styles";
-import { notFound } from "next/navigation";
+import { SContainerItens, SContent, SInfo, SWrapper, STextContent, SType, Stag, ScontainerTag, SContainerContentTag, SContainerBtnActions, BtnBuget } from "./page.styles";
 import { getProducts } from "@/services/getProductMomesso";
 import slugify from "@/utils/slugfyText";
 import GalleryProduct from "@/components/GalleryProduct";
 import { Metadata } from "next";
 import ShareButtom from "@/components/ui/ShareButtom";
 import CollectionButtom from "@/components/ui/CollectionButton/CollectionButton";
+import NotFoundAnimation from "@/components/NotFound";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
+
 
 type ProductPageParams = {
   params: Promise<{
@@ -19,6 +21,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const products = await getProducts();
   const product = products.find(item => slugify(item.slug) === slug);
+
 
   if (!product) {
     return {
@@ -74,11 +77,20 @@ export default async function ProductPage({ params }: ProductPageParams) {
   const product = products.find(item =>
     slugify(item.slug) === slug
   );
+  const urlProduct = `http://catalogo.miriammomesso.com.br/produtos/${slug}`
+  const whatsappText = `Olá! Gostaria de mais informações sobre o produto ${product?.title}`;
+  const whatsappNumber = '551138070539';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)} ${urlProduct}`;
 
 
   //validação
   if (!product) {
-    notFound();
+    return (
+      <NotFoundAnimation
+        title="Nenhum produto encontrado"
+        subTitle="Volte para o início e tente novamente"
+      />
+    )
   }
 
   const allCategories = [
@@ -119,6 +131,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
               </SContainerItens>
             </SContainerContentTag>
           </Stag>
+          <hr />
           <Stag>
             <h2>Medidas</h2>
             <SContainerContentTag>
@@ -138,18 +151,24 @@ export default async function ProductPage({ params }: ProductPageParams) {
         </ScontainerTag>
       </SInfo>
       <SContainerBtnActions
-      initial={{opacity: 0, y:10}}
-      animate={{opacity: 1, y:0}}
-      transition={{
-        duration: 0.4,
-        ease: 'easeInOut',
-        delay: .5
-      }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.4,
+          ease: 'easeInOut',
+          delay: .5
+        }}
       >
         <ShareButtom product={product}>
           compartilhar
         </ShareButtom>
         <CollectionButtom idProduct={product._id} />
+        <BtnBuget
+          link={whatsappLink}
+        >
+          <FaMoneyBill1Wave className="icon" />
+          <span>Orçamento</span>
+        </BtnBuget >
       </SContainerBtnActions>
     </SWrapper>
   );

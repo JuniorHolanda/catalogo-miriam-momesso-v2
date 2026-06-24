@@ -2,28 +2,22 @@
 
 import { borderRadius, flex, font, gap, padding } from '@/styles/mixins'
 import styled from 'styled-components'
+import CustomButton from '../Button'
 
-export const SWrapper = styled.button`
+export const SWrapper = styled(CustomButton)`
   ${flex({})};
-  ${padding({ spaceKey: 'sm' })};
-  ${borderRadius({ radiusKey: 'sm' })};
+  ${padding({ spaceKey: 'md' })};
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   width: 100%;
-  height: 40px;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.reverseText};
-  transition: all ease-in-out 0.2s;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.button.hover};
+
+
+  .icon {
+    font-size: ${({ theme }) => theme.iconSize.sm};
   }
-  
-  &:active {
-    background-color: ${({ theme }) => theme.colors.button.active};
-    transform: scale(0.98);
-    background: darkerblue;
-  }
-  
+
   @media (min-width: 550px) {
     height: 100%;
     width: fit-content;
@@ -34,7 +28,7 @@ export const SWrapper = styled.button`
   span {
     display: none;
 
-    @media (min-width: 550px) {
+    @media (min-width: 700px) {
       display: block;
     }
   }

@@ -73,7 +73,7 @@ export default function ShareButtom({
 
     return (
         <SWrapper className={className} onClick={handleShare}>
-            <IoMdShare />
+            <IoMdShare className="icon" />
             {
                 children && <span>{children}</span>
             }

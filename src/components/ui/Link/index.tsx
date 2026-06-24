@@ -9,7 +9,7 @@ type propsCustomLink = {
 export default function CustomLink({ children, link, className} : propsCustomLink) {
   return (
     <SLink href={link} className={className}>
-      <span>{children}</span>
+      {children}
     </SLink>
   );
 }

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { SContainerMenu, SItemMenu, SLink, SList, Snav } from "./navDesktop.styles";
+import { SItemMenu, SLink, SList, Snav } from "./navDesktop.styles";
 import { AnimatePresence } from "framer-motion";
 import DropDawnMenu from "@/components/DropDawnMenu";
 
@@ -28,14 +28,7 @@ export default function NavDesktop() {
 
           <AnimatePresence>
             {dropMenu &&
-              <SContainerMenu
-                initial={{ opacity: 0, y: -10, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-              >
-                <DropDawnMenu />
-              </SContainerMenu>
+              <DropDawnMenu />
             }
           </AnimatePresence>
         </SItemMenu>
