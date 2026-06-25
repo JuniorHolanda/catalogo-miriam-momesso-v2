@@ -6,7 +6,6 @@ export const SWrapper = styled.div`
   ${flex({})}
   height: 100%;
   font-size: clamp(1rem, 6rem, 8vw);
-
 `;
 
 export const SContainerMenu = styled(motion.nav)`
@@ -17,7 +16,6 @@ export const SContainerMenu = styled(motion.nav)`
   width: 100%;
   height: 80dvh;
   background-color: ${({theme}) => theme.colors.opacity.base};
-  backdrop-filter: blur(50px);
   `;
 
 export const SContent = styled.button`

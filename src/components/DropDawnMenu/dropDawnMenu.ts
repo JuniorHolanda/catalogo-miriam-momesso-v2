@@ -7,17 +7,18 @@ import styled from 'styled-components'
 export const SWrapper = styled(motion.section)`
   ${flex({ direction: 'column', justfy: 'start' })};
   ${gap({ spaceKey: 'md' })};
-  ${padding({ spaceKey: 'xlg' })};
-  position: absolute;
+  ${padding({ spaceKey: 'lg' })};
   width: 100%;
-  height: 100%;
-  top: 0vh;
-  left: 0;
+  height:100%;
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   overflow: auto;
-
+  
   @media (min-width: 550px) {
+    ${padding({ spaceKey: 'xlg' })};
+    position: absolute;
+    top: 0vh;
+    left: 0;
     ${flex({})};
     overflow: visible;
     top: 10vh;

@@ -7,7 +7,7 @@ export const SContainerStories = styled.div`
   ${borderRadius({ radiusKey: 'lg' })};
   position: relative;
   height:100%;
-  width: 95%;
+  width: 100%;
   overflow: hidden;
   z-index: 1;
   background-color: transparent;

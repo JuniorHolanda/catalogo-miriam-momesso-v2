@@ -14,10 +14,10 @@ export default function HeaderSwitcher({ children }: Props) {
 
     return (
         <>
-        <IntroAnimation />
+            <IntroAnimation />
             <SDesktop>
                 <HeaderDesktop />
-                    {children}
+                {children}
                 <Footer />
             </SDesktop>
 

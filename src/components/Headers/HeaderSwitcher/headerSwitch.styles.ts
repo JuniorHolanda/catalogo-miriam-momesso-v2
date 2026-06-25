@@ -1,6 +1,6 @@
 'use client'
 
-import { flex } from '@/styles/mixins'
+import { flex, padding } from '@/styles/mixins'
 import styled from 'styled-components'
 
 export const SDesktop = styled.div`
@@ -19,15 +19,17 @@ export const SMobile = styled.div`
   overflow-y: scroll;
   width: 100%;
   height: 100dvh;
-
+  
   @media (min-width: 550px) {
     display: none;
   }
-`
+  `
 
 export const SContainerContent = styled.div`
   ${flex({ direction: 'column', justfy: 'start' })}
   height: 100%;
   overflow-y: scroll;
   width: 100%;
+  
+  
 `
