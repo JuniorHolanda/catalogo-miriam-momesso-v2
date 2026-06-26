@@ -2,7 +2,7 @@
 
 import { Collection } from "@/utils/types";
 import { useEffect, useState } from "react"
-import { SAnimationCardContainer, SBtnOptionsCard, SContainerCards, SContainerEmptyThumb, SContainerIcons, SContainerShareBtn, SContainerThumb, SContainerTitle, SContent, SShareButton, Stitle, SWrapper } from "./colecao.styles";
+import { SAnimationCardContainer, SAnimationNoCollection, SBtnOptionsCard, SContainerCards, SContainerEmptyThumb, SContainerIcons, SContainerShareBtn, SContainerThumb, SContainerTitle, SContent, SShareButton, Stitle, SWrapper } from "./colecao.styles";
 import { useProducts } from "@/contexts/Product.context";
 import { Product } from "@/utils/interfaces";
 import Image from "next/image";
@@ -12,6 +12,8 @@ import CreateListCollectionProducts from "@/utils/collectionWithProducts";
 import { FaRegTrashCan } from "react-icons/fa6";
 import getLocalStorage from "@/utils/getLocalStorage";
 import { emoji } from "@/utils/emojis";
+import { AnimatePresence } from "framer-motion";
+import NotFoundAnimation from "@/components/NotFound";
 
 type CollectionFull = Collection & {
   products: Product[];
@@ -21,15 +23,13 @@ type CollectionFull = Collection & {
 export default function CollectionPage() {
   const [collectionFull, setCollectionFull] = useState<CollectionFull[] | null>(null);
   const products = useProducts();
-  const positiveEmojis = emoji({ typeEmoji: 'positive' })
-  const negativeEmojis = emoji({ typeEmoji: 'negative' })
   const textToCollectionEmpty = [
     'Coleção vazia',
     'Tá meio vazio aqui',
-    'Pra me excluir, clique na lixeira',
+    'Quer me excluir, clique na lixeira',
     'Vai me deixar vazio?',
     'Estou vazio, esqueceu de mim?',
-    'Pra que me deixar vazio?'
+    'Pra que me sem produto?'
   ]
 
   const randomicNumber = () => Math.floor(Math.random() * textToCollectionEmpty.length)
@@ -60,76 +60,82 @@ export default function CollectionPage() {
     <SWrapper>
       <SContainerTitle>
         <h1>
-          Suas Coleções
+          Coleções
         </h1>
       </SContainerTitle>
       <SContainerCards>
-        {
-          collectionFull !== null && collectionFull?.length > 0 && (
-            collectionFull?.map((collection, i) => (
-              <SAnimationCardContainer
-                key={collection.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  type: "spring",
-                  damping: 13,
-                  stiffness: 100,
-                  delay: i * .05,
-                }}
-              >
+        <AnimatePresence>
+          {
+            collectionFull !== null && collectionFull?.length > 0 ?
+              collectionFull?.map((collection, i) => (
+                <SAnimationCardContainer
+                  key={collection.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10, }}
+                  transition={{
+                    type: "spring",
+                    damping: 13,
+                    stiffness: 100,
+                    delay: i * .05,
+                  }}
 
-
-                <SContent
                 >
-                  {
-                    collection.itensId.length > 0 ?
-                      <SContainerThumb href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}
-                      >
-                        <Image
-                          src={collection.products.at(-1)?.thumbnail ?? './favicon.png'}
-                          alt={collection.products.at(-1)?.altthumbnail ?? 'Imagem do produto não encontrada'}
-                          width={100}
-                          height={100}
-                          style={{
-                            objectFit: 'cover',
-                            height: '100%',
-                            width: '100%',
-                          }}
-                        />
-                      </SContainerThumb> :
-                      <SContainerEmptyThumb>
-                        {/* chamar a função emoji direto no card e não em variavel para fazer uma chamada para cada card e gerar emojis diferentes*/}
-                        <span>{emoji({ typeEmoji: 'negative' })}</span>
-                        <p>{textToCollectionEmpty[randomicNumber()]}</p>
-                      </SContainerEmptyThumb>
-                  }
-                  <Stitle href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}>
-                    <h2>{collection.name}</h2>
-                  </Stitle>
 
-                  <SContainerIcons>
-                    <SBtnOptionsCard
-                      onClick={() => deleteItemLocalstorage(collection.id)}>
-                      <FaRegTrashCan />
-                    </SBtnOptionsCard>
+
+                  <SContent
+                  >
                     {
-                      collection.itensId.length > 0 && (
-                        <SContainerShareBtn>
-                          <SShareButton
-                            idsProducts={collection.itensId}
-                            idCollection={collection.id}
-                            nameCollection={slugify(collection.name)} />
-                        </SContainerShareBtn>
-                      )
+                      collection.itensId.length > 0 ?
+                        <SContainerThumb href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}
+                        >
+                          <Image
+                            src={collection.products.at(-1)?.thumbnail ?? './favicon.png'}
+                            alt={collection.products.at(-1)?.altthumbnail ?? 'Imagem do produto não encontrada'}
+                            width={100}
+                            height={100}
+                            style={{
+                              objectFit: 'cover',
+                              height: '100%',
+                              width: '100%',
+                            }}
+                          />
+                        </SContainerThumb> :
+                        <SContainerEmptyThumb>
+                          {/* chamar a função emoji direto no card e não em variavel para fazer uma chamada para cada card e gerar emojis diferentes*/}
+                          <span>{emoji({ typeEmoji: 'negative' })}</span>
+                          <p>{textToCollectionEmpty[randomicNumber()]}</p>
+                        </SContainerEmptyThumb>
                     }
-                  </SContainerIcons>
-                </SContent>
-              </SAnimationCardContainer>
+                    <Stitle href={`/colecao/${slugify(collection.name)}?id=${collection.itensId}`}>
+                      <h2>{collection.name}</h2>
+                    </Stitle>
 
-            ))
-          )
-        }
+                    <SContainerIcons>
+                      <SBtnOptionsCard
+                        onClick={() => deleteItemLocalstorage(collection.id)}>
+                        <FaRegTrashCan />
+                      </SBtnOptionsCard>
+                      {
+                        collection.itensId.length > 0 && (
+                          <SContainerShareBtn>
+                            <SShareButton
+                              idsProducts={collection.itensId}
+                              idCollection={collection.id}
+                              nameCollection={slugify(collection.name)} />
+                          </SContainerShareBtn>
+                        )
+                      }
+                    </SContainerIcons>
+                  </SContent>
+                </SAnimationCardContainer>
+
+              ))
+              : <NotFoundAnimation
+                title="Você ainda não possui nenhuma coleção."
+                subTitle="Para criar uma coleção, acesse um produto e clique em coleção." />
+          }
+        </AnimatePresence>
       </SContainerCards>
     </SWrapper>
   )

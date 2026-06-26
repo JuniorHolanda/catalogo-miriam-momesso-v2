@@ -27,6 +27,7 @@ export const SForm = styled(motion.form)`
     border: none;
     outline: none;
     background: transparent;
+    color: ${({ theme }) => theme.colors.text.text};
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.text.text};
@@ -54,13 +55,11 @@ export const SButtonCategory = styled(CustomButton)`
 
   & > :nth-child(2) {
     display: none;
+    color: ${({ disabled, theme }) =>
+      disabled ? theme.colors.link.primary : theme.colors.link.reverse};
+
     @media (min-width: 900px) {
       ${flex({})}
     }
-  }
-
-  &:hover {
-    background-color: ${({ disabled, theme }) =>
-      disabled ? theme.colors.button.inactive : theme.colors.feedback.success};
   }
 `

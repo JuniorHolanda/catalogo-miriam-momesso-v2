@@ -26,12 +26,12 @@ export default function CardProduct({ product }: InptProps): JSX.Element {
           height={150}
           style={{
             objectFit: 'cover',
-            width: '100%'
+            width: '100%',
           }}
         />
       </SContainerThumb>
       <STitle>
-        <h1>{product.title}</h1>
+        <span>{product.title}</span>
       </STitle>
     </SWrapper>
   );

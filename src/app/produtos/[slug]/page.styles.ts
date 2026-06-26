@@ -12,7 +12,8 @@ export const SWrapper = styled.section`
   ${padding({ spaceKey: 'md' })}
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.background.surface};
+  background-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.background.base : theme.colors.background.high};;
   overflow-y: auto;
 
   @media (min-width: 550px) {
@@ -37,7 +38,7 @@ export const SContent = styled.div`
   grid-area: scontent;
   width: 100%;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  background-color: ${({ theme }) => theme.colors.background.medium};
   opacity: 0;
   animation: ${entraceToLeft} ease-in-out 0.6s 0.7s forwards;
 
@@ -89,7 +90,7 @@ export const SContainerBtnActions = styled(motion.div)`
   ${borderRadius({ radiusKey: 'lg' })};
   width: 100%;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  background-color: ${({ theme }) => theme.colors.background.medium};
 
   @media (min-width: 550px) {
     ${flex({ align: 'center', justfy: 'start' })};
@@ -98,7 +99,7 @@ export const SContainerBtnActions = styled(motion.div)`
   }
 `
 export const BtnBuget = styled(CustomLink)`
-  ${flex({ direction:'row', justfy: 'center' })};
+  ${flex({ direction: 'row', justfy: 'center' })};
   ${gap({ spaceKey: 'md' })};
   ${padding({ spaceKey: 'md' })};
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
@@ -121,7 +122,7 @@ export const SInfo = styled.div`
   ${borderRadius({ radiusKey: 'lg' })};
   width: 100%;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  background-color: ${({ theme }) => theme.colors.background.medium};
   backdrop-filter: blur(30px);
   opacity: 0;
   animation: ${entraceToLeft} ease-in-out 0.5s 0.6s forwards;

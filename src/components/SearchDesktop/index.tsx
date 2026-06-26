@@ -29,16 +29,17 @@ import "swiper/css/pagination";
 import Lottie from "lottie-react";
 import animationData from '@/Lotties/gatinho-corta-fio.json'
 import { useProductSearch } from "@/hooks/searchProducts";
+import NotFoundAnimation from "../NotFound";
 
 
 export default function SearchSection() {
   const products = useProducts();
   const {
-  text,
-  productsFiltered,
-  notFound,
-  controllerInput,
-} = useProductSearch(products);
+    text,
+    productsFiltered,
+    notFound,
+    controllerInput,
+  } = useProductSearch(products);
   const haveContent = productsFiltered.length > 0;
 
 
@@ -143,18 +144,10 @@ export default function SearchSection() {
               }
               {
                 notFound && (
-                  <SLottie>
-                    <h2>Não encontramos nada para {text}</h2>
-                    <p>Procure algo como bolsa, mochila, necessaire... </p>
-                    <Lottie
-                      animationData={animationData}
-                      loop={true}
-                      style={{
-                        width: 350,
-                        height: 350,
-                      }}
-                    />
-                  </SLottie>
+                  <NotFoundAnimation
+                    title="Não encontramos nada para sua busca."
+                    subTitle="Procure algo como bolsa, mochila, necessaire..."
+                  />
                 )
               }
             </SContainerCard>

@@ -46,6 +46,14 @@ export const SMotionGalleryItem = styled(motion.div)`
   width: 100%;
   overflow: hidden;
   cursor: pointer;
+  img {
+    opacity: ${({ theme }) => (theme.mode === 'light' ? 1 : .7)};
+    transition: all ease-in-out .2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 `
 
 export const SMainImg = styled(motion.div)`

@@ -79,8 +79,13 @@ export const ScontainerInput = styled.div<PropsSContainerInput>`
     overflow: hidden;
     width: 60%;
     height: 100%;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text.text};
     background-color: ${({ theme }) => theme.colors.background.base};
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.text.text};
+    }
+
     &:focus {
       outline: none;
       border: solid 1px ${({ theme }) => theme.colors.border.active};
@@ -123,7 +128,7 @@ export const SContainerResponseSearch = styled.div`
   padding-top: 15vh;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   align-items: stretch;
@@ -163,13 +168,14 @@ export const SLottie = styled.div`
 `
 
 export const SLink = styled(Link)`
+  position: relative;
   ${flex({ direction: 'column' })};
   ${gap({ spaceKey: 'sm' })};
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.background.high};
+  background-color: transparent;
   color: ${({ theme }) => theme.colors.text.text};
 `
 
@@ -177,16 +183,27 @@ export const SImage = styled(Image)`
   ${borderRadius({ radiusKey: 'lg' })};
   object-fit: cover;
   object-position: center;
+  opacity: ${({ theme }) => (theme.mode === 'dark' ? 0.4 : 1)};
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    opacity: 1;
+  }
 `
 
 export const SContainerInfoHoliday = styled.div`
+  position: absolute;
+  ${borderRadius({ radiusKey: 'lg' })};
+  bottom: 0;
   ${flex({ direction: 'column', justfy: 'center', align: 'center' })}
+  ${padding({ spaceKey: 'md' })};
   align-items: center;
   width: 100%;
   height: fit-content;
+  background-image: linear-gradient(0deg, #00000093, #ffffff00);
 
   h2 {
     ${font({ fontKey: 'secondary', sizeKey: 'xsm' })}
-    font-weight: 900;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.text.text};
   }
 `

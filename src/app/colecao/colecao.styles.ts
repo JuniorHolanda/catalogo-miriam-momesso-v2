@@ -15,10 +15,10 @@ export const SWrapper = styled.main`
   height: 100%;
   width: 100%;
   overflow-y: auto;
-  background-color: ${({ theme }) => theme.colors.background.base};
+  background-color: ${({ theme }) => theme.colors.background.high};
 
   @media (min-width: 550px) {
-    ${flex({ direction: 'column'})};
+    ${flex({ direction: 'column' })};
     justify-content: flex-start;
   }
 `
@@ -64,9 +64,9 @@ export const SContent = styled(motion.div)`
   width: 100%;
   height: fit-content;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.high};
-  position: relative;
+  background-color: ${({ theme }) => theme.colors.opacity.primary};
 
+  position: relative;
 
   @media (min-width: 550px) {
     flex-direction: column;
@@ -96,7 +96,6 @@ export const Stitle = styled(Link)`
     ${padding({ spaceKey: 'md' })};
     width: 100%;
     height: fit-content;
-    background-color: ${({ theme }) => theme.colors.background.surface};
   }
 
   h2 {
@@ -133,11 +132,12 @@ export const SContainerEmptyThumb = styled.span`
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   ${padding({ spaceKey: 'sm' })};
   text-align: center;
-  color: ${({ theme }) => theme.colors.text.secondaryText};
+  color: ${({ theme }) => theme.colors.text.text};
+
   height: 100%;
 
   span {
-    font-size: 5em;
+    font-size: 3em;
   }
 `
 
@@ -173,7 +173,6 @@ export const SContainerIcons = styled.div`
   position: absolute;
   right: 5px;
   top: 5px;
-
 
   & > :nth-child(1) {
     &:hover {
@@ -237,3 +236,6 @@ export const SShareButton = styled(ShareButtom)`
     height: 40px;
   }
 `
+export const SAnimationNoCollection = styled.div`
+  
+`;

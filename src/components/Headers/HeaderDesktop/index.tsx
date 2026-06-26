@@ -1,6 +1,7 @@
 import NavDesktop from "@/components/Navs/NavDesktop";
 import { Scontainer, ScontainerLogo } from "./header.styled";
 import Image from "next/image";
+import ToglleButton from "@/components/ToglleButton";
 
 export default function HeaderDesktop() {
 
@@ -15,6 +16,7 @@ export default function HeaderDesktop() {
           />
         </ScontainerLogo>
         <NavDesktop/>
+        <ToglleButton />
       </Scontainer>
   );
 }

@@ -9,11 +9,11 @@ export const SWrapper = styled(motion.section)`
   ${gap({ spaceKey: 'md' })};
   ${padding({ spaceKey: 'lg' })};
   width: 100%;
-  height:100%;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   overflow: auto;
-  
+
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
     position: absolute;
@@ -64,14 +64,26 @@ export const SLiCards = styled(motion.li)`
 
   ${padding({ spaceKey: 'sm' })};
   @media (min-width: 550px) {
-    background-color: ${({ theme }) => theme.colors.opacity.base};
+    background-color: ${({ theme }) => theme.colors.opacity.primary};
     width: fit-content;
   }
 `
+export const STitleCategory = styled.div`
+  ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
+  font-weight: 400;
+  height: fit-content;
+  color: ${({ theme }) => theme.colors.text.text};
+  transition: all ease-in-out 0.2s;
+`
+
 export const SLink = styled(Link)`
   ${flex({ align: 'start', justfy: 'start' })}
   ${gap({ spaceKey: 'md' })};
   align-items: center;
+
+  &:hover ${STitleCategory} {
+    color: ${({ theme }) => theme.colors.link.hover};
+  }
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'sm' })};
@@ -92,10 +104,4 @@ export const SContainerThumb = styled.div`
     ${borderRadius({ radiusKey: 'md' })};
     display: block;
   }
-`
-
-export const STitleCategory = styled.div`
-  ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
-  font-weight: 600;
-  height: fit-content;
 `
