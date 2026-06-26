@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import { flex, gap, padding} from "@/styles/mixins";
-import styled from "styled-components";
+import { flex, gap, padding } from '@/styles/mixins'
+import styled from 'styled-components'
 
 export const Scontainer = styled.div`
   ${flex({ align: 'center', justfy: 'start' })};
@@ -12,15 +12,14 @@ export const Scontainer = styled.div`
   height: 100%;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
-  
-  
+  transition: all ease-in-out .2s;
+
   @media (min-width: 550px) {
     padding: 0;
     height: 90vh;
     margin-top: 0;
   }
-;
-`;
+`
 
 export const Ssection = styled.main`
   position: relative;
@@ -31,26 +30,25 @@ export const Ssection = styled.main`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  `;
+`
 
 export const SDesktop = styled.div`
-display: block;
-width: 100%;
-height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 
-@media (max-width: 550px) {
-  display: none;
-}
-`;
+  @media (max-width: 550px) {
+    display: none;
+  }
+`
 
 export const SMobile = styled.div`
   display: none;
   width: 100%;
   height: 100%;
 
-
   @media (max-width: 550px) {
-    ${flex({direction:'column'})}
-    ${gap({spaceKey:'md'})}
+    ${flex({ direction: 'column' })}
+    ${gap({ spaceKey: 'md' })}
   }
-`;
+`

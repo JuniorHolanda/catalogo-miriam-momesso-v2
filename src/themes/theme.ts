@@ -28,6 +28,7 @@ export const defaultTheme = {
 
 export const lightTheme = {
   ...defaultTheme,
+  mode: 'light',
   colors: {
     background: {
       high: '#ffffff',
@@ -65,10 +66,11 @@ export const lightTheme = {
     },
 
     link: {
-      primary: '#244cff',
-      activePrimary: '#3895ff',
-      secondary: '#d68710',
-      reverse: '#ffffff',
+      primary: '#e9e9e9',
+      hover: '#fff',
+      activePrimary: '#8cc1fd',
+      secondary: '#ffa010',
+      reverse: '#1f1f1f',
     },
 
     border: {
@@ -86,8 +88,8 @@ export const lightTheme = {
     },
 
     opacity: {
-      base: '#474f7c48',
-      primary: '#244cff5b',
+      base: '#244cff5b',
+      primary: '#474f7c48',
       reverse: '#ffffff44',
     },
   },
@@ -95,18 +97,18 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...defaultTheme,
-  ...defaultTheme,
+  mode: 'dark',
   colors: {
     background: {
-      high: '#ffffff',
-      medium: '#f3f3f3',
-      surface: '#e7e7e7ff',
-      base: 'rgb(221, 221, 221)',
-      reverse: '#27252eff',
+      high: '#0d0d11',
+      medium: '#161616',
+      surface: '#000000',
+      base: '#2c2c2c',
+      reverse: '#cacaca',
     },
 
     pallet: {
-      primary: '#244cff',
+      primary: '#0d0d11',
       primaryUp: '#99B2DD',
       secondary: '#d68710',
       secondaryUP: '#ff711f',
@@ -120,23 +122,24 @@ export const darkTheme = {
     },
 
     title: {
-      primary: '#244cff',
-      secondary: '#ffffff',
-      reverse: '#232324',
+      primary: '#f59e0b',
+      secondary: '#3b82f6',
+      reverse: '#ffffff',
     },
 
     text: {
-      text: '#27252eff',
-      textMain: '#151516ff',
-      reverseText: '#ffffff',
-      secondaryText: '#464646',
+      text: '#c5c5c5',
+      textMain: '#f59e0b',
+      reverseText: '#131314',
+      secondaryText: '#474747',
     },
 
     link: {
-      primary: '#244cff',
-      activePrimary: '#3895ff',
-      secondary: '#d68710',
-      reverse: '#ffffff',
+      primary: '#c5c5c5',
+      hover: '#d68710',
+      activePrimary: '#244cff',
+      secondary: '#f59e0b',
+      reverse: '#161616',
     },
 
     border: {
@@ -154,7 +157,7 @@ export const darkTheme = {
     },
 
     opacity: {
-      base: '#6d78b848',
+      base: '#11152ba1',
       primary: '#244cff5b',
       reverse: '#ffffff44',
     },

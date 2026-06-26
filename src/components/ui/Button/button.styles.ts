@@ -8,7 +8,7 @@ export const SButton = styled.button`
   ${padding({ spaceKey: 'md' })}
   ${borderRadius({ radiusKey: 'md' })}
   background-color: ${({ theme }) => theme.colors.button.default};
-  color: ${({ theme }) => theme.colors.text.reverseText};
+  color: ${({ theme }) => theme.colors.link.primary};
   width: 100%;
   transition: all ease-in-out .2s;
 

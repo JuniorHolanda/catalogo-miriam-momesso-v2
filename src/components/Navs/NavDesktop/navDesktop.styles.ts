@@ -1,7 +1,6 @@
 'use  client'
 
 import { flex, font, gap, padding, smoothTransition } from '@/styles/mixins'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -33,11 +32,36 @@ export const SItemMenu = styled.li`
   height: 100%;
 
   button {
-    color: ${({ theme }) => theme.colors.text.reverseText};
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })}
-    font-weight: 400;
+    color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.link.primary : theme.colors.link.primary};
+      height: 100%;
+    transition: all ease-in-out 0.1s;
 
+    &:hover {
+      color: ${({ theme }) => theme.colors.link.hover};
+      font-weight: 900;
+    }
+
+    &:active {
+      color: ${({ theme }) => theme.colors.link.activePrimary};
+    }
   }
 `
 
-export const SLink = styled(Link)``
+export const SLink = styled(Link)`
+  ${flex({})}
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.link.primary : theme.colors.link.primary};
+  transition: all ease-in-out 0.1s;
+  height: 100%;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.link.hover};
+    font-weight: 900;
+  }
+
+  &:active {
+    color: ${({ theme }) => theme.colors.link.activePrimary};
+  }
+`

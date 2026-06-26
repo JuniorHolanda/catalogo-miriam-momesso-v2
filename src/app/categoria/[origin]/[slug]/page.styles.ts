@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { entraceToBottom } from '@/styles/animations'
 import { flex, font, gap, padding } from '@/styles/mixins'
@@ -8,11 +8,11 @@ export const SWrapper = styled.main`
   ${flex({ direction: 'column', justfy: 'start', align: 'center' })};
   ${padding({ spaceKey: 'md' })};
   ${gap({ spaceKey: 'md' })};
-  background-color: ${({ theme }) => theme.colors.background.base};
+  background-color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.background.base : theme.colors.background.high};
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.background.base};
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
@@ -26,6 +26,7 @@ export const SContainerTitle = styled.div`
   color: ${({ theme }) => theme.colors.title.primary};
   opacity: 0;
   animation: ${entraceToBottom} ease-in-out 0.5s forwards;
+  
 
   h1 {
     font-weight: 100;

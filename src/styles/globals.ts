@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -7,6 +7,39 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  /* ================================ SCROLLBAR ================================ */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* fundo da scrollbar */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+/* barra (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #244cff;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* hover na barra */
+::-webkit-scrollbar-thumb:hover {
+  background-color: ${({ theme }) => theme.colors.pallet.primary};
+}
+
+/* canto (quando horizontal + vertical se cruzam) */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 
   html, body {
     height: 100%;
@@ -45,7 +78,7 @@ export const GlobalStyle = createGlobalStyle`
   all: unset;       
   display: block;
   height: 1px;
-  border-top: solid 1px ${({theme}) => theme.colors.border.default};
+  border-top: solid 1px ${({ theme }) => theme.colors.border.default};
   width: 100%;
   }
-`;
+`

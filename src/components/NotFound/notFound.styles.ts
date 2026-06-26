@@ -1,9 +1,10 @@
 'use client'
 
 import { flex, font } from '@/styles/mixins'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const SLottie = styled.div`
+export const SLottie = styled(motion.div)`
   ${flex({ direction: 'column' })}
   grid-column: 1 / 9;
   width: 100%;

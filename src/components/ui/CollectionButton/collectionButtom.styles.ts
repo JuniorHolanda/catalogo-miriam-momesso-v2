@@ -20,7 +20,6 @@ export const SWrapper = styled(CustomButton)`
   background-color: ${({ theme }) => theme.colors.button.default};
   color: ${({ theme }) => theme.colors.text.reverseText};
 
-  
   .icon {
     font-size: ${({ theme }) => theme.iconSize.sm};
   }
@@ -150,7 +149,8 @@ export const SCollection = styled(motion.div)<PropsHasProduct>`
   @media (min-width: 550px) {
     height: 8vh;
     ${flex({ direction: 'column' })};
-    ${padding({ spaceKey: 'sm' })}
+    ${padding({ spaceKey: 'sm' })};
+    padding-top: 10px;
     ${borderRadius({ radiusKey: 'md' })};
     width: 100%;
     height: 100%;
@@ -177,7 +177,10 @@ export const SContainerEmptyThumb = styled.span`
   ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
   ${padding({ spaceKey: 'sm' })};
   text-align: center;
-  color: ${({ theme }) => theme.colors.text.reverseText};
+
+  p {
+    color: ${({ theme }) => theme.colors.text.text};
+  }
 
   span {
     font-size: 5em;
@@ -214,7 +217,8 @@ export const SBtnCollection = styled(CustomButton)<PropsHasProduct>`
   padding: ${({ theme }) => theme.spaces.sm} ${({ theme }) => theme.spaces.md};
   height: 100%;
   width: fit-content;
-  color: ${({ theme }) => theme.colors.background.surface};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.background.surface : theme.colors.background.reverse};
   background-color: ${({ $hasProduct, theme }) =>
     $hasProduct ? theme.colors.button.inactive : theme.colors.button.default};
   font-size: ${({ theme }) => theme.iconSize.md};
@@ -242,7 +246,8 @@ export const SFeedbackCollection = styled(motion.span)`
   ${padding({ spaceKey: 'md' })};
   word-break: break-all;
   text-align: center;
-  color: ${({ theme }) => theme.colors.text.text};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.text.text : theme.colors.text.reverseText};
   font-weight: 600;
   width: 300px;
   height: 150px;
