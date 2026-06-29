@@ -9,7 +9,7 @@ export const Swrapper = styled.section`
   height: 10vh;
   ${padding({ spaceKey: 'md' })}
   background-color: ${({ theme }) => theme.colors.background.high};
-  `
+`
 
 export const Snav = styled.nav`
   ${flex({ justfy: 'space-between' })}
@@ -19,16 +19,18 @@ export const Snav = styled.nav`
   width: 100%;
   height: 100%;
   z-index: 2;
-  `
+`
 
 export const SLink = styled(Link)`
   ${flex({})}
   font-size: clamp(1rem, 6rem, 8vw);
-  color: ${({ theme }) => theme.colors.link.primary};
-  `
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.link.hover : theme.colors.link.primary};
+`
 
 export const SContainerBtnShowMenu = styled.div`
   ${flex({})}
   font-size: ${({ theme }) => theme.iconSize.md};
-  color: ${({ theme }) => theme.colors.link.primary};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.link.hover : theme.colors.link.primary};
 `

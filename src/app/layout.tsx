@@ -7,6 +7,8 @@ import { Product } from "@/utils/interfaces";
 import { getProducts } from "@/services/getProductMomesso";
 import HeaderSwitcher from "@/components/Headers/HeaderSwitcher";
 import { ProductsProvider } from "@/contexts/Product.context";
+
+
 const changaOne = Changa_One({
   variable: "--font-primary",
   subsets: ["latin"],
@@ -35,8 +37,12 @@ export const metadata: Metadata = {
     "brindes para eventos",
   ],
   authors: [{ name: "Miriam Momesso" }],
-  creator: "Miriam Momesso",
+  creator: "Pedro de Holanda",
   publisher: "Miriam Momesso",
+
+  verification: {
+    google: "j7eVhlhEFokIzQIIv55R144dT7QhDwGqvDTP6sX6B8w",
+  },
 
   robots: {
     index: true,
@@ -94,7 +100,7 @@ export default async function RootLayout({
               <ProductsProvider products={listproducts}>
                 <HeaderSwitcher>
                   {children}
-                </HeaderSwitcher> 
+                </HeaderSwitcher>
               </ProductsProvider>
             </ViewportProvider>
           </AppThemeProvider>

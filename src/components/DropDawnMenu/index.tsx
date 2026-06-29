@@ -1,10 +1,11 @@
 'use client'
-import { SContainerblockCategory, SContainerListCat, SContainerThumb, SContainerTitleCat, SLiCards, SLink, STitleCategory, SWrapper } from "./dropDawnMenu";
+import { SContainerblockCategory, SContainerListCat, SContainerThumb, SContainerTitleCat, SContainerToglle, SLiCards, SLink, STitleCategory, SWrapper } from "./dropDawnMenu";
 import holiday from '@/data/holiday.json';
 import Image from "next/image";
 import { Holiday, Product } from "@/utils/interfaces";
 import slugify from "@/utils/slugfyText";
 import { useProducts } from "@/contexts/Product.context";
+import ToggleButton from "../ToglleButton";
 type filterCategoriesParams = "imported" | "main";
 
 type createCategories = {
@@ -209,6 +210,9 @@ export default function DropDawnMenu() {
 					}
 				}}
 		>
+			<SContainerToglle>
+				<ToggleButton />
+			</SContainerToglle>
 			{renderBlock({
 				title: 'Costuráveis',
 				type: 'category',

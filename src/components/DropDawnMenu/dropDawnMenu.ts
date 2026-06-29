@@ -13,6 +13,7 @@ export const SWrapper = styled(motion.section)`
   background-color: ${({ theme }) => theme.colors.opacity.base};
   backdrop-filter: blur(30px);
   overflow: auto;
+  position: relative;
 
   @media (min-width: 550px) {
     ${padding({ spaceKey: 'xlg' })};
@@ -36,6 +37,13 @@ export const SContainerblockCategory = styled.div`
     height: 100%;
     width: auto;
   }
+`
+
+export const SContainerToglle = styled.div`
+  ${flex({})};
+  position: absolute;
+  top: ${({ theme }) => theme.spaces.md};
+  right: ${({ theme }) => theme.spaces.md};
 `
 export const SContainerTitleCat = styled.div`
   ${flex({ justfy: 'start' })}

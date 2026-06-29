@@ -48,12 +48,12 @@ export const lightTheme = {
     feedback: {
       success: '#22c55e',
       error: '#ef4444',
-      warning: '#f59e0b',
+      warning: '#244cff',
       info: '#3b82f6',
     },
 
     title: {
-      primary: '#244cff',
+      primary: '#f59e0b',
       secondary: '#ffffff',
       reverse: '#232324',
     },
@@ -67,7 +67,7 @@ export const lightTheme = {
 
     link: {
       primary: '#e9e9e9',
-      hover: '#fff',
+      hover: '#244cff',
       activePrimary: '#8cc1fd',
       secondary: '#ffa010',
       reverse: '#1f1f1f',
