@@ -8,27 +8,51 @@ import { GlobalStyle } from '@/styles/globals';
 type ThemeMode = 'light' | 'dark';
 
 interface ThemeContextData {
-  themeMode: ThemeMode;
-  toggleTheme: () => void;
+    themeMode: ThemeMode;
+    toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextData | undefined>(undefined);
 
 export function AppThemeProvider({ children }: { children: React.ReactNode }) {
+
     const [theme, setTheme] = useState<ThemeMode>('light');
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        localStorage.setItem('theme', theme);
-    }, [theme]);
 
-    //seta cor do tema na montagem do componente
-    useEffect(() => {
-        //informa para o ts que o tipo retornado é 'light' | 'dark' ou null
-        const storedTheme = localStorage.getItem('theme') as ThemeMode | null;
+        // tenta recuperar tema salvo
+        const storedTheme = localStorage.getItem(
+            'theme'
+        ) as ThemeMode | null;
+
         if (storedTheme) {
             setTheme(storedTheme);
+        } else {
+
+            // se não houver tema salvo, usa preferência do sistema
+            const prefersDark = window.matchMedia(
+                '(prefers-color-scheme: dark)'
+            ).matches;
+
+            setTheme(
+                prefersDark
+                    ? 'dark'
+                    : 'light'
+            );
         }
+
+        setMounted(true);
+
     }, []);
+
+    useEffect(() => {
+
+        // sempre que o estado theme mudar, salvao novo valor.
+        localStorage.setItem('theme', theme);
+
+    }, [theme]);
+
 
     function toggleTheme() {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -36,6 +60,9 @@ export function AppThemeProvider({ children }: { children: React.ReactNode }) {
 
     const themeObject = theme === 'light' ? lightTheme : darkTheme;
 
+    if (!mounted) {
+        return null;
+    }
     return (
         <ThemeProvider theme={themeObject}>
             <GlobalStyle />
@@ -47,9 +74,9 @@ export function AppThemeProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useThemeContext() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useThemeContext deve ser usado dentro do AppThemeProvider');
-  }
-  return context;
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useThemeContext deve ser usado dentro do AppThemeProvider');
+    }
+    return context;
 }

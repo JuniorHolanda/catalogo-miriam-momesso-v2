@@ -33,14 +33,14 @@ export const SInfo = styled.div`
     ${font({ fontKey: 'secondary', sizeKey: 'xsm' })};
     font-weight: 600;
     width: 100%;
-    color: ${({ theme }) => theme.colors.title.secondary};
+    color: ${({ theme }) => theme.colors.title.primary};
   }
 
   p {
     ${font({ fontKey: 'secondary', sizeKey: 'sm' })};
     font-weight: 600;
     width: 100%;
-    color: ${({ theme }) => theme.colors.title.secondary};
+    color: ${({ theme }) => theme.colors.title.reverse};
   }
 `;
 
