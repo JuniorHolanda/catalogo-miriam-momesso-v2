@@ -8,9 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  /* ================================ SCROLLBAR ================================ */
+  /* ================================ SCROLLBAR DESKTOP ================================ */
 
-/* Chrome, Edge, Safari */
+  @media (min-width: 550px) {
+    /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -39,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+  }
 
 
   html, body {

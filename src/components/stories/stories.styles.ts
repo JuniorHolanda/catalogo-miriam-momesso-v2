@@ -22,6 +22,7 @@ export const SContent = styled.div`
   bottom: 0;
   ${padding({ spaceKey: 'md' })};
   background-image: linear-gradient( #00000000, #130d497a 90%);
+  
 `;
 
 export const SInfo = styled.div`

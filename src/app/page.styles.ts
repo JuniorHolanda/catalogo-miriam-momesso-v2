@@ -12,7 +12,8 @@ export const Scontainer = styled.div`
   height: 100%;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.high};
-  transition: all ease-in-out .2s;
+  transition: all ease-in-out 0.2s;
+
 
   @media (min-width: 550px) {
     padding: 0;
@@ -30,6 +31,7 @@ export const Ssection = styled.main`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  
 `
 
 export const SDesktop = styled.div`
@@ -46,6 +48,7 @@ export const SMobile = styled.div`
   display: none;
   width: 100%;
   height: 100%;
+  
 
   @media (max-width: 550px) {
     ${flex({ direction: 'column' })}

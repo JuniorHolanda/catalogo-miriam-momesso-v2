@@ -6,17 +6,18 @@ import ToglleButton from "@/components/ToglleButton";
 export default function HeaderDesktop() {
 
   return (
-      <Scontainer>
-        <ScontainerLogo href={'/'}>
-          <Image
-            src="/main-logo.svg"
-            alt="Logo da empresa Miriam Momesso"
-            width={1200}
-            height={700}
-          />
-        </ScontainerLogo>
-        <NavDesktop/>
-        <ToglleButton />
-      </Scontainer>
+    <Scontainer>
+      <ScontainerLogo href={'/'}>
+        <Image
+          priority
+          src="/main-logo.svg"
+          alt="Logo da empresa Miriam Momesso"
+          width={1200}
+          height={700}
+        />
+      </ScontainerLogo>
+      <NavDesktop />
+      <ToglleButton />
+    </Scontainer>
   );
 }

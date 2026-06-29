@@ -199,11 +199,12 @@ export const SContainerInfoHoliday = styled.div`
   align-items: center;
   width: 100%;
   height: fit-content;
-  background-image: linear-gradient(0deg, #00000093, #ffffff00);
+  background-image: linear-gradient(0deg, #000000a1, #ffffff00);
 
   h2 {
     ${font({ fontKey: 'secondary', sizeKey: 'xsm' })}
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.text.text};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.text.reverseText : theme.colors.text.text};
   }
 `
