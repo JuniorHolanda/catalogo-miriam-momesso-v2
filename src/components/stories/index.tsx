@@ -21,6 +21,7 @@ export default function StoriesMobile() {
 
         <SStories>
           <Image
+            priority
             src={item.icon ?? ''}
             alt={item.altImg ?? ''}
             width={400}

@@ -11,6 +11,7 @@ export const ScontainerInput = styled.form`
   background-color: ${({ theme }) => theme.colors.background.high};
   width: 100%;
   height: 10vh;
+  
 
 
   

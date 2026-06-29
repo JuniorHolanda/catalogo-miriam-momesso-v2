@@ -11,7 +11,6 @@ import {
   SformInSection,
   SImage,
   SLink,
-  SLottie,
   SMotionCard,
   SMotionInput,
   SMotionSwiper,
@@ -26,8 +25,6 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Lottie from "lottie-react";
-import animationData from '@/Lotties/gatinho-corta-fio.json'
 import { useProductSearch } from "@/hooks/searchProducts";
 import NotFoundAnimation from "../NotFound";
 
@@ -107,6 +104,7 @@ export default function SearchSection() {
                 >
                   <SLink href={`categoria/holiday/${data.slug}`}>
                     <SImage
+                      priority
                       className="container-img-holiday"
                       src={data.icon ?? ""}
                       alt={data.altImg ?? ""}

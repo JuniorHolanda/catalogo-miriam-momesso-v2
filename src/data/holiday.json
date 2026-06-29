@@ -2,7 +2,7 @@
   {
     "id": 1,
     "category": "Dia das Mães",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891857/card-dia-das-maes_zetvbt.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782767790/card-dia-das-maes_zetvbt.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "dia-das-maes",
     "start": "05-01",
@@ -19,7 +19,7 @@
   {
     "id": 2,
     "category": "Dia das mulheres",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-dia-das-mulheres_xbeq2p.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782771411/card-dia-das-mulheres_xbeq2p.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "dia-das-mulheres",
     "start": "05-01",
@@ -36,7 +36,7 @@
   {
     "id": 3,
     "category": "Dia dos Médicos",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-dia-dos-medicos_pdjd3g.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782769224/card-dia-dos-medicos_pdjd3g.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "dia-dos-medicos",
     "start": "05-01",
@@ -53,7 +53,7 @@
   {
     "id": 4,
     "category": "Outubro Rosa",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891861/card-outubro-rosa_apvmhf.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782770056/card-outubro-rosa_apvmhf.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "outubro-rosa",
     "start": "05-01",
@@ -70,7 +70,7 @@
   {
     "id": 5,
     "category": "Novembro Azul",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891860/card-novembro-azul_wffwnz.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782770612/card-novembro-azul_wffwnz.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "novembro-azul",
     "start": "05-01",
@@ -88,7 +88,7 @@
   {
     "id": 7,
     "category": "Executivo",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891859/card-executivo_wgnmwb.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782771398/card-executivo_wgnmwb.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "executivo",
     "start": "05-01",
@@ -104,7 +104,7 @@
   {
     "id": 8,
     "category": "Dia da secretária",
-    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1774891858/card-dia-da-secretaria_sw7xif.jpg",
+    "icon": "https://res.cloudinary.com/dnr3wfqyy/image/upload/v1782771602/card-dia-da-secretaria_sw7xif.jpg",
     "altIcon": "uma ilustração de flores representando o dia das mães",
     "slug": "dia-da-secretaria",
     "start": "06-30",
